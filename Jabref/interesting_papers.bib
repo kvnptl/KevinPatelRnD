@@ -2535,6 +2535,34 @@
   urldate  = {2023-07-24},
 }
 
+@Article{Xiong2023Jul,
+  author   = {Xiong, Weiyi and Liu, Jianan and Huang, Tao and Han, Qing-Long and Xia, Yuxuan and Zhu, Bing},
+  journal  = {arXiv},
+  title    = {{LXL: LiDAR Excluded Lean 3D Object Detection with 4D Imaging Radar and Camera Fusion}},
+  year     = {2023},
+  month    = jul,
+  abstract = {{As an emerging technology and a relatively affordable device, the 4D imaging radar has already been confirmed effective in performing 3D object detection in autonomous driving. Nevertheless, the sparsity and noisiness of 4D radar point clouds hinder further performance improvement, and in-depth studies about its fusion with other modalities are lacking. On the other hand, most of the camera-based perception methods transform the extracted image perspective view features into the bird's-eye view geometrically via "depth-based splatting" proposed in Lift-Splat-Shoot (LSS), and some researchers exploit other modals such as LiDARs or ordinary automotive radars for enhancement. Recently, a few works have applied the "sampling" strategy for image view transformation, showing that it outperforms "splatting" even without image depth prediction. However, the potential of "sampling" is not fully unleashed. In this paper, we investigate the "sampling" view transformation strategy on the camera and 4D imaging radar fusion-based 3D object detection. In the proposed model, LXL, predicted image depth distribution maps and radar 3D occupancy grids are utilized to aid image view transformation, called "radar occupancy-assisted depth-based sampling". Experiments on VoD and TJ4DRadSet datasets show that the proposed method outperforms existing 3D object detection methods by a significant margin without bells and whistles. Ablation studies demonstrate that our method performs the best among different enhancement settings.}},
+  citation = {0},
+  groups   = {Camera-Radar fusion, 3D},
+  keywords = {Computer Vision and Pattern Recognition (cs.CV)},
+  url      = {https://arxiv.org/abs/2307.00724v2},
+  urldate  = {2023-07-27},
+}
+
+@Article{Liu2023Jul,
+  author   = {Liu, Jianan and Zhao, Qiuchi and Xiong, Weiyi and Huang, Tao and Han, Qing-Long and Zhu, Bing},
+  journal  = {arXiv},
+  title    = {{SMURF: Spatial Multi-Representation Fusion for 3D Object Detection with 4D Imaging Radar}},
+  year     = {2023},
+  month    = jul,
+  abstract = {{The 4D Millimeter wave (mmWave) radar is a promising technology for vehicle sensing due to its cost-effectiveness and operability in adverse weather conditions. However, the adoption of this technology has been hindered by sparsity and noise issues in radar point cloud data. This paper introduces spatial multi-representation fusion (SMURF), a novel approach to 3D object detection using a single 4D imaging radar. SMURF leverages multiple representations of radar detection points, including pillarization and density features of a multi-dimensional Gaussian mixture distribution through kernel density estimation (KDE). KDE effectively mitigates measurement inaccuracy caused by limited angular resolution and multi-path propagation of radar signals. Additionally, KDE helps alleviate point cloud sparsity by capturing density features. Experimental evaluations on View-of-Delft (VoD) and TJ4DRadSet datasets demonstrate the effectiveness and generalization ability of SMURF, outperforming recently proposed 4D imaging radar-based single-representation models. Moreover, while using 4D imaging radar only, SMURF still achieves comparable performance to the state-of-the-art 4D imaging radar and camera fusion-based method, with an increase of 1.22{\%} in the mean average precision on bird's-eye view of TJ4DRadSet dataset and 1.32{\%} in the 3D mean average precision on the entire annotated area of VoD dataset. Our proposed method demonstrates impressive inference time and addresses the challenges of real-time detection, with the inference time no more than 0.05 seconds for most scans on both datasets. This research highlights the benefits of 4D mmWave radar and is a strong benchmark for subsequent works regarding 3D object detection with 4D imaging radar.}},
+  citation = {0},
+  groups   = {3D},
+  keywords = {Computer Vision and Pattern Recognition (cs.CV)},
+  url      = {https://arxiv.org/abs/2307.10784v1},
+  urldate  = {2023-07-27},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
 
 @Comment{jabref-meta: grouping:
