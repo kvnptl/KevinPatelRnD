@@ -164,3 +164,5 @@ cython_debug/
 
 # datasets
 test_zone/dataset/nuscenes/data/
+test_zone/dataset/nuscenes/videos/sample_video_6_cam.avi
+test_zone/dataset/nuscenes/videos/sample_video.avi
