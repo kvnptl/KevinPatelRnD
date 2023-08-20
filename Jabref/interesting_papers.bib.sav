@@ -258,7 +258,7 @@
   abstract         = {{The fusion of multimodal sensor streams, such as camera, lidar, and radar measurements, plays a critical role in object detection for autonomous vehicles, which base their decision making on these inputs. While existing methods exploit redundant information in good environmental conditions, they fail in adverse weather where the sensory streams can be asymmetrically distorted. These rare "edge-case" scenarios are not represented in available datasets, and existing fusion architectures are not designed to handle them. To address this challenge we present a novel multimodal dataset acquired in over 10,000km of driving in northern Europe. Although this dataset is the first large multimodal dataset in adverse weather, with 100k labels for lidar, camera, radar, and gated NIR sensors, it does not facilitate training as extreme weather is rare. To this end, we present a deep fusion network for robust fusion without a large corpus of labeled training data covering all asymmetric distortions. Departing from proposal-level fusion, we propose a single-shot model that adaptively fuses features, driven by measurement entropy. We validate the proposed method, trained on clean data, on our extensive validation dataset. Code and data are available here this https URL.}},
   citation         = {162},
   file             = {:/home/kvnptl/HBRS/semester_3/advance_scientific_writing/papers/dataset/Seeing Through Fog Without Seeing Fog_221231_172355.pdf:PDF},
-  groups           = {Camera-Radar-Lidar, Adverse Weather, Sensor Fusion, Datasets, Camera-Radar-Lidar fusion},
+  groups           = {Camera-Radar-Lidar, Adverse Weather, Sensor Fusion, Camera-Radar-Lidar fusion, Adverse Weather Conditions, Datasets},
   keywords         = {Computer Vision and Pattern Recognition (cs.CV)},
   modificationdate = {2023-04-02T17:43:36},
   priority         = {prio1},
@@ -492,7 +492,7 @@
   abstract         = {{Robust detection and tracking of objects is crucial for the deployment of autonomous vehicle technology. Image based benchmark datasets have driven development in computer vision tasks such as object detection, tracking and segmentation of agents in the environment. Most autonomous vehicles, however, carry a combination of cameras and range sensors such as lidar and radar. As machine learning based methods for detection and tracking become more prevalent, there is a need to train and evaluate such methods on datasets containing range sensor data along with images. In this work we present nuTonomy scenes (nuScenes), the first dataset to carry the full autonomous vehicle sensor suite: 6 cameras, 5 radars and 1 lidar, all with full 360 degree field of view. nuScenes comprises 1000 scenes, each 20s long and fully annotated with 3D bounding boxes for 23 classes and 8 attributes. It has 7x as many annotations and 100x as many images as the pioneering KITTI dataset. We define novel 3D detection and tracking metrics. We also provide careful dataset analysis as well as baselines for lidar and image based detection and tracking. Data, development kit and more information are available online.}},
   citation         = {2174},
   eprint           = {1903.11027},
-  groups           = {Camera-Radar-Lidar, Datasets},
+  groups           = {Camera-Radar-Lidar, Adverse Weather Conditions, Datasets},
   keywords         = {Machine Learning (cs.LG), Computer Vision and Pattern Recognition (cs.CV), Robotics (cs.RO), Machine Learning (stat.ML)},
   modificationdate = {2023-01-01T22:46:12},
   priority         = {prio3},
@@ -673,7 +673,7 @@
   abstract         = {{Unlike RGB cameras that use visible light bands (384{\ifmmode\$\else\textdollar\fi}{\ifmmode\backslash\else\textbackslash\fi}sim$769 THz) and Lidar that use infrared bands (361${\ifmmode\backslash\else\textbackslash\fi}sim$331 THz), Radars use relatively longer wavelength radio bands (77${\ifmmode\backslash\else\textbackslash\fi}sim{\ifmmode\$\else\textdollar\fi}81 GHz), resulting in robust measurements in adverse weathers. Unfortunately, existing Radar datasets only contain a relatively small number of samples compared to the existing camera and Lidar datasets. This may hinder the development of sophisticated data-driven deep learning techniques for Radar-based perception. Moreover, most of the existing Radar datasets only provide 3D Radar tensor (3DRT) data that contain power measurements along the Doppler, range, and azimuth dimensions. As there is no elevation information, it is challenging to estimate the 3D bounding box of an object from 3DRT. In this work, we introduce KAIST-Radar (K-Radar), a novel large-scale object detection dataset and benchmark that contains 35K frames of 4D Radar tensor (4DRT) data with power measurements along the Doppler, range, azimuth, and elevation dimensions, together with carefully annotated 3D bounding box labels of objects on the roads. K-Radar includes challenging driving conditions such as adverse weathers (fog, rain, and snow) on various road structures (urban, suburban roads, alleyways, and highways). In addition to the 4DRT, we provide auxiliary measurements from carefully calibrated high-resolution Lidars, surround stereo cameras, and RTK-GPS. We also provide 4DRT-based object detection baseline neural networks (baseline NNs) and show that the height information is crucial for 3D object detection. And by comparing the baseline NN with a similarly-structured Lidar-based neural network, we demonstrate that 4D Radar is a more robust sensor for adverse weather conditions. All codes are available at this https URL.}},
   citation         = {3},
   file             = {:/home/kvnptl/HBRS/semester_3/advance_scientific_writing/papers/dataset/K-Radar 4D Radar Object Detection forAutonomous _221229_165758.pdf:PDF},
-  groups           = {Camera-Radar-Lidar, Adverse Weather, Datasets},
+  groups           = {Camera-Radar-Lidar, Adverse Weather, Datasets, With 4D radar},
   keywords         = {Computer Vision and Pattern Recognition (cs.CV), Artificial Intelligence (cs.AI)},
   modificationdate = {2023-04-02T19:57:50},
   priority         = {prio1},
@@ -724,7 +724,7 @@
   abstract         = {{The perception system in autonomous vehicles is responsible for detecting and tracking the surrounding objects. This is usually done by taking advantage of several sensing modalities to increase robustness and accuracy, which makes sensor fusion a crucial part of the perception system. In this paper, we focus on the problem of radar and camera sensor fusion and propose a middle-fusion approach to exploit both radar and camera data for 3D object detection. Our approach, called CenterFusion, first uses a center point detection network to detect objects by identifying their center points on the image. It then solves the key data association problem using a novel frustum-based method to associate the radar detections to their corresponding object's center point. The associated radar detections are used to generate radar-based feature maps to complement the image features, and regress to object properties such as depth, rotation and velocity. We evaluate CenterFusion on the challenging nuScenes dataset, where it improves the overall nuScenes Detection Score (NDS) of the state-of-the-art camera-based algorithm by more than 12{\%}. We further show that CenterFusion significantly improves the velocity estimation accuracy without using any additional temporal information. The code is available at this https URL .}},
   citation         = {95},
   eprint           = {2011.04841},
-  groups           = {Camera-Radar fusion, 3D},
+  groups           = {Camera-Radar fusion, 3D, With Code in PyTorch},
   keywords         = {Computer Vision and Pattern Recognition (cs.CV)},
   modificationdate = {2023-04-04T09:56:11},
   url              = {https://arxiv.org/abs/2011.04841v1},
@@ -988,8 +988,22 @@
   year             = {2023},
   address          = {Washington, D.C.},
   month            = {February},
+  abstract         = {As a direct depth sensor, radar holds promise as a tool to
+improve monocular 3D object detection, which suffers from
+depth errors, due in part to the depth-scale ambiguity. On the
+other hand, leveraging radar depths is hampered by difficulties
+in precisely associating radar returns with 3D estimates from
+monocular methods, effectively erasing its benefits. This paper
+proposes a fusion network that addresses this radar-camera
+association challenge. We train our network to predict the
+3D offsets between radar returns and object centers, enabling
+radar depths to enhance the accuracy of 3D monocular detection. By using parallel radar and camera backbones, our
+network fuses information at both the feature level and detection level, while at the same time leveraging a state-of-the-art
+monocular detection technique without retraining it. Experimental results show significant improvement in mean average precision and translation error on the nuScenes dataset
+over monocular counterparts. Our source code is available at
+https://github.com/longyunf/radiant},
   citation         = {0},
-  groups           = {Camera-Radar fusion, 3D},
+  groups           = {Camera-Radar fusion, 3D, With Code in PyTorch},
   modificationdate = {2023-04-04T09:57:05},
   url              = {http://cvlab.cse.msu.edu/pdfs/Long_Kumar_Morris_Liu_Castro_Chakravarty_AAAI2023.pdf},
 }
@@ -1145,7 +1159,7 @@
   title            = {{NVRadarNet: Real-Time Radar Obstacle and Free Space Detection for Autonomous Driving}},
   year             = {2022},
   month            = sep,
-  citation         = {0},
+  citation         = {3},
   doi              = {10.48550/arXiv.2209.14499},
   eprint           = {2209.14499},
   groups           = {Perception},
@@ -1179,7 +1193,7 @@
   citation         = {4},
   creationdate     = {2023-01-01T22:27:38},
   eprint           = {2204.13483},
-  groups           = {Camera-Radar-Lidar, Datasets},
+  groups           = {Camera-Radar-Lidar, 4D Radar, Datasets},
   keywords         = {Computer Vision and Pattern Recognition (cs.CV), Artificial Intelligence (cs.AI)},
   modificationdate = {2023-01-01T22:34:58},
   priority         = {prio1},
@@ -1724,7 +1738,7 @@
   year             = {2023},
   month            = feb,
   abstract         = {{Due to the trending need of building autonomous robotic perception system, sensor fusion has attracted a lot of attention amongst researchers and engineers to make best use of cross-modality information. However, in order to build a robotic platform at scale we need to emphasize on autonomous robot platform bring-up cost as well. Cameras and radars, which inherently includes complementary perception information, has potential for developing autonomous robotic platform at scale. However, there is a limited work around radar fused with Vision, compared to LiDAR fused with vision work. In this paper, we tackle this gap with a survey on Vision-Radar fusion approaches for a BEV object detection system. First we go through the background information viz., object detection tasks, choice of sensors, sensor setup, benchmark datasets and evaluation metrics for a robotic perception system. Later, we cover per-modality (Camera and RADAR) data representation, then we go into detail about sensor fusion techniques based on sub-groups viz., early-fusion, deep-fusion, and late-fusion to easily understand the pros and cons of each method. Finally, we propose possible future trends for vision-radar fusion to enlighten future research. Regularly updated summary can be found at: this https URL}},
-  citation         = {3},
+  citation         = {6},
   comment          = {3D object detection},
   creationdate     = {2023-02-18T22:15:30},
   eprint           = {2302.06643},
@@ -2298,11 +2312,14 @@
   year         = {2023},
   month        = apr,
   abstract     = {{Driven by deep learning techniques, perception technology in autonomous driving has developed rapidly in recent years. To achieve accurate and robust perception capabilities, autonomous vehicles are often equipped with multiple sensors, making sensor fusion a crucial part of the perception system. Among these fused sensors, radars and cameras enable a complementary and cost-effective perception of the surrounding environment regardless of lighting and weather conditions. This review aims to provide a comprehensive guideline for radar-camera fusion, particularly concentrating on perception tasks related to object detection and semantic segmentation. Based on the principles of the radar and camera sensors, we delve into the data processing process and representations, followed by an in-depth analysis and summary of radar-camera fusion datasets. In the review of methodologies in radar-camera fusion, we address interrogative questions, including "why to fuse", "what to fuse", "where to fuse", "when to fuse", and "how to fuse", subsequently discussing various challenges and potential research directions within this domain. To ease the retrieval and comparison of datasets and fusion methods, we also provide an interactive website: this https URL.}},
-  citation     = {0},
+  citation     = {5},
+  file         = {:/home/kvnptl/HBRS/KevinPatelRnD/papers/survey/Radar-Camera Fusion Comprehensive review_230813_135910.pdf.pdf:PDF},
   groups       = {Camera-Radar fusion, Survey},
   journaltitle = {ArXiv e-prints},
   keywords     = {Computer Vision and Pattern Recognition (cs.CV), Artificial Intelligence (cs.AI), Robotics (cs.RO)},
   priority     = {prio1},
+  ranking      = {rank5},
+  readstatus   = {read},
   shortjournal = {arXiv},
   url          = {https://doi.org/10.48550/arXiv.2304.10410},
 }
@@ -2363,7 +2380,7 @@
   citation     = {0},
   journaltitle = {ArXiv e-prints},
   keywords     = {Other Computer Science (cs.OH), Computers and Society (cs.CY), Neural and Evolutionary Computing (cs.NE)},
-  priority     = {prio1},
+  readstatus   = {read},
   shortjournal = {arXiv},
   url          = {https://doi.org/10.48550/arXiv.2304.06035},
 }
@@ -2416,7 +2433,7 @@
   month        = may,
   abstract     = {{Sensor fusion is a crucial augmentation technique for improving the accuracy and reliability of perception systems for automated vehicles under diverse driving conditions. However, adverse weather and low-light conditions remain challenging, where sensor performance degrades significantly, exposing vehicle safety to potential risks. Advanced sensors such as LiDARs can help mitigate the issue but with extremely high marginal costs. In this paper, we propose a novel transformer-based 3D object detection model "REDFormer" to tackle low visibility conditions, exploiting the power of a more practical and cost-effective solution by leveraging bird's-eye-view camera-radar fusion. Using the nuScenes dataset with multi-radar point clouds, weather information, and time-of-day data, our model outperforms state-of-the-art (SOTA) models on classification and detection accuracy. Finally, we provide extensive ablation studies of each model component on their contributions to address the above-mentioned challenges. Particularly, it is shown in the experiments that our model achieves a significant performance improvement over the baseline model in low-visibility scenarios, specifically exhibiting a 31.31{\%} increase in rainy scenes and a 46.99{\%} enhancement in nighttime scenes.The source code of this study is publicly available.}},
   citation     = {0},
-  groups       = {Camera-Radar fusion},
+  groups       = {Camera-Radar fusion, With Code in PyTorch},
   journaltitle = {ArXiv e-prints},
   keywords     = {Computer Vision and Pattern Recognition (cs.CV), Artificial Intelligence (cs.AI), Machine Learning (cs.LG)},
   shortjournal = {arXiv},
@@ -2563,6 +2580,66 @@
   urldate  = {2023-07-27},
 }
 
+@Article{Lei2023Jul,
+  author   = {Lei, Kai and Chen, Zhan and Jia, Shuman and Zhang, Xiaoteng},
+  journal  = {arXiv},
+  title    = {{HVDetFusion: A Simple and Robust Camera-Radar Fusion Framework}},
+  year     = {2023},
+  month    = jul,
+  abstract = {{In the field of autonomous driving, 3D object detection is a very important perception module. Although the current SOTA algorithm combines Camera and Lidar sensors, limited by the high price of Lidar, the current mainstream landing schemes are pure Camera sensors or Camera+Radar sensors. In this study, we propose a new detection algorithm called HVDetFusion, which is a multi-modal detection algorithm that not only supports pure camera data as input for detection, but also can perform fusion input of radar data and camera data. The camera stream does not depend on the input of Radar data, thus addressing the downside of previous methods. In the pure camera stream, we modify the framework of Bevdet4D for better perception and more efficient inference, and this stream has the whole 3D detection output. Further, to incorporate the benefits of Radar signals, we use the prior information of different object positions to filter the false positive information of the original radar data, according to the positioning information and radial velocity information recorded by the radar sensors to supplement and fuse the BEV features generated by the original camera data, and the effect is further improved in the process of fusion training. Finally, HVDetFusion achieves the new state-of-the-art 67.4{\ifmmode\backslash\else\textbackslash\fi}{\%} NDS on the challenging nuScenes test set among all camera-radar 3D object detectors. The code is available at this https URL}},
+  citation = {0},
+  groups   = {Camera-Radar fusion, With Code in PyTorch},
+  keywords = {Computer Vision and Pattern Recognition (cs.CV), Artificial Intelligence (cs.AI)},
+  url      = {https://arxiv.org/abs/2307.11323v1},
+  urldate  = {2023-07-29},
+}
+
+@Article{Zheng2023May,
+  author    = {Zheng, Lianqing and Li, Sen and Tan, Bin and Yang, Long and Chen, Sihan and Huang, Libo and Bai, Jie and Zhu, Xichan and Ma, Zhixiong},
+  journal   = {IEEE Trans. Instrum. Meas.},
+  title     = {{RCFusion: Fusing 4-D Radar and Camera With Bird{'}s-Eye View Features for 3-D Object Detection}},
+  year      = {2023},
+  issn      = {1557-9662},
+  month     = may,
+  pages     = {1--14},
+  volume    = {72},
+  abstract  = {{Camera and millimeter-wave (MMW) radar fusion is essential for accurate and robust autonomous driving systems. With the advancement of radar technology, next-generation high-resolution automotive radar, i.e., 4-D radar, has emerged. In addition to the target range, azimuth, and Doppler velocity measurements of traditional radar, 4-D radar provides elevation measurement to create a denser {\textquotedblleft}point cloud.{\textquotedblright} In this study, we propose a camera and 4-D radar fusion network called RCFusion, which achieves multimodal feature fusion under a unified bird{'}s-eye view (BEV) space to accomplish 3-D object detection tasks. In the camera stream, multiscale feature maps are obtained by the image backbone and feature pyramid network (FPN); they are then converted into orthographic feature maps by an orthographic feature transform (OFT). Next, enhanced and fine-grained image BEV features are obtained via a designed shared attention encoder. Meanwhile, in the 4-D radar stream, a newly designed component named radar PillarNet efficiently encodes the radar features to generate radar pseudo-images, which are fed into the point cloud backbone to create radar BEV features. An interactive attention module (IAM) is proposed for the fusion stage, which outputs a valid fusion of the two-modal BEV features. Finally, a generic detection head predicts the object classes and locations. The proposed RCFusion is validated on the TJ4DRadSet and view-of-delft (VoD) datasets. The experimental results and analysis show that the proposed method can effectively fuse camera and 4-D radar features to achieve robust detection performance.}},
+  citation  = {2},
+  groups    = {3D},
+  publisher = {IEEE},
+  url       = {https://ieeexplore.ieee.org/document/10138035},
+  urldate   = {2023-08-14},
+}
+
+@Article{Han2023Jun,
+  author   = {Han, Zeyu and Wang, Jiahao and Xu, Zikun and Yang, Shuocheng and He, Lei and Xu, Shaobing and Wang, Jianqiang},
+  journal  = {arXiv},
+  title    = {{4D Millimeter-Wave Radar in Autonomous Driving: A Survey}},
+  year     = {2023},
+  month    = jun,
+  abstract = {{The 4D millimeter-wave (mmWave) radar, capable of measuring the range, azimuth, elevation, and velocity of targets, has attracted considerable interest in the autonomous driving community. This is attributed to its robustness in extreme environments and outstanding velocity and elevation measurement capabilities. However, despite the rapid development of research related to its sensing theory and application, there is a notable lack of surveys on the topic of 4D mmWave radar. To address this gap and foster future research in this area, this paper presents a comprehensive survey on the use of 4D mmWave radar in autonomous driving. Reviews on the theoretical background and progress of 4D mmWave radars are presented first, including the signal processing flow, resolution improvement ways, extrinsic calibration process, and point cloud generation methods. Then it introduces related datasets and application algorithms in autonomous driving perception and localization and mapping tasks. Finally, this paper concludes by predicting future trends in the field of 4D mmWave radar. To the best of our knowledge, this is the first survey specifically for the 4D mmWave radar.}},
+  citation = {0},
+  keywords = {Signal Processing (eess.SP), Robotics (cs.RO)},
+  url      = {https://arxiv.org/abs/2306.04242v2},
+  urldate  = {2023-08-14},
+}
+
+@InCollection{Bogdoll2023Apr,
+  author    = {Bogdoll, Daniel and Hendl, Jonas and Schreyer, Felix and Gowda, Nishanth and F{\ifmmode\ddot{a}\else\"{a}\fi}rber, Michael and Z{\ifmmode\ddot{o}\else\"{o}\fi}llner, J. Marius},
+  booktitle = {{2023 8th International Conference on Control and Robotics Engineering (ICCRE)}},
+  publisher = {IEEE},
+  title     = {{Impact, Attention, Influence: Early Assessment of Autonomous Driving Datasets}},
+  year      = {2023},
+  month     = apr,
+  pages     = {128--136},
+  abstract  = {{Autonomous Driving (AD), the area of robotics with the greatest potential impact on society, has gained a lot of momentum in the last decade. As a result of this, the number of datasets in AD has increased rapidly. Creators and users of datasets can benefit from a better understanding of developments in the field. While scientometric analysis has been conducted in other fields, it rarely revolves around datasets. Thus, the impact, attention, and influence of datasets on autonomous driving remains a rarely investigated field. In this work, we provide a scientometric analysis for over 200 datasets in AD. We perform a rigorous evaluation of relations between available metadata and citation counts based on linear regression. Subsequently, we propose an Influence Score to assess a dataset already early on without the need for a track-record of citations, which is only available with a certain delay.}},
+  citation  = {3},
+  issn      = {2835-3722},
+  journal   = {2023 8th International Conference on Control and Robotics Engineering (ICCRE)},
+  url       = {https://ieeexplore.ieee.org/document/10155607},
+  urldate   = {2023-08-14},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
 
 @Comment{jabref-meta: grouping:
@@ -2577,13 +2654,18 @@
 1 StaticGroup:Sensor Fusion\;2\;1\;0x0000ffff\;\;\;;
 2 StaticGroup:3D\;0\;1\;0x8a8a8aff\;\;\;;
 2 StaticGroup:Datasets\;2\;0\;0xff00ffff\;\;\;;
+3 StaticGroup:Adverse Weather Conditions\;2\;1\;0x8a8a8aff\;\;\;;
+4 StaticGroup:With 4D radar\;0\;1\;0x8a8a8aff\;\;\;;
 3 StaticGroup:Camera-Lidar\;0\;0\;0x800080ff\;\;\;;
-3 StaticGroup:Camera-Radar\;0\;1\;0xff0000ff\;\;\;;
 3 StaticGroup:Camera-Radar-Lidar\;0\;1\;0xff9999ff\;\;\;;
 3 StaticGroup:Misc\;0\;1\;0x8a8a8aff\;\;\;;
+3 StaticGroup:Non Adverse Weather\;2\;1\;0x8a8a8aff\;\;\;;
+4 StaticGroup:4D Radar\;0\;1\;0x8a8a8aff\;\;\;;
+4 StaticGroup:Camera-Radar-Lidar 3\;0\;1\;0x8a8a8aff\;\;\;;
 2 StaticGroup:Fusion Methods\;2\;1\;0xffff00ff\;\;\;;
 3 StaticGroup:Camera-Radar-Lidar fusion\;0\;1\;0xffe666ff\;\;\;;
-3 StaticGroup:Camera-Radar fusion\;0\;0\;0x008000ff\;\;\;;
+3 StaticGroup:Camera-Radar fusion\;0\;1\;0x008000ff\;\;\;;
+4 StaticGroup:With Code in PyTorch\;2\;1\;0x00ff00ff\;\;\;;
 3 StaticGroup:Camera-Lidar fusion\;0\;0\;0x808000ff\;\;\;;
 3 StaticGroup:Lidar-Radar fusion\;0\;1\;0x003300ff\;\;\;;
 3 StaticGroup:Misc fusion\;0\;1\;0x800000ff\;\;\;;
