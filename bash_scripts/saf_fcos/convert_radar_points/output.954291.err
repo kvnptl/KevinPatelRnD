@@ -1,0 +1,71 @@
+tools/nuscenes/convert_radar_point.py:350: UserWarning: loadtxt: input contained no data: "/scratch/kpatel2s/datasets/nuScenes/pc/RADAR_FRONT/n015-2018-10-08-16-03-24+0800__RADAR_FRONT__1538986177208654.pcd"
+  pc = np.loadtxt(pcd_path)
+tools/nuscenes/convert_radar_point.py:350: UserWarning: loadtxt: input contained no data: "/scratch/kpatel2s/datasets/nuScenes/pc/RADAR_FRONT/n015-2018-10-08-16-03-24+0800__RADAR_FRONT__1538986175713016.pcd"
+  pc = np.loadtxt(pcd_path)
+tools/nuscenes/convert_radar_point.py:350: UserWarning: loadtxt: input contained no data: "/scratch/kpatel2s/datasets/nuScenes/pc/RADAR_FRONT/n015-2018-10-08-16-03-24+0800__RADAR_FRONT__1538986172667057.pcd"
+  pc = np.loadtxt(pcd_path)
+tools/nuscenes/convert_radar_point.py:350: UserWarning: loadtxt: input contained no data: "/scratch/kpatel2s/datasets/nuScenes/pc/RADAR_FRONT/n015-2018-11-21-19-38-26+0800__RADAR_FRONT__1542800454970821.pcd"
+  pc = np.loadtxt(pcd_path)
+tools/nuscenes/convert_radar_point.py:350: UserWarning: loadtxt: input contained no data: "/scratch/kpatel2s/datasets/nuScenes/pc/RADAR_FRONT/n015-2018-11-21-19-38-26+0800__RADAR_FRONT__1542800461958045.pcd"
+  pc = np.loadtxt(pcd_path)
+tools/nuscenes/convert_radar_point.py:350: UserWarning: loadtxt: input contained no data: "/scratch/kpatel2s/datasets/nuScenes/pc/RADAR_FRONT/n015-2018-10-08-16-03-24+0800__RADAR_FRONT__1538986181830205.pcd"
+  pc = np.loadtxt(pcd_path)
+tools/nuscenes/convert_radar_point.py:350: UserWarning: loadtxt: input contained no data: "/scratch/kpatel2s/datasets/nuScenes/pc/RADAR_FRONT/n015-2018-10-08-16-03-24+0800__RADAR_FRONT__1538986185705616.pcd"
+  pc = np.loadtxt(pcd_path)
+tools/nuscenes/convert_radar_point.py:350: UserWarning: loadtxt: input contained no data: "/scratch/kpatel2s/datasets/nuScenes/pc/RADAR_FRONT/n015-2018-10-08-16-03-24+0800__RADAR_FRONT__1538986178774168.pcd"
+  pc = np.loadtxt(pcd_path)
+tools/nuscenes/convert_radar_point.py:350: UserWarning: loadtxt: input contained no data: "/scratch/kpatel2s/datasets/nuScenes/pc/RADAR_FRONT/n015-2018-10-08-16-03-24+0800__RADAR_FRONT__1538986188682023.pcd"
+  pc = np.loadtxt(pcd_path)
+tools/nuscenes/convert_radar_point.py:350: UserWarning: loadtxt: input contained no data: "/scratch/kpatel2s/datasets/nuScenes/pc/RADAR_FRONT/n015-2018-10-08-16-03-24+0800__RADAR_FRONT__1538986164299429.pcd"
+  pc = np.loadtxt(pcd_path)
+tools/nuscenes/convert_radar_point.py:350: UserWarning: loadtxt: input contained no data: "/scratch/kpatel2s/datasets/nuScenes/pc/RADAR_FRONT/n015-2018-11-21-19-38-26+0800__RADAR_FRONT__1542800464428891.pcd"
+  pc = np.loadtxt(pcd_path)
+tools/nuscenes/convert_radar_point.py:350: UserWarning: loadtxt: input contained no data: "/scratch/kpatel2s/datasets/nuScenes/pc/RADAR_FRONT/n015-2018-11-21-19-38-26+0800__RADAR_FRONT__1542800455425954.pcd"
+  pc = np.loadtxt(pcd_path)
+tools/nuscenes/convert_radar_point.py:350: UserWarning: loadtxt: input contained no data: "/scratch/kpatel2s/datasets/nuScenes/pc/RADAR_FRONT/n015-2018-11-21-19-38-26+0800__RADAR_FRONT__1542800453915475.pcd"
+  pc = np.loadtxt(pcd_path)
+tools/nuscenes/convert_radar_point.py:350: UserWarning: loadtxt: input contained no data: "/scratch/kpatel2s/datasets/nuScenes/pc/RADAR_FRONT/n015-2018-11-21-19-38-26+0800__RADAR_FRONT__1542800455951124.pcd"
+  pc = np.loadtxt(pcd_path)
+tools/nuscenes/convert_radar_point.py:350: UserWarning: loadtxt: input contained no data: "/scratch/kpatel2s/datasets/nuScenes/pc/RADAR_FRONT/n015-2018-11-21-19-38-26+0800__RADAR_FRONT__1542800449919170.pcd"
+  pc = np.loadtxt(pcd_path)
+tools/nuscenes/convert_radar_point.py:350: UserWarning: loadtxt: input contained no data: "/scratch/kpatel2s/datasets/nuScenes/pc/RADAR_FRONT/n015-2018-11-21-19-38-26+0800__RADAR_FRONT__1542800449468859.pcd"
+  pc = np.loadtxt(pcd_path)
+tools/nuscenes/convert_radar_point.py:350: UserWarning: loadtxt: input contained no data: "/scratch/kpatel2s/datasets/nuScenes/pc/RADAR_FRONT/n015-2018-11-21-19-38-26+0800__RADAR_FRONT__1542800448939028.pcd"
+  pc = np.loadtxt(pcd_path)
+tools/nuscenes/convert_radar_point.py:350: UserWarning: loadtxt: input contained no data: "/scratch/kpatel2s/datasets/nuScenes/pc/RADAR_FRONT/n015-2018-11-21-19-38-26+0800__RADAR_FRONT__1542800460387520.pcd"
+  pc = np.loadtxt(pcd_path)
+tools/nuscenes/convert_radar_point.py:350: UserWarning: loadtxt: input contained no data: "/scratch/kpatel2s/datasets/nuScenes/pc/RADAR_FRONT/n015-2018-11-21-19-38-26+0800__RADAR_FRONT__1542800451429397.pcd"
+  pc = np.loadtxt(pcd_path)
+tools/nuscenes/convert_radar_point.py:350: UserWarning: loadtxt: input contained no data: "/scratch/kpatel2s/datasets/nuScenes/pc/RADAR_FRONT/n015-2018-11-21-19-38-26+0800__RADAR_FRONT__1542800462408161.pcd"
+  pc = np.loadtxt(pcd_path)
+tools/nuscenes/convert_radar_point.py:350: UserWarning: loadtxt: input contained no data: "/scratch/kpatel2s/datasets/nuScenes/pc/RADAR_FRONT/n015-2018-11-21-19-38-26+0800__RADAR_FRONT__1542800456931440.pcd"
+  pc = np.loadtxt(pcd_path)
+tools/nuscenes/convert_radar_point.py:350: UserWarning: loadtxt: input contained no data: "/scratch/kpatel2s/datasets/nuScenes/pc/RADAR_FRONT/n015-2018-11-21-19-38-26+0800__RADAR_FRONT__1542800450974556.pcd"
+  pc = np.loadtxt(pcd_path)
+tools/nuscenes/convert_radar_point.py:350: UserWarning: loadtxt: input contained no data: "/scratch/kpatel2s/datasets/nuScenes/pc/RADAR_FRONT/n015-2018-11-21-19-38-26+0800__RADAR_FRONT__1542800453465359.pcd"
+  pc = np.loadtxt(pcd_path)
+tools/nuscenes/convert_radar_point.py:350: UserWarning: loadtxt: input contained no data: "/scratch/kpatel2s/datasets/nuScenes/pc/RADAR_FRONT/n015-2018-11-21-19-38-26+0800__RADAR_FRONT__1542800457981243.pcd"
+  pc = np.loadtxt(pcd_path)
+tools/nuscenes/convert_radar_point.py:350: UserWarning: loadtxt: input contained no data: "/scratch/kpatel2s/datasets/nuScenes/pc/RADAR_FRONT/n015-2018-10-08-16-03-24+0800__RADAR_FRONT__1538986177652814.pcd"
+  pc = np.loadtxt(pcd_path)
+tools/nuscenes/convert_radar_point.py:350: UserWarning: loadtxt: input contained no data: "/scratch/kpatel2s/datasets/nuScenes/pc/RADAR_FRONT/n015-2018-10-08-16-03-24+0800__RADAR_FRONT__1538986179819360.pcd"
+  pc = np.loadtxt(pcd_path)
+tools/nuscenes/convert_radar_point.py:350: UserWarning: loadtxt: input contained no data: "/scratch/kpatel2s/datasets/nuScenes/pc/RADAR_FRONT/n015-2018-10-08-16-03-24+0800__RADAR_FRONT__1538986183695774.pcd"
+  pc = np.loadtxt(pcd_path)
+tools/nuscenes/convert_radar_point.py:350: UserWarning: loadtxt: input contained no data: "/scratch/kpatel2s/datasets/nuScenes/pc/RADAR_FRONT/n015-2018-10-08-16-03-24+0800__RADAR_FRONT__1538986187711168.pcd"
+  pc = np.loadtxt(pcd_path)
+tools/nuscenes/convert_radar_point.py:350: UserWarning: loadtxt: input contained no data: "/scratch/kpatel2s/datasets/nuScenes/pc/RADAR_FRONT/n015-2018-10-08-16-03-24+0800__RADAR_FRONT__1538986183174970.pcd"
+  pc = np.loadtxt(pcd_path)
+tools/nuscenes/convert_radar_point.py:350: UserWarning: loadtxt: input contained no data: "/scratch/kpatel2s/datasets/nuScenes/pc/RADAR_FRONT/n015-2018-10-08-16-03-24+0800__RADAR_FRONT__1538986189723160.pcd"
+  pc = np.loadtxt(pcd_path)
+tools/nuscenes/convert_radar_point.py:350: UserWarning: loadtxt: input contained no data: "/scratch/kpatel2s/datasets/nuScenes/pc/RADAR_FRONT/n015-2018-10-08-16-03-24+0800__RADAR_FRONT__1538986177803300.pcd"
+  pc = np.loadtxt(pcd_path)
+tools/nuscenes/convert_radar_point.py:350: UserWarning: loadtxt: input contained no data: "/scratch/kpatel2s/datasets/nuScenes/pc/RADAR_FRONT/n015-2018-10-08-16-03-24+0800__RADAR_FRONT__1538986184661068.pcd"
+  pc = np.loadtxt(pcd_path)
+tools/nuscenes/convert_radar_point.py:350: UserWarning: loadtxt: input contained no data: "/scratch/kpatel2s/datasets/nuScenes/pc/RADAR_FRONT/n015-2018-10-08-16-03-24+0800__RADAR_FRONT__1538986186671735.pcd"
+  pc = np.loadtxt(pcd_path)
+tools/nuscenes/convert_radar_point.py:350: UserWarning: loadtxt: input contained no data: "/scratch/kpatel2s/datasets/nuScenes/pc/RADAR_FRONT/n015-2018-10-08-16-03-24+0800__RADAR_FRONT__1538986179294347.pcd"
+  pc = np.loadtxt(pcd_path)
+tools/nuscenes/convert_radar_point.py:350: UserWarning: loadtxt: input contained no data: "/scratch/kpatel2s/datasets/nuScenes/pc/RADAR_FRONT/n015-2018-10-08-16-03-24+0800__RADAR_FRONT__1538986184216572.pcd"
+  pc = np.loadtxt(pcd_path)
+slurmstepd: error: Detected 3 oom-kill event(s) in step 954291.batch cgroup. Some of your processes may have been killed by the cgroup out-of-memory handler.
