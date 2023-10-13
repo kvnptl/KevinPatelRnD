@@ -1,0 +1,3 @@
+[submodule "saf_fcos"]
+	path = saf_fcos
+	url = git@github.com:kvnptl/SAF-FCOS.git
