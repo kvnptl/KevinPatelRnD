@@ -1,3 +1,6 @@
 [submodule "saf_fcos"]
 	path = saf_fcos
 	url = git@github.com:kvnptl/SAF-FCOS.git
+[submodule "hrfuser"]
+	path = hrfuser
+	url = git@github.com:kvnptl/HRFuser.git
