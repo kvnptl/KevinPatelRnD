@@ -7,13 +7,14 @@ Note:
 ### Current
 
 - TIMESTAMP: 19-Oct-2023 19:00:00
-    - Setup HRFuser environment on cluster
     - Prepare STF dataset for HRFuser
+    - Setup HRFuser environment on cluster
 
 
 ### Pending
 
-
+- Inference on HRFuser
+- Train HRFuser model on STF dataset
 
 
 ### DONE
