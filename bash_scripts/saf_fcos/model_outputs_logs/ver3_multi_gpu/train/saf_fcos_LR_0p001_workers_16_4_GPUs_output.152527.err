@@ -1,0 +1,54 @@
+WARNING:__main__:
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+[E ProcessGroupNCCL.cpp:737] [Rank 0] Watchdog caught collective operation timeout: WorkNCCL(SeqNum=2, OpType=ALLGATHER, Timeout(ms)=1800000) ran for 1802379 milliseconds before timing out.
+Traceback (most recent call last):
+  File "tools/train_net.py", line 200, in <module>
+    main()
+  File "tools/train_net.py", line 193, in main
+    model = train(cfg, args.local_rank, args.distributed)
+  File "tools/train_net.py", line 44, in train
+    model = torch.nn.parallel.DistributedDataParallel(
+  File "/home/kpatel2s/anaconda3/envs/saf_fcos_cuda11p6/lib/python3.8/site-packages/torch/nn/parallel/distributed.py", line 646, in __init__
+    _verify_param_shape_across_processes(self.process_group, parameters)
+  File "/home/kpatel2s/anaconda3/envs/saf_fcos_cuda11p6/lib/python3.8/site-packages/torch/distributed/utils.py", line 89, in _verify_param_shape_across_processes
+    return dist._verify_params_across_processes(process_group, tensors, logger)
+RuntimeError: DDP expects same model across all ranks, but Rank 0 has 163 params, while rank 1 has inconsistent 0 params.
+WARNING:torch.distributed.elastic.multiprocessing.api:Sending process 88472 closing signal SIGTERM
+WARNING:torch.distributed.elastic.multiprocessing.api:Sending process 88473 closing signal SIGTERM
+WARNING:torch.distributed.elastic.multiprocessing.api:Sending process 88474 closing signal SIGTERM
+ERROR:torch.distributed.elastic.multiprocessing.api:failed (exitcode: 1) local_rank: 0 (pid: 88471) of binary: /home/kpatel2s/anaconda3/envs/saf_fcos_cuda11p6/bin/python
+Traceback (most recent call last):
+  File "/home/kpatel2s/anaconda3/envs/saf_fcos_cuda11p6/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/kpatel2s/anaconda3/envs/saf_fcos_cuda11p6/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home/kpatel2s/anaconda3/envs/saf_fcos_cuda11p6/lib/python3.8/site-packages/torch/distributed/run.py", line 765, in <module>
+    main()
+  File "/home/kpatel2s/anaconda3/envs/saf_fcos_cuda11p6/lib/python3.8/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 345, in wrapper
+    return f(*args, **kwargs)
+  File "/home/kpatel2s/anaconda3/envs/saf_fcos_cuda11p6/lib/python3.8/site-packages/torch/distributed/run.py", line 761, in main
+    run(args)
+  File "/home/kpatel2s/anaconda3/envs/saf_fcos_cuda11p6/lib/python3.8/site-packages/torch/distributed/run.py", line 752, in run
+    elastic_launch(
+  File "/home/kpatel2s/anaconda3/envs/saf_fcos_cuda11p6/lib/python3.8/site-packages/torch/distributed/launcher/api.py", line 131, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/home/kpatel2s/anaconda3/envs/saf_fcos_cuda11p6/lib/python3.8/site-packages/torch/distributed/launcher/api.py", line 245, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+tools/train_net.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2023-10-19_17:45:11
+  host      : wr15.wr.inf.h-brs.de
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 88471)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
