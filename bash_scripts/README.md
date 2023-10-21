@@ -22,3 +22,7 @@ sbatch name.sh
 8. For wr20-25, a special permission is required. the person to contact is Prof. Berrendorf (Rudolf.Berrendorf@h-brs.de)
 
 9. For pre/post-processing, change the partition from `gpu` to `any`
+
+10. Information about Job Runs, `sacct -j 154672 -o jobid,submit,start,end,state`. Replace `154672` with your job ID. (Ref: [official documentation](https://wr0.wr.inf.h-brs.de/wr/usage.html#:~:text=fopen(all%2C%20%22w%22)%3B%0A%20%20%7D-,Information%20about%20Job%20Runs,-Sometimes%20it%20is))
+
+11. Current job queue status, `squeue <jobid>`
