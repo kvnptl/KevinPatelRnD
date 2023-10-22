@@ -10,7 +10,7 @@ Note:
 ### Pending
 
 - Add LIDAR image to the Dataloader and check performance
-
+- Check performance with all 10 nuScenes classes
 
 ### DONE
 
