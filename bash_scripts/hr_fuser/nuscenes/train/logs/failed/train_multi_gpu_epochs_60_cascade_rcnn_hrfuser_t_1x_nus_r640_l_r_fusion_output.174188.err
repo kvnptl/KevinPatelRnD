@@ -1,0 +1,1168 @@
+(No info could be read for "-p": geteuid()=2715 but you should be root.)
+WARNING:__main__:
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+2023-10-22 01:13:09,550 - mmdet - INFO - Environment info:
+------------------------------------------------------------
+sys.platform: linux
+Python: 3.8.18 (default, Sep 11 2023, 13:40:15) [GCC 11.2.0]
+CUDA available: True
+GPU 0,1,2,3: Tesla V100-SXM2-16GB
+CUDA_HOME: /usr/local/cuda-10.2
+NVCC: Cuda compilation tools, release 10.2, V10.2.89
+GCC: gcc (GCC) 10.1.0
+PyTorch: 1.10.0+cu102
+PyTorch compiling details: PyTorch built with:
+  - GCC 7.3
+  - C++ Version: 201402
+  - Intel(R) Math Kernel Library Version 2020.0.0 Product Build 20191122 for Intel(R) 64 architecture applications
+  - Intel(R) MKL-DNN v2.2.3 (Git Hash 7336ca9f055cf1bfa13efb658fe15dc9b41f0740)
+  - OpenMP 201511 (a.k.a. OpenMP 4.5)
+  - LAPACK is enabled (usually provided by MKL)
+  - NNPACK is enabled
+  - CPU capability usage: AVX512
+  - CUDA Runtime 10.2
+  - NVCC architecture flags: -gencode;arch=compute_37,code=sm_37;-gencode;arch=compute_50,code=sm_50;-gencode;arch=compute_60,code=sm_60;-gencode;arch=compute_70,code=sm_70
+  - CuDNN 7.6.5
+  - Magma 2.5.2
+  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, CUDA_VERSION=10.2, CUDNN_VERSION=7.6.5, CXX_COMPILER=/opt/rh/devtoolset-7/root/usr/bin/c++, CXX_FLAGS= -Wno-deprecated -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -fopenmp -DNDEBUG -DUSE_KINETO -DUSE_FBGEMM -DUSE_QNNPACK -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -DEDGE_PROFILER_USE_KINETO -O2 -fPIC -Wno-narrowing -Wall -Wextra -Werror=return-type -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-sign-compare -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function -Wno-unused-result -Wno-unused-local-typedefs -Wno-strict-overflow -Wno-strict-aliasing -Wno-error=deprecated-declarations -Wno-stringop-overflow -Wno-psabi -Wno-error=pedantic -Wno-error=redundant-decls -Wno-error=old-style-cast -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, PERF_WITH_AVX512=1, TORCH_VERSION=1.10.0, USE_CUDA=ON, USE_CUDNN=ON, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=ON, USE_NNPACK=ON, USE_OPENMP=ON, 
+
+TorchVision: 0.11.0+cu102
+OpenCV: 4.8.1
+MMCV: 1.3.17
+MMCV Compiler: GCC 7.3
+MMCV CUDA Compiler: 10.2
+MMDetection: 2.19.1+99ca5cd
+------------------------------------------------------------
+
+2023-10-22 01:13:10,385 - mmdet - INFO - Distributed training: True
+/home/kpatel2s/anaconda3/envs/hrfuser-cuda102-torch110-mmcv-full-1317/lib/python3.8/site-packages/torch/functional.py:445: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at  ../aten/src/ATen/native/TensorShape.cpp:2157.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+2023-10-22 01:13:11,145 - mmdet - INFO - Config:
+norm_cfg = dict(type='SyncBN', requires_grad=True, momentum=0.1)
+transformer_norm_cfg = dict(type='LN', eps=1e-06)
+proj_drop_rate = 0.1
+model = dict(
+    type='CascadeRCNN',
+    backbone=dict(
+        type='HRFuserHRFormerBased',
+        norm_cfg=dict(type='SyncBN', requires_grad=True, momentum=0.1),
+        transformer_norm_cfg=dict(type='LN', eps=1e-06),
+        norm_eval=False,
+        drop_path_rate=0.0,
+        num_fused_modalities=2,
+        extra=dict(
+            LidarStageA=dict(
+                num_modules=1,
+                num_branches=1,
+                block='BOTTLENECK',
+                num_blocks=(2, ),
+                num_channels=(64, )),
+            ModFusionA=dict(
+                block='MWCA',
+                with_act=True,
+                with_pre_act=False,
+                drop_path=0.2,
+                num_branches=2,
+                window_sizes=(7, 7),
+                num_heads=(1, 2),
+                mlp_ratios=(4, 4),
+                num_channels=(18, 36),
+                proj_drop_rate=0.1),
+            LidarStageB=dict(
+                num_modules=1,
+                num_branches=1,
+                block='HRFORMER',
+                window_sizes=(7, ),
+                num_heads=(1, ),
+                mlp_ratios=(4, ),
+                num_blocks=(2, ),
+                num_channels=(18, )),
+            ModFusionB=dict(
+                block='MWCA',
+                with_act=True,
+                with_pre_act=False,
+                drop_path=0.2,
+                num_branches=3,
+                window_sizes=(7, 7, 7),
+                num_heads=(1, 2, 4),
+                mlp_ratios=(4, 4, 4),
+                num_channels=(18, 36, 72),
+                proj_drop_rate=0.1),
+            LidarStageC=dict(
+                num_modules=3,
+                num_branches=1,
+                block='HRFORMER',
+                window_sizes=(7, ),
+                num_heads=(1, ),
+                mlp_ratios=(4, ),
+                num_blocks=(2, ),
+                num_channels=(18, )),
+            ModFusionC=dict(
+                block='MWCA',
+                with_act=True,
+                with_pre_act=False,
+                drop_path=0.2,
+                num_branches=4,
+                window_sizes=(7, 7, 7, 7),
+                num_heads=(1, 2, 4, 8),
+                mlp_ratios=(4, 4, 4, 4),
+                num_channels=(18, 36, 72, 144),
+                proj_drop_rate=0.1),
+            LidarStageD=None,
+            stage1=dict(
+                num_modules=1,
+                num_branches=1,
+                block='BOTTLENECK',
+                num_blocks=(2, ),
+                num_channels=(64, )),
+            stage2=dict(
+                num_modules=1,
+                num_branches=2,
+                block='HRFORMER',
+                window_sizes=(7, 7),
+                num_heads=(1, 2),
+                mlp_ratios=(4, 4),
+                num_blocks=(2, 2),
+                num_channels=(18, 36),
+                in_module_fusion=False),
+            stage3=dict(
+                num_modules=3,
+                num_branches=3,
+                block='HRFORMER',
+                window_sizes=(7, 7, 7),
+                num_heads=(1, 2, 4),
+                mlp_ratios=(4, 4, 4),
+                num_blocks=(2, 2, 2),
+                num_channels=(18, 36, 72),
+                in_module_fusion=False),
+            stage4=dict(
+                num_modules=2,
+                num_branches=4,
+                block='HRFORMER',
+                window_sizes=(7, 7, 7, 7),
+                num_heads=(1, 2, 4, 8),
+                mlp_ratios=(4, 4, 4, 4),
+                num_blocks=(2, 2, 2, 2),
+                num_channels=(18, 36, 72, 144),
+                in_module_fusion=False))),
+    neck=dict(type='HRFPN', in_channels=[18, 36, 72, 144], out_channels=256),
+    rpn_head=dict(
+        type='RPNHead',
+        in_channels=256,
+        feat_channels=256,
+        anchor_generator=dict(
+            type='AnchorGenerator',
+            scales=[8],
+            ratios=[0.5, 1.0, 2.0],
+            strides=[4, 8, 16, 32, 64]),
+        bbox_coder=dict(
+            type='DeltaXYWHBBoxCoder',
+            target_means=[0.0, 0.0, 0.0, 0.0],
+            target_stds=[1.0, 1.0, 1.0, 1.0]),
+        loss_cls=dict(
+            type='CrossEntropyLoss', use_sigmoid=True, loss_weight=1.0),
+        loss_bbox=dict(
+            type='SmoothL1Loss', beta=0.1111111111111111, loss_weight=1.0)),
+    roi_head=dict(
+        type='CascadeRoIHead',
+        num_stages=3,
+        stage_loss_weights=[1, 0.5, 0.25],
+        bbox_roi_extractor=dict(
+            type='SingleRoIExtractor',
+            roi_layer=dict(type='RoIAlign', output_size=7, sampling_ratio=0),
+            out_channels=256,
+            featmap_strides=[4, 8, 16, 32]),
+        bbox_head=[
+            dict(
+                type='Shared2FCBBoxHead',
+                in_channels=256,
+                fc_out_channels=1024,
+                roi_feat_size=7,
+                num_classes=10,
+                bbox_coder=dict(
+                    type='DeltaXYWHBBoxCoder',
+                    target_means=[0.0, 0.0, 0.0, 0.0],
+                    target_stds=[0.1, 0.1, 0.2, 0.2]),
+                reg_class_agnostic=True,
+                loss_cls=dict(
+                    type='CrossEntropyLoss',
+                    use_sigmoid=False,
+                    loss_weight=1.0),
+                loss_bbox=dict(type='SmoothL1Loss', beta=1.0,
+                               loss_weight=1.0)),
+            dict(
+                type='Shared2FCBBoxHead',
+                in_channels=256,
+                fc_out_channels=1024,
+                roi_feat_size=7,
+                num_classes=10,
+                bbox_coder=dict(
+                    type='DeltaXYWHBBoxCoder',
+                    target_means=[0.0, 0.0, 0.0, 0.0],
+                    target_stds=[0.05, 0.05, 0.1, 0.1]),
+                reg_class_agnostic=True,
+                loss_cls=dict(
+                    type='CrossEntropyLoss',
+                    use_sigmoid=False,
+                    loss_weight=1.0),
+                loss_bbox=dict(type='SmoothL1Loss', beta=1.0,
+                               loss_weight=1.0)),
+            dict(
+                type='Shared2FCBBoxHead',
+                in_channels=256,
+                fc_out_channels=1024,
+                roi_feat_size=7,
+                num_classes=10,
+                bbox_coder=dict(
+                    type='DeltaXYWHBBoxCoder',
+                    target_means=[0.0, 0.0, 0.0, 0.0],
+                    target_stds=[0.033, 0.033, 0.067, 0.067]),
+                reg_class_agnostic=True,
+                loss_cls=dict(
+                    type='CrossEntropyLoss',
+                    use_sigmoid=False,
+                    loss_weight=1.0),
+                loss_bbox=dict(type='SmoothL1Loss', beta=1.0, loss_weight=1.0))
+        ]),
+    train_cfg=dict(
+        rpn=dict(
+            assigner=dict(
+                type='MaxIoUAssigner',
+                pos_iou_thr=0.7,
+                neg_iou_thr=0.3,
+                min_pos_iou=0.3,
+                match_low_quality=True,
+                ignore_iof_thr=-1),
+            sampler=dict(
+                type='RandomSampler',
+                num=256,
+                pos_fraction=0.5,
+                neg_pos_ub=-1,
+                add_gt_as_proposals=False),
+            allowed_border=0,
+            pos_weight=-1,
+            debug=False),
+        rpn_proposal=dict(
+            nms_pre=2000,
+            max_per_img=2000,
+            nms=dict(type='nms', iou_threshold=0.7),
+            min_bbox_size=0),
+        rcnn=[
+            dict(
+                assigner=dict(
+                    type='MaxIoUAssigner',
+                    pos_iou_thr=0.5,
+                    neg_iou_thr=0.5,
+                    min_pos_iou=0.5,
+                    match_low_quality=False,
+                    ignore_iof_thr=-1),
+                sampler=dict(
+                    type='RandomSampler',
+                    num=512,
+                    pos_fraction=0.25,
+                    neg_pos_ub=-1,
+                    add_gt_as_proposals=True),
+                pos_weight=-1,
+                debug=False),
+            dict(
+                assigner=dict(
+                    type='MaxIoUAssigner',
+                    pos_iou_thr=0.6,
+                    neg_iou_thr=0.6,
+                    min_pos_iou=0.6,
+                    match_low_quality=False,
+                    ignore_iof_thr=-1),
+                sampler=dict(
+                    type='RandomSampler',
+                    num=512,
+                    pos_fraction=0.25,
+                    neg_pos_ub=-1,
+                    add_gt_as_proposals=True),
+                pos_weight=-1,
+                debug=False),
+            dict(
+                assigner=dict(
+                    type='MaxIoUAssigner',
+                    pos_iou_thr=0.7,
+                    neg_iou_thr=0.7,
+                    min_pos_iou=0.7,
+                    match_low_quality=False,
+                    ignore_iof_thr=-1),
+                sampler=dict(
+                    type='RandomSampler',
+                    num=512,
+                    pos_fraction=0.25,
+                    neg_pos_ub=-1,
+                    add_gt_as_proposals=True),
+                pos_weight=-1,
+                debug=False)
+        ]),
+    test_cfg=dict(
+        rpn=dict(
+            nms_pre=1000,
+            max_per_img=1000,
+            nms=dict(type='nms', iou_threshold=0.7),
+            min_bbox_size=0),
+        rcnn=dict(
+            score_thr=0.05,
+            nms=dict(type='nms', iou_threshold=0.5),
+            max_per_img=100)))
+dataset_type = 'CocoDataset'
+data_root = 'data/nuscenes/'
+class_names = [
+    'car', 'truck', 'trailer', 'bus', 'construction_vehicle', 'bicycle',
+    'motorcycle', 'pedestrian', 'traffic_cone', 'barrier'
+]
+classes = [
+    'car', 'truck', 'trailer', 'bus', 'construction_vehicle', 'bicycle',
+    'motorcycle', 'pedestrian', 'traffic_cone', 'barrier'
+]
+img_norm_cfg = dict(
+    mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
+lidar_norm_cfg = dict(
+    mean=[0.23277158, 0.31501067, -0.00012928071],
+    std=[2.5538357826888602, 3.7345728854535643, 0.2815488539921788],
+    to_rgb=False)
+radar_norm_cfg = dict(
+    mean=[0.19778967, 0.03477772, 0.0025186215],
+    std=[3.219927182957935, 0.7240392925308506, 0.11561270078715341],
+    to_rgb=False)
+train_pipeline = [
+    dict(type='LoadImageFromFile', to_float32=True),
+    dict(
+        type='LoadProjectedSensorImageFile',
+        sensor_type='lidar',
+        to_float32=True,
+        color_type='unchanged',
+        channels=['rih']),
+    dict(
+        type='Normalize',
+        mean=[0.23277158, 0.31501067, -0.00012928071],
+        std=[2.5538357826888602, 3.7345728854535643, 0.2815488539921788],
+        to_rgb=False,
+        keys=['lidar_img'],
+        sensor_type='lidar'),
+    dict(
+        type='LoadProjectedSensorImageFile',
+        sensor_type='radar',
+        to_float32=True,
+        color_type='unchanged',
+        channels=['riv']),
+    dict(
+        type='Normalize',
+        mean=[0.19778967, 0.03477772, 0.0025186215],
+        std=[3.219927182957935, 0.7240392925308506, 0.11561270078715341],
+        to_rgb=False,
+        keys=['radar_img'],
+        sensor_type='radar'),
+    dict(type='LoadAnnotations', with_bbox=True, with_visibility=True),
+    dict(
+        type='Resize',
+        img_scale=(640, 360),
+        keep_ratio=True,
+        skip_keys=['lidar_img', 'radar_img']),
+    dict(type='RandomFlip', flip_ratio=0.5),
+    dict(
+        type='Normalize',
+        mean=[123.675, 116.28, 103.53],
+        std=[58.395, 57.12, 57.375],
+        to_rgb=True,
+        keys=['img']),
+    dict(type='Pad', size_divisor=32),
+    dict(
+        type='RandomDrop',
+        p=[0.2, 0.2, 0.2],
+        keys=['img', 'lidar_img', 'radar_img']),
+    dict(
+        type='DefaultFormatBundle',
+        sensor_keys=['img', 'lidar_img', 'radar_img']),
+    dict(
+        type='Collect',
+        keys=['img', 'lidar_img', 'radar_img', 'gt_bboxes', 'gt_labels'],
+        meta_keys=('filename', 'ori_filename', 'ori_shape', 'img_shape',
+                   'pad_shape', 'scale_factor', 'flip', 'flip_direction',
+                   'img_norm_cfg', 'lidar_ori_shape', 'lidar_norm_cfg',
+                   'radar_ori_shape', 'radar_norm_cfg'))
+]
+test_pipeline = [
+    dict(type='LoadImageFromFile', to_float32=True),
+    dict(
+        type='LoadProjectedSensorImageFile',
+        sensor_type='lidar',
+        to_float32=True,
+        color_type='unchanged',
+        channels=['rih']),
+    dict(
+        type='LoadProjectedSensorImageFile',
+        sensor_type='radar',
+        to_float32=True,
+        color_type='unchanged',
+        channels=['riv']),
+    dict(
+        type='MultiScaleFlipAug',
+        img_scale=(640, 360),
+        flip=False,
+        transforms=[
+            dict(
+                type='Normalize',
+                mean=[0.23277158, 0.31501067, -0.00012928071],
+                std=[
+                    2.5538357826888602, 3.7345728854535643, 0.2815488539921788
+                ],
+                to_rgb=False,
+                keys=['lidar_img'],
+                sensor_type='lidar'),
+            dict(
+                type='Normalize',
+                mean=[0.19778967, 0.03477772, 0.0025186215],
+                std=[
+                    3.219927182957935, 0.7240392925308506, 0.11561270078715341
+                ],
+                to_rgb=False,
+                keys=['radar_img'],
+                sensor_type='radar'),
+            dict(
+                type='Resize',
+                keep_ratio=True,
+                skip_keys=['lidar_img', 'radar_img']),
+            dict(type='RandomFlip'),
+            dict(
+                type='Normalize',
+                mean=[123.675, 116.28, 103.53],
+                std=[58.395, 57.12, 57.375],
+                to_rgb=True,
+                keys=['img']),
+            dict(type='Pad', size_divisor=32),
+            dict(type='ImageToTensor', keys=['img', 'lidar_img', 'radar_img']),
+            dict(type='Collect', keys=['img', 'lidar_img', 'radar_img'])
+        ])
+]
+data = dict(
+    samples_per_gpu=3,
+    workers_per_gpu=2,
+    train=dict(
+        type='CocoDataset',
+        classes=[
+            'car', 'truck', 'trailer', 'bus', 'construction_vehicle',
+            'bicycle', 'motorcycle', 'pedestrian', 'traffic_cone', 'barrier'
+        ],
+        data_root='data/nuscenes/',
+        ann_file='nuscenes_infos_train_mono3d.coco.json',
+        img_prefix='',
+        lidar_prefix='',
+        radar_prefix='',
+        lidar_img_mode=True,
+        radar_img_mode=True,
+        pipeline=[
+            dict(type='LoadImageFromFile', to_float32=True),
+            dict(
+                type='LoadProjectedSensorImageFile',
+                sensor_type='lidar',
+                to_float32=True,
+                color_type='unchanged',
+                channels=['rih']),
+            dict(
+                type='Normalize',
+                mean=[0.23277158, 0.31501067, -0.00012928071],
+                std=[
+                    2.5538357826888602, 3.7345728854535643, 0.2815488539921788
+                ],
+                to_rgb=False,
+                keys=['lidar_img'],
+                sensor_type='lidar'),
+            dict(
+                type='LoadProjectedSensorImageFile',
+                sensor_type='radar',
+                to_float32=True,
+                color_type='unchanged',
+                channels=['riv']),
+            dict(
+                type='Normalize',
+                mean=[0.19778967, 0.03477772, 0.0025186215],
+                std=[
+                    3.219927182957935, 0.7240392925308506, 0.11561270078715341
+                ],
+                to_rgb=False,
+                keys=['radar_img'],
+                sensor_type='radar'),
+            dict(type='LoadAnnotations', with_bbox=True, with_visibility=True),
+            dict(
+                type='Resize',
+                img_scale=(640, 360),
+                keep_ratio=True,
+                skip_keys=['lidar_img', 'radar_img']),
+            dict(type='RandomFlip', flip_ratio=0.5),
+            dict(
+                type='Normalize',
+                mean=[123.675, 116.28, 103.53],
+                std=[58.395, 57.12, 57.375],
+                to_rgb=True,
+                keys=['img']),
+            dict(type='Pad', size_divisor=32),
+            dict(
+                type='RandomDrop',
+                p=[0.2, 0.2, 0.2],
+                keys=['img', 'lidar_img', 'radar_img']),
+            dict(
+                type='DefaultFormatBundle',
+                sensor_keys=['img', 'lidar_img', 'radar_img']),
+            dict(
+                type='Collect',
+                keys=[
+                    'img', 'lidar_img', 'radar_img', 'gt_bboxes', 'gt_labels'
+                ],
+                meta_keys=('filename', 'ori_filename', 'ori_shape',
+                           'img_shape', 'pad_shape', 'scale_factor', 'flip',
+                           'flip_direction', 'img_norm_cfg', 'lidar_ori_shape',
+                           'lidar_norm_cfg', 'radar_ori_shape',
+                           'radar_norm_cfg'))
+        ]),
+    val=dict(
+        type='CocoDataset',
+        classes=[
+            'car', 'truck', 'trailer', 'bus', 'construction_vehicle',
+            'bicycle', 'motorcycle', 'pedestrian', 'traffic_cone', 'barrier'
+        ],
+        data_root='data/nuscenes/',
+        ann_file='nuscenes_infos_val_mono3d.coco.json',
+        img_prefix='',
+        lidar_prefix='',
+        radar_prefix='',
+        lidar_img_mode=True,
+        radar_img_mode=True,
+        pipeline=[
+            dict(type='LoadImageFromFile', to_float32=True),
+            dict(
+                type='LoadProjectedSensorImageFile',
+                sensor_type='lidar',
+                to_float32=True,
+                color_type='unchanged',
+                channels=['rih']),
+            dict(
+                type='LoadProjectedSensorImageFile',
+                sensor_type='radar',
+                to_float32=True,
+                color_type='unchanged',
+                channels=['riv']),
+            dict(
+                type='MultiScaleFlipAug',
+                img_scale=(640, 360),
+                flip=False,
+                transforms=[
+                    dict(
+                        type='Normalize',
+                        mean=[0.23277158, 0.31501067, -0.00012928071],
+                        std=[
+                            2.5538357826888602, 3.7345728854535643,
+                            0.2815488539921788
+                        ],
+                        to_rgb=False,
+                        keys=['lidar_img'],
+                        sensor_type='lidar'),
+                    dict(
+                        type='Normalize',
+                        mean=[0.19778967, 0.03477772, 0.0025186215],
+                        std=[
+                            3.219927182957935, 0.7240392925308506,
+                            0.11561270078715341
+                        ],
+                        to_rgb=False,
+                        keys=['radar_img'],
+                        sensor_type='radar'),
+                    dict(
+                        type='Resize',
+                        keep_ratio=True,
+                        skip_keys=['lidar_img', 'radar_img']),
+                    dict(type='RandomFlip'),
+                    dict(
+                        type='Normalize',
+                        mean=[123.675, 116.28, 103.53],
+                        std=[58.395, 57.12, 57.375],
+                        to_rgb=True,
+                        keys=['img']),
+                    dict(type='Pad', size_divisor=32),
+                    dict(
+                        type='ImageToTensor',
+                        keys=['img', 'lidar_img', 'radar_img']),
+                    dict(
+                        type='Collect', keys=['img', 'lidar_img', 'radar_img'])
+                ])
+        ]),
+    test=dict(
+        type='CocoDataset',
+        classes=[
+            'car', 'truck', 'trailer', 'bus', 'construction_vehicle',
+            'bicycle', 'motorcycle', 'pedestrian', 'traffic_cone', 'barrier'
+        ],
+        data_root='data/nuscenes/',
+        ann_file='nuscenes_infos_val_mono3d.coco.json',
+        img_prefix='',
+        lidar_prefix='',
+        radar_prefix='',
+        lidar_img_mode=True,
+        radar_img_mode=True,
+        pipeline=[
+            dict(type='LoadImageFromFile', to_float32=True),
+            dict(
+                type='LoadProjectedSensorImageFile',
+                sensor_type='lidar',
+                to_float32=True,
+                color_type='unchanged',
+                channels=['rih']),
+            dict(
+                type='LoadProjectedSensorImageFile',
+                sensor_type='radar',
+                to_float32=True,
+                color_type='unchanged',
+                channels=['riv']),
+            dict(
+                type='MultiScaleFlipAug',
+                img_scale=(640, 360),
+                flip=False,
+                transforms=[
+                    dict(
+                        type='Normalize',
+                        mean=[0.23277158, 0.31501067, -0.00012928071],
+                        std=[
+                            2.5538357826888602, 3.7345728854535643,
+                            0.2815488539921788
+                        ],
+                        to_rgb=False,
+                        keys=['lidar_img'],
+                        sensor_type='lidar'),
+                    dict(
+                        type='Normalize',
+                        mean=[0.19778967, 0.03477772, 0.0025186215],
+                        std=[
+                            3.219927182957935, 0.7240392925308506,
+                            0.11561270078715341
+                        ],
+                        to_rgb=False,
+                        keys=['radar_img'],
+                        sensor_type='radar'),
+                    dict(
+                        type='Resize',
+                        keep_ratio=True,
+                        skip_keys=['lidar_img', 'radar_img']),
+                    dict(type='RandomFlip'),
+                    dict(
+                        type='Normalize',
+                        mean=[123.675, 116.28, 103.53],
+                        std=[58.395, 57.12, 57.375],
+                        to_rgb=True,
+                        keys=['img']),
+                    dict(type='Pad', size_divisor=32),
+                    dict(
+                        type='ImageToTensor',
+                        keys=['img', 'lidar_img', 'radar_img']),
+                    dict(
+                        type='Collect', keys=['img', 'lidar_img', 'radar_img'])
+                ])
+        ]))
+evaluation = dict(interval=1, metric='bbox')
+checkpoint_config = dict(interval=1)
+log_config = dict(interval=50, hooks=[dict(type='TextLoggerHook')])
+custom_hooks = [dict(type='NumClassCheckHook')]
+dist_params = dict(backend='nccl')
+log_level = 'INFO'
+load_from = None
+resume_from = None
+workflow = [('train', 1)]
+optimizer = dict(
+    type='AdamW',
+    lr=0.0003,
+    betas=(0.9, 0.999),
+    weight_decay=0.01,
+    paramwise_cfg=dict(
+        custom_keys=dict(
+            absolute_pos_embed=dict(decay_mult=0.0),
+            relative_position_bias_table=dict(decay_mult=0.0),
+            norm=dict(decay_mult=0.0))))
+optimizer_config = dict(grad_clip=None)
+lr_config = dict(
+    policy='step',
+    warmup='linear',
+    warmup_iters=500,
+    warmup_ratio=0.001,
+    step=[8, 11])
+runner = dict(type='EpochBasedRunner', max_epochs=60)
+seed = 0
+work_dir = './work_dirs/cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion'
+gpu_ids = range(0, 4)
+
+2023-10-22 01:13:11,145 - mmdet - INFO - Set random seed to 0, deterministic: False
+/home/kpatel2s/anaconda3/envs/hrfuser-cuda102-torch110-mmcv-full-1317/lib/python3.8/site-packages/torch/functional.py:445: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at  ../aten/src/ATen/native/TensorShape.cpp:2157.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/kpatel2s/anaconda3/envs/hrfuser-cuda102-torch110-mmcv-full-1317/lib/python3.8/site-packages/torch/functional.py:445: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at  ../aten/src/ATen/native/TensorShape.cpp:2157.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/kpatel2s/anaconda3/envs/hrfuser-cuda102-torch110-mmcv-full-1317/lib/python3.8/site-packages/torch/functional.py:445: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at  ../aten/src/ATen/native/TensorShape.cpp:2157.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+2023-10-22 01:13:11,731 - mmdet - INFO - initialize HRFuserHRFormerBased with init_cfg [{'type': 'Kaiming', 'layer': 'Conv2d'}, {'type': 'Constant', 'val': 1, 'layer': ['_BatchNorm', 'GroupNorm']}]
+2023-10-22 01:13:11,922 - mmdet - INFO - initialize HRFPN with init_cfg {'type': 'Caffe2Xavier', 'layer': 'Conv2d'}
+2023-10-22 01:13:11,941 - mmdet - INFO - initialize RPNHead with init_cfg {'type': 'Normal', 'layer': 'Conv2d', 'std': 0.01}
+2023-10-22 01:13:11,945 - mmdet - INFO - initialize Shared2FCBBoxHead with init_cfg [{'type': 'Normal', 'std': 0.01, 'override': {'name': 'fc_cls'}}, {'type': 'Normal', 'std': 0.001, 'override': {'name': 'fc_reg'}}, {'type': 'Xavier', 'distribution': 'uniform', 'override': [{'name': 'shared_fcs'}, {'name': 'cls_fcs'}, {'name': 'reg_fcs'}]}]
+2023-10-22 01:13:12,039 - mmdet - INFO - initialize Shared2FCBBoxHead with init_cfg [{'type': 'Normal', 'std': 0.01, 'override': {'name': 'fc_cls'}}, {'type': 'Normal', 'std': 0.001, 'override': {'name': 'fc_reg'}}, {'type': 'Xavier', 'distribution': 'uniform', 'override': [{'name': 'shared_fcs'}, {'name': 'cls_fcs'}, {'name': 'reg_fcs'}]}]
+2023-10-22 01:13:12,133 - mmdet - INFO - initialize Shared2FCBBoxHead with init_cfg [{'type': 'Normal', 'std': 0.01, 'override': {'name': 'fc_cls'}}, {'type': 'Normal', 'std': 0.001, 'override': {'name': 'fc_reg'}}, {'type': 'Xavier', 'distribution': 'uniform', 'override': [{'name': 'shared_fcs'}, {'name': 'cls_fcs'}, {'name': 'reg_fcs'}]}]
+2023-10-22 01:13:18,868 - mmdet - INFO - Start running, host: kpatel2s@wr15, work_dir: /home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/hrfuser/work_dirs/cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion
+2023-10-22 01:13:18,868 - mmdet - INFO - Hooks will be executed in the following order:
+before_run:
+(VERY_HIGH   ) StepLrUpdaterHook                  
+(NORMAL      ) CheckpointHook                     
+(LOW         ) DistEvalHook                       
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+before_train_epoch:
+(VERY_HIGH   ) StepLrUpdaterHook                  
+(NORMAL      ) NumClassCheckHook                  
+(NORMAL      ) DistSamplerSeedHook                
+(LOW         ) IterTimerHook                      
+(LOW         ) DistEvalHook                       
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+before_train_iter:
+(VERY_HIGH   ) StepLrUpdaterHook                  
+(LOW         ) IterTimerHook                      
+(LOW         ) DistEvalHook                       
+ -------------------- 
+after_train_iter:
+(ABOVE_NORMAL) OptimizerHook                      
+(NORMAL      ) CheckpointHook                     
+(LOW         ) IterTimerHook                      
+(LOW         ) DistEvalHook                       
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+after_train_epoch:
+(NORMAL      ) CheckpointHook                     
+(LOW         ) DistEvalHook                       
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+before_val_epoch:
+(NORMAL      ) NumClassCheckHook                  
+(NORMAL      ) DistSamplerSeedHook                
+(LOW         ) IterTimerHook                      
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+before_val_iter:
+(LOW         ) IterTimerHook                      
+ -------------------- 
+after_val_iter:
+(LOW         ) IterTimerHook                      
+ -------------------- 
+after_val_epoch:
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+after_run:
+(VERY_LOW    ) TextLoggerHook                     
+ -------------------- 
+2023-10-22 01:13:18,869 - mmdet - INFO - workflow: [('train', 1)], max: 60 epochs
+2023-10-22 01:13:18,869 - mmdet - INFO - Checkpoints will be saved to /home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/hrfuser/work_dirs/cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion by HardDiskBackend.
+/home/kpatel2s/anaconda3/envs/hrfuser-cuda102-torch110-mmcv-full-1317/lib/python3.8/site-packages/torch/nn/functional.py:3631: UserWarning: Default upsampling behavior when mode=bilinear is changed to align_corners=False since 0.4.0. Please specify align_corners=True if the old behavior is desired. See the documentation of nn.Upsample for details.
+  warnings.warn(
+/home/kpatel2s/anaconda3/envs/hrfuser-cuda102-torch110-mmcv-full-1317/lib/python3.8/site-packages/torch/nn/functional.py:3631: UserWarning: Default upsampling behavior when mode=bilinear is changed to align_corners=False since 0.4.0. Please specify align_corners=True if the old behavior is desired. See the documentation of nn.Upsample for details.
+  warnings.warn(
+/home/kpatel2s/anaconda3/envs/hrfuser-cuda102-torch110-mmcv-full-1317/lib/python3.8/site-packages/torch/nn/functional.py:3631: UserWarning: Default upsampling behavior when mode=bilinear is changed to align_corners=False since 0.4.0. Please specify align_corners=True if the old behavior is desired. See the documentation of nn.Upsample for details.
+  warnings.warn(
+/home/kpatel2s/anaconda3/envs/hrfuser-cuda102-torch110-mmcv-full-1317/lib/python3.8/site-packages/torch/nn/functional.py:3631: UserWarning: Default upsampling behavior when mode=bilinear is changed to align_corners=False since 0.4.0. Please specify align_corners=True if the old behavior is desired. See the documentation of nn.Upsample for details.
+  warnings.warn(
+[W reducer.cpp:347] Warning: Grad strides do not match bucket view strides. This may indicate grad was not created according to the gradient layout contract, or that the param's strides changed since DDP was constructed.  This is not an error, but may impair performance.
+grad.sizes() = [144, 576, 1, 1], strides() = [576, 1, 576, 576]
+bucket_view.sizes() = [144, 576, 1, 1], strides() = [576, 1, 1, 1] (function operator())
+[W reducer.cpp:347] Warning: Grad strides do not match bucket view strides. This may indicate grad was not created according to the gradient layout contract, or that the param's strides changed since DDP was constructed.  This is not an error, but may impair performance.
+grad.sizes() = [144, 576, 1, 1], strides() = [576, 1, 576, 576]
+bucket_view.sizes() = [144, 576, 1, 1], strides() = [576, 1, 1, 1] (function operator())
+[W reducer.cpp:347] Warning: Grad strides do not match bucket view strides. This may indicate grad was not created according to the gradient layout contract, or that the param's strides changed since DDP was constructed.  This is not an error, but may impair performance.
+grad.sizes() = [144, 576, 1, 1], strides() = [576, 1, 576, 576]
+bucket_view.sizes() = [144, 576, 1, 1], strides() = [576, 1, 1, 1] (function operator())
+[W reducer.cpp:347] Warning: Grad strides do not match bucket view strides. This may indicate grad was not created according to the gradient layout contract, or that the param's strides changed since DDP was constructed.  This is not an error, but may impair performance.
+grad.sizes() = [144, 576, 1, 1], strides() = [576, 1, 576, 576]
+bucket_view.sizes() = [144, 576, 1, 1], strides() = [576, 1, 1, 1] (function operator())
+2023-10-22 01:14:11,774 - mmdet - INFO - Epoch [1][50/141]	lr: 2.967e-05, eta: 2:28:15, time: 1.058, data_time: 0.059, memory: 8939, loss_rpn_cls: 0.5131, loss_rpn_bbox: 0.1157, s0.loss_cls: 0.9704, s0.acc: 81.7943, s0.loss_bbox: 0.0498, s1.loss_cls: 0.3066, s1.acc: 85.7594, s1.loss_bbox: 0.0142, s2.loss_cls: 0.3043, s2.acc: 80.3516, s2.loss_bbox: 0.0023, loss: 2.2765
+2023-10-22 01:14:59,422 - mmdet - INFO - Epoch [1][100/141]	lr: 5.964e-05, eta: 2:20:04, time: 0.953, data_time: 0.010, memory: 8939, loss_rpn_cls: 0.2551, loss_rpn_bbox: 0.0682, s0.loss_cls: 0.2409, s0.acc: 95.8626, s0.loss_bbox: 0.0743, s1.loss_cls: 0.0763, s1.acc: 97.6038, s1.loss_bbox: 0.0230, s2.loss_cls: 0.0325, s2.acc: 98.2793, s2.loss_bbox: 0.0040, loss: 0.7744
+2023-10-22 01:15:38,015 - mmdet - INFO - Saving checkpoint at 1 epochs
+2023-10-22 01:15:59,500 - mmdet - INFO - Evaluating bbox...
+2023-10-22 01:16:00,919 - mmdet - INFO - 
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.001
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=1000 ] = 0.004
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=1000 ] = 0.001
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.002
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.010
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=300 ] = 0.010
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=1000 ] = 0.010
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.014
+
+2023-10-22 01:16:00,933 - mmdet - INFO - Exp name: cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion.py
+2023-10-22 01:16:00,933 - mmdet - INFO - Epoch(val) [1][122]	bbox_mAP: 0.0010, bbox_mAP_50: 0.0040, bbox_mAP_75: 0.0010, bbox_mAP_s: 0.0000, bbox_mAP_m: 0.0000, bbox_mAP_l: 0.0020, bbox_mAP_copypaste: 0.001 0.004 0.001 0.000 0.000 0.002
+2023-10-22 01:16:51,142 - mmdet - INFO - Epoch [2][50/141]	lr: 1.142e-04, eta: 1:48:44, time: 1.003, data_time: 0.056, memory: 8939, loss_rpn_cls: 0.1994, loss_rpn_bbox: 0.0593, s0.loss_cls: 0.3032, s0.acc: 94.0107, s0.loss_bbox: 0.1208, s1.loss_cls: 0.0916, s1.acc: 96.8239, s1.loss_bbox: 0.0406, s2.loss_cls: 0.0313, s2.acc: 98.0368, s2.loss_bbox: 0.0066, loss: 0.8528
+2023-10-22 01:17:38,508 - mmdet - INFO - Epoch [2][100/141]	lr: 1.442e-04, eta: 1:52:35, time: 0.948, data_time: 0.011, memory: 8939, loss_rpn_cls: 0.1662, loss_rpn_bbox: 0.0489, s0.loss_cls: 0.3009, s0.acc: 93.7314, s0.loss_bbox: 0.1298, s1.loss_cls: 0.0906, s1.acc: 96.6803, s1.loss_bbox: 0.0454, s2.loss_cls: 0.0297, s2.acc: 98.0511, s2.loss_bbox: 0.0073, loss: 0.8188
+2023-10-22 01:18:17,400 - mmdet - INFO - Saving checkpoint at 2 epochs
+2023-10-22 01:18:38,678 - mmdet - INFO - Evaluating bbox...
+2023-10-22 01:18:39,670 - mmdet - INFO - 
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.003
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=1000 ] = 0.009
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=1000 ] = 0.001
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = 0.001
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = 0.002
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.004
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.012
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=300 ] = 0.012
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=1000 ] = 0.012
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = 0.001
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = 0.009
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.014
+
+2023-10-22 01:18:39,684 - mmdet - INFO - Exp name: cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion.py
+2023-10-22 01:18:39,684 - mmdet - INFO - Epoch(val) [2][122]	bbox_mAP: 0.0030, bbox_mAP_50: 0.0090, bbox_mAP_75: 0.0010, bbox_mAP_s: 0.0010, bbox_mAP_m: 0.0020, bbox_mAP_l: 0.0040, bbox_mAP_copypaste: 0.003 0.009 0.001 0.001 0.002 0.004
+2023-10-22 01:19:29,171 - mmdet - INFO - Epoch [3][50/141]	lr: 1.987e-04, eta: 1:41:00, time: 0.989, data_time: 0.057, memory: 8939, loss_rpn_cls: 0.1338, loss_rpn_bbox: 0.0445, s0.loss_cls: 0.3110, s0.acc: 92.6758, s0.loss_bbox: 0.1550, s1.loss_cls: 0.0997, s1.acc: 95.8057, s1.loss_bbox: 0.0645, s2.loss_cls: 0.0318, s2.acc: 97.6540, s2.loss_bbox: 0.0122, loss: 0.8524
+2023-10-22 01:20:16,961 - mmdet - INFO - Epoch [3][100/141]	lr: 2.287e-04, eta: 1:44:04, time: 0.955, data_time: 0.010, memory: 8939, loss_rpn_cls: 0.1281, loss_rpn_bbox: 0.0428, s0.loss_cls: 0.3108, s0.acc: 92.2555, s0.loss_bbox: 0.1641, s1.loss_cls: 0.1045, s1.acc: 95.1989, s1.loss_bbox: 0.0763, s2.loss_cls: 0.0340, s2.acc: 97.2217, s2.loss_bbox: 0.0164, loss: 0.8769
+2023-10-22 01:20:55,259 - mmdet - INFO - Saving checkpoint at 3 epochs
+2023-10-22 01:21:17,100 - mmdet - INFO - Evaluating bbox...
+2023-10-22 01:21:19,897 - mmdet - INFO - 
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.024
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=1000 ] = 0.077
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=1000 ] = 0.006
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = 0.011
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.044
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.101
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=300 ] = 0.101
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=1000 ] = 0.101
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = 0.032
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.149
+
+2023-10-22 01:21:19,934 - mmdet - INFO - Exp name: cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion.py
+2023-10-22 01:21:19,934 - mmdet - INFO - Epoch(val) [3][122]	bbox_mAP: 0.0240, bbox_mAP_50: 0.0770, bbox_mAP_75: 0.0060, bbox_mAP_s: 0.0000, bbox_mAP_m: 0.0110, bbox_mAP_l: 0.0440, bbox_mAP_copypaste: 0.024 0.077 0.006 0.000 0.011 0.044
+2023-10-22 01:22:08,954 - mmdet - INFO - Epoch [4][50/141]	lr: 2.832e-04, eta: 1:36:53, time: 0.980, data_time: 0.057, memory: 8939, loss_rpn_cls: 0.1115, loss_rpn_bbox: 0.0394, s0.loss_cls: 0.2982, s0.acc: 92.0898, s0.loss_bbox: 0.1698, s1.loss_cls: 0.1066, s1.acc: 94.5306, s1.loss_bbox: 0.0951, s2.loss_cls: 0.0354, s2.acc: 96.6722, s2.loss_bbox: 0.0241, loss: 0.8800
+2023-10-22 01:22:56,262 - mmdet - INFO - Epoch [4][100/141]	lr: 3.000e-04, eta: 1:39:02, time: 0.946, data_time: 0.011, memory: 8939, loss_rpn_cls: 0.1017, loss_rpn_bbox: 0.0379, s0.loss_cls: 0.3063, s0.acc: 91.4788, s0.loss_bbox: 0.1839, s1.loss_cls: 0.1117, s1.acc: 93.8372, s1.loss_bbox: 0.1087, s2.loss_cls: 0.0380, s2.acc: 96.1644, s2.loss_bbox: 0.0300, loss: 0.9183
+2023-10-22 01:23:35,002 - mmdet - INFO - Saving checkpoint at 4 epochs
+2023-10-22 01:23:57,237 - mmdet - INFO - Evaluating bbox...
+2023-10-22 01:24:00,052 - mmdet - INFO - 
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.033
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=1000 ] = 0.097
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=1000 ] = 0.008
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = 0.016
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.054
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.099
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=300 ] = 0.099
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=1000 ] = 0.099
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = 0.001
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = 0.046
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.145
+
+2023-10-22 01:24:00,078 - mmdet - INFO - Exp name: cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion.py
+2023-10-22 01:24:00,078 - mmdet - INFO - Epoch(val) [4][122]	bbox_mAP: 0.0330, bbox_mAP_50: 0.0970, bbox_mAP_75: 0.0080, bbox_mAP_s: 0.0000, bbox_mAP_m: 0.0160, bbox_mAP_l: 0.0540, bbox_mAP_copypaste: 0.033 0.097 0.008 0.000 0.016 0.054
+2023-10-22 01:24:50,230 - mmdet - INFO - Epoch [5][50/141]	lr: 3.000e-04, eta: 1:34:04, time: 1.002, data_time: 0.057, memory: 8939, loss_rpn_cls: 0.0932, loss_rpn_bbox: 0.0371, s0.loss_cls: 0.2855, s0.acc: 91.8548, s0.loss_bbox: 0.1803, s1.loss_cls: 0.1074, s1.acc: 93.8428, s1.loss_bbox: 0.1124, s2.loss_cls: 0.0374, s2.acc: 95.8913, s2.loss_bbox: 0.0344, loss: 0.8876
+2023-10-22 01:25:37,905 - mmdet - INFO - Epoch [5][100/141]	lr: 3.000e-04, eta: 1:35:45, time: 0.954, data_time: 0.010, memory: 8939, loss_rpn_cls: 0.0807, loss_rpn_bbox: 0.0321, s0.loss_cls: 0.2692, s0.acc: 91.9717, s0.loss_bbox: 0.1777, s1.loss_cls: 0.1043, s1.acc: 93.5944, s1.loss_bbox: 0.1216, s2.loss_cls: 0.0385, s2.acc: 95.3756, s2.loss_bbox: 0.0424, loss: 0.8665
+2023-10-22 01:26:16,234 - mmdet - INFO - Saving checkpoint at 5 epochs
+2023-10-22 01:26:37,354 - mmdet - INFO - Evaluating bbox...
+2023-10-22 01:26:40,482 - mmdet - INFO - 
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.045
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=1000 ] = 0.145
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=1000 ] = 0.012
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = 0.001
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = 0.019
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.061
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.150
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=300 ] = 0.150
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=1000 ] = 0.150
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = 0.001
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = 0.058
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.186
+
+2023-10-22 01:26:40,531 - mmdet - INFO - Exp name: cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion.py
+2023-10-22 01:26:40,532 - mmdet - INFO - Epoch(val) [5][122]	bbox_mAP: 0.0450, bbox_mAP_50: 0.1450, bbox_mAP_75: 0.0120, bbox_mAP_s: 0.0010, bbox_mAP_m: 0.0190, bbox_mAP_l: 0.0610, bbox_mAP_copypaste: 0.045 0.145 0.012 0.001 0.019 0.061
+2023-10-22 01:27:30,885 - mmdet - INFO - Epoch [6][50/141]	lr: 3.000e-04, eta: 1:31:47, time: 1.006, data_time: 0.058, memory: 8939, loss_rpn_cls: 0.0737, loss_rpn_bbox: 0.0331, s0.loss_cls: 0.2601, s0.acc: 91.9411, s0.loss_bbox: 0.1837, s1.loss_cls: 0.1032, s1.acc: 93.4506, s1.loss_bbox: 0.1316, s2.loss_cls: 0.0400, s2.acc: 95.0318, s2.loss_bbox: 0.0486, loss: 0.8739
+2023-10-22 01:28:18,021 - mmdet - INFO - Epoch [6][100/141]	lr: 3.000e-04, eta: 1:33:00, time: 0.943, data_time: 0.010, memory: 8939, loss_rpn_cls: 0.0719, loss_rpn_bbox: 0.0300, s0.loss_cls: 0.2540, s0.acc: 92.0277, s0.loss_bbox: 0.1867, s1.loss_cls: 0.1022, s1.acc: 93.4707, s1.loss_bbox: 0.1359, s2.loss_cls: 0.0400, s2.acc: 94.9359, s2.loss_bbox: 0.0518, loss: 0.8726
+2023-10-22 01:28:56,011 - mmdet - INFO - Saving checkpoint at 6 epochs
+2023-10-22 01:29:17,217 - mmdet - INFO - Evaluating bbox...
+2023-10-22 01:29:20,201 - mmdet - INFO - 
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.076
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=1000 ] = 0.206
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=1000 ] = 0.033
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = 0.039
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.107
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.177
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=300 ] = 0.177
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=1000 ] = 0.177
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = 0.076
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.225
+
+2023-10-22 01:29:20,233 - mmdet - INFO - Exp name: cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion.py
+2023-10-22 01:29:20,233 - mmdet - INFO - Epoch(val) [6][122]	bbox_mAP: 0.0760, bbox_mAP_50: 0.2060, bbox_mAP_75: 0.0330, bbox_mAP_s: 0.0000, bbox_mAP_m: 0.0390, bbox_mAP_l: 0.1070, bbox_mAP_copypaste: 0.076 0.206 0.033 0.000 0.039 0.107
+2023-10-22 01:30:10,874 - mmdet - INFO - Epoch [7][50/141]	lr: 3.000e-04, eta: 1:29:41, time: 1.012, data_time: 0.056, memory: 8939, loss_rpn_cls: 0.0716, loss_rpn_bbox: 0.0309, s0.loss_cls: 0.2526, s0.acc: 91.9759, s0.loss_bbox: 0.1874, s1.loss_cls: 0.1025, s1.acc: 93.3734, s1.loss_bbox: 0.1411, s2.loss_cls: 0.0404, s2.acc: 94.7753, s2.loss_bbox: 0.0564, loss: 0.8830
+2023-10-22 01:30:58,657 - mmdet - INFO - Epoch [7][100/141]	lr: 3.000e-04, eta: 1:30:42, time: 0.956, data_time: 0.010, memory: 8939, loss_rpn_cls: 0.0677, loss_rpn_bbox: 0.0301, s0.loss_cls: 0.2349, s0.acc: 92.4954, s0.loss_bbox: 0.1748, s1.loss_cls: 0.0943, s1.acc: 93.8683, s1.loss_bbox: 0.1356, s2.loss_cls: 0.0373, s2.acc: 95.1658, s2.loss_bbox: 0.0583, loss: 0.8331
+2023-10-22 01:31:37,053 - mmdet - INFO - Saving checkpoint at 7 epochs
+2023-10-22 01:31:58,150 - mmdet - INFO - Evaluating bbox...
+2023-10-22 01:32:01,675 - mmdet - INFO - 
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.101
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=1000 ] = 0.257
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=1000 ] = 0.052
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = 0.001
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = 0.051
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.135
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.178
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=300 ] = 0.178
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=1000 ] = 0.178
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = 0.001
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = 0.093
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.227
+
+2023-10-22 01:32:01,706 - mmdet - INFO - Exp name: cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion.py
+2023-10-22 01:32:01,707 - mmdet - INFO - Epoch(val) [7][122]	bbox_mAP: 0.1010, bbox_mAP_50: 0.2570, bbox_mAP_75: 0.0520, bbox_mAP_s: 0.0010, bbox_mAP_m: 0.0510, bbox_mAP_l: 0.1350, bbox_mAP_copypaste: 0.101 0.257 0.052 0.001 0.051 0.135
+2023-10-22 01:32:52,359 - mmdet - INFO - Epoch [8][50/141]	lr: 3.000e-04, eta: 1:27:47, time: 1.013, data_time: 0.056, memory: 8939, loss_rpn_cls: 0.0650, loss_rpn_bbox: 0.0286, s0.loss_cls: 0.2277, s0.acc: 92.5218, s0.loss_bbox: 0.1775, s1.loss_cls: 0.0944, s1.acc: 93.5924, s1.loss_bbox: 0.1404, s2.loss_cls: 0.0393, s2.acc: 94.6993, s2.loss_bbox: 0.0596, loss: 0.8325
+2023-10-22 01:33:40,039 - mmdet - INFO - Epoch [8][100/141]	lr: 3.000e-04, eta: 1:28:34, time: 0.953, data_time: 0.010, memory: 8939, loss_rpn_cls: 0.0632, loss_rpn_bbox: 0.0287, s0.loss_cls: 0.2221, s0.acc: 92.7604, s0.loss_bbox: 0.1738, s1.loss_cls: 0.0922, s1.acc: 93.7804, s1.loss_bbox: 0.1418, s2.loss_cls: 0.0391, s2.acc: 94.5748, s2.loss_bbox: 0.0638, loss: 0.8247
+2023-10-22 01:34:18,540 - mmdet - INFO - Saving checkpoint at 8 epochs
+2023-10-22 01:34:39,643 - mmdet - INFO - Evaluating bbox...
+2023-10-22 01:34:42,825 - mmdet - INFO - 
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.083
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=1000 ] = 0.234
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=1000 ] = 0.040
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = 0.001
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = 0.036
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.119
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.202
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=300 ] = 0.202
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=1000 ] = 0.202
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = 0.002
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = 0.086
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.258
+
+2023-10-22 01:34:42,868 - mmdet - INFO - Exp name: cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion.py
+2023-10-22 01:34:42,868 - mmdet - INFO - Epoch(val) [8][122]	bbox_mAP: 0.0830, bbox_mAP_50: 0.2340, bbox_mAP_75: 0.0400, bbox_mAP_s: 0.0010, bbox_mAP_m: 0.0360, bbox_mAP_l: 0.1190, bbox_mAP_copypaste: 0.083 0.234 0.040 0.001 0.036 0.119
+2023-10-22 01:35:33,030 - mmdet - INFO - Epoch [9][50/141]	lr: 3.000e-05, eta: 1:25:52, time: 1.001, data_time: 0.057, memory: 8939, loss_rpn_cls: 0.0560, loss_rpn_bbox: 0.0258, s0.loss_cls: 0.2095, s0.acc: 93.0674, s0.loss_bbox: 0.1614, s1.loss_cls: 0.0870, s1.acc: 94.1105, s1.loss_bbox: 0.1377, s2.loss_cls: 0.0371, s2.acc: 94.7917, s2.loss_bbox: 0.0630, loss: 0.7775
+2023-10-22 01:36:20,382 - mmdet - INFO - Epoch [9][100/141]	lr: 3.000e-05, eta: 1:26:28, time: 0.949, data_time: 0.011, memory: 8939, loss_rpn_cls: 0.0489, loss_rpn_bbox: 0.0239, s0.loss_cls: 0.1943, s0.acc: 93.4635, s0.loss_bbox: 0.1567, s1.loss_cls: 0.0794, s1.acc: 94.5137, s1.loss_bbox: 0.1331, s2.loss_cls: 0.0337, s2.acc: 95.2505, s2.loss_bbox: 0.0629, loss: 0.7327
+2023-10-22 01:36:59,000 - mmdet - INFO - Saving checkpoint at 9 epochs
+2023-10-22 01:37:20,344 - mmdet - INFO - Evaluating bbox...
+2023-10-22 01:37:22,829 - mmdet - INFO - 
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.094
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=1000 ] = 0.243
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=1000 ] = 0.055
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = 0.051
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.139
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.212
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=300 ] = 0.212
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=1000 ] = 0.212
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = 0.095
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.270
+
+2023-10-22 01:37:22,863 - mmdet - INFO - Exp name: cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion.py
+2023-10-22 01:37:22,863 - mmdet - INFO - Epoch(val) [9][122]	bbox_mAP: 0.0940, bbox_mAP_50: 0.2430, bbox_mAP_75: 0.0550, bbox_mAP_s: 0.0000, bbox_mAP_m: 0.0510, bbox_mAP_l: 0.1390, bbox_mAP_copypaste: 0.094 0.243 0.055 0.000 0.051 0.139
+2023-10-22 01:38:13,841 - mmdet - INFO - Epoch [10][50/141]	lr: 3.000e-05, eta: 1:24:05, time: 1.019, data_time: 0.057, memory: 8939, loss_rpn_cls: 0.0505, loss_rpn_bbox: 0.0238, s0.loss_cls: 0.1890, s0.acc: 93.6152, s0.loss_bbox: 0.1552, s1.loss_cls: 0.0777, s1.acc: 94.6675, s1.loss_bbox: 0.1324, s2.loss_cls: 0.0333, s2.acc: 95.2261, s2.loss_bbox: 0.0628, loss: 0.7246
+2023-10-22 01:39:01,400 - mmdet - INFO - Epoch [10][100/141]	lr: 3.000e-05, eta: 1:24:33, time: 0.951, data_time: 0.010, memory: 8939, loss_rpn_cls: 0.0497, loss_rpn_bbox: 0.0230, s0.loss_cls: 0.1916, s0.acc: 93.4303, s0.loss_bbox: 0.1573, s1.loss_cls: 0.0791, s1.acc: 94.4503, s1.loss_bbox: 0.1338, s2.loss_cls: 0.0340, s2.acc: 95.0984, s2.loss_bbox: 0.0631, loss: 0.7314
+2023-10-22 01:39:39,980 - mmdet - INFO - Saving checkpoint at 10 epochs
+2023-10-22 01:40:01,308 - mmdet - INFO - Evaluating bbox...
+2023-10-22 01:40:03,749 - mmdet - INFO - 
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.101
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=1000 ] = 0.252
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=1000 ] = 0.046
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = 0.054
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.151
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.209
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=300 ] = 0.209
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=1000 ] = 0.209
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = 0.001
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = 0.097
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.264
+
+2023-10-22 01:40:03,780 - mmdet - INFO - Exp name: cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion.py
+2023-10-22 01:40:03,780 - mmdet - INFO - Epoch(val) [10][122]	bbox_mAP: 0.1010, bbox_mAP_50: 0.2520, bbox_mAP_75: 0.0460, bbox_mAP_s: 0.0000, bbox_mAP_m: 0.0540, bbox_mAP_l: 0.1510, bbox_mAP_copypaste: 0.101 0.252 0.046 0.000 0.054 0.151
+2023-10-22 01:40:54,248 - mmdet - INFO - Epoch [11][50/141]	lr: 3.000e-05, eta: 1:22:18, time: 1.009, data_time: 0.056, memory: 8939, loss_rpn_cls: 0.0498, loss_rpn_bbox: 0.0233, s0.loss_cls: 0.1901, s0.acc: 93.5348, s0.loss_bbox: 0.1547, s1.loss_cls: 0.0771, s1.acc: 94.6441, s1.loss_bbox: 0.1285, s2.loss_cls: 0.0323, s2.acc: 95.4543, s2.loss_bbox: 0.0592, loss: 0.7150
+2023-10-22 01:41:42,521 - mmdet - INFO - Epoch [11][100/141]	lr: 3.000e-05, eta: 1:22:42, time: 0.966, data_time: 0.010, memory: 8939, loss_rpn_cls: 0.0454, loss_rpn_bbox: 0.0215, s0.loss_cls: 0.1803, s0.acc: 93.7939, s0.loss_bbox: 0.1555, s1.loss_cls: 0.0744, s1.acc: 94.6290, s1.loss_bbox: 0.1354, s2.loss_cls: 0.0325, s2.acc: 95.1562, s2.loss_bbox: 0.0658, loss: 0.7109
+2023-10-22 01:42:21,659 - mmdet - INFO - Saving checkpoint at 11 epochs
+2023-10-22 01:42:43,745 - mmdet - INFO - Evaluating bbox...
+2023-10-22 01:42:46,262 - mmdet - INFO - 
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.104
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=1000 ] = 0.254
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=1000 ] = 0.059
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = 0.053
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.163
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.211
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=300 ] = 0.211
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=1000 ] = 0.211
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = 0.096
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.268
+
+2023-10-22 01:42:46,291 - mmdet - INFO - Exp name: cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion.py
+2023-10-22 01:42:46,292 - mmdet - INFO - Epoch(val) [11][122]	bbox_mAP: 0.1040, bbox_mAP_50: 0.2540, bbox_mAP_75: 0.0590, bbox_mAP_s: 0.0000, bbox_mAP_m: 0.0530, bbox_mAP_l: 0.1630, bbox_mAP_copypaste: 0.104 0.254 0.059 0.000 0.053 0.163
+2023-10-22 01:43:35,662 - mmdet - INFO - Epoch [12][50/141]	lr: 3.000e-06, eta: 1:20:30, time: 0.987, data_time: 0.055, memory: 8939, loss_rpn_cls: 0.0475, loss_rpn_bbox: 0.0214, s0.loss_cls: 0.1749, s0.acc: 94.0006, s0.loss_bbox: 0.1453, s1.loss_cls: 0.0717, s1.acc: 94.9438, s1.loss_bbox: 0.1236, s2.loss_cls: 0.0308, s2.acc: 95.5921, s2.loss_bbox: 0.0611, loss: 0.6762
+2023-10-22 01:44:22,542 - mmdet - INFO - Epoch [12][100/141]	lr: 3.000e-06, eta: 1:20:43, time: 0.938, data_time: 0.009, memory: 8939, loss_rpn_cls: 0.0435, loss_rpn_bbox: 0.0207, s0.loss_cls: 0.1738, s0.acc: 93.9294, s0.loss_bbox: 0.1527, s1.loss_cls: 0.0719, s1.acc: 94.8347, s1.loss_bbox: 0.1319, s2.loss_cls: 0.0311, s2.acc: 95.3222, s2.loss_bbox: 0.0625, loss: 0.6882
+2023-10-22 01:45:01,823 - mmdet - INFO - Saving checkpoint at 12 epochs
+2023-10-22 01:45:23,202 - mmdet - INFO - Evaluating bbox...
+2023-10-22 01:45:25,682 - mmdet - INFO - 
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.108
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=1000 ] = 0.261
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=1000 ] = 0.070
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = 0.001
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = 0.057
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.167
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.216
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=300 ] = 0.216
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=1000 ] = 0.216
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = 0.001
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = 0.101
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.272
+
+2023-10-22 01:45:25,720 - mmdet - INFO - Exp name: cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion.py
+2023-10-22 01:45:25,720 - mmdet - INFO - Epoch(val) [12][122]	bbox_mAP: 0.1080, bbox_mAP_50: 0.2610, bbox_mAP_75: 0.0700, bbox_mAP_s: 0.0010, bbox_mAP_m: 0.0570, bbox_mAP_l: 0.1670, bbox_mAP_copypaste: 0.108 0.261 0.070 0.001 0.057 0.167
+2023-10-22 01:46:15,693 - mmdet - INFO - Epoch [13][50/141]	lr: 3.000e-06, eta: 1:18:41, time: 0.999, data_time: 0.057, memory: 8939, loss_rpn_cls: 0.0456, loss_rpn_bbox: 0.0218, s0.loss_cls: 0.1804, s0.acc: 93.7679, s0.loss_bbox: 0.1514, s1.loss_cls: 0.0752, s1.acc: 94.7502, s1.loss_bbox: 0.1309, s2.loss_cls: 0.0325, s2.acc: 95.2127, s2.loss_bbox: 0.0626, loss: 0.7005
+2023-10-22 01:47:03,048 - mmdet - INFO - Epoch [13][100/141]	lr: 3.000e-06, eta: 1:18:52, time: 0.947, data_time: 0.010, memory: 8939, loss_rpn_cls: 0.0468, loss_rpn_bbox: 0.0217, s0.loss_cls: 0.1792, s0.acc: 93.8118, s0.loss_bbox: 0.1503, s1.loss_cls: 0.0747, s1.acc: 94.7448, s1.loss_bbox: 0.1290, s2.loss_cls: 0.0317, s2.acc: 95.4058, s2.loss_bbox: 0.0619, loss: 0.6952
+2023-10-22 01:47:41,931 - mmdet - INFO - Saving checkpoint at 13 epochs
+2023-10-22 01:48:03,267 - mmdet - INFO - Evaluating bbox...
+2023-10-22 01:48:05,775 - mmdet - INFO - 
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.109
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=1000 ] = 0.263
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=1000 ] = 0.063
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = 0.001
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = 0.059
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.160
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.215
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=300 ] = 0.215
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=1000 ] = 0.215
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = 0.001
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = 0.102
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.271
+
+2023-10-22 01:48:05,807 - mmdet - INFO - Exp name: cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion.py
+2023-10-22 01:48:05,807 - mmdet - INFO - Epoch(val) [13][122]	bbox_mAP: 0.1090, bbox_mAP_50: 0.2630, bbox_mAP_75: 0.0630, bbox_mAP_s: 0.0010, bbox_mAP_m: 0.0590, bbox_mAP_l: 0.1600, bbox_mAP_copypaste: 0.109 0.263 0.063 0.001 0.059 0.160
+2023-10-22 01:48:55,934 - mmdet - INFO - Epoch [14][50/141]	lr: 3.000e-06, eta: 1:16:56, time: 1.002, data_time: 0.056, memory: 8939, loss_rpn_cls: 0.0458, loss_rpn_bbox: 0.0213, s0.loss_cls: 0.1804, s0.acc: 93.7503, s0.loss_bbox: 0.1508, s1.loss_cls: 0.0739, s1.acc: 94.7631, s1.loss_bbox: 0.1266, s2.loss_cls: 0.0317, s2.acc: 95.3685, s2.loss_bbox: 0.0619, loss: 0.6923
+2023-10-22 01:49:43,474 - mmdet - INFO - Epoch [14][100/141]	lr: 3.000e-06, eta: 1:17:03, time: 0.951, data_time: 0.010, memory: 8939, loss_rpn_cls: 0.0478, loss_rpn_bbox: 0.0226, s0.loss_cls: 0.1776, s0.acc: 93.8490, s0.loss_bbox: 0.1507, s1.loss_cls: 0.0733, s1.acc: 94.8279, s1.loss_bbox: 0.1304, s2.loss_cls: 0.0315, s2.acc: 95.3924, s2.loss_bbox: 0.0632, loss: 0.6970
+2023-10-22 01:50:22,582 - mmdet - INFO - Saving checkpoint at 14 epochs
+2023-10-22 01:50:44,221 - mmdet - INFO - Evaluating bbox...
+2023-10-22 01:50:46,668 - mmdet - INFO - 
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.104
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=1000 ] = 0.255
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=1000 ] = 0.068
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = 0.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = 0.058
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.157
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.215
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=300 ] = 0.215
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=1000 ] = 0.215
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = 0.098
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.272
+
+2023-10-22 01:50:46,702 - mmdet - INFO - Exp name: cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion.py
+2023-10-22 01:50:46,702 - mmdet - INFO - Epoch(val) [14][122]	bbox_mAP: 0.1040, bbox_mAP_50: 0.2550, bbox_mAP_75: 0.0680, bbox_mAP_s: 0.0000, bbox_mAP_m: 0.0580, bbox_mAP_l: 0.1570, bbox_mAP_copypaste: 0.104 0.255 0.068 0.000 0.058 0.157
+2023-10-22 01:51:36,416 - mmdet - INFO - Epoch [15][50/141]	lr: 3.000e-06, eta: 1:15:12, time: 0.993, data_time: 0.056, memory: 8939, loss_rpn_cls: 0.0460, loss_rpn_bbox: 0.0214, s0.loss_cls: 0.1797, s0.acc: 93.8330, s0.loss_bbox: 0.1492, s1.loss_cls: 0.0748, s1.acc: 94.8167, s1.loss_bbox: 0.1300, s2.loss_cls: 0.0318, s2.acc: 95.3791, s2.loss_bbox: 0.0634, loss: 0.6963
+2023-10-22 01:52:24,357 - mmdet - INFO - Epoch [15][100/141]	lr: 3.000e-06, eta: 1:15:16, time: 0.959, data_time: 0.011, memory: 8939, loss_rpn_cls: 0.0455, loss_rpn_bbox: 0.0220, s0.loss_cls: 0.1806, s0.acc: 93.8203, s0.loss_bbox: 0.1530, s1.loss_cls: 0.0750, s1.acc: 94.7397, s1.loss_bbox: 0.1302, s2.loss_cls: 0.0319, s2.acc: 95.3863, s2.loss_bbox: 0.0618, loss: 0.7001
+2023-10-22 01:53:03,204 - mmdet - INFO - Saving checkpoint at 15 epochs
+2023-10-22 01:53:24,128 - mmdet - INFO - Evaluating bbox...
+2023-10-22 01:53:26,589 - mmdet - INFO - 
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.104
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=1000 ] = 0.253
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=1000 ] = 0.066
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = 0.001
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = 0.059
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.155
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.217
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=300 ] = 0.217
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=1000 ] = 0.217
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = 0.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = 0.100
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.272
+
+2023-10-22 01:53:26,620 - mmdet - INFO - Exp name: cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion.py
+2023-10-22 01:53:26,620 - mmdet - INFO - Epoch(val) [15][122]	bbox_mAP: 0.1040, bbox_mAP_50: 0.2530, bbox_mAP_75: 0.0660, bbox_mAP_s: 0.0010, bbox_mAP_m: 0.0590, bbox_mAP_l: 0.1550, bbox_mAP_copypaste: 0.104 0.253 0.066 0.001 0.059 0.155
+2023-10-22 01:54:16,402 - mmdet - INFO - Epoch [16][50/141]	lr: 3.000e-06, eta: 1:13:30, time: 0.995, data_time: 0.056, memory: 8939, loss_rpn_cls: 0.0470, loss_rpn_bbox: 0.0205, s0.loss_cls: 0.1701, s0.acc: 94.1491, s0.loss_bbox: 0.1418, s1.loss_cls: 0.0699, s1.acc: 95.0993, s1.loss_bbox: 0.1217, s2.loss_cls: 0.0298, s2.acc: 95.6904, s2.loss_bbox: 0.0583, loss: 0.6591
+2023-10-22 01:55:03,649 - mmdet - INFO - Epoch [16][100/141]	lr: 3.000e-06, eta: 1:13:29, time: 0.945, data_time: 0.009, memory: 8939, loss_rpn_cls: 0.0464, loss_rpn_bbox: 0.0220, s0.loss_cls: 0.1800, s0.acc: 93.7943, s0.loss_bbox: 0.1514, s1.loss_cls: 0.0741, s1.acc: 94.7931, s1.loss_bbox: 0.1289, s2.loss_cls: 0.0316, s2.acc: 95.4158, s2.loss_bbox: 0.0620, loss: 0.6963
+2023-10-22 01:55:41,496 - mmdet - INFO - Saving checkpoint at 16 epochs
+2023-10-22 01:56:03,010 - mmdet - INFO - Evaluating bbox...
+2023-10-22 01:56:05,411 - mmdet - INFO - 
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.108
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=1000 ] = 0.258
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=1000 ] = 0.065
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = 0.001
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = 0.060
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.162
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.214
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=300 ] = 0.214
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=1000 ] = 0.214
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=1000 ] = 0.001
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=1000 ] = 0.100
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=1000 ] = 0.269
+
+2023-10-22 01:56:05,441 - mmdet - INFO - Exp name: cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion.py
+2023-10-22 01:56:05,441 - mmdet - INFO - Epoch(val) [16][122]	bbox_mAP: 0.1080, bbox_mAP_50: 0.2580, bbox_mAP_75: 0.0650, bbox_mAP_s: 0.0010, bbox_mAP_m: 0.0600, bbox_mAP_l: 0.1620, bbox_mAP_copypaste: 0.108 0.258 0.065 0.001 0.060 0.162
+2023-10-22 01:56:56,058 - mmdet - INFO - Epoch [17][50/141]	lr: 3.000e-06, eta: 1:11:48, time: 1.011, data_time: 0.057, memory: 8939, loss_rpn_cls: 0.0473, loss_rpn_bbox: 0.0238, s0.loss_cls: 0.1855, s0.acc: 93.6019, s0.loss_bbox: 0.1559, s1.loss_cls: 0.0757, s1.acc: 94.6524, s1.loss_bbox: 0.1316, s2.loss_cls: 0.0321, s2.acc: 95.4068, s2.loss_bbox: 0.0614, loss: 0.7134
+2023-10-22 01:57:43,403 - mmdet - INFO - Epoch [17][100/141]	lr: 3.000e-06, eta: 1:11:45, time: 0.947, data_time: 0.010, memory: 8939, loss_rpn_cls: 0.0460, loss_rpn_bbox: 0.0206, s0.loss_cls: 0.1735, s0.acc: 93.9326, s0.loss_bbox: 0.1480, s1.loss_cls: 0.0719, s1.acc: 94.9239, s1.loss_bbox: 0.1279, s2.loss_cls: 0.0311, s2.acc: 95.5251, s2.loss_bbox: 0.0613, loss: 0.6802
+2023-10-22 01:58:23,052 - mmdet - INFO - Saving checkpoint at 17 epochs
+Traceback (most recent call last):
+  File "tools/train.py", line 188, in <module>
+    main()
+  File "tools/train.py", line 177, in main
+    train_detector(
+  File "/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/hrfuser/mmdet/apis/train.py", line 203, in train_detector
+    runner.run(data_loaders, cfg.workflow)
+  File "/home/kpatel2s/anaconda3/envs/hrfuser-cuda102-torch110-mmcv-full-1317/lib/python3.8/site-packages/mmcv/runner/epoch_based_runner.py", line 127, in run
+    epoch_runner(data_loaders[i], **kwargs)
+  File "/home/kpatel2s/anaconda3/envs/hrfuser-cuda102-torch110-mmcv-full-1317/lib/python3.8/site-packages/mmcv/runner/epoch_based_runner.py", line 54, in train
+    self.call_hook('after_train_epoch')
+  File "/home/kpatel2s/anaconda3/envs/hrfuser-cuda102-torch110-mmcv-full-1317/lib/python3.8/site-packages/mmcv/runner/base_runner.py", line 307, in call_hook
+    getattr(hook, fn_name)(self)
+  File "/home/kpatel2s/anaconda3/envs/hrfuser-cuda102-torch110-mmcv-full-1317/lib/python3.8/site-packages/mmcv/runner/hooks/checkpoint.py", line 116, in after_train_epoch
+    self._save_checkpoint(runner)
+  File "/home/kpatel2s/anaconda3/envs/hrfuser-cuda102-torch110-mmcv-full-1317/lib/python3.8/site-packages/mmcv/runner/dist_utils.py", line 94, in wrapper
+    return func(*args, **kwargs)
+  File "/home/kpatel2s/anaconda3/envs/hrfuser-cuda102-torch110-mmcv-full-1317/lib/python3.8/site-packages/mmcv/runner/hooks/checkpoint.py", line 121, in _save_checkpoint
+    runner.save_checkpoint(
+  File "/home/kpatel2s/anaconda3/envs/hrfuser-cuda102-torch110-mmcv-full-1317/lib/python3.8/site-packages/mmcv/runner/epoch_based_runner.py", line 169, in save_checkpoint
+    save_checkpoint(self.model, filepath, optimizer=optimizer, meta=meta)
+  File "/home/kpatel2s/anaconda3/envs/hrfuser-cuda102-torch110-mmcv-full-1317/lib/python3.8/site-packages/mmcv/runner/checkpoint.py", line 707, in save_checkpoint
+    file_client.put(f.getvalue(), filename)
+  File "/home/kpatel2s/anaconda3/envs/hrfuser-cuda102-torch110-mmcv-full-1317/lib/python3.8/site-packages/mmcv/fileio/file_client.py", line 1018, in put
+    self.client.put(obj, filepath)
+  File "/home/kpatel2s/anaconda3/envs/hrfuser-cuda102-torch110-mmcv-full-1317/lib/python3.8/site-packages/mmcv/fileio/file_client.py", line 551, in put
+    f.write(obj)
+OSError: [Errno 122] Disk quota exceeded
+WARNING:torch.distributed.elastic.multiprocessing.api:Sending process 180868 closing signal SIGTERM
+WARNING:torch.distributed.elastic.multiprocessing.api:Sending process 180869 closing signal SIGTERM
+WARNING:torch.distributed.elastic.multiprocessing.api:Sending process 180870 closing signal SIGTERM
+ERROR:torch.distributed.elastic.multiprocessing.api:failed (exitcode: 1) local_rank: 0 (pid: 180867) of binary: /home/kpatel2s/anaconda3/envs/hrfuser-cuda102-torch110-mmcv-full-1317/bin/python
+Traceback (most recent call last):
+  File "/home/kpatel2s/anaconda3/envs/hrfuser-cuda102-torch110-mmcv-full-1317/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/kpatel2s/anaconda3/envs/hrfuser-cuda102-torch110-mmcv-full-1317/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home/kpatel2s/anaconda3/envs/hrfuser-cuda102-torch110-mmcv-full-1317/lib/python3.8/site-packages/torch/distributed/run.py", line 723, in <module>
+    main()
+  File "/home/kpatel2s/anaconda3/envs/hrfuser-cuda102-torch110-mmcv-full-1317/lib/python3.8/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 345, in wrapper
+    return f(*args, **kwargs)
+  File "/home/kpatel2s/anaconda3/envs/hrfuser-cuda102-torch110-mmcv-full-1317/lib/python3.8/site-packages/torch/distributed/run.py", line 719, in main
+    run(args)
+  File "/home/kpatel2s/anaconda3/envs/hrfuser-cuda102-torch110-mmcv-full-1317/lib/python3.8/site-packages/torch/distributed/run.py", line 710, in run
+    elastic_launch(
+  File "/home/kpatel2s/anaconda3/envs/hrfuser-cuda102-torch110-mmcv-full-1317/lib/python3.8/site-packages/torch/distributed/launcher/api.py", line 131, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/home/kpatel2s/anaconda3/envs/hrfuser-cuda102-torch110-mmcv-full-1317/lib/python3.8/site-packages/torch/distributed/launcher/api.py", line 259, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+tools/train.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2023-10-22_01:58:26
+  host      : wr15.wr.inf.h-brs.de
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 180867)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
