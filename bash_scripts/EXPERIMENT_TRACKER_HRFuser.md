@@ -11,29 +11,24 @@ Run commands:
 
 ### Current
 
-- TIMESTAMP: 22-Oct-2023 11:30:00
-    - Training HRFuser Tiny model on nuScenes - part 1 - epoch=12 - DONE
-        - Logs and results are available at `/home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/nuscenes/work_dirs`
-    - Training HRFuser Tiny model on nuScenes - part 2 - epoch=60 - In Progress
-        - Change `step` according to 60 epochs - DONE
-            ```bash
-            lr_config = dict(
-                            policy='step',
-                            warmup='linear',
-                            warmup_iters=500,
-                            warmup_ratio=0.001,
-                            step=[8, 11])
-            ```
-        - Not getting good results (not even close to what is mentioned in the paper)
+- TIMESTAMP: 23-Oct-2023 20:30:00
     - Training HRFuser base model on nuScenes - Try 1 - epoch 60 - with batch size = 1 - STOPPED
         - Model AP not improving
         - Raise an issue on GitHub with result details - [PENDING]
+
+    - Running inference with [TINY] model on DENSE - DONE
+        - Log data into experiment tracker sheet - [PENDING]
+
+    - Training HRFuser tiny model on DENSE dataset - Try 1 - epoch=60 - batch size = 8 - 4 GPUs - [IN-PROGRESS]
+    - Training HRFuser tiny model on DENSE dataset - Try 1 - epoch=60 - batch size = 2 - single GPU - [IN-PROGRESS]
 
 
 
 ### Pending
 
-
+- Change checkpoint saving to after every 5 epochs instead of 1 - `/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/hrfuser/configs/_base_/default_runtime.py`
+- Project Lidar and Radar image on RGB image for visualization
+    - For DENSE and nuScenes
 - Understand the model architectue from the code
     - Total trainable params?
     - Model summary, save it
@@ -45,10 +40,31 @@ Run commands:
     - Write down a code to extract data from JSON or log file to plot curves
 
 
-
-
 ### DONE
 
+
+- TIMESTAMP: 23-Oct-2023 20:00:00
+    - DENSE dataset conversion script - DONE
+
+
+-------------------------------------------------------------------------------
+
+- TIMESTAMP: 22-Oct-2023 23:30:00
+    - Training HRFuser Tiny model on nuScenes - part 1 - epoch=12 - DONE
+        - Logs and results are available at `/home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/nuscenes/work_dirs`
+    - Training HRFuser [Tiny] model on nuScenes - part 2 - epoch=60 - batch size = 4 - DONE
+        - Change `step` according to 60 epochs - DONE
+            ```bash
+            lr_config = dict(
+                            policy='step',
+                            warmup='linear',
+                            warmup_iters=500,
+                            warmup_ratio=0.001,
+                            step=[8, 11])
+            ```
+        - Not getting good results (not even close to what is mentioned in the paper)
+    - Training HRFuser [Base] model on nuScenes - Try 1 - epoch 60 - with batch size = 1 - STOPPED
+        - Model AP not improving
 
 - TIMESTAMP: 22-Oct-2023 11:30:00
     - Training HRFuser Tiny model on nuScenes - part 2 - epoch=60 - In Progress
@@ -61,6 +77,7 @@ Run commands:
                             warmup_ratio=0.001,
                             step=[8, 11])
             ```
+
 - TIMESTAMP: 22-Oct-2023 18:30:00
     - Prepare STF dataset for HRFuser
         - Making a copy of STF dataset - DONE
