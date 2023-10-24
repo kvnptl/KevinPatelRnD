@@ -4,8 +4,8 @@
 #SBATCH --ntasks-per-node=64    # cores
 #SBATCH --mem 180GB               # memory per node in MB (different units with suffix K|M|G|T)
 #SBATCH --time 0-24:00              # total runtime of job allocation (format D-HH:MM)
-#SBATCH --output train_multi_gpu_epochs_60_cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion_output.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
-#SBATCH --error train_multi_gpu_epochs_60_cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion_output.%j.err  # filename for STDERR
+#SBATCH --output train_multi_gpu_epochs_60_tensorboard_cascade_rcnn_hrfuser_b_1x_nus_r640_l_r_fusion_output.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
+#SBATCH --error train_multi_gpu_epochs_60_tensorboard_cascade_rcnn_hrfuser_b_1x_nus_r640_l_r_fusion_output.%j.err  # filename for STDERR
 
 # Capture start time
 START_TIME=$(date +%s)

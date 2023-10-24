@@ -27,10 +27,10 @@ echo "[bash] Start testing HRFuser TINY model on nuScenes dataset..."
 ### NOTE: change checkpoint path accordingly
 #############
 python tools/test.py configs/hrfuser/cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion.py checkpoints/cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion_latest.pth \
-        --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/nuscenes/work_dirs/cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion_TESTING \
+        --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/nuscenes/work_dirs/cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion_INFERENCE \
         --eval bbox \
         --show \
-        --show-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/nuscenes/work_dirs/cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion_TESTING \
+        --show-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/nuscenes/work_dirs/cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion_INFERENCE \
         --cfg-options data.test.samples_per_gpu=1
 
 echo "[bash] Testing completed..."
