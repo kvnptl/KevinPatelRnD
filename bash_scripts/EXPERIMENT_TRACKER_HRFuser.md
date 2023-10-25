@@ -12,31 +12,16 @@ Run commands:
 ### Current
 
 - TIMESTAMP: 24-Oct-2023 12:33:00
-    - [nuScenes] Training HRFuser [Base] model on nuScenes - epoch 60 - with batch size = 4 - 4 GPUs - DONE
-        - saving checkpoints after every 5 epochs
-        - Need to udpate results in experiment tracker sheet - DONE
-        - Run Test set evaluation - [IN-PROGRESS]
     - [nuScenes] Training HRFuser [Base] model on nuScenes - epoch 60 - with batch size = 1 - Single GPUs - [IN-PROGRESS]
         - saving checkpoints after every 5 epochs
 
-    - [DENSE] Training HRFuser [tiny] model on DENSE dataset - Try 1 - epoch=60 - batch size = 8 - 4 GPUs - DONE
-        - Not achieving same results as mentioned in the paper
-        - Need to udpate results in experiment tracker sheet - DONE
-        - Run Test set evaluation - [IN-PROGRESS]
     - [DENSE] Training HRFuser tiny model on DENSE dataset - Try 1 - epoch=60 - batch size = 2 - single GPU - [IN-PROGRESS]
         - After 4 epochs, model AP is 0.0 (WHY????!!)
         - Restarted this script - [IN-PROGRESS]
 
 
-    ####################################################################
-        - Raise an issue on GitHub with result details - [PENDING]
-    #####################################################################
-
-
-
 ### Pending
 
-- Change checkpoint saving to after every 5 epochs instead of 1 - `/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/hrfuser/configs/_base_/default_runtime.py`
 - Project Lidar and Radar image on RGB image for visualization
     - For DENSE and nuScenes
 - Understand the model architectue from the code
@@ -44,24 +29,44 @@ Run commands:
     - Model summary, save it
 - Understand Lidar and Radar Image generation - PENDING
     - Check GitHub issue
-- Inference on HRFuser STF
-- Train HRFuser model on STF dataset
-- Plot results, loss, acc, etc for nuScenes HRFuser
-    - Write down a code to extract data from JSON or log file to plot curves
 
 
 ### DONE
+
+- TIMESTAMP: 25-Oct-2023 18:10:00
+    - Train HRFuser model on STF dataset
+    - [DENSE] Training HRFuser [tiny] model on DENSE dataset - Try 1 - epoch=60 - batch size = 8 - 4 GPUs - DONE
+        - Not achieving same results as mentioned in the paper
+        - Need to udpate results in experiment tracker sheet - DONE
+        - Run Test set evaluation - DONE
+    - [nuScenes] Training HRFuser [Base] model on nuScenes - epoch 60 - with batch size = 4 - 4 GPUs - DONE
+        - saving checkpoints after every 5 epochs
+        - Need to udpate results in experiment tracker sheet - DONE
+        - Run Test set evaluation - DONE
+
+    ####################################################################
+        - Raise an issue on GitHub with result details - DONE
+            - LINK: https://github.com/timbroed/HRFuser/issues/3
+    #####################################################################
+
+
+------------------------------------------------------------------------------
 
 - TIMESTAMP: 24-Oct-2023 12:33:00
 
     - [DENSE] Running inference with author's given [TINY] model on DENSE - DONE
         - Log data into experiment tracker sheet - DONE
+    - Change checkpoint saving to after every 5 epochs instead of 1 - `/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/hrfuser/configs/_base_/default_runtime.py` - DONE
+    - Plot results, loss, acc, etc for nuScenes HRFuser - DONE
+        - Write down a code to extract data from JSON or log file to plot curves
+        - Can track result in tensorboard
 
 
 -------------------------------------------------------------------------------
 
 - TIMESTAMP: 23-Oct-2023 20:00:00
     - DENSE dataset conversion script - DONE
+    - Inference on HRFuser STF - DONE
 
 
 -------------------------------------------------------------------------------
