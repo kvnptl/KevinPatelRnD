@@ -1,0 +1,2 @@
+- Not achieving same results as mentioned in the paper
+- Taking 9 mins for 1 epoch
