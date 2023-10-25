@@ -11,16 +11,26 @@ Run commands:
 
 ### Current
 
-- TIMESTAMP: 23-Oct-2023 20:30:00
-    - Training HRFuser base model on nuScenes - Try 1 - epoch 60 - with batch size = 1 - STOPPED
-        - Model AP not improving
+- TIMESTAMP: 24-Oct-2023 12:33:00
+    - [nuScenes] Training HRFuser [Base] model on nuScenes - epoch 60 - with batch size = 4 - 4 GPUs - DONE
+        - saving checkpoints after every 5 epochs
+        - Need to udpate results in experiment tracker sheet - DONE
+        - Run Test set evaluation - [IN-PROGRESS]
+    - [nuScenes] Training HRFuser [Base] model on nuScenes - epoch 60 - with batch size = 1 - Single GPUs - [IN-PROGRESS]
+        - saving checkpoints after every 5 epochs
+
+    - [DENSE] Training HRFuser [tiny] model on DENSE dataset - Try 1 - epoch=60 - batch size = 8 - 4 GPUs - DONE
+        - Not achieving same results as mentioned in the paper
+        - Need to udpate results in experiment tracker sheet - DONE
+        - Run Test set evaluation - [IN-PROGRESS]
+    - [DENSE] Training HRFuser tiny model on DENSE dataset - Try 1 - epoch=60 - batch size = 2 - single GPU - [IN-PROGRESS]
+        - After 4 epochs, model AP is 0.0 (WHY????!!)
+        - Restarted this script - [IN-PROGRESS]
+
+
+    ####################################################################
         - Raise an issue on GitHub with result details - [PENDING]
-
-    - Running inference with [TINY] model on DENSE - DONE
-        - Log data into experiment tracker sheet - [PENDING]
-
-    - Training HRFuser tiny model on DENSE dataset - Try 1 - epoch=60 - batch size = 8 - 4 GPUs - [IN-PROGRESS]
-    - Training HRFuser tiny model on DENSE dataset - Try 1 - epoch=60 - batch size = 2 - single GPU - [IN-PROGRESS]
+    #####################################################################
 
 
 
@@ -42,6 +52,13 @@ Run commands:
 
 ### DONE
 
+- TIMESTAMP: 24-Oct-2023 12:33:00
+
+    - [DENSE] Running inference with author's given [TINY] model on DENSE - DONE
+        - Log data into experiment tracker sheet - DONE
+
+
+-------------------------------------------------------------------------------
 
 - TIMESTAMP: 23-Oct-2023 20:00:00
     - DENSE dataset conversion script - DONE

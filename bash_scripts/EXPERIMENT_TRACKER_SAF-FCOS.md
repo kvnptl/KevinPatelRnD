@@ -11,6 +11,8 @@ Note:
 
 - Add LIDAR image to the Dataloader and check performance
 - Check performance with all 10 nuScenes classes
+- Find corresponding image sample in HRFuser nuScenes dataset
+    - For better comparison
 
 ### DONE
 
