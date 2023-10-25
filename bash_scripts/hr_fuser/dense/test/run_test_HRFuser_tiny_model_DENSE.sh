@@ -23,17 +23,21 @@ echo "[bash] Directory changed to $(pwd)"
 
 echo "[bash] Start testing HRFuser TINY model on DENSE dataset..."
 
+echo -e "[bash] --------------------------------------------\n"
+
 #############
 ### NOTE: change checkpoint path accordingly
 #############
-python tools/test.py configs/hrfuser/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod.py checkpoints/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod_latest.pth \
-        --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/work_dirs/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod_Provided_INFERENCE \
+python tools/test.py configs/hrfuser/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod.py /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/work_dirs/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod_epoch_60_batch_size_8_gpu_4/epoch_50.pth \
+        --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/inference/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod_epoch_60_batch_size_8_gpu_4_INFERENCE \
         --eval bbox \
         --show \
-        --show-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/work_dirs/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod_Provided_INFERENCE \
+        --show-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/inference/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod_epoch_60_batch_size_8_gpu_4_INFERENCE \
         --cfg-options data.test.samples_per_gpu=1
 
 echo "[bash] Testing completed..."
+
+echo -e "[bash] --------------------------------------------\n"
 
 # Capture end time
 END_TIME=$(date +%s)

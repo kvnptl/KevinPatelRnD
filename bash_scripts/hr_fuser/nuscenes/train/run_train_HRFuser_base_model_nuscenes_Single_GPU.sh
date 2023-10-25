@@ -3,9 +3,9 @@
 #SBATCH --nodes 1                # number of nodes
 #SBATCH --ntasks-per-node=64    # cores
 #SBATCH --mem 180GB               # memory per node in MB (different units with suffix K|M|G|T)
-#SBATCH --time 2-00:00              # total runtime of job allocation (format D-HH:MM)
-#SBATCH --output train_single_gpu_epochs_60_batch_size_8_cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion_output.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
-#SBATCH --error train_single_gpu_epochs_60_batch_size_8_cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion_output.%j.err  # filename for STDERR
+#SBATCH --time 3-00:00              # total runtime of job allocation (format D-HH:MM)
+#SBATCH --output train_single_gpu_epochs_60_tensorboard_cascade_rcnn_hrfuser_b_1x_nus_r640_l_r_fusion_output.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
+#SBATCH --error train_single_gpu_epochs_60_tensorboard_cascade_rcnn_hrfuser_b_1x_nus_r640_l_r_fusion_output.%j.err  # filename for STDERR
 
 # Capture start time
 START_TIME=$(date +%s)
@@ -21,13 +21,17 @@ cd /home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/hrfuser
 
 echo "[bash] Directory changed to $(pwd)"
 
-echo "[bash] Start training HRFuser TINY model on nuScenes dataset..."
+echo "[bash] Start training HRFuser BASE model on nuScenes dataset..."
 
-python tools/train.py configs/hrfuser/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod_bn.py \
+echo -e "[bash] --------------------------------------------\n"
+
+python tools/train.py configs/hrfuser/cascade_rcnn_hrfuser_b_1x_nus_r640_l_r_fusion_bn.py \
                     --seed 0 \
-                    --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/work_dirs/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod_epoch_60_batch_size_8_gpu_1
+                    --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/nuscenes/work_dirs/cascade_rcnn_hrfuser_b_1x_nus_r640_l_r_fusion_epoch_60_batch_1_single_gpu
 
 echo "[bash] Training completed..."
+
+echo -e "[bash] --------------------------------------------\n"
 
 # Capture end time
 END_TIME=$(date +%s)

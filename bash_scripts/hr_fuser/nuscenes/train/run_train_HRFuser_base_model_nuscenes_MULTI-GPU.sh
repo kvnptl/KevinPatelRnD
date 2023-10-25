@@ -3,7 +3,7 @@
 #SBATCH --nodes 1                # number of nodes
 #SBATCH --ntasks-per-node=64    # cores
 #SBATCH --mem 180GB               # memory per node in MB (different units with suffix K|M|G|T)
-#SBATCH --time 0-24:00              # total runtime of job allocation (format D-HH:MM)
+#SBATCH --time 2-00:00              # total runtime of job allocation (format D-HH:MM)
 #SBATCH --output train_multi_gpu_epochs_60_tensorboard_cascade_rcnn_hrfuser_b_1x_nus_r640_l_r_fusion_output.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
 #SBATCH --error train_multi_gpu_epochs_60_tensorboard_cascade_rcnn_hrfuser_b_1x_nus_r640_l_r_fusion_output.%j.err  # filename for STDERR
 
@@ -21,14 +21,18 @@ cd /home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/hrfuser
 
 echo "[bash] Directory changed to $(pwd)"
 
-echo "[bash] Start training HRFuser TINY model on nuScenes dataset..."
+echo "[bash] Start training HRFuser BASE model on nuScenes dataset..."
+
+echo -e "[bash] --------------------------------------------\n"
 
 tools/dist_train.sh configs/hrfuser/cascade_rcnn_hrfuser_b_1x_nus_r640_l_r_fusion.py \
                     4 \
                     --seed 0 \
-                    --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/nuscenes/work_dirs/cascade_rcnn_hrfuser_b_1x_nus_r640_l_r_fusion_epoch_60
+                    --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/nuscenes/work_dirs/cascade_rcnn_hrfuser_b_1x_nus_r640_l_r_fusion_epoch_60_batch_4_multi_gpu
 
 echo "[bash] Training completed..."
+
+echo -e "[bash] --------------------------------------------\n"
 
 # Capture end time
 END_TIME=$(date +%s)

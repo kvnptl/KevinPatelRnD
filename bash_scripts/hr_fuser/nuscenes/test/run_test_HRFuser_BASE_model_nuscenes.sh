@@ -4,8 +4,8 @@
 #SBATCH --ntasks-per-node=64    # cores
 #SBATCH --mem 180GB               # memory per node in MB (different units with suffix K|M|G|T)
 #SBATCH --time 0-24:00              # total runtime of job allocation (format D-HH:MM)
-#SBATCH --output test_cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion_output.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
-#SBATCH --error test_cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion_output.%j.err  # filename for STDERR
+#SBATCH --output test_cascade_rcnn_hrfuser_b_1x_nus_r640_l_r_fusion_output.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
+#SBATCH --error test_cascade_rcnn_hrfuser_b_1x_nus_r640_l_r_fusion_output.%j.err  # filename for STDERR
 
 # Capture start time
 START_TIME=$(date +%s)
@@ -21,19 +21,23 @@ cd /home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/hrfuser
 
 echo "[bash] Directory changed to $(pwd)"
 
-echo "[bash] Start testing HRFuser TINY model on nuScenes dataset..."
+echo "[bash] Start testing HRFuser BASE model on nuScenes dataset..."
+
+echo -e "[bash] --------------------------------------------\n"
 
 #############
 ### NOTE: change checkpoint path accordingly
 #############
-python tools/test.py configs/hrfuser/cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion.py checkpoints/cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion_latest.pth \
-        --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/nuscenes/work_dirs/cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion_INFERENCE \
+python tools/test.py configs/hrfuser/cascade_rcnn_hrfuser_b_1x_nus_r640_l_r_fusion.py /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/nuscenes/work_dirs/cascade_rcnn_hrfuser_b_1x_nus_r640_l_r_fusion_epoch_60_batch_4_multi_gpu/epoch_35.pth \
+        --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/nuscenes/inference/cascade_rcnn_hrfuser_b_1x_nus_r640_l_r_fusion_INFERENCE \
         --eval bbox \
         --show \
-        --show-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/nuscenes/work_dirs/cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion_INFERENCE \
+        --show-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/nuscenes/inference/cascade_rcnn_hrfuser_b_1x_nus_r640_l_r_fusion_INFERENCE \
         --cfg-options data.test.samples_per_gpu=1
 
 echo "[bash] Testing completed..."
+
+echo -e "[bash] --------------------------------------------\n"
 
 # Capture end time
 END_TIME=$(date +%s)
