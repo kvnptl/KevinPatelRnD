@@ -11,6 +11,7 @@ Run commands:
 
 ### Current
 
+
 - TIMESTAMP: 24-Oct-2023 12:33:00
     - [nuScenes] Training HRFuser [Base] model on nuScenes - epoch 60 - with batch size = 1 - Single GPUs - [IN-PROGRESS]
         - saving checkpoints after every 5 epochs
@@ -24,14 +25,18 @@ Run commands:
 
 - Project Lidar and Radar image on RGB image for visualization
     - For DENSE and nuScenes
-- Understand the model architectue from the code
-    - Total trainable params?
-    - Model summary, save it
 - Understand Lidar and Radar Image generation - PENDING
     - Check GitHub issue
 
 
 ### DONE
+
+- TIMESTAMP: 26-Oct-2023 03:16 (it took me straight 8 hours to complete!!!!!!)
+    - Understand the model architectue from the code - DONE
+        - Total trainable params?
+        - Model summary, save it
+
+---------------------------------------------------------------------------
 
 - TIMESTAMP: 25-Oct-2023 18:10:00
     - Train HRFuser model on STF dataset
