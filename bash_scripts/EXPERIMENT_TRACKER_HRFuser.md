@@ -4,22 +4,29 @@ Note:
     - write down last activity on this window
     - put timestamp (date, time in 24h format)
 
+[Experiment Tracker sheet: https://docs.google.com/spreadsheets/d/1m2jxf0A0iqpwQYJDxDnoZ1-XZ8W_OqSWHnVe_a6aSKY/edit?pli=1#gid=11409550]
+
 Run commands:
 - pip install mmcv-full==1.3.17 -f https://download.openmmlab.com/mmcv/dist/cu102/torch1.10.0/index.html
 - pip install torch==1.10.0+cu102 torchvision==0.11.0+cu102 torchaudio==0.10.0 -f https://download.pytorch.org/whl/torch_stable.html
 
+###############################################################################
 
 ### Current
 
+- TIMESTAMP: 26-Oct-2023 16:54
+    - Understand the model architectue of BASE model - [IN-PROGRESS]
+    - Understand the model architectue of DENSE TINY model - [IN-PROGRESS]
+        - Total trainable params?
+        - Model summary, save it
+        - [NOTE] have to use (debug mode) breakpoint in torchinfo code and then make img_metas to 0.0
 
 - TIMESTAMP: 24-Oct-2023 12:33:00
-    - [nuScenes] Training HRFuser [Base] model on nuScenes - epoch 60 - with batch size = 1 - Single GPUs - [IN-PROGRESS]
-        - saving checkpoints after every 5 epochs
-
     - [DENSE] Training HRFuser tiny model on DENSE dataset - Try 1 - epoch=60 - batch size = 2 - single GPU - [IN-PROGRESS]
         - After 4 epochs, model AP is 0.0 (WHY????!!)
         - Restarted this script - [IN-PROGRESS]
 
+##################################################################################
 
 ### Pending
 
@@ -28,13 +35,21 @@ Run commands:
 - Understand Lidar and Radar Image generation - PENDING
     - Check GitHub issue
 
+##################################################################################
 
 ### DONE
+
+--------------------------------------------------------------------------------
 
 - TIMESTAMP: 26-Oct-2023 03:16 (it took me straight 8 hours to complete!!!!!!)
     - Understand the model architectue from the code - DONE
         - Total trainable params?
         - Model summary, save it
+        - [NOTE] have to use (debug mode) breakpoint in torchinfo code and then make img_metas to 0.0
+    - [nuScenes] Training HRFuser [Base] model on nuScenes - epoch 60 - with batch size = 1 - Single GPUs - DONE
+        - saving checkpoints after every 5 epochs
+        - Need to udpate results in experiment tracker sheet - DONE
+        - Run Test set evaluation - DONE
 
 ---------------------------------------------------------------------------
 
@@ -137,7 +152,7 @@ Run commands:
 - TIMESTAMP: 19-Oct-2023 00:08:00
     - Running checksum on STF dataset - DONE
 
-
+##################################################################################################
 
 ### Bug fixes in mmcv-full 1.3.17
 

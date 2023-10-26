@@ -28,11 +28,11 @@ echo -e "[bash] --------------------------------------------\n"
 #############
 ### NOTE: change checkpoint path accordingly
 #############
-python tools/test.py configs/hrfuser/cascade_rcnn_hrfuser_b_1x_nus_r640_l_r_fusion.py /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/nuscenes/work_dirs/cascade_rcnn_hrfuser_b_1x_nus_r640_l_r_fusion_epoch_60_batch_4_multi_gpu/epoch_35.pth \
-        --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/nuscenes/inference/cascade_rcnn_hrfuser_b_1x_nus_r640_l_r_fusion_INFERENCE \
+python tools/test.py configs/hrfuser/cascade_rcnn_hrfuser_b_1x_nus_r640_l_r_fusion.py /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/nuscenes/work_dirs/cascade_rcnn_hrfuser_b_1x_nus_r640_l_r_fusion_epoch_60_batch_1_single_gpu/epoch_15.pth \
+        --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/nuscenes/inference/cascade_rcnn_hrfuser_b_1x_nus_r640_l_r_fusion_epoch_60_batch_1_single_gpu_INFERENCE \
         --eval bbox \
         --show \
-        --show-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/nuscenes/inference/cascade_rcnn_hrfuser_b_1x_nus_r640_l_r_fusion_INFERENCE \
+        --show-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/nuscenes/inference/cascade_rcnn_hrfuser_b_1x_nus_r640_l_r_fusion_epoch_60_batch_1_single_gpu_INFERENCE \
         --cfg-options data.test.samples_per_gpu=1
 
 echo "[bash] Testing completed..."
