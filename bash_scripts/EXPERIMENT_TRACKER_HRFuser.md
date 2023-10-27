@@ -15,9 +15,10 @@ Run commands:
 ### Current
 
 - TIMESTAMP: 26-Oct-2023 23:00
-    - Train on DENSE with adjusted learning rate - [IN-PROGRESS]
+    - Train on DENSE with adjusted learning rate - DONE
         - LR change according to Linear Scaling Rule
         - New config stf_4mod_epo_60_batch_8_gpu_4_worker_8_lr_0p0006667
+        - Test evaluation - [IN-PROGRESS]
 
     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     - [MOST-IMPORTANT] FOUND PROBLEM IN NUSCENES DATASET
@@ -25,6 +26,7 @@ Run commands:
         - Even total samples are only 1692 !!?? [impossible]
         - Only CAM_FRONT images are 40154, then how come lidar and radar samples are low??
         - NEED TO FIX THIS ASAP!!!!
+    - nuScenes data conversion started - [IN-PROGRESS]
 
 ##################################################################################
 
