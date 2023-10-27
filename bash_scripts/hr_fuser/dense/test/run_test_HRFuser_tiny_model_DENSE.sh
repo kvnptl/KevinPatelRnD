@@ -28,12 +28,12 @@ echo -e "[bash] --------------------------------------------\n"
 #############
 ### NOTE: change checkpoint path accordingly
 #############
-python tools/test.py configs/hrfuser/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod.py /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/work_dirs/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod_epoch_60_batch_size_8_gpu_4/epoch_50.pth \
-        --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/inference/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod_epoch_60_batch_size_8_gpu_4_INFERENCE \
+python tools/test.py configs/hrfuser/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod.py /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/work_dirs/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod_epoch_60_batch_size_2_gpu_1/epoch_5.pth \
+        --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/inference/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod_epoch_60_batch_size_2_gpu_1_INFERENCE_16_epoch_5th \
         --eval bbox \
         --show \
-        --show-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/inference/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod_epoch_60_batch_size_8_gpu_4_INFERENCE \
-        --cfg-options data.test.samples_per_gpu=1
+        --show-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/inference/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod_epoch_60_batch_size_2_gpu_1_INFERENCE_16_epoch_5th \
+        --cfg-options data.test.samples_per_gpu=32
 
 echo "[bash] Testing completed..."
 
