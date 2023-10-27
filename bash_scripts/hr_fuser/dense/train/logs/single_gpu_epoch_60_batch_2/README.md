@@ -1,0 +1,3 @@
+- Giving 0 AP after 5 epochs
+    - don't know what happened here?
+- Taking 40 mins for 1 epoch
