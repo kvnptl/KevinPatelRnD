@@ -9,6 +9,11 @@ Note:
 
 ### Pending
 
+- Train again with new learning rate
+    - `--->` Check where to run test_zone or current repo???
+    - LR change according to Linear Scaling Rule
+    - New LR = 0.00125
+    
 - Add LIDAR image to the Dataloader and check performance
 - Check performance with all 10 nuScenes classes
 - Find corresponding image sample in HRFuser nuScenes dataset

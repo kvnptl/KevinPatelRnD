@@ -14,17 +14,17 @@ Run commands:
 
 ### Current
 
-- TIMESTAMP: 26-Oct-2023 16:54
-    - Understand the model architectue of BASE model - [IN-PROGRESS]
-    - Understand the model architectue of DENSE TINY model - [IN-PROGRESS]
-        - Total trainable params?
-        - Model summary, save it
-        - [NOTE] have to use (debug mode) breakpoint in torchinfo code and then make img_metas to 0.0
+- TIMESTAMP: 26-Oct-2023 23:00
+    - Train on DENSE with adjusted learning rate - [IN-PROGRESS]
+        - LR change according to Linear Scaling Rule
+        - New config stf_4mod_epo_60_batch_8_gpu_4_worker_8_lr_0p0006667
 
-- TIMESTAMP: 24-Oct-2023 12:33:00
-    - [DENSE] Training HRFuser tiny model on DENSE dataset - Try 1 - epoch=60 - batch size = 2 - single GPU - [IN-PROGRESS]
-        - After 4 epochs, model AP is 0.0 (WHY????!!)
-        - Restarted this script - [IN-PROGRESS]
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    - [MOST-IMPORTANT] FOUND PROBLEM IN NUSCENES DATASET
+        - LIDAR and RADAR samples are only 404
+        - Even total samples are only 1692 !!?? [impossible]
+        - Only CAM_FRONT images are 40154, then how come lidar and radar samples are low??
+        - NEED TO FIX THIS ASAP!!!!
 
 ##################################################################################
 
@@ -50,6 +50,21 @@ Run commands:
         - saving checkpoints after every 5 epochs
         - Need to udpate results in experiment tracker sheet - DONE
         - Run Test set evaluation - DONE
+
+- TIMESTAMP: 26-Oct-2023 19:19
+    - Understand the model architectue of BASE model - DONE
+    - Understand the model architectue of DENSE TINY model - DONE
+        - Total trainable params?
+        - Model summary, save it
+        - [NOTE] have to use (debug mode) breakpoint in torchinfo.py code (line 227) and then make `img_metas` to 0.0
+            - Change `"justMyCode": false` in launch.json file VSCode
+            - FILE: `/home/kpatel2s/anaconda3/envs/hrfuser-cuda102-torch110-mmcv-full-1317/lib/python3.8/site-packages/torchinfo/torchinfo.py`
+
+- TIMESTAMP: 26-Oct-2023 22:39
+    - [DENSE] Training HRFuser tiny model on DENSE dataset - Try 1 - epoch=60 - batch size = 2 - single GPU - [IN-PROGRESS]
+        - After 4 epochs, model AP is 0.0 (WHY????!!)
+        - Restarted this script - DONE
+        - Running inference - DONE
 
 ---------------------------------------------------------------------------
 
