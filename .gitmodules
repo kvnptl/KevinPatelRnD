@@ -4,6 +4,3 @@
 [submodule "hrfuser"]
 	path = hrfuser
 	url = git@github.com:kvnptl/HRFuser.git
-[submodule "mt_detr"]
-	path = mt_detr
-	url = git@github.com:kvnptl/MT-DETR.git
