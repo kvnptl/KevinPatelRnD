@@ -15,11 +15,15 @@ Run commands:
 ### Current
 
 - TIMESTAMP: 29-Oct-2023 05:02
-    - Train Tiny HRFuser model on nuScenes - batch=4 - gpu=1 - [IN-PROGRESS]
-    - Train Tiny HRFuser model on nuScenes - batch=12 - Slurm Multi Node - gpus=4 - FAILED
-        - Failed dur to CUDA memory error
-        - Need to reduce batch size
-    - Train Tiny HRFuser model on nuScenes - batch=8 - Slurm Multi Node - gpus=4 - [IN-PROGRESS]
+    - [nuScenes] Train Tiny HRFuser model on nuScenes - batch=4 - gpu=1 - [IN-PROGRESS]
+    - [nuScenes] Train Tiny HRFuser model on nuScenes - batch=12 - gpu=4 - [IN-PROGRESS]
+    - [nuScenes] Test Tiny HRFuser model on nuScenes with provided weights - samples=64 - [IN-PROGRESS]
+
+    - [DENSE] Train Tiny HRFuser model on DENSE - batch=2 - gpu=1 - [IN-PROGRESS]
+        - With adjusted learning rate
+    - [DENSE] Train Tiny HRFuser model on DENSE - batch=12 - gpu=4 - A100 - [IN-PROGRESS]
+        - With orig settings
+
 
 
 ##################################################################################
@@ -38,6 +42,17 @@ Run commands:
 ##################################################################################
 
 ### DONE
+
+
+- TIMESTAMP: 29-Oct-2023 17:13
+    - [nuScenes] Train Tiny HRFuser model on nuScenes - batch=12 - Slurm Multi Node - gpus=4 - FAILED
+        - Failed dur to CUDA memory error
+        - Need to reduce batch size
+    - [nuScenes] Train Tiny HRFuser model on nuScenes - batch=12 - cores=64 - Slurm Multi Node - gpus=4 - [IN-PROGRESS]
+        - Failed dur to CUDA memory error
+        - Giving up on this approach now.
+
+--------------------------------------------------------------------------------
 
 - TIMESTAMP: 28-Oct-2023 23:42
     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

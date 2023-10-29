@@ -14,11 +14,9 @@ Run commands:
 
 ### Current
 
-- TIMESTAMP: 28-Oct-2023 01:23
-    - [IMPORTANT] FIRST CONVERT LIDAR AND RADAR pointcloud to RGB images - [IN-PROGRESS]
 
 - TIMESTAMP: 28-Oct-2023 01:23
-    - Test on provided weights - [IN-PROGRESS]
+    - Test on provided weights - [PENDING]
         - camera only with weather - DONE
             - Need to update results in experiment tracker sheet - DONE
         - camera + lidar + radar with weather - [PENDING]
@@ -47,9 +45,10 @@ Run commands:
 
 ### DONE
 
---------------------------------------------------------------------------------
-
-- TIMESTAMP: 26-Oct-2023 03:16 (it took me straight 8 hours to complete!!!!!!)
+- TIMESTAMP: 28-Oct-2023 01:23
+    - [IMPORTANT] FIRST CONVERT LIDAR AND RADAR pointcloud to RGB images - DONE
+        - Missing to convert 54 radar files
+        - So restarted conversion with `all.txt` instead of separate txt files and creating empty radar image when not found
 
 ##################################################################################################
 

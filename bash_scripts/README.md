@@ -28,3 +28,5 @@ sbatch name.sh
 12. Current job queue status, `squeue <jobid>`
 
 13. To kill a job, `scancel <jobid>`
+
+14. To check the current node, `echo `hostname``
