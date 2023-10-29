@@ -15,20 +15,25 @@ Run commands:
 ### Current
 
 - TIMESTAMP: 28-Oct-2023 01:23
+    - [IMPORTANT] FIRST CONVERT LIDAR AND RADAR pointcloud to RGB images - [IN-PROGRESS]
+
+- TIMESTAMP: 28-Oct-2023 01:23
     - Test on provided weights - [IN-PROGRESS]
-        - camera only
-        - camera only with weather
-        - camera + lidar + radar
-        - camera + lidar + radar with weather
-        - camera + lidar + radar + time
-        - camera + lidar + radar + time + weather
-    - Train camera only model on multi gpu (default settings) - [IN-PROGRESS]
+        - camera only with weather - DONE
+            - Need to update results in experiment tracker sheet - DONE
+        - camera + lidar + radar with weather - [PENDING]
+        - camera + lidar + radar + time + weather - [PENDING]
+    
+    - Train camera only model on multi gpu (default settings) - [PENDING]
+        - Either need to fix conda environment
+        - Need to fix other bugs
 
 
 ##################################################################################
 
 ### Pending
 
+- Divide images into Easy, moderate and Hard categories to match with HRFuser results
 - Project Lidar and Radar image on RGB image for visualization
     - For DENSE and nuScenes
 - Understand Lidar and Radar Image generation - PENDING

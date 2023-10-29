@@ -14,24 +14,19 @@ Run commands:
 
 ### Current
 
-- TIMESTAMP: 26-Oct-2023 23:00
-    - Train on DENSE with adjusted learning rate - DONE
-        - LR change according to Linear Scaling Rule
-        - New config stf_4mod_epo_60_batch_8_gpu_4_worker_8_lr_0p0006667
-        - Test evaluation - [IN-PROGRESS]
+- TIMESTAMP: 29-Oct-2023 05:02
+    - Train Tiny HRFuser model on nuScenes - batch=4 - gpu=1 - [IN-PROGRESS]
+    - Train Tiny HRFuser model on nuScenes - batch=12 - Slurm Multi Node - gpus=4 - FAILED
+        - Failed dur to CUDA memory error
+        - Need to reduce batch size
+    - Train Tiny HRFuser model on nuScenes - batch=8 - Slurm Multi Node - gpus=4 - [IN-PROGRESS]
 
-    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-    - [MOST-IMPORTANT] FOUND PROBLEM IN NUSCENES DATASET
-        - LIDAR and RADAR samples are only 404
-        - Even total samples are only 1692 !!?? [impossible]
-        - Only CAM_FRONT images are 40154, then how come lidar and radar samples are low??
-        - NEED TO FIX THIS ASAP!!!!
-    - nuScenes data conversion started - [IN-PROGRESS]
 
 ##################################################################################
 
 ### Pending
 
+- Check how to store best epoch model based on val loss in MMDetection
 - Project Lidar and Radar image on RGB image for visualization
     - For DENSE and nuScenes
 - Understand Lidar and Radar Image generation - PENDING
@@ -43,6 +38,25 @@ Run commands:
 ##################################################################################
 
 ### DONE
+
+- TIMESTAMP: 28-Oct-2023 23:42
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    - [MOST-IMPORTANT] FOUND PROBLEM IN NUSCENES DATASET
+        - LIDAR and RADAR samples are only 404
+        - Even total samples are only 1692 !!?? [impossible]
+        - Only CAM_FRONT images are 40154, then how come lidar and radar samples are low??
+        - NEED TO FIX THIS ASAP!!!!
+        - [BUG] silly mistake, I didn't convert nuScenes full dataset. I was using mini dataset.
+    - nuScenes data conversion started - DONE
+        - TOOK HH:MM = 22:19 !! 
+
+- TIMESTAMP: 28-Oct-2023 14:00
+    - Train on DENSE with adjusted learning rate - DONE
+        - LR change according to Linear Scaling Rule
+        - New config stf_4mod_epo_60_batch_8_gpu_4_worker_8_lr_0p0006667
+        - Test evaluation - DONE
+        - Need to udpate results in experiment tracker sheet - DONE
+
 
 --------------------------------------------------------------------------------
 
@@ -177,6 +191,13 @@ Run commands:
 ### Bug fixes in mmcv-full 1.3.17
 
 - File: /home/kpatel2s/anaconda3/envs/hrfuser-cuda102-torch110-mmcv-full-1317/lib/python3.8/site-packages/mmcv/utils/config.py
+    - Error:
+    ```bash
+        FormatCode() got an unexpected keyword argument 'verify'
+    TypeError: FormatCode() got an unexpected keyword argument 'verify'
+        text, _ = FormatCode(text, style_config=yapf_style, verify=True)
+    TypeError: FormatCode() got an unexpected keyword argument 'verify'
+    ```
     - Add `import yapf`
     - Add `from .version_utils import digit_version`
     - Repalce `text, _ = FormatCode(text, style_config=yapf_style, verify=True)` with 
