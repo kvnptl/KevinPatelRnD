@@ -1,11 +1,11 @@
 #!/bin/sh
 #SBATCH --partition gpu       # partition (queue)
-#SBATCH --nodes 1                # number of nodes
+#SBATCH --nodes 4                # number of nodes
 #SBATCH --ntasks-per-node=64    # cores
 #SBATCH --mem 180GB               # memory per node in MB (different units with suffix K|M|G|T)
 #SBATCH --time 3-00:00              # total runtime of job allocation (format D-HH:MM)
-#SBATCH --output train_single_gpu_hrfuser_TINY_nuScenes_c_l_r_fusion_epoch_12_batch_12_orig_config_multi_gpu_output.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
-#SBATCH --error train_single_gpu_hrfuser_TINY_nuScenes_c_l_r_fusion_epoch_12_batch_12_orig_config_multi_gpu_output.%j.err  # filename for STDERR
+#SBATCH --output train_hrfuser_TINY_nuScenes_c_l_r_fusion_epoch_12_batch_12_orig_config_multi_node_slurm_gpu_output.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
+#SBATCH --error train_hrfuser_TINY_nuScenes_c_l_r_fusion_epoch_12_batch_12_orig_config_multi_node_slurm_gpu_output.%j.err  # filename for STDERR
 
 # Capture start time
 START_TIME=$(date +%s)
@@ -25,9 +25,12 @@ echo "[bash] Start training HRFuser TINY model on nuScenes dataset..."
 
 echo -e "[bash] --------------------------------------------\n"
 
-python tools/train.py configs/hrfuser/cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion_bn.py \
-                    --seed 8 \
-                    --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/nuscenes/work_dirs/hrfuser_TINY_nuScenes_c_l_r_fusion_epoch_12_batch_3_setting_2_lr_0p000075_single_gpu
+CONFIG="configs/hrfuser/cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion_ver2.py"
+WORK_DIR="/home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/nuscenes/work_dirs/hrfuser_TINY_nuScenes_c_l_r_fusion_epoch_12_batch_8_orig_config_multi_node_gpu_slurm"
+
+srun -p gpu \
+    --job-name=hrfuser_TINY_nuScenes_c_l_r_fusion_epoch_12_batch_12_orig_config_multi_node_gpu \
+    python -u tools/train.py ${CONFIG} --work-dir=${WORK_DIR} --launcher="slurm"
 
 echo "[bash] Training completed..."
 

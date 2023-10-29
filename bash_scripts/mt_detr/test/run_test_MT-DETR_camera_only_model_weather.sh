@@ -4,8 +4,8 @@
 #SBATCH --ntasks-per-node=64    # cores
 #SBATCH --mem 180GB               # memory per node in MB (different units with suffix K|M|G|T)
 #SBATCH --time 0-24:00              # total runtime of job allocation (format D-HH:MM)
-#SBATCH --output test_mt_detr_camera_only_output.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
-#SBATCH --error test_mt_detr_camera_only_output.%j.err  # filename for STDERR
+#SBATCH --output test_mt_detr_camera_only_weather_output.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
+#SBATCH --error test_mt_detr_camera_only_weather_output.%j.err  # filename for STDERR
 
 # Capture start time
 START_TIME=$(date +%s)
