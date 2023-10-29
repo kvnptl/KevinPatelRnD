@@ -1,0 +1,118 @@
+[bash] Loading GCC and CUDA modules...
+[bash] Directory changed to /home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/SeeingThroughFog
+[bash] Conversion of DENSE dataset started...
+[bash] --------------------------------------------
+
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-02-03_22-00-03_00100
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-02-03_22-47-09_00400
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-02-04_18-29-00_00200
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-02-12_16-14-20_00000
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-02-12_16-14-20_00130
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-02-12_16-15-18_00060
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-02-12_16-16-30_00000
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-02-12_17-10-10_00100
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-02-12_18-02-44_00030
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-02-12_18-05-56_00010
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-02-12_18-05-56_00020
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-02-12_18-05-56_00050
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-02-12_18-05-56_00060
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-02-12_18-05-56_00080
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-02-12_18-05-56_00090
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-02-12_18-05-56_00100
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-02-12_18-05-56_00120
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-02-12_18-05-56_00200
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-02-12_18-05-56_00300
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-02-12_18-26-14_00600
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-02-12_18-26-14_01100
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-02-12_18-26-14_01200
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-02-12_18-28-27_00100
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-02-12_18-36-59_00200
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-02-12_18-38-46_00500
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-02-12_18-46-34_00000
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-02-12_18-46-34_00300
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-02-12_18-46-34_00400
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-02-12_18-46-34_00500
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-02-12_18-46-34_01100
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-02-12_18-46-34_01200
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-02-12_18-46-34_01300
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-02-12_18-52-01_00000
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-02-12_18-52-01_00100
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-02-12_19-04-44_00000
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-02-12_19-04-44_00100
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-02-12_19-12-17_00100
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-10-29_15-37-43_01400
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-12-09_10-46-29_00800
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-12-19_10-37-27_01900
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-12-19_10-53-54_00600
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-12-19_10-53-54_00700
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-12-19_10-53-54_00800
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-12-19_10-53-54_00890
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-12-19_10-53-54_00900
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-12-19_10-53-54_00920
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-12-19_10-53-54_00950
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-12-19_10-59-51_00900
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-12-19_10-59-51_01200
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-12-19_10-59-51_02200
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-12-19_10-59-51_02450
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-12-19_10-59-51_02470
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2018-12-19_10-59-51_03200
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2019-01-08_10-29-03_00500
+[MY_ERROR] IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[MY_ERROR] ###### RADAR Error in 2019-01-09_14-50-13_00200
+Done creating lidar and radar images
+[bash] Conversion completed...
+[bash] Total time taken (HH:MM): 01:27

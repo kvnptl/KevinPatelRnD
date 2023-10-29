@@ -2,7 +2,7 @@
 #SBATCH --partition any       # partition (queue)
 #SBATCH --nodes 1                # number of nodes
 #SBATCH --ntasks-per-node=32    # cores
-#SBATCH --mem 20GB               # memory per node in MB (different units with suffix K|M|G|T)
+#SBATCH --mem 10GB               # memory per node in MB (different units with suffix K|M|G|T)
 #SBATCH --time 1-00:00              # total runtime of job allocation (format D-HH:MM)
 #SBATCH --output dense_full_dataset_conversion_output.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
 #SBATCH --error dense_full_dataset_conversion_output.%j.err  # filename for STDERR
