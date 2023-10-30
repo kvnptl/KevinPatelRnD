@@ -15,6 +15,13 @@ Run commands:
 ### Current
 
 
+- TIMESTAMP: 30-Oct-2023 02:54
+    - Training MT-DETR Camera only model - single gpu - batch=1  - [IN-PROGRESS]
+    - Training MT-DETR C+L+R model - multi gpu - batch=1 - [IN-PROGRESS]
+    - Training MT-DETR C+L+R+T model - multi gpu - batch=1 - [IN-PROGRESS]
+    - Training Middle Fusion C+L+R model - multi gpu - batch=1 - [IN-PROGRESS]
+    - Training Early Fusion C+L+R model - multi gpu - batch=1 - [IN-PROGRESS]
+
 - TIMESTAMP: 28-Oct-2023 01:23
     - Test on provided weights - [PENDING]
         - camera only with weather - DONE

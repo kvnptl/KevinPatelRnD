@@ -17,7 +17,6 @@ Run commands:
 - TIMESTAMP: 29-Oct-2023 05:02
     - [nuScenes] Train Tiny HRFuser model on nuScenes - batch=4 - gpu=1 - [IN-PROGRESS]
     - [nuScenes] Train Tiny HRFuser model on nuScenes - batch=12 - gpu=4 - [IN-PROGRESS]
-    - [nuScenes] Test Tiny HRFuser model on nuScenes with provided weights - samples=64 - [IN-PROGRESS]
 
     - [DENSE] Train Tiny HRFuser model on DENSE - batch=2 - gpu=1 - [IN-PROGRESS]
         - With adjusted learning rate
@@ -51,6 +50,10 @@ Run commands:
     - [nuScenes] Train Tiny HRFuser model on nuScenes - batch=12 - cores=64 - Slurm Multi Node - gpus=4 - [IN-PROGRESS]
         - Failed dur to CUDA memory error
         - Giving up on this approach now.
+    - [nuScenes] Test Tiny HRFuser model on nuScenes with prov**ided weights - samples=64 - DONE
+        - Need to udpate results in experiment tracker sheet - DONE
+        - NOT achieving same results as mentioned in the paper
+
 
 --------------------------------------------------------------------------------
 

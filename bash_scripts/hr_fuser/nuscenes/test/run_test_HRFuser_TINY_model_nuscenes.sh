@@ -4,11 +4,17 @@
 #SBATCH --ntasks-per-node=64    # cores
 #SBATCH --mem 180GB               # memory per node in MB (different units with suffix K|M|G|T)
 #SBATCH --time 0-24:00              # total runtime of job allocation (format D-HH:MM)
-#SBATCH --output test_cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion_output.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
-#SBATCH --error test_cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion_output.%j.err  # filename for STDERR
+#SBATCH --output test_hrfuser_TINY_nus_r640_l_r_fusion_output.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
+#SBATCH --error test_hrfuser_TINY_nus_r640_l_r_fusion_output.%j.err  # filename for STDERR
+
+echo "[bash] My HOSTNAME is "
+echo `hostname`
 
 # Capture start time
 START_TIME=$(date +%s)
+
+CURRENT_DATE_TIME=$(date +"%Y-%m-%d_%H-%M-%S")
+echo "[bash] CURRENT_DATE_TIME is ${CURRENT_DATE_TIME}"
 
 echo "[bash] Loading GCC and CUDA modules..."
 
@@ -28,12 +34,12 @@ echo -e "[bash] --------------------------------------------\n"
 #############
 ### NOTE: change checkpoint path accordingly
 #############
-python tools/test.py configs/hrfuser/cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion.py /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/nuscenes/work_dirs/cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion_epoch_60_batch_12_multi_gpu/epoch_60.pth \
-        --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/nuscenes/inference/cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion_epoch_60_batch_12_multi_gpu_INFERENCE \
+python tools/test.py configs/hrfuser/cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion.py /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/datasets/STF_weights/cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion_latest.pth \
+        --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/nuscenes/inference/hrfuser_TINY_nus_r640_l_r_fusion_PROVIDED_INFERENCE_${CURRENT_DATE_TIME}_${SLURM_JOB_ID} \
         --eval bbox \
         --show \
-        --show-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/nuscenes/inference/cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion_epoch_60_batch_12_multi_gpu_INFERENCE \
-        --cfg-options data.test.samples_per_gpu=1
+        --show-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/nuscenes/inference/hrfuser_TINY_nus_r640_l_r_fusion_PROVIDED_INFERENCE_${CURRENT_DATE_TIME}_${SLURM_JOB_ID} \
+        --cfg-options data.test.samples_per_gpu=64
 
 echo "[bash] Testing completed..."
 
