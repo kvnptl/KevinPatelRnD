@@ -33,8 +33,8 @@ weather_list=(test_clear_day test_clear_night light_fog_day light_fog_night dens
 for w in "${weather_list[@]}"
 do
     python tools/test.py \
-        configs/mt_detr/mt_detr_c+l+r.py \
-        checkpoint/model/mt_detr_c+l+r.pth \
+        configs/mt_detr/mt_detr_c+l+r+t.py \
+        checkpoint/model/mt_detr_c+l+r+t.pth \
         --weather ${w} \
         --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/inference/camera_lidar_radar_time_weather_provided \
         --eval bbox \

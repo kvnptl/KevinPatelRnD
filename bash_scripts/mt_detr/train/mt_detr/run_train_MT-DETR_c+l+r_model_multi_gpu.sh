@@ -4,11 +4,17 @@
 #SBATCH --ntasks-per-node=64    # cores
 #SBATCH --mem 180GB               # memory per node in MB (different units with suffix K|M|G|T)
 #SBATCH --time 3-00:00              # total runtime of job allocation (format D-HH:MM)
-#SBATCH --output train_mt_detr_c+l+r_output.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
-#SBATCH --error train_mt_detr_c+l+r_output.%j.err  # filename for STDERR
+#SBATCH --output train_mt_detr_c+l+r_multi_gpu_output.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
+#SBATCH --error train_mt_detr_c+l+r_multi_gpu_output.%j.err  # filename for STDERR
+
+echo "[bash] My HOSTNAME is "
+echo `hostname`
 
 # Capture start time
 START_TIME=$(date +%s)
+
+CURRENT_DATE_TIME=$(date +"%Y-%m-%d_%H-%M-%S")
+echo "[bash] CURRENT_DATE_TIME is ${CURRENT_DATE_TIME}"
 
 echo "[bash] Loading GCC and CUDA modules..."
 
@@ -28,7 +34,7 @@ echo -e "[bash] --------------------------------------------\n"
 tools/dist_train.sh configs/mt_detr/mt_detr_c+l+r.py \
                     4 \
                     --seed 0 \
-                    --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/work_dirs/camera_lidar_radar_multi_gpu
+                    --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/work_dirs/camera_lidar_radar_multi_gpu_${CURRENT_DATE_TIME}_${SLURM_JOB_ID}
 
 
 echo "[bash] Training completed..."
