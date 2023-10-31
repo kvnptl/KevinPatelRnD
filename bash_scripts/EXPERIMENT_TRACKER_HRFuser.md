@@ -36,6 +36,7 @@ Run commands:
     - For DENSE and nuScenes
 - Understand Lidar and Radar Image generation - PENDING
     - Check GitHub issue
+- [Study] model summary
 - Get model summary with single modality
     - For only camera
     - For camera + lidar (understand how to do this?)

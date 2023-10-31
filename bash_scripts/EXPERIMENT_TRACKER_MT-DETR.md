@@ -39,6 +39,7 @@ Run commands:
 - [Learn] from MMDetection on how to print all AP and AR metrics while training on validation set
 - Divide images into Easy, moderate and Hard categories to match with HRFuser results
 - Check experiment tracker sheet for more TODOs
+- [Study] model summary all basic camera only, early fusion, middle fusion, C+L+R fusion
 
 ##################################################################################
 
