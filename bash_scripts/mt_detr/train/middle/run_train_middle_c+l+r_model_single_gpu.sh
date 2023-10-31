@@ -3,12 +3,18 @@
 #SBATCH --nodes 1                # number of nodes
 #SBATCH --ntasks-per-node=64    # cores
 #SBATCH --mem 180GB               # memory per node in MB (different units with suffix K|M|G|T)
-#SBATCH --time 0-24:00              # total runtime of job allocation (format D-HH:MM)
-#SBATCH --output test_mt_detr_c+l+r+t_output.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
-#SBATCH --error test_mt_detr_c+l+r+t_output.%j.err  # filename for STDERR
+#SBATCH --time 3-00:00              # total runtime of job allocation (format D-HH:MM)
+#SBATCH --output train_middle_c+l+r_single_gpu_output.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
+#SBATCH --error train_middle_c+l+r_single_gpu_output.%j.err  # filename for STDERR
+
+echo "[bash] My HOSTNAME is "
+echo `hostname`
 
 # Capture start time
 START_TIME=$(date +%s)
+
+CURRENT_DATE_TIME=$(date +"%Y-%m-%d_%H-%M-%S")
+echo "[bash] CURRENT_DATE_TIME is ${CURRENT_DATE_TIME}"
 
 echo "[bash] Loading GCC and CUDA modules..."
 
@@ -21,23 +27,15 @@ cd /home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr
 
 echo "[bash] Directory changed to $(pwd)"
 
-echo "[bash] Start testing MT-DETR Camera + Lidar + Radar + Time model on DENSE dataset..."
+echo "[bash] Start training MT-DETR Camera + Lidar + Radar model on DENSE dataset..."
 
 echo -e "[bash] --------------------------------------------\n"
 
-#############
-### NOTE: change checkpoint path accordingly
-#############
-python tools/test.py \
-    configs/mt_detr/mt_detr_c+l+r+t.py \
-    checkpoint/model/mt_detr_c+l+r+t.pth \
-    --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/inference/camera_lidar_radar_time_provided \
-        --eval bbox \
-        --show \
-        --show-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/inference/camera_lidar_radar_time_provided \
-        --cfg-options data.test.samples_per_gpu=1
+python tools/train.py \
+    configs/mt_detr/middle_c+l+r.py \
+    --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/work_dirs/middle_fusion/middle_camera_lidar_radar_single_gpu_${CURRENT_DATE_TIME}_${SLURM_JOB_ID}
 
-echo "[bash] Testing completed..."
+echo "[bash] Training completed..."
 
 echo -e "[bash] --------------------------------------------\n"
 

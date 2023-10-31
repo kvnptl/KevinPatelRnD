@@ -4,11 +4,17 @@
 #SBATCH --ntasks-per-node=64    # cores
 #SBATCH --mem 180GB               # memory per node in MB (different units with suffix K|M|G|T)
 #SBATCH --time 0-24:00              # total runtime of job allocation (format D-HH:MM)
-#SBATCH --output test_mt_detr_c+l+r+t_weather_output.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
-#SBATCH --error test_mt_detr_c+l+r+t_weather_output.%j.err  # filename for STDERR
+#SBATCH --output test_mt_detr_camera_only_weather_output.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
+#SBATCH --error test_mt_detr_camera_only_weather_output.%j.err  # filename for STDERR
+
+echo "[bash] My HOSTNAME is "
+echo `hostname`
 
 # Capture start time
 START_TIME=$(date +%s)
+
+CURRENT_DATE_TIME=$(date +"%Y-%m-%d_%H-%M-%S")
+echo "[bash] CURRENT_DATE_TIME is ${CURRENT_DATE_TIME}"
 
 echo "[bash] Loading GCC and CUDA modules..."
 
@@ -21,7 +27,7 @@ cd /home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr
 
 echo "[bash] Directory changed to $(pwd)"
 
-echo "[bash] Start testing MT-DETR Camera + Lidar + Radar + Time with Weather model on DENSE dataset..."
+echo "[bash] Start testing MT-DETR Camera only model on DENSE dataset..."
 
 echo -e "[bash] --------------------------------------------\n"
 
@@ -33,14 +39,14 @@ weather_list=(test_clear_day test_clear_night light_fog_day light_fog_night dens
 for w in "${weather_list[@]}"
 do
     python tools/test.py \
-        configs/mt_detr/mt_detr_c+l+r+t.py \
-        checkpoint/model/mt_detr_c+l+r+t.pth \
+        configs/mt_detr/camera_only.py \
+        /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/work_dirs/camera_only_single_gpu_2023-10-30_01-45-05_214240/epoch_36.pth \
         --weather ${w} \
-        --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/inference/camera_lidar_radar_time_weather_provided \
+        --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/inference/camera_only_single_gpu_2023-10-30_01-45-05_214240_${CURRENT_DATE_TIME}_${SLURM_JOB_ID} \
         --eval bbox \
         --show \
-        --show-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/inference/camera_lidar_radar_time_weather_provided \
-        --cfg-options data.test.samples_per_gpu=1
+        --show-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/inference/camera_only_single_gpu_2023-10-30_01-45-05_214240_${CURRENT_DATE_TIME}_${SLURM_JOB_ID} \
+        --cfg-options data.test.samples_per_gpu=32
 done
 
 echo "[bash] Testing completed..."
