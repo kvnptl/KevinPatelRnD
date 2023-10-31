@@ -38,19 +38,21 @@ Run commands:
 - HOW TO GET groundtruth data?
 - [Learn] from MMDetection on how to print all AP and AR metrics while training on validation set
 - Divide images into Easy, moderate and Hard categories to match with HRFuser results
-- Project Lidar and Radar image on RGB image for visualization
-    - For DENSE and nuScenes
-- Understand Lidar and Radar Image generation - PENDING
-    - Check GitHub issue
-- Get model summary with single modality
-    - For only camera
-    - For camera + lidar (understand how to do this?)
-    - For camera + radar
 - Check experiment tracker sheet for more TODOs
 
 ##################################################################################
 
 ### DONE
+
+- TIMESTAMP: 31-Oct-2023 05:19
+    - Get model summary with single modality
+        - For only camera - DONE
+        - For camera + lidar - DONE
+        - For camera + radar - DONE
+        - Check there are total 9 model summaries - DONE
+
+
+--------------------------------------------------------------------------------------------
 
 - TIMESTAMP: 30-Oct-2023 22:23
     - Training MT-DETR Camera only model - single gpu - batch=1  - DONE
@@ -76,6 +78,9 @@ Run commands:
     - [IMPORTANT] FIRST CONVERT LIDAR AND RADAR pointcloud to RGB images - DONE
         - Missing to convert 54 radar files
         - So restarted conversion with `all.txt` instead of separate txt files and creating empty radar image when not found
+    - Project Lidar and Radar image on RGB image for visualization - DONE
+        - For DENSE
+    - Understand Lidar and Radar Image generation - DONE
 
 ##################################################################################################
 
