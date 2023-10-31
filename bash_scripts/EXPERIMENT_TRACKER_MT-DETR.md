@@ -15,29 +15,28 @@ Run commands:
 ### Current
 
 
-- TIMESTAMP: 30-Oct-2023 02:54
-    - Training MT-DETR Camera only model - single gpu - batch=1  - [IN-PROGRESS]
+- TIMESTAMP: 30-Oct-2023 02:54    
     - Training MT-DETR C+L+R model - multi gpu - batch=1 - [IN-PROGRESS]
     - Training MT-DETR C+L+R+T model - multi gpu - batch=1 - [IN-PROGRESS]
-    - Training Middle Fusion C+L+R model - multi gpu - batch=1 - [IN-PROGRESS]
-    - Training Early Fusion C+L+R model - multi gpu - batch=1 - [IN-PROGRESS]
+    
+    - Training Middle Fusion C+L+R model - single gpu - batch=1 - [IN-PROGRESS]
+    
 
 - TIMESTAMP: 28-Oct-2023 01:23
     - Test on provided weights - [PENDING]
         - camera only with weather - DONE
             - Need to update results in experiment tracker sheet - DONE
         - camera + lidar + radar with weather - [PENDING]
+            - [ERROR] with config file, need to fix - DONE
         - camera + lidar + radar + time + weather - [PENDING]
-    
-    - Train camera only model on multi gpu (default settings) - [PENDING]
-        - Either need to fix conda environment
-        - Need to fix other bugs
 
 
 ##################################################################################
 
 ### Pending
 
+- HOW TO GET groundtruth data?
+- [Learn] from MMDetection on how to print all AP and AR metrics while training on validation set
 - Divide images into Easy, moderate and Hard categories to match with HRFuser results
 - Project Lidar and Radar image on RGB image for visualization
     - For DENSE and nuScenes
@@ -47,10 +46,31 @@ Run commands:
     - For only camera
     - For camera + lidar (understand how to do this?)
     - For camera + radar
+- Check experiment tracker sheet for more TODOs
 
 ##################################################################################
 
 ### DONE
+
+- TIMESTAMP: 30-Oct-2023 22:23
+    - Training MT-DETR Camera only model - single gpu - batch=1  - DONE
+        - Need to update results in experiment tracker sheet - DONE
+        - Running evaluation on TEST SET - DONE
+            - Need to update results in experiment tracker sheet - DONE
+
+    - Training Early Fusion C+L+R model - single gpu - batch=1 - DONE
+        - Running evaluation on TEST SET - DONE
+        - Need to update results in experiment tracker sheet - DONE
+
+-----------------------------------------------------------------------------------------------------------------------
+
+- TIMESTAMP: 29-Oct-2023 01:23
+    - Train camera only model on multi gpu (default settings)
+        - Either need to fix conda environment - DONE
+            - Reinstall without apex installation - DONE
+
+
+-----------------------------------------------------------------------------------------------------------------------
 
 - TIMESTAMP: 28-Oct-2023 01:23
     - [IMPORTANT] FIRST CONVERT LIDAR AND RADAR pointcloud to RGB images - DONE

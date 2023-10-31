@@ -18,6 +18,7 @@ Note:
 - Check performance with all 10 nuScenes classes
 - Find corresponding image sample in HRFuser nuScenes dataset
     - For better comparison
+- Check experiment tracker sheet for more TODOs
 
 ### DONE
 

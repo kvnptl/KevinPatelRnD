@@ -17,6 +17,8 @@ Run commands:
 - TIMESTAMP: 29-Oct-2023 05:02
     - [nuScenes] Train Tiny HRFuser model on nuScenes - batch=4 - gpu=1 - [IN-PROGRESS]
     - [nuScenes] Train Tiny HRFuser model on nuScenes - batch=12 - gpu=4 - [IN-PROGRESS]
+        - !!! SOMETHING WRONG WITH THE CONFIG FILE !!!!!! [Re-train]
+        - It uses 16 batch size and LR rate of batch size 4 !!!!!!!
 
     - [DENSE] Train Tiny HRFuser model on DENSE - batch=2 - gpu=1 - [IN-PROGRESS]
         - With adjusted learning rate
@@ -38,6 +40,7 @@ Run commands:
     - For only camera
     - For camera + lidar (understand how to do this?)
     - For camera + radar
+- Check experiment tracker sheet for more TODOs
 ##################################################################################
 
 ### DONE
