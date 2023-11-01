@@ -33,7 +33,7 @@ echo -e "[bash] --------------------------------------------\n"
 
 python tools/train.py \
     configs/mt_detr/mt_detr_c+l+r.py \
-    --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/work_dirs/camera_lidar_radar_multi_gpu_${CURRENT_DATE_TIME}_${SLURM_JOB_ID}
+    --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/work_dirs/camera_lidar_radar_single_gpu_${CURRENT_DATE_TIME}_${SLURM_JOB_ID}
 
 echo "[bash] Training completed..."
 
