@@ -1,11 +1,11 @@
 #!/bin/sh
-#SBATCH --partition gpu4       # partition (queue)
+#SBATCH --partition gpu4test       # partition (queue)
 #SBATCH --nodes 1                # number of nodes
 #SBATCH --ntasks-per-node=64    # cores
-#SBATCH --mem 180GB               # memory per node in MB (different units with suffix K|M|G|T)
+#SBATCH --mem 480GB               # memory per node in MB (different units with suffix K|M|G|T)
 #SBATCH --time 3-00:00              # total runtime of job allocation (format D-HH:MM)
-#SBATCH --output train_mt_detr_c+l+r_multi_gpu_output.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
-#SBATCH --error train_mt_detr_c+l+r_multi_gpu_output.%j.err  # filename for STDERR
+#SBATCH --output train_mt_detr_c+l+r_multi_single_A100_gpu_output.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
+#SBATCH --error train_mt_detr_c+l+r_multi_single_A100_gpu_output.%j.err  # filename for STDERR
 
 echo "[bash] My HOSTNAME is "
 echo `hostname`
@@ -31,11 +31,9 @@ echo "[bash] Start training MT-DETR Camera + Lidar + Radar model on DENSE datase
 
 echo -e "[bash] --------------------------------------------\n"
 
-tools/dist_train.sh configs/mt_detr/mt_detr_c+l+r.py \
-                    4 \
-                    --seed 0 \
-                    --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/work_dirs/camera_lidar_radar_multi_gpu_${CURRENT_DATE_TIME}_${SLURM_JOB_ID}
-
+python tools/train.py \
+    configs/mt_detr/mt_detr_c+l+r.py \
+    --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/work_dirs/camera_lidar_radar_single_multi_single_A100_gpu_${CURRENT_DATE_TIME}_${SLURM_JOB_ID}
 
 echo "[bash] Training completed..."
 
