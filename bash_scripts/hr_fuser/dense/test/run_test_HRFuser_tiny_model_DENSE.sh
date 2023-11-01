@@ -1,14 +1,20 @@
 #!/bin/sh
-#SBATCH --partition wr14       # partition (queue)
+#SBATCH --partition gpu       # partition (queue)
 #SBATCH --nodes 1                # number of nodes
-#SBATCH --ntasks-per-node=48    # cores
-#SBATCH --mem 100GB               # memory per node in MB (different units with suffix K|M|G|T)
+#SBATCH --ntasks-per-node=64    # cores
+#SBATCH --mem 180GB               # memory per node in MB (different units with suffix K|M|G|T)
 #SBATCH --time 0-24:00              # total runtime of job allocation (format D-HH:MM)
-#SBATCH --output test_cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion_output.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
-#SBATCH --error test_cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion_output.%j.err  # filename for STDERR
+#SBATCH --output test_hrfuser_TINY_dense_r640_l_r_fusion_output.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
+#SBATCH --error test_hrfuser_TINY_dense_r640_l_r_fusion_output.%j.err  # filename for STDERR
+
+echo "[bash] My HOSTNAME is "
+echo `hostname`
 
 # Capture start time
 START_TIME=$(date +%s)
+
+CURRENT_DATE_TIME=$(date +"%Y-%m-%d_%H-%M-%S")
+echo "[bash] CURRENT_DATE_TIME is ${CURRENT_DATE_TIME}"
 
 echo "[bash] Loading GCC and CUDA modules..."
 
@@ -28,12 +34,12 @@ echo -e "[bash] --------------------------------------------\n"
 #############
 ### NOTE: change checkpoint path accordingly
 #############
-python tools/test.py configs/hrfuser/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod.py /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/work_dirs/stf_4mod_epo_60_batch_8_gpu_4_worker_8_lr_0p0006667/epoch_60.pth \
-        --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/inference/stf_4mod_epo_60_batch_8_gpu_4_worker_8_lr_0p0006667_INFERENCE_32_epoch_60th \
+python tools/test.py configs/hrfuser/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod_settings3.py /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/work_dirs/hrfuser_TINY_stf_r1248_4mod_epoch_60_batch_2_lr_0p000016667_gpu_1_2023-10-29_17-41-12_214206/epoch_59.pth \
+        --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/inference/hrfuser_TINY_stf_r1248_4mod_epoch_60_batch_2_lr_0p000016667_gpu_1_2023-10-29_17-41-12_214206_${CURRENT_DATE_TIME}_${SLURM_JOB_ID} \
         --eval bbox \
         --show \
-        --show-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/inference/stf_4mod_epo_60_batch_8_gpu_4_worker_8_lr_0p0006667_INFERENCE_32_epoch_60th \
-        --cfg-options data.test.samples_per_gpu=1
+        --show-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/inference/hrfuser_TINY_stf_r1248_4mod_epoch_60_batch_2_lr_0p000016667_gpu_1_2023-10-29_17-41-12_214206_${CURRENT_DATE_TIME}_${SLURM_JOB_ID} \
+        --cfg-options data.test.samples_per_gpu=16
 
 echo "[bash] Testing completed..."
 

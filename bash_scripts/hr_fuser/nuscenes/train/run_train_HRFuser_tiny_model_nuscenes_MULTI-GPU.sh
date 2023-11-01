@@ -7,8 +7,14 @@
 #SBATCH --output train_hrfuser_TINY_nuScenes_c_l_r_fusion_epoch_12_batch_12_orig_config_multi_gpu_output.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
 #SBATCH --error train_hrfuser_TINY_nuScenes_c_l_r_fusion_epoch_12_batch_12_orig_config_multi_gpu_output.%j.err  # filename for STDERR
 
+echo "[bash] My HOSTNAME is "
+echo `hostname`
+
 # Capture start time
 START_TIME=$(date +%s)
+
+CURRENT_DATE_TIME=$(date +"%Y-%m-%d_%H-%M-%S")
+echo "[bash] CURRENT_DATE_TIME is ${CURRENT_DATE_TIME}"
 
 echo "[bash] Loading GCC and CUDA modules..."
 
@@ -25,10 +31,10 @@ echo "[bash] Start training HRFuser TINY model on nuScenes dataset..."
 
 echo -e "[bash] --------------------------------------------\n"
 
-tools/dist_train.sh configs/hrfuser/cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion.py \
+tools/dist_train.sh configs/hrfuser/cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion_orig.py \
                     4 \
                     --seed 8 \
-                    --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/nuscenes/work_dirs/hrfuser_TINY_nuScenes_c_l_r_fusion_epoch_12_batch_12_orig_config_multi_gpu 
+                    --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/nuscenes/work_dirs/hrfuser_TINY_nuScenes_c_l_r_fusion_epoch_12_batch_12_orig_config_multi_gpu_${CURRENT_DATE_TIME}_${SLURM_JOB_ID}
 
 echo "[bash] Training completed..."
 

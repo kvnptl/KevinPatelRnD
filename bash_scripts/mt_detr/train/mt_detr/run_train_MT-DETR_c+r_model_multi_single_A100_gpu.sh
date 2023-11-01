@@ -7,6 +7,10 @@
 #SBATCH --output train_mt_detr_c+r_multi_single_A100_gpu_output.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
 #SBATCH --error train_mt_detr_c+r_multi_single_A100_gpu_output.%j.err  # filename for STDERR
 
+export MODULEPATH=/usr/local/modules/modulesfiles_8:$MODULEPATH
+. /etc/profile.d/modules.sh
+. /usr/local/etc/profile
+
 echo "[bash] My HOSTNAME is "
 echo `hostname`
 

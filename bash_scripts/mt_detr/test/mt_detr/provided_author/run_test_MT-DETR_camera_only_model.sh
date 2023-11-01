@@ -42,10 +42,10 @@ do
         configs/mt_detr/camera_only.py \
         checkpoint/model/camera_only.pth \
         --weather ${w} \
-        --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/inference/camera_only_single_gpu_2023-10-30_01-45-05_214240_${CURRENT_DATE_TIME}_${SLURM_JOB_ID} \
+        --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/inference/camera_only_single_gpu_${CURRENT_DATE_TIME}_${SLURM_JOB_ID} \
         --eval bbox \
         --show \
-        --show-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/inference/camera_only_single_gpu_2023-10-30_01-45-05_214240_${CURRENT_DATE_TIME}_${SLURM_JOB_ID} \
+        --show-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/inference/camera_only_single_gpu_${CURRENT_DATE_TIME}_${SLURM_JOB_ID} \
         --cfg-options data.test.samples_per_gpu=32
 done
 
