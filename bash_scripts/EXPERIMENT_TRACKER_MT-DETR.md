@@ -19,22 +19,23 @@ Run commands:
         - Train MT-DETR C+L+R model - single A100 gpu - batch=1 - [IN-PROGRESS]
         - Train MT-DETR C+R model - single A100 gpu - batch=1 - [IN-PROGRESS]
 
-- TIMESTAMP: 31-Oct-2023 14:40    
-    - Training MT-DETR C+L+R model - multi gpu - batch=1 - [IN-PROGRESS]
-    - Training MT-DETR C+L+R+T model - multi gpu - batch=1 - [IN-PROGRESS]
-    
-    - Training Middle Fusion C+L+R model - single gpu - batch=1 - [Failed]
-        - CUDA memory error
-    - Training Middle Fusion C+L+R model - multi gpu - batch=1 - [IN-PROGRESS]
-    
+    - [MT-DETR]
+        - Train MT-DETR C+L+R model - single A100 gpu - batch=1 - [IN-PROGRESS]
+        - Train MT-DETR C+L+R+T model - single A100 gpu - batch=1 - [IN-PROGRESS]
+        - Train MT-DETR C+R model - single A100 gpu - batch=1 - [IN-PROGRESS]
+        - Train MT-DETR C+L model - single A100 gpu - batch=1 - [IN-PROGRESS]
+
+    - [Early]
+        - Train Early Fusion C+R model - single gpu - batch=1 - [IN-PROGRESS]
 
 - TIMESTAMP: 28-Oct-2023 01:23
     - Test on provided weights - [PENDING]
         - camera only with weather - DONE
             - Need to update results in experiment tracker sheet - DONE
-        - camera + lidar + radar with weather - [PENDING]
+        - camera + lidar + radar with weather - [IN-PROGRESS]
             - [ERROR] with config file, need to fix - DONE
-        - camera + lidar + radar + time + weather - [PENDING]
+        - camera + lidar + radar + time + weather - DONE
+            - Need to update results in experiment tracker sheet - DONE
 
 
 ##################################################################################
@@ -57,6 +58,12 @@ Run commands:
         - For camera + lidar - DONE
         - For camera + radar - DONE
         - Check there are total 9 model summaries - DONE
+    - Training Middle Fusion C+L+R model - single gpu - batch=1 - [Failed]
+        - CUDA memory error on V100
+    - Training Middle Fusion C+L+R model - multi gpu - batch=1 - [Failed]
+        - CUDA memory error on V100
+    - Training MT-DETR C+L+R model - multi gpu - batch=1 - [Failed]
+    - Training MT-DETR C+L+R+T model - multi gpu - batch=1 - [Failed]
 
 
 --------------------------------------------------------------------------------------------

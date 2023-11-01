@@ -19,15 +19,15 @@ Run commands:
         - Train Tiny HRFuser model on DENSE - orig setting - batch=12 - multi A100 gpu - [IN-PROGRESS]
             - With orig settings
 
-- TIMESTAMP: 29-Oct-2023 05:02
-    - [nuScenes] Train Tiny HRFuser model on nuScenes - batch=4 - gpu=1 - [IN-PROGRESS]
-    - [nuScenes] Train Tiny HRFuser model on nuScenes - batch=12 - gpu=4 - DONE
+    - [nuScenes] Train Tiny HRFuser model on nuScenes - batch=12 - gpu=4 - [IN-PROGRESS]
         - !!! SOMETHING WRONG WITH THE CONFIG FILE !!!!!! [Re-train]
         - It uses 16 batch size and LR rate of batch size 4 !!!!!!!
-        - Need to update results in experiment tracker sheet - [PENDING]
+        - Need to update results in experiment tracker sheet - NOT UPDATING THIS ONE
+        - STARTED RE-TRAINING [IN-PROGRESS]
 
-    - [DENSE] Train Tiny HRFuser model on DENSE - batch=2 - gpu=1 - [IN-PROGRESS]
+    - [DENSE] Train Tiny HRFuser model on DENSE - batch=2 - gpu=1 - DONE
         - With adjusted learning rate
+        - Running test set evaluation - [IN-PROGRESS]
 
 
 
@@ -51,6 +51,11 @@ Run commands:
 
 ### DONE
 
+- TIMESTAMP: 31-Oct-2023 05:02
+    - [nuScenes] Train Tiny HRFuser model on nuScenes - batch=4 - gpu=1 - STOPPED
+        - Couldn't finish in 3 days
+
+--------------------------------------------------------------------------------------
 
 - TIMESTAMP: 29-Oct-2023 17:13
     - [nuScenes] Train Tiny HRFuser model on nuScenes - batch=12 - Slurm Multi Node - gpus=4 - FAILED
