@@ -1,12 +1,11 @@
 #!/bin/sh
 #SBATCH --partition gpu4test       # partition (queue)
-#SBATCH --nodelist=wr25
 #SBATCH --nodes 1                # number of nodes
 #SBATCH --ntasks-per-node=64    # cores
 #SBATCH --mem 480GB               # memory per node in MB (different units with suffix K|M|G|T)
 #SBATCH --time 3-00:00              # total runtime of job allocation (format D-HH:MM)
-#SBATCH --output train_multi_A100_gpu_epochs_60_batch_size_12_lr_0p_hrfuser_TINY_Dense_r640_l_r_fusion_output.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
-#SBATCH --error train_multi_A100_gpu_epochs_60_batch_size_12_lr_0p_hrfuser_TINY_Dense_r640_l_r_fusion_output.%j.err  # filename for STDERR
+#SBATCH --output train_hrfuser_TINY_stf_r1248_4mod_orig_setting_A100_gpu_4__output.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
+#SBATCH --error train_hrfuser_TINY_stf_r1248_4mod_orig_setting_A100_gpu_4__output.%j.err  # filename for STDERR
 
 export MODULEPATH=/usr/local/modules/modulesfiles_8:$MODULEPATH
 . /etc/profile.d/modules.sh
@@ -36,9 +35,10 @@ echo "[bash] Start training HRFuser TINY model on DENSE dataset..."
 
 echo -e "[bash] --------------------------------------------\n"
 
-python tools/train.py configs/hrfuser/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod_ver2.py \
-                    --seed 8 \
-                    --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/work_dirs/hrfuser_TINY_stf_r1248_4mod_epoch_60_batch_2_lr_0p001_A100_gpu_4_${CURRENT_DATE_TIME}_${SLURM_JOB_ID} 
+tools/dist_train.sh configs/hrfuser/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod_orig.py \
+                    4 \
+                    --seed 0 \
+                    --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/work_dirs/hrfuser_TINY_stf_r1248_4mod_orig_setting_A100_gpu_4_${CURRENT_DATE_TIME}_${SLURM_JOB_ID} 
 
 echo "[bash] Training completed..."
 

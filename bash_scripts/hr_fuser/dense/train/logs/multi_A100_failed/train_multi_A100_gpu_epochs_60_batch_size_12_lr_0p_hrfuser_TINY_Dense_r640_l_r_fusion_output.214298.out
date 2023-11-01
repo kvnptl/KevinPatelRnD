@@ -1,0 +1,14 @@
+[bash] My HOSTNAME is 
+wr25
+[bash] CURRENT_DATE_TIME is 2023-11-01_03-34-27
+[bash] Loading GCC and CUDA modules...
+[bash] Directory changed to /home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/hrfuser
+[bash] Start training HRFuser TINY model on DENSE dataset...
+[bash] --------------------------------------------
+
+(img, img_metas, return_loss=True, **kwargs)
+Generating model summary...
+[bash] Training completed...
+[bash] --------------------------------------------
+
+[bash] Total time taken (HH:MM): 00:00
