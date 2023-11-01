@@ -30,6 +30,7 @@ echo "[bash] Directory changed to $(pwd)"
 echo "[bash] Start training MT-DETR Camera + Lidar + Radar model on DENSE dataset..."
 
 echo -e "[bash] --------------------------------------------\n"
+export OMP_NUM_THREADS=4
 
 tools/dist_train.sh configs/mt_detr/middle_c+l+r.py \
                     4 \
