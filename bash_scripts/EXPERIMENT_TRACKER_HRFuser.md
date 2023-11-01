@@ -14,16 +14,21 @@ Run commands:
 
 ### Current
 
+- TIMESTAMP: 1-Nov-2023 21:45
+    - [DENSE]
+        - Train Tiny HRFuser model on DENSE - orig setting - batch=12 - multi A100 gpu - [IN-PROGRESS]
+            - With orig settings
+
 - TIMESTAMP: 29-Oct-2023 05:02
     - [nuScenes] Train Tiny HRFuser model on nuScenes - batch=4 - gpu=1 - [IN-PROGRESS]
-    - [nuScenes] Train Tiny HRFuser model on nuScenes - batch=12 - gpu=4 - [IN-PROGRESS]
+    - [nuScenes] Train Tiny HRFuser model on nuScenes - batch=12 - gpu=4 - DONE
         - !!! SOMETHING WRONG WITH THE CONFIG FILE !!!!!! [Re-train]
         - It uses 16 batch size and LR rate of batch size 4 !!!!!!!
+        - Need to update results in experiment tracker sheet - [PENDING]
 
     - [DENSE] Train Tiny HRFuser model on DENSE - batch=2 - gpu=1 - [IN-PROGRESS]
         - With adjusted learning rate
-    - [DENSE] Train Tiny HRFuser model on DENSE - batch=12 - gpu=4 - A100 - [IN-PROGRESS]
-        - With orig settings
+
 
 
 

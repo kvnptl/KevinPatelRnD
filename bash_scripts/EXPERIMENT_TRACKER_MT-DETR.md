@@ -14,12 +14,18 @@ Run commands:
 
 ### Current
 
+- TIMESTAMP: 1-Nov-2023 21:40
+    - [Middle]
+        - Train MT-DETR C+L+R model - single A100 gpu - batch=1 - [IN-PROGRESS]
+        - Train MT-DETR C+R model - single A100 gpu - batch=1 - [IN-PROGRESS]
 
-- TIMESTAMP: 30-Oct-2023 02:54    
+- TIMESTAMP: 31-Oct-2023 14:40    
     - Training MT-DETR C+L+R model - multi gpu - batch=1 - [IN-PROGRESS]
     - Training MT-DETR C+L+R+T model - multi gpu - batch=1 - [IN-PROGRESS]
     
-    - Training Middle Fusion C+L+R model - single gpu - batch=1 - [IN-PROGRESS]
+    - Training Middle Fusion C+L+R model - single gpu - batch=1 - [Failed]
+        - CUDA memory error
+    - Training Middle Fusion C+L+R model - multi gpu - batch=1 - [IN-PROGRESS]
     
 
 - TIMESTAMP: 28-Oct-2023 01:23
