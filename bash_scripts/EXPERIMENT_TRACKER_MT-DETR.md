@@ -14,7 +14,7 @@ pip install mmcv-full==1.3.17 -f https://download.openmmlab.com/mmcv/dist/cu102/
 pip install torch==1.10.0+cu102 torchvision==0.11.0+cu102 torchaudio==0.10.0 -f https://download.pytorch.org/whl/torch_stable.html
 pip install tensorboard==2.14.0 setuptools==59.5.0
 pip install numpy==1.20.0 cython==3.0.4 tqdm
-conda install scikit-learn
+conda install scikit-learn scipy
 pip install -v -e .
 ```
 
@@ -40,7 +40,9 @@ NOTE: For A100 GPU, use `pip install torch==1.10.1+cu111 torchvision==0.11.2+cu1
 - TIMESTAMP: 1-Nov-2023 21:40
     - [Middle]
         - Train MT-DETR C+L+R model - single A100 gpu - batch=1 - [IN-PROGRESS]
-        - Train MT-DETR C+R model - single A100 gpu - batch=1 - [IN-PROGRESS]
+        - Train MT-DETR C+R model - single A100 gpu - batch=1 - DONE
+            - Need to update results in experiment tracker sheet - DONE
+            - Running evaluation on TEST SET - [IN-PROGRESS]
 
     - [MT-DETR]
         - Train MT-DETR C+L+R model - single A100 gpu - batch=1 - [IN-PROGRESS]
@@ -49,7 +51,9 @@ NOTE: For A100 GPU, use `pip install torch==1.10.1+cu111 torchvision==0.11.2+cu1
         - Train MT-DETR C+L model - single A100 gpu - batch=1 - [IN-PROGRESS]
 
     - [Early]
-        - Train Early Fusion C+R model - single gpu - batch=1 - [IN-PROGRESS]
+        - Train Early Fusion C+R model - single gpu - batch=1 - DONE
+        - Evaluation pending - [IN-PROGRESS]
+
 
 - TIMESTAMP: 28-Oct-2023 01:23
     - Test on provided weights - [PENDING]
