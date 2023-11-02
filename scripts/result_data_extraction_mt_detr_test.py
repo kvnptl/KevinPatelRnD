@@ -1,6 +1,6 @@
 import re
 
-test_log_file = "/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/bash_scripts/mt_detr/test/early_fusion/test_early_c+l+r_output.214294.out"
+test_log_file = "/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/bash_scripts/mt_detr/test/mt_detr/provided_author/test_mt_detr_c+l+r_output.214433.out"
 
 # Read the text file
 with open(test_log_file, "r") as f:

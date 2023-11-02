@@ -1,0 +1,12 @@
+[bash] My HOSTNAME is 
+wr25
+[bash] CURRENT_DATE_TIME is 2023-11-02_10-17-12
+[bash] Loading GCC and CUDA modules...
+[bash] Directory changed to /home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr
+[bash] Start training MT-DETR Camera + Radar model on DENSE dataset...
+[bash] --------------------------------------------
+
+[bash] Training completed...
+[bash] --------------------------------------------
+
+[bash] Total time taken (HH:MM): 00:00

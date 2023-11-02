@@ -34,12 +34,12 @@ echo -e "[bash] --------------------------------------------\n"
 #############
 ### NOTE: change checkpoint path accordingly
 #############
-python tools/test.py configs/hrfuser/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod_settings3.py /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/work_dirs/hrfuser_TINY_stf_r1248_4mod_epoch_60_batch_2_lr_0p000016667_gpu_1_2023-10-29_17-41-12_214206/epoch_59.pth \
-        --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/inference/hrfuser_TINY_stf_r1248_4mod_epoch_60_batch_2_lr_0p000016667_gpu_1_2023-10-29_17-41-12_214206_${CURRENT_DATE_TIME}_${SLURM_JOB_ID} \
+python tools/test.py configs/hrfuser/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod_settings3.py /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/datasets/STF_weights/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod_latest.pth \
+        --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/inference/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod_latest_provided_GT_enabled_${CURRENT_DATE_TIME}_${SLURM_JOB_ID} \
         --eval bbox \
         --show \
-        --show-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/inference/hrfuser_TINY_stf_r1248_4mod_epoch_60_batch_2_lr_0p000016667_gpu_1_2023-10-29_17-41-12_214206_${CURRENT_DATE_TIME}_${SLURM_JOB_ID} \
-        --cfg-options data.test.samples_per_gpu=16
+        --show-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/inference/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod_latest_provided_GT_enabled_${CURRENT_DATE_TIME}_${SLURM_JOB_ID} \
+        --cfg-options data.test.samples_per_gpu=32 # 214449 job is with 16
 
 echo "[bash] Testing completed..."
 

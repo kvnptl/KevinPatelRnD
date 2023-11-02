@@ -4,8 +4,8 @@
 #SBATCH --ntasks-per-node=64    # cores
 #SBATCH --mem 180GB               # memory per node in MB (different units with suffix K|M|G|T)
 #SBATCH --time 0-24:00              # total runtime of job allocation (format D-HH:MM)
-#SBATCH --output test_enable_GT_true_mt_detr_camera_only_weather_output.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
-#SBATCH --error test_enable_GT_true_mt_detr_camera_only_weather_output.%j.err  # filename for STDERR
+#SBATCH --output test_middle_c+r_output.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
+#SBATCH --error test_middle_c+r_output.%j.err  # filename for STDERR
 
 echo "[bash] My HOSTNAME is "
 echo `hostname`
@@ -27,7 +27,7 @@ cd /home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr
 
 echo "[bash] Directory changed to $(pwd)"
 
-echo "[bash] Start testing MT-DETR Camera only model on DENSE dataset..."
+echo "[bash] Start testing middle Camera + Radar model on DENSE dataset..."
 
 echo -e "[bash] --------------------------------------------\n"
 
@@ -39,14 +39,14 @@ weather_list=(test_clear_day test_clear_night light_fog_day light_fog_night dens
 for w in "${weather_list[@]}"
 do
     python tools/test.py \
-        configs/mt_detr/camera_only.py \
-        checkpoint/model/camera_only.pth \
+        configs/mt_detr/middle_c+r.py \
+        /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/work_dirs/middle_fusion/middle_camera_radar_single_A100_gpu_2023-11-02_10-58-03_214467/epoch_36.pth \
         --weather ${w} \
-        --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/inference/camera_only_single_gpu_GT_enable_provided_${CURRENT_DATE_TIME}_${SLURM_JOB_ID} \
+        --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/inference/middle_fusion/middle_camera_radar_single_A100_gpu_2023-11-02_10-58-03_214467_${CURRENT_DATE_TIME}_${SLURM_JOB_ID} \
         --eval bbox \
         --show \
-        --show-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/inference/camera_only_single_gpu_GT_enable_provided_${CURRENT_DATE_TIME}_${SLURM_JOB_ID} \
-        --cfg-options data.test.samples_per_gpu=32
+        --show-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/inference/middle_fusion/middle_camera_radar_single_A100_gpu_2023-11-02_10-58-03_214467_${CURRENT_DATE_TIME}_${SLURM_JOB_ID} \
+        --cfg-options data.test.samples_per_gpu=16
 done
 
 echo "[bash] Testing completed..."

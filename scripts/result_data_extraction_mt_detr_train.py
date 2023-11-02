@@ -1,6 +1,13 @@
+"""
+Analyze only MT_DETR Training JSON file
+"""
+
+
 import json
 import os
 from collections import defaultdict
+
+JSON_LOG_PATH = '/home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/work_dirs/middle_fusion/middle_camera_radar_single_A100_gpu_2023-11-02_10-58-03_214467/20231102_105811.log.json'
 
 def extract_from_config(config_str):
     import re
@@ -120,7 +127,6 @@ def load_json_logs(json_logs):
         f.write("\n")
         json.dump(append_dict, f)
 
-JSON_LOG_PATH = '/home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/work_dirs/early_fusion/early_camera_lidar_radar_single_gpu_2023-10-30_03-28-55_214253/20231030_032911.log.json'
 
 # check if JSON_LOG_PATH exists and it's json
 if not os.path.exists(JSON_LOG_PATH) or not JSON_LOG_PATH.endswith('.json'):
