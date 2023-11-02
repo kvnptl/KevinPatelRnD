@@ -16,17 +16,17 @@ Run commands:
 
 - TIMESTAMP: 1-Nov-2023 21:45
     - [DENSE]
-        - Train Tiny HRFuser model on DENSE - orig setting - batch=12 - multi A100 gpu - [IN-PROGRESS]
+        - Train Tiny HRFuser model on DENSE - orig setting - batch=12 - multi A100 gpu - [PENDING]
             - With orig settings
             - Remeber to copy only car category
             - FAILED DUE TO CUDA VERSION ERROR 
             - [NEED TO INSTALL CUDA 11.1] $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
-    - [nuScenes] Train Tiny HRFuser model on nuScenes - batch=12 - gpu=4 - [IN-PROGRESS]
+    - [nuScenes] Train Tiny HRFuser model on nuScenes - batch=12 - gpu=4 - [RUNNING]
         - !!! SOMETHING WRONG WITH THE CONFIG FILE !!!!!! [Re-train]
         - It uses 16 batch size and LR rate of batch size 4 !!!!!!!
         - Need to update results in experiment tracker sheet - NOT UPDATING THIS ONE
-        - STARTED RE-TRAINING [IN-PROGRESS]
+        - STARTED RE-TRAINING [RUNNING]
 
 
 ##################################################################################

@@ -39,36 +39,30 @@ NOTE: For A100 GPU, use `pip install torch==1.10.1+cu111 torchvision==0.11.2+cu1
 
 - TIMESTAMP: 1-Nov-2023 21:40
     - [Middle]
-        - Train MT-DETR C+L+R model - single A100 gpu - batch=1 - [IN-PROGRESS]
+        - Train MT-DETR C+L+R model - single A100 gpu - batch=1 - [RUNNING]
         - Train MT-DETR C+R model - single A100 gpu - batch=1 - DONE
             - Need to update results in experiment tracker sheet - DONE
-            - Running evaluation on TEST SET - [IN-PROGRESS]
+            - Running evaluation on TEST SET - [RUNNING]
 
     - [MT-DETR]
-        - Train MT-DETR C+L+R model - single A100 gpu - batch=1 - [IN-PROGRESS]
-        - Train MT-DETR C+L+R+T model - single A100 gpu - batch=1 - [IN-PROGRESS]
-        - Train MT-DETR C+R model - single A100 gpu - batch=1 - [IN-PROGRESS]
-        - Train MT-DETR C+L model - single A100 gpu - batch=1 - [IN-PROGRESS]
+        - Train MT-DETR C+L+R model - single A100 gpu - batch=1 - [QUEUED]
+        - Train MT-DETR C+L+R+T model - single A100 gpu - batch=1 - [QUEUED]
+        - Train MT-DETR C+R model - single A100 gpu - batch=1 - [RUNNING]
+            - [NOTE] this model is working on WORK LAB PC
+            - check progress tmux `tmt-detr-2`
+        - Train MT-DETR C+L model - single A100 gpu - batch=1 - [RUNNING]
+            - [NOTE] this model is working on WORK LAB PC
+            - check progress tmux `tmt-detr-1`
 
     - [Early]
         - Train Early Fusion C+R model - single gpu - batch=1 - DONE
-        - Evaluation pending - [IN-PROGRESS]
-
-
-- TIMESTAMP: 28-Oct-2023 01:23
-    - Test on provided weights - [PENDING]
-        - camera only with weather - DONE
-            - Need to update results in experiment tracker sheet - DONE
-        - camera + lidar + radar with weather - [IN-PROGRESS]
-            - [ERROR] with config file, need to fix - DONE
-        - camera + lidar + radar + time + weather - DONE
-            - Need to update results in experiment tracker sheet - DONE
-
+        - Evaluation pending - [RUNNING]
 
 ##################################################################################
 
 ### Pending
 
+- On early fusion C+R, try to reduce input image size and compare compute and memory usage
 - How to generate KITTI style easy, moderate, and hard categories? (take reference from HRFuser)
 - Read the MT-DETR paper again
 - HOW TO GET groundtruth data?
@@ -80,6 +74,19 @@ NOTE: For A100 GPU, use `pip install torch==1.10.1+cu111 torchvision==0.11.2+cu1
 ##################################################################################
 
 ### DONE
+
+
+- TIMESTAMP: 2-Nov-2023 01:23
+    - Test on provided weights - DONE
+        - camera only with weather - DONE
+            - Need to update results in experiment tracker sheet - DONE
+        - camera + lidar + radar with weather - DONE
+            - [ERROR] with config file, need to fix - DONE
+        - camera + lidar + radar + time + weather - DONE
+            - Need to update results in experiment tracker sheet - DONE
+
+
+---------------------------------------------------------------------------------------
 
 - TIMESTAMP: 31-Oct-2023 05:19
     - Get model summary with single modality
