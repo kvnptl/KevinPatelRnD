@@ -22,12 +22,12 @@ echo "[bash] CURRENT_DATE_TIME is ${CURRENT_DATE_TIME}"
 
 echo "[bash] Loading GCC and CUDA modules..."
 
-module load gcc/10.1.0 cuda/10.2
+module load gcc/10.1.0 cuda/11.2
 
 . "/home/kpatel2s/anaconda3/etc/profile.d/conda.sh"
-conda activate mt_detr
+conda activate mt_detr-cuda11p1
 
-cd /home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr
+cd /home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr_cuda11p1
 
 echo "[bash] Directory changed to $(pwd)"
 
