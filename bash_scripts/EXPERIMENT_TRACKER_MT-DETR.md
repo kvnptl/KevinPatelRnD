@@ -6,13 +6,36 @@ Note:
 
 [Experiment Tracker sheet: https://docs.google.com/spreadsheets/d/1m2jxf0A0iqpwQYJDxDnoZ1-XZ8W_OqSWHnVe_a6aSKY/edit?pli=1#gid=11409550]
 
+# Setup
+
 Run commands:
-- pip install mmcv-full==1.3.17 -f https://download.openmmlab.com/mmcv/dist/cu102/torch1.10.0/index.html
-- pip install torch==1.10.0+cu102 torchvision==0.11.0+cu102 torchaudio==0.10.0 -f https://download.pytorch.org/whl/torch_stable.html
+```bash
+pip install mmcv-full==1.3.17 -f https://download.openmmlab.com/mmcv/dist/cu102/torch1.10.0/index.html
+pip install torch==1.10.0+cu102 torchvision==0.11.0+cu102 torchaudio==0.10.0 -f https://download.pytorch.org/whl/torch_stable.html
+pip install tensorboard==2.14.0 setuptools==59.5.0
+pip install numpy==1.20.0 cython==3.0.4 tqdm
+conda install scikit-learn
+pip install -v -e .
+```
+
+NOTE: For A100 GPU, use `pip install torch==1.10.1+cu111 torchvision==0.11.2+cu111 torchaudio==0.10.1 -f https://download.pytorch.org/whl/cu111/torch_stable.html` and `pip install mmcv-full==1.3.17 -f https://download.openmmlab.com/mmcv/dist/cu111/torch1.10.0/index.html`
+
+### Step 2:
+
+- Add MT_DETR as a submodule `git submodule add git@github.com:kvnptl/MT-DETR.git mt_detr_cuda11p1`
+- Create symbolic links for dataset and checkpoints
+- Create dataset for time modality `cd data` and `python create_time_data.py`
 
 ###############################################################################
 
 ### Current
+
+- TIMESTAMP: 2-Nov-2023 5:24
+    - Try train once on Work Lab PC
+        - Testing on camera only works - DONE
+        - Try training camera only model - DONE
+        - Try Middle Fusion C+L+R model - [PENDING]
+
 
 - TIMESTAMP: 1-Nov-2023 21:40
     - [Middle]
@@ -42,6 +65,8 @@ Run commands:
 
 ### Pending
 
+- How to generate KITTI style easy, moderate, and hard categories? (take reference from HRFuser)
+- Read the MT-DETR paper again
 - HOW TO GET groundtruth data?
 - [Learn] from MMDetection on how to print all AP and AR metrics while training on validation set
 - Divide images into Easy, moderate and Hard categories to match with HRFuser results
@@ -100,7 +125,7 @@ Run commands:
 
 ### Bug fixes in mmcv-full 1.3.17
 
-- File: /home/kpatel2s/anaconda3/envs/hrfuser-cuda102-torch110-mmcv-full-1317/lib/python3.8/site-packages/mmcv/utils/config.py
+- File: `/home/kpatel2s/anaconda3/envs/hrfuser-cuda102-torch110-mmcv-full-1317/lib/python3.8/site-packages/mmcv/utils/config.py`
     - Add `import yapf`
     - Add `from .version_utils import digit_version`
     - Repalce `text, _ = FormatCode(text, style_config=yapf_style, verify=True)` with 

@@ -18,6 +18,7 @@ Run commands:
     - [DENSE]
         - Train Tiny HRFuser model on DENSE - orig setting - batch=12 - multi A100 gpu - [IN-PROGRESS]
             - With orig settings
+            - Remeber to copy only car category
 
     - [nuScenes] Train Tiny HRFuser model on nuScenes - batch=12 - gpu=4 - [IN-PROGRESS]
         - !!! SOMETHING WRONG WITH THE CONFIG FILE !!!!!! [Re-train]
@@ -25,17 +26,15 @@ Run commands:
         - Need to update results in experiment tracker sheet - NOT UPDATING THIS ONE
         - STARTED RE-TRAINING [IN-PROGRESS]
 
-    - [DENSE] Train Tiny HRFuser model on DENSE - batch=2 - gpu=1 - DONE
-        - With adjusted learning rate
-        - Running test set evaluation - [IN-PROGRESS]
-
-
-
 
 ##################################################################################
 
 ### Pending
 
+- Replace all results with CAR ONLY RESULTS
+- How to generate KITTI style easy, moderate, and hard categories? (debug trough test.py and find out)
+- Read the HRFuser paper again
+- How to get ground truth data?
 - Check how to store best epoch model based on val loss in MMDetection
 - Project Lidar and Radar image on RGB image for visualization
     - For DENSE and nuScenes
@@ -50,6 +49,14 @@ Run commands:
 ##################################################################################
 
 ### DONE
+
+- TIMESTAMP: 2-Nov-2023 5:45
+    - [DENSE] Train Tiny HRFuser model on DENSE - batch=2 - gpu=1 - DONE
+        - With adjusted learning rate
+        - Running test set evaluation - DONE
+        - Need to update results in experiment tracker sheet - DONE
+
+---------------------------------------------------------------------------------------
 
 - TIMESTAMP: 31-Oct-2023 05:02
     - [nuScenes] Train Tiny HRFuser model on nuScenes - batch=4 - gpu=1 - STOPPED
