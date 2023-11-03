@@ -7,7 +7,7 @@ import json
 import os
 from collections import defaultdict
 
-JSON_LOG_PATH = '/home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/work_dirs/middle_fusion/middle_camera_radar_single_A100_gpu_2023-11-02_10-58-03_214467/20231102_105811.log.json'
+JSON_LOG_PATH = '/home/kpatel2s/kpatel2s/a_data_storage_link/kpatel2s_datasets/mt_detr/work_dirs/mt_detr_c+l_single_gpu_2023-11-02_23-48-06/20231102_234811.log.json'
 
 def extract_from_config(config_str):
     import re
@@ -81,12 +81,24 @@ def load_json_logs(json_logs):
         
         # Check for training mode in the same best_epoch
         if 'mode' in metrics and 'train' in metrics['mode'] and epoch == best_epoch:
-            last_train_iter_loss_details = {
-                'loss_cls': metrics.get('loss_cls', [None])[-1],
-                'loss_bbox': metrics.get('loss_bbox', [None])[-1],
-                'loss_iou': metrics.get('loss_iou', [None])[-1],
-                'loss': metrics.get('loss', [None])[-1]
-            }
+            if metrics.get('loss_cls', [None])[-1]:
+                last_train_iter_loss_details = {
+                    'loss_cls': metrics.get('loss_cls', [None])[-1],
+                    'loss_bbox': metrics.get('loss_bbox', [None])[-1],
+                    'loss_iou': metrics.get('loss_iou', [None])[-1],
+                    'loss': metrics.get('loss', [None])[-1]
+                }
+                mt_detr_fusion_flag = False
+            elif metrics.get('loss_cls1', [None])[-1]:
+                last_train_iter_loss_details = {
+                    'loss_cls1': metrics.get('loss_cls1', [None])[-1],
+                    'loss_bbox1': metrics.get('loss_bbox1', [None])[-1],
+                    'loss_iou1': metrics.get('loss_iou1', [None])[-1],
+                    'loss': metrics.get('loss', [None])[-1]
+                }
+                mt_detr_fusion_flag = True
+            else:
+                exit("[ERROR] !!!No loss_cls or loss_cls1 found in metrics")
 
     # Output the results
     # if extracted_config:
@@ -117,14 +129,17 @@ def load_json_logs(json_logs):
         append_dict["bbox_mAP_copypaste"] = bbox_mAP_copypaste
 
     if last_train_iter_loss_details:
-        keys_order = ['loss', 'loss_cls', 'loss_bbox', 'loss_iou']
+        if mt_detr_fusion_flag:
+            keys_order = ['loss', 'loss_cls1', 'loss_bbox1', 'loss_iou1']
+        else:
+            keys_order = ['loss', 'loss_cls', 'loss_bbox', 'loss_iou']
         keys = ', '.join([f"'{k}'" for k in keys_order])
         values = ', '.join([f"{last_train_iter_loss_details[k]}" for k in keys_order])
         last_train_iter_loss_details_str = f"{{{keys}: {values}}}"
         print(f"Last training iteration losses in the same epoch: {last_train_iter_loss_details_str}")
         append_dict["Last_train_iter_loss_details"] = last_train_iter_loss_details_str
 
-    # # Append the results to the JSON file
+    # Append the results to the JSON file
     with open(JSON_LOG_PATH, 'a') as f:
         f.write("\n")
         json.dump(append_dict, f)
