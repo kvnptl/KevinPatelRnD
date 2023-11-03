@@ -89,28 +89,30 @@ def load_json_logs(json_logs):
             }
 
     # Output the results
-    if extracted_config:
-        print(f"Extracted config: {extracted_config}")
-    print(f"Best bbox_mAP: {best_bbox_mAP} at epoch: {best_epoch}")
-    if bbox_mAP_copypaste:
-        print(f"bbox_mAP_copypaste: {bbox_mAP_copypaste}")
-    if last_train_iter_loss_details:
-        keys_order = ['loss', 'loss_cls', 'loss_bbox', 'loss_iou']
-        keys = ', '.join([f"'{k}'" for k in keys_order])
-        values = ', '.join([f"{last_train_iter_loss_details[k]}" for k in keys_order])
-        print(f"Last training iteration losses in the same epoch: {{{keys}: {values}}}")
+    # if extracted_config:
+    #     print(f"Extracted config: {extracted_config}")
+    # print(f"Best bbox_mAP: {best_bbox_mAP} at epoch: {best_epoch}")
+    # if bbox_mAP_copypaste:
+    #     print(f"bbox_mAP_copypaste: {bbox_mAP_copypaste}")
+    # if last_train_iter_loss_details:
+    #     keys_order = ['loss', 'loss_cls', 'loss_bbox', 'loss_iou']
+    #     keys = ', '.join([f"'{k}'" for k in keys_order])
+    #     values = ', '.join([f"{last_train_iter_loss_details[k]}" for k in keys_order])
+        # print(f"Last training iteration losses in the same epoch: {{{keys}: {values}}}")
 
     # Output the results and prepare the dictionary to append
     append_dict = {}
     if extracted_config:
-        print(f"Extracted config: {extracted_config}")
+        # print(f"Extracted config: {extracted_config}")
         append_dict["Extracted_config"] = extracted_config
 
-    print(f"Best bbox_mAP: {best_bbox_mAP} at epoch: {best_epoch}")
+    # print(f"Best bbox_mAP: {best_bbox_mAP} at epoch: {best_epoch}")
     append_dict["Best_bbox_mAP"] = best_bbox_mAP
     append_dict["Best_epoch"] = best_epoch
 
     if bbox_mAP_copypaste:
+        bbox_mAP_copypaste = ' '.join(bbox_mAP_copypaste)
+        bbox_mAP_copypaste = [round(float(i)*100, 2) for i in bbox_mAP_copypaste.split(" ")]
         print(f"bbox_mAP_copypaste: {bbox_mAP_copypaste}")
         append_dict["bbox_mAP_copypaste"] = bbox_mAP_copypaste
 
@@ -122,7 +124,7 @@ def load_json_logs(json_logs):
         print(f"Last training iteration losses in the same epoch: {last_train_iter_loss_details_str}")
         append_dict["Last_train_iter_loss_details"] = last_train_iter_loss_details_str
 
-    # Append the results to the JSON file
+    # # Append the results to the JSON file
     with open(JSON_LOG_PATH, 'a') as f:
         f.write("\n")
         json.dump(append_dict, f)
