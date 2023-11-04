@@ -30,33 +30,17 @@ NOTE: For A100 GPU, use `pip install torch==1.10.1+cu111 torchvision==0.11.2+cu1
 
 ### Current
 
-- TIMESTAMP: 2-Nov-2023 5:24
-    - Try train once on Work Lab PC
-        - Testing on camera only works - DONE
-        - Try training camera only model - DONE
-        - Try Middle Fusion C+L+R model - [PENDING]
 
-
-- TIMESTAMP: 1-Nov-2023 21:40
-    - [Middle]
-        - Train MT-DETR C+L+R model - single A100 gpu - batch=1 - [RUNNING]
-        - Train MT-DETR C+R model - single A100 gpu - batch=1 - DONE
-            - Need to update results in experiment tracker sheet - DONE
-            - Running evaluation on TEST SET - [RUNNING]
+- TIMESTAMP: 3-Nov-2023 21:40
 
     - [MT-DETR]
-        - Train MT-DETR C+L+R model - single A100 gpu - batch=1 - [QUEUED]
-        - Train MT-DETR C+L+R+T model - single A100 gpu - batch=1 - [QUEUED]
-        - Train MT-DETR C+R model - single A100 gpu - batch=1 - [RUNNING]
+        - Train MT-DETR C+L+R+T model - single A100 gpu - batch=1 - DONE
+            - Running evaluation on TEST SET - [RUNNING]
+        - Train MT-DETR C+R model - single A100 gpu - batch=1 - [QUEUED]
             - [NOTE] this model is working on WORK LAB PC
             - check progress tmux `tmt-detr-2`
-        - Train MT-DETR C+L model - single A100 gpu - batch=1 - [RUNNING]
-            - [NOTE] this model is working on WORK LAB PC
-            - check progress tmux `tmt-detr-1`
-
-    - [Early]
-        - Train Early Fusion C+R model - single gpu - batch=1 - DONE
-        - Evaluation pending - [RUNNING]
+            - CUDA Error on 3090 GPU
+            - Need to train on A100 only - [RUNNING]
 
 ##################################################################################
 
@@ -75,7 +59,28 @@ NOTE: For A100 GPU, use `pip install torch==1.10.1+cu111 torchvision==0.11.2+cu1
 
 ### DONE
 
+- TIMESTAMP: 4-Nov-2023 23:12
+    - [MT-DETR]
+        - Train MT-DETR C+L+R model - single A100 gpu - batch=1 - DONE
+        - Train MT-DETR C+L model - single A100 gpu - batch=1 - DONE
+            - [NOTE] this model is working on WORK LAB PC
+            - check progress tmux `tmt-detr-1`
+            - Running evaluation on TEST SET - DONE
+    - [Middle]
+        - Train MT-DETR C+L+R model - single A100 gpu - batch=1 - DONE
+            - Running evaluation on TEST SET - DONE
 
+----------------------------------------------------------------------------
+- TIMESTAMP: 3-Nov-2023 20:23
+    - [Early]
+        - Train Early Fusion C+R model - single gpu - batch=1 - DONE
+        - Evaluation pending - DONE
+    - [Middle]
+        - Train MT-DETR C+R model - single A100 gpu - batch=1 - DONE
+            - Need to update results in experiment tracker sheet - DONE
+            - Running evaluation on TEST SET - DONE
+
+---------------------------------------------------------------------------------------
 - TIMESTAMP: 2-Nov-2023 01:23
     - Test on provided weights - DONE
         - camera only with weather - DONE
@@ -85,6 +90,10 @@ NOTE: For A100 GPU, use `pip install torch==1.10.1+cu111 torchvision==0.11.2+cu1
         - camera + lidar + radar + time + weather - DONE
             - Need to update results in experiment tracker sheet - DONE
 
+    - Try train once on Work Lab PC
+        - Testing on camera only works - DONE
+        - Try training camera only model - DONE
+        - Try Middle Fusion C+L+R model - DONE
 
 ---------------------------------------------------------------------------------------
 

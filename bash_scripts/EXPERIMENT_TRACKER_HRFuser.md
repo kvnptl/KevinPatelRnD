@@ -22,12 +22,6 @@ Run commands:
             - FAILED DUE TO CUDA VERSION ERROR 
             - [NEED TO INSTALL CUDA 11.1] $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
-    - [nuScenes] Train Tiny HRFuser model on nuScenes - batch=12 - gpu=4 - [RUNNING]
-        - !!! SOMETHING WRONG WITH THE CONFIG FILE !!!!!! [Re-train]
-        - It uses 16 batch size and LR rate of batch size 4 !!!!!!!
-        - Need to update results in experiment tracker sheet - NOT UPDATING THIS ONE
-        - STARTED RE-TRAINING [RUNNING]
-
 
 ##################################################################################
 
@@ -51,6 +45,16 @@ Run commands:
 ##################################################################################
 
 ### DONE
+
+- TIMESTAMP: 4-Nov-2023 23:12
+    - [nuScenes] Train Tiny HRFuser model on nuScenes - batch=12 - gpu=4 - DONE
+        - !!! SOMETHING WRONG WITH THE CONFIG FILE !!!!!! [Re-train]
+        - It uses 16 batch size and LR rate of batch size 4 !!!!!!!
+        - Need to update results in experiment tracker sheet - NOT UPDATING THIS ONE
+        - STARTED RE-TRAINING - DONE
+            - Evaluation on TEST SET - DONE
+
+--------------------------------------------------------------------------------------
 
 - TIMESTAMP: 2-Nov-2023 5:45
     - [DENSE] Train Tiny HRFuser model on DENSE - batch=2 - gpu=1 - DONE
