@@ -44,6 +44,9 @@ NOTE: For A100 GPU, use `pip install torch==1.10.1+cu111 torchvision==0.11.2+cu1
 
 ### Pending
 
+- Recalculate all model summaries with a large depth value
+    - As depth value matters for total multi-adds calculations
+    - Once done add a column in exp-tracker for total multi-adds
 - On early fusion C+R, try to reduce input image size and compare compute and memory usage
 - How to generate KITTI style easy, moderate, and hard categories? (take reference from HRFuser)
 - Read the MT-DETR paper again
