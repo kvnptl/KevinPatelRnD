@@ -34,8 +34,6 @@ NOTE: For A100 GPU, use `pip install torch==1.10.1+cu111 torchvision==0.11.2+cu1
 - TIMESTAMP: 3-Nov-2023 21:40
 
     - [MT-DETR]
-        - Train MT-DETR C+L+R+T model - single A100 gpu - batch=1 - DONE
-            - Running evaluation on TEST SET - [RUNNING]
         - Train MT-DETR C+R model - single A100 gpu - batch=1 - [QUEUED]
             - [NOTE] this model is working on WORK LAB PC
             - check progress tmux `tmt-detr-2`
@@ -65,6 +63,8 @@ NOTE: For A100 GPU, use `pip install torch==1.10.1+cu111 torchvision==0.11.2+cu1
         - Train MT-DETR C+L model - single A100 gpu - batch=1 - DONE
             - [NOTE] this model is working on WORK LAB PC
             - check progress tmux `tmt-detr-1`
+            - Running evaluation on TEST SET - DONE
+        - Train MT-DETR C+L+R+T model - single A100 gpu - batch=1 - DONE
             - Running evaluation on TEST SET - DONE
     - [Middle]
         - Train MT-DETR C+L+R model - single A100 gpu - batch=1 - DONE
