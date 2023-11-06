@@ -31,15 +31,6 @@ NOTE: For A100 GPU, use `pip install torch==1.10.1+cu111 torchvision==0.11.2+cu1
 ### Current
 
 
-- TIMESTAMP: 3-Nov-2023 21:40
-
-    - [MT-DETR]
-        - Train MT-DETR C+R model - single A100 gpu - batch=1 - [QUEUED]
-            - [NOTE] this model is working on WORK LAB PC
-            - check progress tmux `tmt-detr-2`
-            - CUDA Error on 3090 GPU
-            - Need to train on A100 only - [RUNNING]
-
 ##################################################################################
 
 ### Pending
@@ -60,6 +51,16 @@ NOTE: For A100 GPU, use `pip install torch==1.10.1+cu111 torchvision==0.11.2+cu1
 
 ### DONE
 
+- TIMESTAMP: 7-Nov-2023 23:12
+    - [MT-DETR]
+        - Train MT-DETR C+R model - single A100 gpu - batch=1 - DONE
+            - [NOTE] this model is working on WORK LAB PC
+            - check progress tmux `tmt-detr-2`
+            - CUDA Error on 3090 GPU
+            - Need to train on A100 only - DONE
+                - Running evaluation on TEST SET - DONE
+
+-------------------------------------------------------------------------------------
 - TIMESTAMP: 4-Nov-2023 23:12
     - [MT-DETR]
         - Train MT-DETR C+L+R model - single A100 gpu - batch=1 - DONE
