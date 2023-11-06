@@ -2,11 +2,11 @@
 #SBATCH --partition gpu4test       # partition (queue)
 #SBATCH --nodelist=wr25
 #SBATCH --nodes 1                # number of nodes
-#SBATCH --ntasks-per-node=64    # cores
-#SBATCH --mem 480GB               # memory per node in MB (different units with suffix K|M|G|T)
+#SBATCH --ntasks-per-node=32    # cores
+#SBATCH --mem 240GB               # memory per node in MB (different units with suffix K|M|G|T)
 #SBATCH --time 3-00:00              # total runtime of job allocation (format D-HH:MM)
-#SBATCH --output train_mt_detr_c+r_multi_single_A100_gpu_output.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
-#SBATCH --error train_mt_detr_c+r_multi_single_A100_gpu_output.%j.err  # filename for STDERR
+#SBATCH --output train_mt_detr_c+l+r_multi_single_A100_gpu_output.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
+#SBATCH --error train_mt_detr_c+l+r_multi_single_A100_gpu_output.%j.err  # filename for STDERR
 
 export MODULEPATH=/usr/local/modules/modulesfiles_8:$MODULEPATH
 . /etc/profile.d/modules.sh
@@ -32,14 +32,13 @@ cd /home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr_cuda11p1
 
 echo "[bash] Directory changed to $(pwd)"
 
-echo "[bash] Start training MT-DETR Camera + Radar model on DENSE dataset..."
+echo "[bash] Start training MT-DETR Camera + Lidar + Radar model on DENSE dataset..."
 
 echo -e "[bash] --------------------------------------------\n"
 
 python tools/train.py \
-    configs/mt_detr/mt_detr_c+r.py \
-    --gpu-ids 1 \
-    --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/work_dirs/camera_radar_multi_single_A100_gpu_${CURRENT_DATE_TIME}_${SLURM_JOB_ID}
+    configs/mt_detr/mt_detr_c+l+r.py \
+    --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/work_dirs/camera_lidar_radar_single_multi_single_A100_gpu_${CURRENT_DATE_TIME}_${SLURM_JOB_ID}
 
 echo "[bash] Training completed..."
 
