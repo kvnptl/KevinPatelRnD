@@ -26,6 +26,16 @@ pip install -v -e .
 
 ### Current
 
+- TIMESTAMP: 10-Nov-2023 17:55
+- [DENSE]
+    - Train Tiny HRFuser model on DENSE - orig setting - batch=12 - multi A100 gpu - [RUNNING]
+        - With orig settings
+        - Remeber to copy only car category
+        - FAILED DUE TO CUDA VERSION ERROR
+        - [NEED TO INSTALL CUDA 11.1] - DONE
+        - Training started on A100 GPU - [RUNNING]
+
+
 - TIMESTAMP: 9-Nov-2023 23:55
     - Convert final results into COCO style format - [IN-PROGRESS]
     - Command for running test on modified dataset config for DENSE dataset:
@@ -53,12 +63,7 @@ pip install -v -e .
     - For camera + lidar (understand how to do this?)
     - For camera + radar
 - Check experiment tracker sheet for more TODOs
-- [DENSE]
-    - Train Tiny HRFuser model on DENSE - orig setting - batch=12 - multi A100 gpu - [PENDING]
-        - With orig settings
-        - Remeber to copy only car category
-        - FAILED DUE TO CUDA VERSION ERROR 
-        - [NEED TO INSTALL CUDA 11.1] $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
 ##################################################################################
 
 ### DONE

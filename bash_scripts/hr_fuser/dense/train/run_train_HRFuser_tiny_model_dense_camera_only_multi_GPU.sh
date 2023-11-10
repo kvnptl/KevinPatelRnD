@@ -1,18 +1,11 @@
 #!/bin/sh
-#SBATCH --partition gpu4test       # partition (queue)
+#SBATCH --partition gpu4       # partition (queue)
 #SBATCH --nodes 1                # number of nodes
 #SBATCH --ntasks-per-node=64    # cores
-#SBATCH --mem 480GB               # memory per node in MB (different units with suffix K|M|G|T)
+#SBATCH --mem 180GB               # memory per node in MB (different units with suffix K|M|G|T)
 #SBATCH --time 3-00:00              # total runtime of job allocation (format D-HH:MM)
-#SBATCH --output train_hrfuser_TINY_stf_r1248_4mod_orig_setting_A100_gpu_4_output.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
-#SBATCH --error train_hrfuser_TINY_stf_r1248_4mod_orig_setting_A100_gpu_4_output.%j.err  # filename for STDERR
-
-export MODULEPATH=/usr/local/modules/modulesfiles_8:$MODULEPATH
-. /etc/profile.d/modules.sh
-. /usr/local/etc/profile
-
-echo "[bash] My HOSTNAME is "
-echo `hostname`
+#SBATCH --output train_hrfuser_TINY_stf_r1248_camera_only_orig_setting_multi_gpu_4.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
+#SBATCH --error train_hrfuser_TINY_stf_r1248_camera_only_orig_setting_multi_gpu_4.%j.err  # filename for STDERR
 
 # Capture start time
 START_TIME=$(date +%s)
@@ -27,7 +20,7 @@ module load gcc/10.1.0 cuda/11.2
 . "/home/kpatel2s/anaconda3/etc/profile.d/conda.sh"
 conda activate hrfuser-cuda11p1
 
-cd /home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/hrfuser
+cd /home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/hrfuser_cuda11p1
 
 echo "[bash] Directory changed to $(pwd)"
 
@@ -35,10 +28,10 @@ echo "[bash] Start training HRFuser TINY model on DENSE dataset..."
 
 echo -e "[bash] --------------------------------------------\n"
 
-tools/dist_train.sh configs/hrfuser/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod_orig.py \
+tools/dist_train.sh configs/hrfuser/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod_orig_camera_only.py \
                     4 \
                     --seed 0 \
-                    --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/work_dirs/hrfuser_TINY_stf_r1248_4mod_orig_setting_A100_gpu_4_${CURRENT_DATE_TIME}_${SLURM_JOB_ID} 
+                    --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/work_dirs/hrfuser_TINY_stf_r1248_camera_only_orig_setting_multi_gpu_4_${CURRENT_DATE_TIME}_${SLURM_JOB_ID}
 
 echo "[bash] Training completed..."
 
