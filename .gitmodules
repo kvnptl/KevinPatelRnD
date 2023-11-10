@@ -10,3 +10,6 @@
 [submodule "mt_detr_cuda11p1"]
 	path = mt_detr_cuda11p1
 	url = git@github.com:kvnptl/MT-DETR.git
+[submodule "hrfuser_cuda11p1"]
+	path = hrfuser_cuda11p1
+	url = git@github.com:kvnptl/HRFuser.git
