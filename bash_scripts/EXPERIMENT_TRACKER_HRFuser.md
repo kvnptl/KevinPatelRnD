@@ -260,10 +260,13 @@ pip install -v -e .
         text, _ = FormatCode(text, style_config=yapf_style, verify=True)
     TypeError: FormatCode() got an unexpected keyword argument 'verify'
     ```
-    - Add `import yapf`
-    - Add `from .version_utils import digit_version`
+    - Add below lines in the file
+    ```python
+    import yapf
+    from .version_utils import digit_version
+    ```
     - Repalce `text, _ = FormatCode(text, style_config=yapf_style, verify=True)` with 
-        ```
+        ```python
         if digit_version(yapf.__version__) >= digit_version('0.40.2'):
             text, _ = FormatCode(text, style_config=yapf_style)
         else:
