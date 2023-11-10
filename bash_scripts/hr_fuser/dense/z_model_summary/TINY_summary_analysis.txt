@@ -1,0 +1,36 @@
+This is a detailed breakdown of the object detection model:
+
+- It is a Cascade R-CNN model with HRFormer backbone for high resolution detection.
+
+- The input image size is 384 x 1248 pixels.
+
+- Backbone (HRFuserHRFormerBased):
+  - Has 4 stages, each with HRFormer blocks operating at progressively lower resolutions.
+  - First stage works on full resolution 384 x 1248.
+  - Applies convolutions, batch norms, ReLUs to transform input to desired channels.
+  - Uses Bottleneck blocks similar to ResNet architecture.
+  - Modules like conv_a, norm_a etc stack operations for each stage.
+
+- Neck (HRFPN):
+  - Creates a feature pyramid from backbone output.
+  - Has top-down pathways with lateral connections to build multi-scale features.
+  - ConvModules apply 3x3 conv, norm, ReLU on each pyramid level.
+
+- RPN Head:
+  - Applies 3x3 convs to generate object proposals from backbone features.
+  - Predicts proposal classification (cls) and bounding box regression (reg).
+  - Contains loss functions for proposal classification and regression.
+  - Operates on all FPN levels to output multi-scale proposals.
+
+- ROI Head:
+  - Extracts RoI features from each FPN level using RoI Align. 
+  - Applies FC layers to classify and regress ROIs into final detections.
+  - Cascade ROI heads for progressive refinement of detections.
+
+Key stats:
+- 49M parameters 
+- 108 GFLOPs compute
+- Input size 17 MB
+- Forward pass 8.6 GB memory
+- Model size 199 MB
+- Total model size ~8.8 GB
