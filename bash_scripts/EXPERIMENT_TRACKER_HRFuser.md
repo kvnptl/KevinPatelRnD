@@ -11,9 +11,12 @@ Run commands:
 - pip install torch==1.10.0+cu102 torchvision==0.11.0+cu102 torchaudio==0.10.0 -f https://download.pytorch.org/whl/torch_stable.html
 
 NOTE: below torch and mmcv versions are for CUDA 11.1 version
+
+Create conda env using `conda create -n hrfuser python=3.8`
+
 ```bash
 pip install torch==1.10.1+cu111 torchvision==0.11.2+cu111 torchaudio==0.10.1 -f https://download.pytorch.org/whl/cu111/torch_stable.html
-pip install mmcv-full==1.3.17 -f https://download.openmmlab.com/mmcv/dist/cu111/torch1.10.0/index.html`
+pip install mmcv-full==1.3.17 -f https://download.openmmlab.com/mmcv/dist/cu111/torch1.10.0/index.html
 pip install tensorboard==2.14.0 setuptools==59.5.0
 pip install numpy==1.20.0 cython==3.0.4 tqdm numba==0.48.0 nuscenes-devkit==1.1.9
 conda install scikit-learn scipy
