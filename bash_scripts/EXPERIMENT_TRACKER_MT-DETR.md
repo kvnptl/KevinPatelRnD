@@ -30,6 +30,9 @@ NOTE: For A100 GPU, use `pip install torch==1.10.1+cu111 torchvision==0.11.2+cu1
 
 ### Current
 
+- Debugging COCO style annotations
+    - `python tools/test.py configs/mt_detr/mt_detr_c+l+r.py /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/provided/mt_detr_c+l+r.pth --eval bbox --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/inference/testing_result_metric --show-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/inference/testing_result_metric`
+
 
 ##################################################################################
 

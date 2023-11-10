@@ -14,19 +14,18 @@ Run commands:
 
 ### Current
 
-- TIMESTAMP: 1-Nov-2023 21:45
-    - [DENSE]
-        - Train Tiny HRFuser model on DENSE - orig setting - batch=12 - multi A100 gpu - [PENDING]
-            - With orig settings
-            - Remeber to copy only car category
-            - FAILED DUE TO CUDA VERSION ERROR 
-            - [NEED TO INSTALL CUDA 11.1] $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+- TIMESTAMP: 9-Nov-2023 23:55
+    - Convert final results into COCO style format - [IN-PROGRESS]
+    - Command for running test on modified dataset config for DENSE dataset:
+        - `py tools/test.py configs/hrfuser/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod_settings3.py /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/datasets/STF_weights/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod_latest.pth --eval bbox`
 
-
+    - To see the result
+        - `py tools/test.py configs/hrfuser/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod_settings3.py /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/datasets/STF_weights/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod_latest.pth --eval bbox --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/inference/testing_result_metric --show-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/inference/testing_result_metric`
 ##################################################################################
 
 ### Pending
 
+- Check Camera only result on HRFuser using config file
 - Replace all results with CAR ONLY RESULTS
 - How to generate KITTI style easy, moderate, and hard categories? (debug trough test.py and find out)
 - Read the HRFuser paper again
@@ -42,6 +41,12 @@ Run commands:
     - For camera + lidar (understand how to do this?)
     - For camera + radar
 - Check experiment tracker sheet for more TODOs
+- [DENSE]
+    - Train Tiny HRFuser model on DENSE - orig setting - batch=12 - multi A100 gpu - [PENDING]
+        - With orig settings
+        - Remeber to copy only car category
+        - FAILED DUE TO CUDA VERSION ERROR 
+        - [NEED TO INSTALL CUDA 11.1] $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 ##################################################################################
 
 ### DONE
