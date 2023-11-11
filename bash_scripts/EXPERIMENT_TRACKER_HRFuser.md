@@ -26,14 +26,9 @@ pip install -v -e .
 
 ### Current
 
-- TIMESTAMP: 10-Nov-2023 17:55
-- [DENSE]
-    - Train Tiny HRFuser model on DENSE - orig setting - batch=12 - multi A100 gpu - [RUNNING]
-        - With orig settings
-        - Remeber to copy only car category
-        - FAILED DUE TO CUDA VERSION ERROR
-        - [NEED TO INSTALL CUDA 11.1] - DONE
-        - Training started on A100 GPU - [RUNNING]
+- Timestamp: 11-Nov-2023 5:55
+    - [DENSE] Train camera only on TWO CLASSES - On RTX 3090 GPU - [RUNNING]
+        - With adjusted learning rate
 
 
 - TIMESTAMP: 9-Nov-2023 23:55
@@ -67,6 +62,19 @@ pip install -v -e .
 ##################################################################################
 
 ### DONE
+
+- TIMESTAMP: 11-Nov-2023 5:00
+- [DENSE]
+    - Train Tiny HRFuser model on DENSE - orig setting - batch=12 - multi A100 gpu - DONE
+        - With orig settings
+        - Remeber to copy only car category
+        - FAILED DUE TO CUDA VERSION ERROR
+        - [NEED TO INSTALL CUDA 11.1] - DONE
+        - Training started on A100 GPU - DONE
+        - Testing on A100 GPU - DONE
+    - Train camera only - DONE
+
+-------------------------------------------------------------------------------------
 
 - TIMESTAMP: 4-Nov-2023 23:12
     - [nuScenes] Train Tiny HRFuser model on nuScenes - batch=12 - gpu=4 - DONE
