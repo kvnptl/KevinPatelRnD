@@ -4,8 +4,8 @@
 #SBATCH --ntasks-per-node=64    # cores
 #SBATCH --mem 180GB               # memory per node in MB (different units with suffix K|M|G|T)
 #SBATCH --time 3-00:00              # total runtime of job allocation (format D-HH:MM)
-#SBATCH --output train_hrfuser_TINY_stf_r1248_camera_only_orig_setting_multi_gpu_4.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
-#SBATCH --error train_hrfuser_TINY_stf_r1248_camera_only_orig_setting_multi_gpu_4.%j.err  # filename for STDERR
+#SBATCH --output train_hrfuser_TINY_stf_c1248_camera_only_orig_setting_multi_gpu_4.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
+#SBATCH --error train_hrfuser_TINY_stf_c1248_camera_only_orig_setting_multi_gpu_4.%j.err  # filename for STDERR
 
 # Capture start time
 START_TIME=$(date +%s)
@@ -28,10 +28,10 @@ echo "[bash] Start training HRFuser TINY model on DENSE dataset..."
 
 echo -e "[bash] --------------------------------------------\n"
 
-tools/dist_train.sh configs/hrfuser/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod_orig_camera_only.py \
+tools/dist_train.sh configs/hrformer/cascade_rcnn_hrformer_t_1x_stf_c1248.py \
                     4 \
                     --seed 0 \
-                    --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/work_dirs/hrfuser_TINY_stf_r1248_camera_only_orig_setting_multi_gpu_4_${CURRENT_DATE_TIME}_${SLURM_JOB_ID}
+                    --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/work_dirs/hrfuser_TINY_stf_c1248_camera_only_orig_setting_multi_gpu_4_${CURRENT_DATE_TIME}_${SLURM_JOB_ID}
 
 echo "[bash] Training completed..."
 
