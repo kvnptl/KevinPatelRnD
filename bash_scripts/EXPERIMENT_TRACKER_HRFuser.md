@@ -26,9 +26,10 @@ pip install -v -e .
 
 ### Current
 
-- Timestamp: 11-Nov-2023 5:55
-    - [DENSE] Train camera only on TWO CLASSES - On RTX 3090 GPU - [RUNNING]
-        - With adjusted learning rate
+- TIMESTAMP: 13-Nov-2023 15:00
+    - Generate groundtruth for HRFuser dataset - [RUNNING]
+        - Check on work lab pc
+    - Convert DENSE KITTI JSON files to COCO JSON files
 
 
 - TIMESTAMP: 9-Nov-2023 23:55
@@ -63,6 +64,14 @@ pip install -v -e .
 
 ### DONE
 
+
+- Timestamp: 12-Nov-2023 15:55
+    - [DENSE] Train camera only on TWO CLASSES - On RTX 3090 GPU - DONE
+        - With adjusted learning rate
+    - [DENSE] Generate ground truth images for DENSE dataset - DONE
+        - [Problem] with dataset annotation, some cars are not annotated in 2D ground truth images
+
+--------------------------------------------------------------------------------------
 - TIMESTAMP: 11-Nov-2023 5:00
 - [DENSE]
     - Train Tiny HRFuser model on DENSE - orig setting - batch=12 - multi A100 gpu - DONE
