@@ -26,6 +26,11 @@ pip install -v -e .
 
 ### Current
 
+- TIMESTAMP: 14-Nov-2023 23:55
+    - Convert KITTI JSON TO COCO JSON Format - [IN-PROGRESS]
+        - include lidar and radar image in the JSON - DONE
+
+
 - TIMESTAMP: 13-Nov-2023 15:00
     - Generate groundtruth for HRFuser dataset - [RUNNING]
         - Check on work lab pc
@@ -64,7 +69,11 @@ pip install -v -e .
 
 ### DONE
 
+- Timestamp: 13-Nov-2023 15:55
+    - Generating ground truths for DENSE dataset - DONE
+        - Run after MT-DETR is done
 
+-------------------------------------------------------------------------------------
 - Timestamp: 12-Nov-2023 15:55
     - [DENSE] Train camera only on TWO CLASSES - On RTX 3090 GPU - DONE
         - With adjusted learning rate
@@ -73,16 +82,17 @@ pip install -v -e .
 
 --------------------------------------------------------------------------------------
 - TIMESTAMP: 11-Nov-2023 5:00
-- [DENSE]
-    - Train Tiny HRFuser model on DENSE - orig setting - batch=12 - multi A100 gpu - DONE
-        - With orig settings
-        - Remeber to copy only car category
-        - FAILED DUE TO CUDA VERSION ERROR
-        - [NEED TO INSTALL CUDA 11.1] - DONE
-        - Training started on A100 GPU - DONE
-        - Testing on A100 GPU - DONE
-    - Train camera only - DONE
-
+    - [DENSE]
+        - Train Tiny HRFuser model on DENSE - orig setting - batch=12 - multi A100 gpu - DONE
+            - With orig settings
+            - Remeber to copy only car category
+            - FAILED DUE TO CUDA VERSION ERROR
+            - [NEED TO INSTALL CUDA 11.1] - DONE
+            - Training started on A100 GPU - DONE
+            - Testing on A100 GPU - DONE
+        - Train camera only - DONE
+        - [DENSE] Train camera only on TWO CLASSES - On RTX 3090 GPU - DONE
+            - With adjusted learning rate
 -------------------------------------------------------------------------------------
 
 - TIMESTAMP: 4-Nov-2023 23:12

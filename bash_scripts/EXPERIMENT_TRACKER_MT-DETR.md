@@ -60,7 +60,10 @@ NOTE: For A100 GPU, use `pip install torch==1.10.1+cu111 torchvision==0.11.2+cu1
 ##################################################################################
 
 ### DONE
+- TIMESTAMP: 13-Nov-2023 15:12
+    - Generating ground truth for MT-DETR - DONE
 
+------------------------------------------------------------------------------------
 - TIMESTAMP: 7-Nov-2023 23:12
     - [MT-DETR]
         - Train MT-DETR C+R model - single A100 gpu - batch=1 - DONE
