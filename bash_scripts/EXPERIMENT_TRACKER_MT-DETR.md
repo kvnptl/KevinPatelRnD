@@ -33,12 +33,6 @@ NOTE: For A100 GPU, use `pip install torch==1.10.1+cu111 torchvision==0.11.2+cu1
 
 ### Current
 
-- TIMESTAMP: 13-Nov-2023 23:12
-    - Generate ground truth for MT-DETR - [RUNNING]
-
-- Debugging COCO style annotations
-    - `python tools/test.py configs/mt_detr/mt_detr_c+l+r.py /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/provided/mt_detr_c+l+r.pth --eval bbox --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/inference/testing_result_metric --show-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/inference/testing_result_metric`
-
 
 ##################################################################################
 
@@ -60,9 +54,14 @@ NOTE: For A100 GPU, use `pip install torch==1.10.1+cu111 torchvision==0.11.2+cu1
 ##################################################################################
 
 ### DONE
+
+------------------------------------------------------------------------------------
 - TIMESTAMP: 13-Nov-2023 15:12
     - Generating ground truth for MT-DETR - DONE
 
+- Debugging COCO style annotations
+    - `python tools/test.py configs/mt_detr/mt_detr_c+l+r.py /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/provided/mt_detr_c+l+r.pth --eval bbox --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/inference/testing_result_metric --show-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/inference/testing_result_metric`
+    
 ------------------------------------------------------------------------------------
 - TIMESTAMP: 7-Nov-2023 23:12
     - [MT-DETR]

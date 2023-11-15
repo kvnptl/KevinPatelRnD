@@ -26,24 +26,12 @@ pip install -v -e .
 
 ### Current
 
-- TIMESTAMP: 14-Nov-2023 23:55
-    - Convert KITTI JSON TO COCO JSON Format - [IN-PROGRESS]
-        - include lidar and radar image in the JSON - DONE
+- TIMESTAMP: 15-Nov-2023 23:55
+    - [DENSE] 
+        - Evaluate on all weather with Day and Night split - [IN-PROGRESS]
+        - Evaluate with CLR modalities - [PENDING]
+        - Evaluate with Camera only - [PENDING]
 
-
-- TIMESTAMP: 13-Nov-2023 15:00
-    - Generate groundtruth for HRFuser dataset - [RUNNING]
-        - Check on work lab pc
-    - Convert DENSE KITTI JSON files to COCO JSON files
-
-
-- TIMESTAMP: 9-Nov-2023 23:55
-    - Convert final results into COCO style format - [IN-PROGRESS]
-    - Command for running test on modified dataset config for DENSE dataset:
-        - `py tools/test.py configs/hrfuser/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod_settings3.py /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/datasets/STF_weights/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod_latest.pth --eval bbox`
-
-    - To see the result
-        - `py tools/test.py configs/hrfuser/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod_settings3.py /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/datasets/STF_weights/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod_latest.pth --eval bbox --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/inference/testing_result_metric --show-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/inference/testing_result_metric`
 ##################################################################################
 
 ### Pending
@@ -69,6 +57,29 @@ pip install -v -e .
 
 ### DONE
 
+- TIMESTAMP: 14-Nov-2023 23:55
+    - Convert KITTI JSON TO COCO JSON Format - DONE
+        - include lidar and radar image in the JSON - DONE
+        - Convert all .pkl files to JSON files - DONE
+        - Convert all .json files to COCO JSON files - DONE
+    - Evaluate HRFuser on full test set in COCO format - DONE
+    - [DENSE] Check evaluation on C+L+R modalities - DONE
+
+- TIMESTAMP: 9-Nov-2023 23:55 (started on)
+    - Convert final results into COCO style format - DONE
+    - Command for running test on modified dataset config for DENSE dataset:
+        - `py tools/test.py configs/hrfuser/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod_settings3.py /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/datasets/STF_weights/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod_latest.pth --eval bbox`
+
+    - To see the result
+        - `py tools/test.py configs/hrfuser/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod_settings3.py /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/datasets/STF_weights/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod_latest.pth --eval bbox --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/inference/testing_result_metric --show-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/inference/testing_result_metric`
+
+----------------------------------------------------------------------------
+- TIMESTAMP: 14-Nov-2023 15:00
+    - Generate groundtruth for HRFuser dataset - DONE
+        - Check on work lab pc
+    - Convert DENSE KITTI JSON files to COCO JSON files - DONE
+
+---------------------------------------------------------------------------------
 - Timestamp: 13-Nov-2023 15:55
     - Generating ground truths for DENSE dataset - DONE
         - Run after MT-DETR is done
