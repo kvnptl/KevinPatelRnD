@@ -19,7 +19,7 @@ def modify_json_file(json_data):
 
 
 def main():
-    json_file_path = '/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr/data/coco_annotation/dense_fog_night_modified.json'  # Replace with your JSON file path
+    json_file_path = '/home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/datasets/nuScenes/nuscenes_infos_val_mono3d.coco.json'  # Replace with your JSON file path
     
     with open(json_file_path, 'r') as f:
         json_data = json.load(f)
@@ -28,11 +28,17 @@ def main():
         print("The JSON file does not contain a dictionary (JSON object) at the top level.")
         return
 
+    check_images = True
+    # Print total number of images
+    if 'images' in json_data:
+        total_images = len(json_data['images'])
+        print(f"The total number of images in the JSON file is {total_images}.")
+
     total_keys = count_keys_in_dict(json_data)
     
     print(f"The total number of keys in the JSON file is {total_keys}.")
 
-    modify_json_file(json_data)
+    # modify_json_file(json_data)
 
 if __name__ == '__main__':
     main()
