@@ -1,8 +1,8 @@
 #!/bin/sh
 #SBATCH --partition gpu4test       # partition (queue)
 #SBATCH --nodes 1                # number of nodes
-#SBATCH --ntasks-per-node=64    # cores
-#SBATCH --mem 480GB               # memory per node in MB (different units with suffix K|M|G|T)
+#SBATCH --ntasks-per-node=32    # cores
+#SBATCH --mem 150GB               # memory per node in MB (different units with suffix K|M|G|T)
 #SBATCH --time 0-24:00              # total runtime of job allocation (format D-HH:MM)
 #SBATCH --output test_hrfuser_TINY_dense_r640_l_r_fusion_A100_output.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
 #SBATCH --error test_hrfuser_TINY_dense_r640_l_r_fusion_A100_output.%j.err  # filename for STDERR
@@ -38,13 +38,12 @@ echo -e "[bash] --------------------------------------------\n"
 #############
 ### NOTE: change checkpoint path accordingly
 #############
-python tools/test.py configs/hrfuser/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod_orig.py /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/work_dirs/hrfuser_TINY_stf_r1248_4mod_orig_setting_A100_gpu_4_2023-11-10_17-51-55_218951/epoch_60.pth \
-        --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/inference/hrfuser_TINY_stf_r1248_4mod_orig_setting_A100_gpu_4_2023-11-10_17-51-55_218951_${CURRENT_DATE_TIME}_${SLURM_JOB_ID} \
+python tools/test.py configs/hrfuser/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod_orig.py /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/datasets/STF_weights/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod_latest.pth \
+        --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/inference/ground_truth_images_${CURRENT_DATE_TIME}_${SLURM_JOB_ID} \
         --gpu-ids 0 \
         --eval bbox \
-        --show \
-        --show-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/inference/hrfuser_TINY_stf_r1248_4mod_orig_setting_A100_gpu_4_2023-11-10_17-51-55_218951_${CURRENT_DATE_TIME}_${SLURM_JOB_ID} \
-        --cfg-options data.test.samples_per_gpu=128 # 214449 job is with 16
+        --show-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/inference/ground_truth_images_${CURRENT_DATE_TIME}_${SLURM_JOB_ID} \
+        # --cfg-options data.test.samples_per_gpu=128 # 214449 job is with 16
 
 echo "[bash] Testing completed..."
 

@@ -80,6 +80,12 @@ def main():
         print("The JSON file does not contain a dictionary (JSON object) at the top level.")
         return
 
+    check_images = True
+    # Print total number of images
+    if 'images' in json_data:
+        total_images = len(json_data['images'])
+        print(f"The total number of images in the JSON file is {total_images}.")
+
     total_keys = count_keys_in_dict(json_data)
     
     print(f"The total number of keys in the JSON file is {total_keys}.")

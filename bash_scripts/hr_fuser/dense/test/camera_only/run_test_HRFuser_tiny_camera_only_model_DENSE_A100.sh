@@ -39,11 +39,11 @@ echo -e "[bash] --------------------------------------------\n"
 ### NOTE: change checkpoint path accordingly
 #############
 python tools/test.py configs/hrformer/cascade_rcnn_hrformer_t_1x_stf_c1248.py /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/work_dirs/camera_only/hrfuser_TINY_stf_c1248_camera_only_orig_setting_multi_gpu_4_2023-11-10_21-57-56_218957/epoch_60.pth \
-        --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/inference/camera_only/hrfuser_TINY_stf_c1248_camera_only_orig_setting_multi_gpu_4_2023-11-10_21-57-56_218957_${CURRENT_DATE_TIME}_${SLURM_JOB_ID} \
-        --gpu-ids 0 \
+        --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/inference/camera_only/ground_truth_images_${CURRENT_DATE_TIME}_${SLURM_JOB_ID} \
+        --gpu-ids 1 \
         --eval bbox \
         --show \
-        --show-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/inference/camera_only/hrfuser_TINY_stf_c1248_camera_only_orig_setting_multi_gpu_4_2023-11-10_21-57-56_218957_${CURRENT_DATE_TIME}_${SLURM_JOB_ID} \
+        --show-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/inference/camera_only/ground_truth_images_${CURRENT_DATE_TIME}_${SLURM_JOB_ID} \
         --cfg-options data.test.samples_per_gpu=128 # 214449 job is with 16
 
 echo "[bash] Testing completed..."

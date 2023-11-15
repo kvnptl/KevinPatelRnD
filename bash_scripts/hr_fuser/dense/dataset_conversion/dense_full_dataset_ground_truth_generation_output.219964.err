@@ -1,0 +1,7 @@
+/home/kpatel2s/anaconda3/envs/hrfuser-cuda11p1/lib/python3.8/site-packages/numba/npyufunc/parallel.py:300: UserWarning: Could not obtain multiprocessing lock due to OS level error: [Errno 28] No space left on device
+A likely cause of this problem is '/dev/shm' is missing orread-only such that necessary semaphores cannot be written.
+*** The responsibility of ensuring multiprocessing safe access to this initialization sequence/module import is deferred to the user! ***
+
+  warnings.warn(msg % str(e))
+/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/hrfuser_cuda11p1/mmdet/datasets/pipelines/transforms.py:1067: RuntimeWarning: invalid value encountered in true_divide
+  in_frame = post_area / results[key+'_area_orig']
