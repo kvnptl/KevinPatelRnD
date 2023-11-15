@@ -1,0 +1,395 @@
+[bash] My HOSTNAME is 
+wr25
+[bash] CURRENT_DATE_TIME is 2023-11-12_16-12-45
+[bash] Loading GCC and CUDA modules...
+[bash] Directory changed to /home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/hrfuser_cuda11p1
+[bash] Start training HRFuser TINY model on DENSE dataset...
+[bash] --------------------------------------------
+
+load checkpoint from local path: /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/dense/work_dirs/camera_only/hrfuser_TINY_stf_c1248_camera_only_orig_setting_multi_gpu_4_2023-11-10_21-57-56_218957/epoch_60.pth
+Use GPU [1] for testing
+[                                                  ] 0/8554, elapsed: 0s, ETA:scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+[                              ] 1/8554, 0.0 task/s, elapsed: 38s, ETA: 326050s[                              ] 2/8554, 0.1 task/s, elapsed: 38s, ETA: 163007s[                              ] 3/8554, 0.1 task/s, elapsed: 38s, ETA: 108659s[                               ] 4/8554, 0.1 task/s, elapsed: 38s, ETA: 81485s[                               ] 5/8554, 0.1 task/s, elapsed: 38s, ETA: 65180s[                               ] 6/8554, 0.2 task/s, elapsed: 38s, ETA: 54310s[                               ] 7/8554, 0.2 task/s, elapsed: 38s, ETA: 46546s[                               ] 8/8554, 0.2 task/s, elapsed: 38s, ETA: 40723s[                               ] 9/8554, 0.2 task/s, elapsed: 38s, ETA: 36194s[                              ] 10/8554, 0.3 task/s, elapsed: 38s, ETA: 32571s[                              ] 11/8554, 0.3 task/s, elapsed: 38s, ETA: 29607s[                              ] 12/8554, 0.3 task/s, elapsed: 38s, ETA: 27136s[                              ] 13/8554, 0.3 task/s, elapsed: 38s, ETA: 25046s[                              ] 14/8554, 0.4 task/s, elapsed: 38s, ETA: 23254s[                              ] 15/8554, 0.4 task/s, elapsed: 38s, ETA: 21701s[                              ] 16/8554, 0.4 task/s, elapsed: 38s, ETA: 20343s[                              ] 17/8554, 0.4 task/s, elapsed: 38s, ETA: 19144s[                              ] 18/8554, 0.5 task/s, elapsed: 38s, ETA: 18078s[                              ] 19/8554, 0.5 task/s, elapsed: 38s, ETA: 17125s[                              ] 20/8554, 0.5 task/s, elapsed: 38s, ETA: 16267s[                              ] 21/8554, 0.6 task/s, elapsed: 38s, ETA: 15490s[                              ] 22/8554, 0.6 task/s, elapsed: 38s, ETA: 14784s[                              ] 23/8554, 0.6 task/s, elapsed: 38s, ETA: 14140s[                              ] 24/8554, 0.6 task/s, elapsed: 38s, ETA: 13549s[                              ] 25/8554, 0.7 task/s, elapsed: 38s, ETA: 13006s[                              ] 26/8554, 0.7 task/s, elapsed: 38s, ETA: 12504s[                              ] 27/8554, 0.7 task/s, elapsed: 38s, ETA: 12039s[                              ] 28/8554, 0.7 task/s, elapsed: 38s, ETA: 11608s[                              ] 29/8554, 0.8 task/s, elapsed: 38s, ETA: 11206s[                              ] 30/8554, 0.8 task/s, elapsed: 38s, ETA: 10832s[                              ] 31/8554, 0.8 task/s, elapsed: 38s, ETA: 10481s[                              ] 32/8554, 0.8 task/s, elapsed: 38s, ETA: 10152s[                              ] 33/8554, 0.9 task/s, elapsed: 38s, ETA:  9844s[                              ] 34/8554, 0.9 task/s, elapsed: 38s, ETA:  9553s[                              ] 35/8554, 0.9 task/s, elapsed: 38s, ETA:  9279s[                              ] 36/8554, 0.9 task/s, elapsed: 38s, ETA:  9020s[                              ] 37/8554, 1.0 task/s, elapsed: 38s, ETA:  8775s[                              ] 38/8554, 1.0 task/s, elapsed: 38s, ETA:  8543s[                              ] 39/8554, 1.0 task/s, elapsed: 38s, ETA:  8323s[                              ] 40/8554, 1.0 task/s, elapsed: 38s, ETA:  8114s[                              ] 41/8554, 1.1 task/s, elapsed: 38s, ETA:  7915s[                              ] 42/8554, 1.1 task/s, elapsed: 38s, ETA:  7726s[                              ] 43/8554, 1.1 task/s, elapsed: 38s, ETA:  7545s[                              ] 44/8554, 1.2 task/s, elapsed: 38s, ETA:  7373s[                              ] 45/8554, 1.2 task/s, elapsed: 38s, ETA:  7208s[                              ] 46/8554, 1.2 task/s, elapsed: 38s, ETA:  7051s[                              ] 47/8554, 1.2 task/s, elapsed: 38s, ETA:  6900s[                              ] 48/8554, 1.3 task/s, elapsed: 38s, ETA:  6756s[                              ] 49/8554, 1.3 task/s, elapsed: 38s, ETA:  6617s[                              ] 50/8554, 1.3 task/s, elapsed: 38s, ETA:  6484s[                              ] 51/8554, 1.3 task/s, elapsed: 38s, ETA:  6356s[                              ] 52/8554, 1.4 task/s, elapsed: 38s, ETA:  6233s[                              ] 53/8554, 1.4 task/s, elapsed: 38s, ETA:  6115s[                              ] 54/8554, 1.4 task/s, elapsed: 38s, ETA:  6001s[                              ] 55/8554, 1.4 task/s, elapsed: 38s, ETA:  5891s[                              ] 56/8554, 1.5 task/s, elapsed: 38s, ETA:  5785s[                              ] 57/8554, 1.5 task/s, elapsed: 38s, ETA:  5683s[                              ] 58/8554, 1.5 task/s, elapsed: 38s, ETA:  5584s[                              ] 59/8554, 1.5 task/s, elapsed: 38s, ETA:  5489s[                              ] 60/8554, 1.6 task/s, elapsed: 38s, ETA:  5397s[                              ] 61/8554, 1.6 task/s, elapsed: 38s, ETA:  5308s[                              ] 62/8554, 1.6 task/s, elapsed: 38s, ETA:  5221s[                              ] 63/8554, 1.7 task/s, elapsed: 38s, ETA:  5138s[                              ] 64/8554, 1.7 task/s, elapsed: 38s, ETA:  5057s[                              ] 65/8554, 1.7 task/s, elapsed: 38s, ETA:  4979s[                              ] 66/8554, 1.7 task/s, elapsed: 38s, ETA:  4903s[                              ] 67/8554, 1.8 task/s, elapsed: 38s, ETA:  4829s[                              ] 68/8554, 1.8 task/s, elapsed: 38s, ETA:  4757s[                              ] 69/8554, 1.8 task/s, elapsed: 38s, ETA:  4688s[                              ] 70/8554, 1.8 task/s, elapsed: 38s, ETA:  4620s[                              ] 71/8554, 1.9 task/s, elapsed: 38s, ETA:  4555s[                              ] 72/8554, 1.9 task/s, elapsed: 38s, ETA:  4491s[                              ] 73/8554, 1.9 task/s, elapsed: 38s, ETA:  4429s[                              ] 74/8554, 1.9 task/s, elapsed: 38s, ETA:  4369s[                              ] 75/8554, 2.0 task/s, elapsed: 38s, ETA:  4310s[                              ] 76/8554, 2.0 task/s, elapsed: 38s, ETA:  4253s[                              ] 77/8554, 2.0 task/s, elapsed: 38s, ETA:  4197s[                              ] 78/8554, 2.0 task/s, elapsed: 38s, ETA:  4143s[                              ] 79/8554, 2.1 task/s, elapsed: 38s, ETA:  4090s[                              ] 80/8554, 2.1 task/s, elapsed: 38s, ETA:  4038s[                              ] 81/8554, 2.1 task/s, elapsed: 38s, ETA:  3988s[                              ] 82/8554, 2.2 task/s, elapsed: 38s, ETA:  3939s[                              ] 83/8554, 2.2 task/s, elapsed: 38s, ETA:  3891s[                              ] 84/8554, 2.2 task/s, elapsed: 38s, ETA:  3844s[                              ] 85/8554, 2.2 task/s, elapsed: 38s, ETA:  3798s[                              ] 86/8554, 2.3 task/s, elapsed: 38s, ETA:  3754s[                              ] 87/8554, 2.3 task/s, elapsed: 38s, ETA:  3710s[                              ] 88/8554, 2.3 task/s, elapsed: 38s, ETA:  3668s[                              ] 89/8554, 2.3 task/s, elapsed: 38s, ETA:  3626s[                              ] 90/8554, 2.4 task/s, elapsed: 38s, ETA:  3585s[                              ] 91/8554, 2.4 task/s, elapsed: 38s, ETA:  3545s[                              ] 92/8554, 2.4 task/s, elapsed: 38s, ETA:  3506s[                              ] 93/8554, 2.4 task/s, elapsed: 38s, ETA:  3468s[                              ] 94/8554, 2.5 task/s, elapsed: 38s, ETA:  3431s[                              ] 95/8554, 2.5 task/s, elapsed: 38s, ETA:  3395s[                              ] 96/8554, 2.5 task/s, elapsed: 38s, ETA:  3359s[                              ] 97/8554, 2.5 task/s, elapsed: 38s, ETA:  3324s[                              ] 98/8554, 2.6 task/s, elapsed: 38s, ETA:  3289s[                              ] 99/8554, 2.6 task/s, elapsed: 38s, ETA:  3256s[                             ] 100/8554, 2.6 task/s, elapsed: 38s, ETA:  3223s[                             ] 101/8554, 2.6 task/s, elapsed: 38s, ETA:  3191s[                             ] 102/8554, 2.7 task/s, elapsed: 38s, ETA:  3159s[                             ] 103/8554, 2.7 task/s, elapsed: 38s, ETA:  3128s[                             ] 104/8554, 2.7 task/s, elapsed: 38s, ETA:  3097s[                             ] 105/8554, 2.8 task/s, elapsed: 38s, ETA:  3068s[                             ] 106/8554, 2.8 task/s, elapsed: 38s, ETA:  3038s[                             ] 107/8554, 2.8 task/s, elapsed: 38s, ETA:  3010s[                             ] 108/8554, 2.8 task/s, elapsed: 38s, ETA:  2981s[                             ] 109/8554, 2.9 task/s, elapsed: 38s, ETA:  2954s[                             ] 110/8554, 2.9 task/s, elapsed: 38s, ETA:  2926s[                             ] 111/8554, 2.9 task/s, elapsed: 38s, ETA:  2900s[                             ] 112/8554, 2.9 task/s, elapsed: 38s, ETA:  2873s[                             ] 113/8554, 3.0 task/s, elapsed: 38s, ETA:  2848s[                             ] 114/8554, 3.0 task/s, elapsed: 38s, ETA:  2822s[                             ] 115/8554, 3.0 task/s, elapsed: 38s, ETA:  2798s[                             ] 116/8554, 3.0 task/s, elapsed: 38s, ETA:  2773s[                             ] 117/8554, 3.1 task/s, elapsed: 38s, ETA:  2749s[                             ] 118/8554, 3.1 task/s, elapsed: 38s, ETA:  2725s[                             ] 119/8554, 3.1 task/s, elapsed: 38s, ETA:  2702s[                             ] 120/8554, 3.1 task/s, elapsed: 38s, ETA:  2679s[                             ] 121/8554, 3.2 task/s, elapsed: 38s, ETA:  2657s[                             ] 122/8554, 3.2 task/s, elapsed: 38s, ETA:  2635s[                             ] 123/8554, 3.2 task/s, elapsed: 38s, ETA:  2613s[                             ] 124/8554, 3.3 task/s, elapsed: 38s, ETA:  2592s[                             ] 125/8554, 3.3 task/s, elapsed: 38s, ETA:  2571s[                             ] 126/8554, 3.3 task/s, elapsed: 38s, ETA:  2550s[                             ] 127/8554, 3.3 task/s, elapsed: 38s, ETA:  2530s[                             ] 128/8554, 3.4 task/s, elapsed: 38s, ETA:  2510sscipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+[                             ] 129/8554, 2.1 task/s, elapsed: 61s, ETA:  3993s[                             ] 130/8554, 2.1 task/s, elapsed: 61s, ETA:  3962s[                             ] 131/8554, 2.1 task/s, elapsed: 61s, ETA:  3931s[                             ] 132/8554, 2.2 task/s, elapsed: 61s, ETA:  3901s[                             ] 133/8554, 2.2 task/s, elapsed: 61s, ETA:  3871s[                             ] 134/8554, 2.2 task/s, elapsed: 61s, ETA:  3842s[                             ] 135/8554, 2.2 task/s, elapsed: 61s, ETA:  3813s[                             ] 136/8554, 2.2 task/s, elapsed: 61s, ETA:  3784s[                             ] 137/8554, 2.2 task/s, elapsed: 61s, ETA:  3756s[                             ] 138/8554, 2.3 task/s, elapsed: 61s, ETA:  3729s[                             ] 139/8554, 2.3 task/s, elapsed: 61s, ETA:  3701s[                             ] 140/8554, 2.3 task/s, elapsed: 61s, ETA:  3674s[                             ] 141/8554, 2.3 task/s, elapsed: 61s, ETA:  3648s[                             ] 142/8554, 2.3 task/s, elapsed: 61s, ETA:  3622s[                             ] 143/8554, 2.3 task/s, elapsed: 61s, ETA:  3596s[                             ] 144/8554, 2.4 task/s, elapsed: 61s, ETA:  3571s[                             ] 145/8554, 2.4 task/s, elapsed: 61s, ETA:  3546s[                             ] 146/8554, 2.4 task/s, elapsed: 61s, ETA:  3521s[                             ] 147/8554, 2.4 task/s, elapsed: 61s, ETA:  3497s[                             ] 148/8554, 2.4 task/s, elapsed: 61s, ETA:  3472s[                             ] 149/8554, 2.4 task/s, elapsed: 61s, ETA:  3449s[                             ] 150/8554, 2.5 task/s, elapsed: 61s, ETA:  3425s[                             ] 151/8554, 2.5 task/s, elapsed: 61s, ETA:  3402s[                             ] 152/8554, 2.5 task/s, elapsed: 61s, ETA:  3379s[                             ] 153/8554, 2.5 task/s, elapsed: 61s, ETA:  3357s[                             ] 154/8554, 2.5 task/s, elapsed: 61s, ETA:  3335s[                             ] 155/8554, 2.5 task/s, elapsed: 61s, ETA:  3313s[                             ] 156/8554, 2.6 task/s, elapsed: 61s, ETA:  3291s[                             ] 157/8554, 2.6 task/s, elapsed: 61s, ETA:  3270s[                             ] 158/8554, 2.6 task/s, elapsed: 61s, ETA:  3249s[                             ] 159/8554, 2.6 task/s, elapsed: 61s, ETA:  3228s[                             ] 160/8554, 2.6 task/s, elapsed: 61s, ETA:  3207s[                             ] 161/8554, 2.6 task/s, elapsed: 61s, ETA:  3187s[                             ] 162/8554, 2.6 task/s, elapsed: 61s, ETA:  3167s[                             ] 163/8554, 2.7 task/s, elapsed: 61s, ETA:  3147s[                             ] 164/8554, 2.7 task/s, elapsed: 61s, ETA:  3128s[                             ] 165/8554, 2.7 task/s, elapsed: 61s, ETA:  3108s[                             ] 166/8554, 2.7 task/s, elapsed: 61s, ETA:  3089s[                             ] 167/8554, 2.7 task/s, elapsed: 61s, ETA:  3070s[                             ] 168/8554, 2.7 task/s, elapsed: 61s, ETA:  3052s[                             ] 169/8554, 2.8 task/s, elapsed: 61s, ETA:  3033s[                             ] 170/8554, 2.8 task/s, elapsed: 61s, ETA:  3015s[                             ] 171/8554, 2.8 task/s, elapsed: 61s, ETA:  2997s[                             ] 172/8554, 2.8 task/s, elapsed: 61s, ETA:  2979s[                             ] 173/8554, 2.8 task/s, elapsed: 61s, ETA:  2962s[                             ] 174/8554, 2.8 task/s, elapsed: 61s, ETA:  2944s[                             ] 175/8554, 2.9 task/s, elapsed: 61s, ETA:  2927s[                             ] 176/8554, 2.9 task/s, elapsed: 61s, ETA:  2910s[                             ] 177/8554, 2.9 task/s, elapsed: 61s, ETA:  2894s[                             ] 178/8554, 2.9 task/s, elapsed: 61s, ETA:  2877s[                             ] 179/8554, 2.9 task/s, elapsed: 61s, ETA:  2861s[                             ] 180/8554, 2.9 task/s, elapsed: 61s, ETA:  2844s[                             ] 181/8554, 3.0 task/s, elapsed: 61s, ETA:  2828s[                             ] 182/8554, 3.0 task/s, elapsed: 61s, ETA:  2812s[                             ] 183/8554, 3.0 task/s, elapsed: 61s, ETA:  2797s[                             ] 184/8554, 3.0 task/s, elapsed: 61s, ETA:  2781s[                             ] 185/8554, 3.0 task/s, elapsed: 61s, ETA:  2766s[                             ] 186/8554, 3.0 task/s, elapsed: 61s, ETA:  2751s[                             ] 187/8554, 3.1 task/s, elapsed: 61s, ETA:  2736s[                             ] 188/8554, 3.1 task/s, elapsed: 61s, ETA:  2721s[                             ] 189/8554, 3.1 task/s, elapsed: 61s, ETA:  2706s[                             ] 190/8554, 3.1 task/s, elapsed: 61s, ETA:  2691s[                             ] 191/8554, 3.1 task/s, elapsed: 61s, ETA:  2677s[                             ] 192/8554, 3.1 task/s, elapsed: 61s, ETA:  2663s[                             ] 193/8554, 3.2 task/s, elapsed: 61s, ETA:  2649s[                             ] 194/8554, 3.2 task/s, elapsed: 61s, ETA:  2635s[                             ] 195/8554, 3.2 task/s, elapsed: 61s, ETA:  2621s[                             ] 196/8554, 3.2 task/s, elapsed: 61s, ETA:  2607s[                             ] 197/8554, 3.2 task/s, elapsed: 61s, ETA:  2594s[                             ] 198/8554, 3.2 task/s, elapsed: 61s, ETA:  2580s[                             ] 199/8554, 3.3 task/s, elapsed: 61s, ETA:  2567s[                             ] 200/8554, 3.3 task/s, elapsed: 61s, ETA:  2554s[                             ] 201/8554, 3.3 task/s, elapsed: 61s, ETA:  2541s[                             ] 202/8554, 3.3 task/s, elapsed: 61s, ETA:  2528s[                             ] 203/8554, 3.3 task/s, elapsed: 61s, ETA:  2515s[                             ] 204/8554, 3.3 task/s, elapsed: 61s, ETA:  2502s[                             ] 205/8554, 3.4 task/s, elapsed: 61s, ETA:  2490s[                             ] 206/8554, 3.4 task/s, elapsed: 61s, ETA:  2478s[                             ] 207/8554, 3.4 task/s, elapsed: 61s, ETA:  2465s[                             ] 208/8554, 3.4 task/s, elapsed: 61s, ETA:  2453s[                             ] 209/8554, 3.4 task/s, elapsed: 61s, ETA:  2441s[                             ] 210/8554, 3.4 task/s, elapsed: 61s, ETA:  2429s[                             ] 211/8554, 3.5 task/s, elapsed: 61s, ETA:  2417s[                             ] 212/8554, 3.5 task/s, elapsed: 61s, ETA:  2406s[                             ] 213/8554, 3.5 task/s, elapsed: 61s, ETA:  2394s[                             ] 214/8554, 3.5 task/s, elapsed: 61s, ETA:  2383s[                             ] 215/8554, 3.5 task/s, elapsed: 61s, ETA:  2371s[                             ] 216/8554, 3.5 task/s, elapsed: 61s, ETA:  2360s[                             ] 217/8554, 3.5 task/s, elapsed: 61s, ETA:  2349s[                             ] 218/8554, 3.6 task/s, elapsed: 61s, ETA:  2338s[                             ] 219/8554, 3.6 task/s, elapsed: 61s, ETA:  2327s[                             ] 220/8554, 3.6 task/s, elapsed: 61s, ETA:  2316s[                             ] 221/8554, 3.6 task/s, elapsed: 61s, ETA:  2305s[                             ] 222/8554, 3.6 task/s, elapsed: 61s, ETA:  2295s[                             ] 223/8554, 3.6 task/s, elapsed: 61s, ETA:  2284s[                             ] 224/8554, 3.7 task/s, elapsed: 61s, ETA:  2274s[                             ] 225/8554, 3.7 task/s, elapsed: 61s, ETA:  2263s[                             ] 226/8554, 3.7 task/s, elapsed: 61s, ETA:  2253s[                             ] 227/8554, 3.7 task/s, elapsed: 61s, ETA:  2243s[                             ] 228/8554, 3.7 task/s, elapsed: 61s, ETA:  2233s[                             ] 229/8554, 3.7 task/s, elapsed: 61s, ETA:  2223s[                             ] 230/8554, 3.8 task/s, elapsed: 61s, ETA:  2213s[                             ] 231/8554, 3.8 task/s, elapsed: 61s, ETA:  2203s[                             ] 232/8554, 3.8 task/s, elapsed: 61s, ETA:  2193s[                             ] 233/8554, 3.8 task/s, elapsed: 61s, ETA:  2183s[                             ] 234/8554, 3.8 task/s, elapsed: 61s, ETA:  2174s[                             ] 235/8554, 3.8 task/s, elapsed: 61s, ETA:  2164s[                             ] 236/8554, 3.9 task/s, elapsed: 61s, ETA:  2155s[                             ] 237/8554, 3.9 task/s, elapsed: 61s, ETA:  2146s[                             ] 238/8554, 3.9 task/s, elapsed: 61s, ETA:  2136s[                             ] 239/8554, 3.9 task/s, elapsed: 61s, ETA:  2127s[                             ] 240/8554, 3.9 task/s, elapsed: 61s, ETA:  2118s[                             ] 241/8554, 3.9 task/s, elapsed: 61s, ETA:  2109s[                             ] 242/8554, 4.0 task/s, elapsed: 61s, ETA:  2100s[                             ] 243/8554, 4.0 task/s, elapsed: 61s, ETA:  2091s[                             ] 244/8554, 4.0 task/s, elapsed: 61s, ETA:  2082s[                             ] 245/8554, 4.0 task/s, elapsed: 61s, ETA:  2073s[                             ] 246/8554, 4.0 task/s, elapsed: 61s, ETA:  2065s[                             ] 247/8554, 4.0 task/s, elapsed: 61s, ETA:  2056s[                             ] 248/8554, 4.1 task/s, elapsed: 61s, ETA:  2048s[                             ] 249/8554, 4.1 task/s, elapsed: 61s, ETA:  2039s[                             ] 250/8554, 4.1 task/s, elapsed: 61s, ETA:  2031s[                             ] 251/8554, 4.1 task/s, elapsed: 61s, ETA:  2022s[                             ] 252/8554, 4.1 task/s, elapsed: 61s, ETA:  2014s[                             ] 253/8554, 4.1 task/s, elapsed: 61s, ETA:  2006s[                             ] 254/8554, 4.2 task/s, elapsed: 61s, ETA:  1998s[                             ] 255/8554, 4.2 task/s, elapsed: 61s, ETA:  1990s[                             ] 256/8554, 4.2 task/s, elapsed: 61s, ETA:  1982sscipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+scipping img resize, this is only wanted if a crop, but no resize was done
+[                             ] 257/8554, 2.9 task/s, elapsed: 88s, ETA:  2854s[                             ] 258/8554, 2.9 task/s, elapsed: 88s, ETA:  2843s[                             ] 259/8554, 2.9 task/s, elapsed: 88s, ETA:  2831s[                             ] 260/8554, 2.9 task/s, elapsed: 88s, ETA:  2820s[                             ] 261/8554, 3.0 task/s, elapsed: 88s, ETA:  2809s[                             ] 262/8554, 3.0 task/s, elapsed: 88s, ETA:  2798s[                             ] 263/8554, 3.0 task/s, elapsed: 88s, ETA:  2787s[                             ] 264/8554, 3.0 task/s, elapsed: 88s, ETA:  2776s[                             ] 265/8554, 3.0 task/s, elapsed: 88s, ETA:  2765s[                             ] 266/8554, 3.0 task/s, elapsed: 88s, ETA:  2755s[                             ] 267/8554, 3.0 task/s, elapsed: 88s, ETA:  2744s[                             ] 268/8554, 3.0 task/s, elapsed: 88s, ETA:  2733s[                             ] 269/8554, 3.0 task/s, elapsed: 88s, ETA:  2723s[                             ] 270/8554, 3.1 task/s, elapsed: 88s, ETA:  2712s[                             ] 271/8554, 3.1 task/s, elapsed: 88s, ETA:  2702s[                             ] 272/8554, 3.1 task/s, elapsed: 88s, ETA:  2692s[                             ] 273/8554, 3.1 task/s, elapsed: 88s, ETA:  2682s[                             ] 274/8554, 3.1 task/s, elapsed: 88s, ETA:  2672s[                             ] 275/8554, 3.1 task/s, elapsed: 88s, ETA:  2661s[                             ] 276/8554, 3.1 task/s, elapsed: 88s, ETA:  2652s[                             ] 277/8554, 3.1 task/s, elapsed: 88s, ETA:  2642s[                             ] 278/8554, 3.1 task/s, elapsed: 88s, ETA:  2632s[                             ] 279/8554, 3.2 task/s, elapsed: 88s, ETA:  2622s[                             ] 280/8554, 3.2 task/s, elapsed: 88s, ETA:  2612s[                             ] 281/8554, 3.2 task/s, elapsed: 88s, ETA:  2603s[                             ] 282/8554, 3.2 task/s, elapsed: 88s, ETA:  2593s[                             ] 283/8554, 3.2 task/s, elapsed: 88s, ETA:  2584s[                             ] 284/8554, 3.2 task/s, elapsed: 88s, ETA:  2574s[                             ] 285/8554, 3.2 task/s, elapsed: 88s, ETA:  2565s[                             ] 286/8554, 3.2 task/s, elapsed: 88s, ETA:  2556s[                             ] 287/8554, 3.2 task/s, elapsed: 88s, ETA:  2547s[                             ] 288/8554, 3.3 task/s, elapsed: 88s, ETA:  2537s[                             ] 289/8554, 3.3 task/s, elapsed: 88s, ETA:  2528s[                             ] 290/8554, 3.3 task/s, elapsed: 88s, ETA:  2519s[                             ] 291/8554, 3.3 task/s, elapsed: 88s, ETA:  2510s[                             ] 292/8554, 3.3 task/s, elapsed: 88s, ETA:  2501s[                             ] 293/8554, 3.3 task/s, elapsed: 88s, ETA:  2493s[                             ] 294/8554, 3.3 task/s, elapsed: 88s, ETA:  2484s[>                            ] 295/8554, 3.3 task/s, elapsed: 88s, ETA:  2475s[>                            ] 296/8554, 3.3 task/s, elapsed: 88s, ETA:  2466s[>                            ] 297/8554, 3.4 task/s, elapsed: 88s, ETA:  2458s[>                            ] 298/8554, 3.4 task/s, elapsed: 88s, ETA:  2449s[>                            ] 299/8554, 3.4 task/s, elapsed: 88s, ETA:  2441s[>                            ] 300/8554, 3.4 task/s, elapsed: 88s, ETA:  2432s[>                            ] 301/8554, 3.4 task/s, elapsed: 88s, ETA:  2424s[>                            ] 302/8554, 3.4 task/s, elapsed: 88s, ETA:  2416s[>                            ] 303/8554, 3.4 task/s, elapsed: 88s, ETA:  2407s[>                            ] 304/8554, 3.4 task/s, elapsed: 88s, ETA:  2399s[>                            ] 305/8554, 3.4 task/s, elapsed: 88s, ETA:  2391s[>                            ] 306/8554, 3.5 task/s, elapsed: 88s, ETA:  2383s[>                            ] 307/8554, 3.5 task/s, elapsed: 88s, ETA:  2375s[>                            ] 308/8554, 3.5 task/s, elapsed: 88s, ETA:  2367s[>                            ] 309/8554, 3.5 task/s, elapsed: 88s, ETA:  2359s[>                            ] 310/8554, 3.5 task/s, elapsed: 88s, ETA:  2351s[>                            ] 311/8554, 3.5 task/s, elapsed: 88s, ETA:  2343s[>                            ] 312/8554, 3.5 task/s, elapsed: 88s, ETA:  2335s[>                            ] 313/8554, 3.5 task/s, elapsed: 88s, ETA:  2328s[>                            ] 314/8554, 3.6 task/s, elapsed: 88s, ETA:  2320s[>                            ] 315/8554, 3.6 task/s, elapsed: 88s, ETA:  2312s[>                            ] 316/8554, 3.6 task/s, elapsed: 88s, ETA:  2305s[>                            ] 317/8554, 3.6 task/s, elapsed: 88s, ETA:  2297s[>                            ] 318/8554, 3.6 task/s, elapsed: 88s, ETA:  2290s[>                            ] 319/8554, 3.6 task/s, elapsed: 88s, ETA:  2282s[>                            ] 320/8554, 3.6 task/s, elapsed: 88s, ETA:  2275s[>                            ] 321/8554, 3.6 task/s, elapsed: 88s, ETA:  2267s[>                            ] 322/8554, 3.6 task/s, elapsed: 88s, ETA:  2260s[>                            ] 323/8554, 3.7 task/s, elapsed: 88s, ETA:  2253s[>                            ] 324/8554, 3.7 task/s, elapsed: 88s, ETA:  2246s[>                            ] 325/8554, 3.7 task/s, elapsed: 88s, ETA:  2238s[>                            ] 326/8554, 3.7 task/s, elapsed: 88s, ETA:  2231s[>                            ] 327/8554, 3.7 task/s, elapsed: 88s, ETA:  2224s[>                            ] 328/8554, 3.7 task/s, elapsed: 88s, ETA:  2217s[>                            ] 329/8554, 3.7 task/s, elapsed: 88s, ETA:  2210s[>                            ] 330/8554, 3.7 task/s, elapsed: 88s, ETA:  2203s[>                            ] 331/8554, 3.7 task/s, elapsed: 88s, ETA:  2196s[>                            ] 332/8554, 3.8 task/s, elapsed: 88s, ETA:  2189s[>                            ] 333/8554, 3.8 task/s, elapsed: 88s, ETA:  2183s[>                            ] 334/8554, 3.8 task/s, elapsed: 88s, ETA:  2176s[>                            ] 335/8554, 3.8 task/s, elapsed: 88s, ETA:  2169s[>                            ] 336/8554, 3.8 task/s, elapsed: 88s, ETA:  2162s[>                            ] 337/8554, 3.8 task/s, elapsed: 88s, ETA:  2156s[>                            ] 338/8554, 3.8 task/s, elapsed: 88s, ETA:  2149s[>                            ] 339/8554, 3.8 task/s, elapsed: 88s, ETA:  2142s[>                            ] 340/8554, 3.8 task/s, elapsed: 88s, ETA:  2136s[>                            ] 341/8554, 3.9 task/s, elapsed: 88s, ETA:  2129s[>                            ] 342/8554, 3.9 task/s, elapsed: 88s, ETA:  2123s[>                            ] 343/8554, 3.9 task/s, elapsed: 88s, ETA:  2116s[>                            ] 344/8554, 3.9 task/s, elapsed: 88s, ETA:  2110s[>                            ] 345/8554, 3.9 task/s, elapsed: 88s, ETA:  2104s[>                            ] 346/8554, 3.9 task/s, elapsed: 88s, ETA:  2097s[>                            ] 347/8554, 3.9 task/s, elapsed: 88s, ETA:  2091s[>                            ] 348/8554, 3.9 task/s, elapsed: 88s, ETA:  2085s[>                            ] 349/8554, 3.9 task/s, elapsed: 88s, ETA:  2078s[>                            ] 350/8554, 4.0 task/s, elapsed: 88s, ETA:  2072s[>                            ] 351/8554, 4.0 task/s, elapsed: 88s, ETA:  2066s[>                            ] 352/8554, 4.0 task/s, elapsed: 88s, ETA:  2060s[>                            ] 353/8554, 4.0 task/s, elapsed: 88s, ETA:  2054s[>                            ] 354/8554, 4.0 task/s, elapsed: 88s, ETA:  2048s[>                            ] 355/8554, 4.0 task/s, elapsed: 88s, ETA:  2042s[>                            ] 356/8554, 4.0 task/s, elapsed: 88s, ETA:  2036s[>                            ] 357/8554, 4.0 task/s, elapsed: 88s, ETA:  2030s[>                            ] 358/8554, 4.0 task/s, elapsed: 88s, ETA:  2024s[>                            ] 359/8554, 4.1 task/s, elapsed: 88s, ETA:  2018s[>                            ] 360/8554, 4.1 task/s, elapsed: 88s, ETA:  2012s[>                            ] 361/8554, 4.1 task/s, elapsed: 88s, ETA:  2006s[>                            ] 362/8554, 4.1 task/s, elapsed: 88s, ETA:  2001s[>                            ] 363/8554, 4.1 task/s, elapsed: 88s, ETA:  1995s[>                            ] 364/8554, 4.1 task/s, elapsed: 88s, ETA:  1989s[>                            ] 365/8554, 4.1 task/s, elapsed: 88s, ETA:  1983s[>                            ] 366/8554, 4.1 task/s, elapsed: 88s, ETA:  1978s[>                            ] 367/8554, 4.2 task/s, elapsed: 88s, ETA:  1972s[>                            ] 368/8554, 4.2 task/s, elapsed: 88s, ETA:  1967s[>                            ] 369/8554, 4.2 task/s, elapsed: 88s, ETA:  1961s[>                            ] 370/8554, 4.2 task/s, elapsed: 88s, ETA:  1955s[>                            ] 371/8554, 4.2 task/s, elapsed: 88s, ETA:  1950s[>                            ] 372/8554, 4.2 task/s, elapsed: 88s, ETA:  1944s[>                            ] 373/8554, 4.2 task/s, elapsed: 88s, ETA:  1939s[>                            ] 374/8554, 4.2 task/s, elapsed: 88s, ETA:  1934s[>                            ] 375/8554, 4.2 task/s, elapsed: 88s, ETA:  1928s[>                            ] 376/8554, 4.3 task/s, elapsed: 88s, ETA:  1923s[>                            ] 377/8554, 4.3 task/s, elapsed: 88s, ETA:  1918s[>                            ] 378/8554, 4.3 task/s, elapsed: 88s, ETA:  1912s[>                            ] 379/8554, 4.3 task/s, elapsed: 88s, ETA:  1907s[>                            ] 380/8554, 4.3 task/s, elapsed: 88s, ETA:  1902s[>                            ] 381/8554, 4.3 task/s, elapsed: 88s, ETA:  1896s[>                            ] 382/8554, 4.3 task/s, elapsed: 88s, ETA:  1891s[>                            ] 383/8554, 4.3 task/s, elapsed: 88s, ETA:  1886s[>                            ] 384/8554, 4.3 task/s, elapsed: 88s, ETA:  1881s

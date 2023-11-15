@@ -1,0 +1,2 @@
+/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/hrfuser_cuda11p1/mmdet/datasets/pipelines/transforms.py:1067: RuntimeWarning: invalid value encountered in true_divide
+  in_frame = post_area / results[key+'_area_orig']
