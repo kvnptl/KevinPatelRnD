@@ -1,11 +1,14 @@
 import json
 from collections import defaultdict
+import os
+from tqdm import tqdm
 
 def kitti_to_coco(kitti_file, coco_file, sample_coco_file=None):
 
     # Just for ref
-    with open(sample_coco_file, 'r') as f:
-        sample_coco_data = json.load(f)
+    if sample_coco_file is not None:
+        with open(sample_coco_file, 'r') as f:
+            sample_coco_data = json.load(f)
 
     with open(kitti_file, 'r') as f:
         kitti_data = json.load(f)
@@ -144,9 +147,18 @@ def kitti_to_coco(kitti_file, coco_file, sample_coco_file=None):
 
 sample_coco_file = "/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr/data/coco_annotation/dense_fog_night_modified.json"
 
-kitti_file = '/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/hrfuser/data/dense_pkl_files/converted_stf_json_files/dense_infos_all_modified.json'
-coco_file = '/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/hrfuser/data/dense_pkl_files/converted_stf_json_files/dense_infos_all_modified_coco_2.json'
-kitti_to_coco(kitti_file, coco_file, sample_coco_file)
+json_files_dir = "/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/hrfuser/data/dense_pkl_files/converted_stf_json_files"
+dest_dir = "/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/hrfuser/data/dense_pkl_files/coco_annotations"
+
+for json_file in tqdm(os.listdir(json_files_dir)):
+    if json_file.endswith(".json"):
+        json_file_path = os.path.join(json_files_dir, json_file)
+        coco_file_path = os.path.join(dest_dir, json_file.replace(".json", "_coco.json"))
+        kitti_to_coco(json_file_path, coco_file_path)
+
+# kitti_file = '/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/hrfuser/data/dense_pkl_files/converted_stf_json_files/dense_infos_all_modified.json'
+# coco_file = '/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/hrfuser/data/dense_pkl_files/converted_stf_json_files/dense_infos_all_modified_coco_2.json'
+# kitti_to_coco(kitti_file, coco_file)
 
 
 
