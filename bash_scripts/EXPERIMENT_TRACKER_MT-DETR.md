@@ -33,35 +33,43 @@ NOTE: For A100 GPU, use `pip install torch==1.10.1+cu111 torchvision==0.11.2+cu1
 
 ### Current
 
+- START WRITING REPORT NOW
 
 ##################################################################################
 
 ### Pending
 
-- Evaluate only on Car class
-- Recalculate all model summaries with a large depth value
-    - As depth value matters for total multi-adds calculations
-    - Once done add a column in exp-tracker for total multi-adds
 - On early fusion C+R, try to reduce input image size and compare compute and memory usage
-- How to generate KITTI style easy, moderate, and hard categories? (take reference from HRFuser)
 - Read the MT-DETR paper again
-- HOW TO GET groundtruth data?
-- [Learn] from MMDetection on how to print all AP and AR metrics while training on validation set
-- Divide images into Easy, moderate and Hard categories to match with HRFuser results
-- Check experiment tracker sheet for more TODOs
 - [Study] model summary all basic camera only, early fusion, middle fusion, C+L+R fusion
+
+- Check experiment tracker sheet for more TODOs
+
 
 ##################################################################################
 
 ### DONE
 
+- TIMESTAMP: 16-Nov-2023 7:12
+
+
+- Recalculate all model summaries with a large depth value - DONE
+    - As depth value matters for total multi-adds calculations
+    - Once done add a column in exp-tracker for total multi-adds
+- HOW TO GET groundtruth data? - DONE
+
+- Divide images into Easy, moderate and Hard categories to match with HRFuser results - Not required
+- Evaluate only on Car class - Not required
+- How to generate KITTI style easy, moderate, and hard categories? (take reference from HRFuser) - Not planned
+- [Learn] from MMDetection on how to print all AP and AR metrics while training on validation set - Not required
+
 ------------------------------------------------------------------------------------
-- TIMESTAMP: 13-Nov-2023 15:12
+
     - Generating ground truth for MT-DETR - DONE
 
 - Debugging COCO style annotations
     - `python tools/test.py configs/mt_detr/mt_detr_c+l+r.py /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/provided/mt_detr_c+l+r.pth --eval bbox --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/inference/testing_result_metric --show-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/inference/testing_result_metric`
-    
+
 ------------------------------------------------------------------------------------
 - TIMESTAMP: 7-Nov-2023 23:12
     - [MT-DETR]

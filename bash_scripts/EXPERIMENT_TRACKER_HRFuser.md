@@ -26,37 +26,47 @@ pip install -v -e .
 
 ### Current
 
-- TIMESTAMP: 15-Nov-2023 23:55
-    - [DENSE] 
-        - Evaluate on all weather with Day and Night split - [IN-PROGRESS]
-        - Evaluate with CLR modalities - [PENDING]
-        - Evaluate with Camera only - [PENDING]
+- START WRITING REPORT NOW
 
 ##################################################################################
 
 ### Pending
 
-- Check Camera only result on HRFuser using config file
-- Replace all results with CAR ONLY RESULTS
-- How to generate KITTI style easy, moderate, and hard categories? (debug trough test.py and find out)
 - Read the HRFuser paper again
-- How to get ground truth data?
-- Check how to store best epoch model based on val loss in MMDetection
-- Project Lidar and Radar image on RGB image for visualization
-    - For DENSE and nuScenes
-- Understand Lidar and Radar Image generation - PENDING
-    - Check GitHub issue
 - [Study] model summary
+
+- Plot confusion matrix
+- Replace all results with CAR ONLY RESULTS (only required for SAF-FCOS)
 - Get model summary with single modality
     - For only camera
     - For camera + lidar (understand how to do this?)
     - For camera + radar
+
 - Check experiment tracker sheet for more TODOs
+
 
 ##################################################################################
 
 ### DONE
 
+- TIMESTAMP: 16-Nov-2023 7:55
+    - [DENSE]
+        - Evaluate on all weather with Day and Night split
+            - Evaluate with CLR modalities (8 batch model) - DONE
+            - Evaluate with Camera only - DONE
+            - Evaluate with CLR modalities (12 batch model) - DONE
+
+- Check Camera only result on HRFuser using config file - DONE
+- Understand Lidar and Radar Image generation - DONE
+    - Check GitHub issue
+- How to get ground truth data? - DONE
+- Project Lidar and Radar image on RGB image for visualization - Done
+    - For DENSE and nuScenes
+
+- Check how to store best epoch model based on val loss in MMDetection - Not required
+- How to generate KITTI style easy, moderate, and hard categories? (debug trough test.py and find out) - Not planned
+
+------------------------------------------------------------------------------------
 - TIMESTAMP: 14-Nov-2023 23:55
     - Convert KITTI JSON TO COCO JSON Format - DONE
         - include lidar and radar image in the JSON - DONE
