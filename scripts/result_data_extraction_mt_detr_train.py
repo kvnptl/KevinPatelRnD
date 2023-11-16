@@ -7,7 +7,7 @@ import json
 import os
 from collections import defaultdict
 
-JSON_LOG_PATH = '/home/kpatel2s/kpatel2s/a_data_storage_link/kpatel2s_datasets/mt_detr/work_dirs/mt_detr_c+l_single_gpu_2023-11-02_23-48-06/20231102_234811.log.json'
+JSON_LOG_PATH = '/home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/work_dirs/camera_radar_multi_single_A100_gpu_2023-11-04_09-47-18_214472/20231104_094727.log.json'
 
 def extract_from_config(config_str):
     import re

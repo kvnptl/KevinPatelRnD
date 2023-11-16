@@ -5,7 +5,7 @@ This script is for MT-DETR .out file data extraction
 
 import re
 
-test_log_file = "/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/bash_scripts/mt_detr/test/middle_fusion/test_middle_c+r_output.214520.out"
+test_log_file = "/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/bash_scripts/hr_fuser/dense/test/COCO/test_hrfuser_TINY_dense_cameara_only_COCO_day_night_output.221802.out"
 
 # Read the text file
 with open(test_log_file, "r") as f:
@@ -21,7 +21,7 @@ result = dict()
 big_test_result_string = "TEST STRING: "
 
 for line in lines:
-    if re.search(r"data/coco_annotation", line):
+    if re.search(r"data/coco_annotation", line) or re.search(r"coco_annotation", line):
         file_name = line.split("/")[-1].split(".")[0]
     if re.search(r"Average Recall\s+\(AR\)\s+@\[\s+IoU=0\.50:0\.95\s+\|\s+area=\s+all\s+\|\s+maxDets=1000\s+\]", line):
         ar_all = round(float(line.split(" ")[-1]) * 100, 2)
