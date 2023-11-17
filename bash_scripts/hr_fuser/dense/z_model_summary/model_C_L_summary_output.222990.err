@@ -1,0 +1,669 @@
+2023-11-17 23:25:26,851 - mmdet - INFO - Environment info:
+------------------------------------------------------------
+sys.platform: linux
+Python: 3.8.18 (default, Sep 11 2023, 13:40:15) [GCC 11.2.0]
+CUDA available: True
+GPU 0: Tesla V100-PCIE-16GB
+CUDA_HOME: /usr/local/cuda-10.2
+NVCC: Cuda compilation tools, release 10.2, V10.2.89
+GCC: gcc (GCC) 10.1.0
+PyTorch: 1.10.0+cu102
+PyTorch compiling details: PyTorch built with:
+  - GCC 7.3
+  - C++ Version: 201402
+  - Intel(R) Math Kernel Library Version 2020.0.0 Product Build 20191122 for Intel(R) 64 architecture applications
+  - Intel(R) MKL-DNN v2.2.3 (Git Hash 7336ca9f055cf1bfa13efb658fe15dc9b41f0740)
+  - OpenMP 201511 (a.k.a. OpenMP 4.5)
+  - LAPACK is enabled (usually provided by MKL)
+  - NNPACK is enabled
+  - CPU capability usage: AVX512
+  - CUDA Runtime 10.2
+  - NVCC architecture flags: -gencode;arch=compute_37,code=sm_37;-gencode;arch=compute_50,code=sm_50;-gencode;arch=compute_60,code=sm_60;-gencode;arch=compute_70,code=sm_70
+  - CuDNN 7.6.5
+  - Magma 2.5.2
+  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, CUDA_VERSION=10.2, CUDNN_VERSION=7.6.5, CXX_COMPILER=/opt/rh/devtoolset-7/root/usr/bin/c++, CXX_FLAGS= -Wno-deprecated -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -fopenmp -DNDEBUG -DUSE_KINETO -DUSE_FBGEMM -DUSE_QNNPACK -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -DEDGE_PROFILER_USE_KINETO -O2 -fPIC -Wno-narrowing -Wall -Wextra -Werror=return-type -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-sign-compare -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function -Wno-unused-result -Wno-unused-local-typedefs -Wno-strict-overflow -Wno-strict-aliasing -Wno-error=deprecated-declarations -Wno-stringop-overflow -Wno-psabi -Wno-error=pedantic -Wno-error=redundant-decls -Wno-error=old-style-cast -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, PERF_WITH_AVX512=1, TORCH_VERSION=1.10.0, USE_CUDA=ON, USE_CUDNN=ON, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=ON, USE_NNPACK=ON, USE_OPENMP=ON, 
+
+TorchVision: 0.11.0+cu102
+OpenCV: 4.8.1
+MMCV: 1.3.17
+MMCV Compiler: GCC 7.3
+MMCV CUDA Compiler: 10.2
+MMDetection: 2.19.1+165a892
+------------------------------------------------------------
+
+2023-11-17 23:25:27,613 - mmdet - INFO - Distributed training: False
+2023-11-17 23:25:28,317 - mmdet - INFO - Config:
+norm_cfg = dict(type='BN', requires_grad=True, momentum=0.1)
+transformer_norm_cfg = dict(type='LN', eps=1e-06)
+proj_drop_rate = 0.1
+model = dict(
+    type='CascadeRCNN',
+    backbone=dict(
+        type='HRFuserHRFormerBased',
+        norm_cfg=dict(type='BN', requires_grad=True, momentum=0.1),
+        transformer_norm_cfg=dict(type='LN', eps=1e-06),
+        norm_eval=False,
+        drop_path_rate=0.0,
+        num_fused_modalities=1,
+        extra=dict(
+            LidarStageA=dict(
+                num_modules=1,
+                num_branches=1,
+                block='BOTTLENECK',
+                num_blocks=(2, ),
+                num_channels=(64, )),
+            ModFusionA=dict(
+                block='MWCA',
+                with_act=True,
+                with_pre_act=False,
+                drop_path=0.2,
+                num_branches=2,
+                window_sizes=(7, 7),
+                num_heads=(1, 2),
+                mlp_ratios=(4, 4),
+                num_channels=(18, 36),
+                proj_drop_rate=0.1),
+            LidarStageB=dict(
+                num_modules=1,
+                num_branches=1,
+                block='HRFORMER',
+                window_sizes=(7, ),
+                num_heads=(1, ),
+                mlp_ratios=(4, ),
+                num_blocks=(2, ),
+                num_channels=(18, )),
+            ModFusionB=dict(
+                block='MWCA',
+                with_act=True,
+                with_pre_act=False,
+                drop_path=0.2,
+                num_branches=3,
+                window_sizes=(7, 7, 7),
+                num_heads=(1, 2, 4),
+                mlp_ratios=(4, 4, 4),
+                num_channels=(18, 36, 72),
+                proj_drop_rate=0.1),
+            LidarStageC=dict(
+                num_modules=3,
+                num_branches=1,
+                block='HRFORMER',
+                window_sizes=(7, ),
+                num_heads=(1, ),
+                mlp_ratios=(4, ),
+                num_blocks=(2, ),
+                num_channels=(18, )),
+            ModFusionC=dict(
+                block='MWCA',
+                with_act=True,
+                with_pre_act=False,
+                drop_path=0.2,
+                num_branches=4,
+                window_sizes=(7, 7, 7, 7),
+                num_heads=(1, 2, 4, 8),
+                mlp_ratios=(4, 4, 4, 4),
+                num_channels=(18, 36, 72, 144),
+                proj_drop_rate=0.1),
+            LidarStageD=None,
+            stage1=dict(
+                num_modules=1,
+                num_branches=1,
+                block='BOTTLENECK',
+                num_blocks=(2, ),
+                num_channels=(64, )),
+            stage2=dict(
+                num_modules=1,
+                num_branches=2,
+                block='HRFORMER',
+                window_sizes=(7, 7),
+                num_heads=(1, 2),
+                mlp_ratios=(4, 4),
+                num_blocks=(2, 2),
+                num_channels=(18, 36),
+                in_module_fusion=False),
+            stage3=dict(
+                num_modules=3,
+                num_branches=3,
+                block='HRFORMER',
+                window_sizes=(7, 7, 7),
+                num_heads=(1, 2, 4),
+                mlp_ratios=(4, 4, 4),
+                num_blocks=(2, 2, 2),
+                num_channels=(18, 36, 72),
+                in_module_fusion=False),
+            stage4=dict(
+                num_modules=2,
+                num_branches=4,
+                block='HRFORMER',
+                window_sizes=(7, 7, 7, 7),
+                num_heads=(1, 2, 4, 8),
+                mlp_ratios=(4, 4, 4, 4),
+                num_blocks=(2, 2, 2, 2),
+                num_channels=(18, 36, 72, 144),
+                in_module_fusion=False)),
+        mod_in_channels=[3]),
+    neck=dict(type='HRFPN', in_channels=[18, 36, 72, 144], out_channels=256),
+    rpn_head=dict(
+        type='RPNHead',
+        in_channels=256,
+        feat_channels=256,
+        anchor_generator=dict(
+            type='AnchorGenerator',
+            scales=[8],
+            ratios=[0.5, 1.0, 2.0],
+            strides=[4, 8, 16, 32, 64]),
+        bbox_coder=dict(
+            type='DeltaXYWHBBoxCoder',
+            target_means=[0.0, 0.0, 0.0, 0.0],
+            target_stds=[1.0, 1.0, 1.0, 1.0]),
+        loss_cls=dict(
+            type='CrossEntropyLoss', use_sigmoid=True, loss_weight=1.0),
+        loss_bbox=dict(
+            type='SmoothL1Loss', beta=0.1111111111111111, loss_weight=1.0)),
+    roi_head=dict(
+        type='CascadeRoIHead',
+        num_stages=3,
+        stage_loss_weights=[1, 0.5, 0.25],
+        bbox_roi_extractor=dict(
+            type='SingleRoIExtractor',
+            roi_layer=dict(type='RoIAlign', output_size=7, sampling_ratio=0),
+            out_channels=256,
+            featmap_strides=[4, 8, 16, 32]),
+        bbox_head=[
+            dict(
+                type='Shared2FCBBoxHead',
+                in_channels=256,
+                fc_out_channels=1024,
+                roi_feat_size=7,
+                num_classes=3,
+                bbox_coder=dict(
+                    type='DeltaXYWHBBoxCoder',
+                    target_means=[0.0, 0.0, 0.0, 0.0],
+                    target_stds=[0.1, 0.1, 0.2, 0.2]),
+                reg_class_agnostic=True,
+                loss_cls=dict(
+                    type='CrossEntropyLoss',
+                    use_sigmoid=False,
+                    loss_weight=1.0),
+                loss_bbox=dict(type='SmoothL1Loss', beta=1.0,
+                               loss_weight=1.0)),
+            dict(
+                type='Shared2FCBBoxHead',
+                in_channels=256,
+                fc_out_channels=1024,
+                roi_feat_size=7,
+                num_classes=3,
+                bbox_coder=dict(
+                    type='DeltaXYWHBBoxCoder',
+                    target_means=[0.0, 0.0, 0.0, 0.0],
+                    target_stds=[0.05, 0.05, 0.1, 0.1]),
+                reg_class_agnostic=True,
+                loss_cls=dict(
+                    type='CrossEntropyLoss',
+                    use_sigmoid=False,
+                    loss_weight=1.0),
+                loss_bbox=dict(type='SmoothL1Loss', beta=1.0,
+                               loss_weight=1.0)),
+            dict(
+                type='Shared2FCBBoxHead',
+                in_channels=256,
+                fc_out_channels=1024,
+                roi_feat_size=7,
+                num_classes=3,
+                bbox_coder=dict(
+                    type='DeltaXYWHBBoxCoder',
+                    target_means=[0.0, 0.0, 0.0, 0.0],
+                    target_stds=[0.033, 0.033, 0.067, 0.067]),
+                reg_class_agnostic=True,
+                loss_cls=dict(
+                    type='CrossEntropyLoss',
+                    use_sigmoid=False,
+                    loss_weight=1.0),
+                loss_bbox=dict(type='SmoothL1Loss', beta=1.0, loss_weight=1.0))
+        ]),
+    train_cfg=dict(
+        rpn=dict(
+            assigner=dict(
+                type='MaxIoUAssigner',
+                pos_iou_thr=0.7,
+                neg_iou_thr=0.3,
+                min_pos_iou=0.3,
+                match_low_quality=True,
+                ignore_iof_thr=-1),
+            sampler=dict(
+                type='RandomSampler',
+                num=256,
+                pos_fraction=0.5,
+                neg_pos_ub=-1,
+                add_gt_as_proposals=False),
+            allowed_border=0,
+            pos_weight=-1,
+            debug=False),
+        rpn_proposal=dict(
+            nms_pre=2000,
+            max_per_img=2000,
+            nms=dict(type='nms', iou_threshold=0.7),
+            min_bbox_size=0),
+        rcnn=[
+            dict(
+                assigner=dict(
+                    type='MaxIoUAssigner',
+                    pos_iou_thr=0.5,
+                    neg_iou_thr=0.5,
+                    min_pos_iou=0.5,
+                    match_low_quality=False,
+                    ignore_iof_thr=-1),
+                sampler=dict(
+                    type='RandomSampler',
+                    num=512,
+                    pos_fraction=0.25,
+                    neg_pos_ub=-1,
+                    add_gt_as_proposals=True),
+                pos_weight=-1,
+                debug=False),
+            dict(
+                assigner=dict(
+                    type='MaxIoUAssigner',
+                    pos_iou_thr=0.6,
+                    neg_iou_thr=0.6,
+                    min_pos_iou=0.6,
+                    match_low_quality=False,
+                    ignore_iof_thr=-1),
+                sampler=dict(
+                    type='RandomSampler',
+                    num=512,
+                    pos_fraction=0.25,
+                    neg_pos_ub=-1,
+                    add_gt_as_proposals=True),
+                pos_weight=-1,
+                debug=False),
+            dict(
+                assigner=dict(
+                    type='MaxIoUAssigner',
+                    pos_iou_thr=0.7,
+                    neg_iou_thr=0.7,
+                    min_pos_iou=0.7,
+                    match_low_quality=False,
+                    ignore_iof_thr=-1),
+                sampler=dict(
+                    type='RandomSampler',
+                    num=512,
+                    pos_fraction=0.25,
+                    neg_pos_ub=-1,
+                    add_gt_as_proposals=True),
+                pos_weight=-1,
+                debug=False)
+        ]),
+    test_cfg=dict(
+        rpn=dict(
+            nms_pre=1000,
+            max_per_img=1000,
+            nms=dict(type='nms', iou_threshold=0.7),
+            min_bbox_size=0),
+        rcnn=dict(
+            score_thr=0.05,
+            nms=dict(type='nms', iou_threshold=0.5),
+            max_per_img=100)))
+dataset_type = 'Kitti2DDataset'
+data_root = 'data/dense/'
+class_names = ['Pedestrian', 'Cyclist', 'Car']
+input_modality = dict(use_lidar=False, use_camera=True)
+img_norm_cfg = dict(
+    mean=[95.07200648, 91.35659045, 87.7264499],
+    std=[42.78716034, 42.98587388, 43.82545466],
+    to_rgb=True)
+lidar_norm_cfg = dict(
+    mean=[0.014311949, 0.39251423, 3.4071422],
+    std=[0.17276553984335935, 3.76054903771461, 26.008978714330535],
+    to_rgb=False)
+train_pipeline = [
+    dict(type='LoadImageFromFile', to_float32=True),
+    dict(
+        type='LoadProjectedSensorImageFile',
+        expected_shape=(768, 1280, 3),
+        sensor_type='lidar',
+        to_float32=True,
+        color_type='unchanged',
+        channels=['yzi']),
+    dict(
+        type='Normalize',
+        mean=[0.014311949, 0.39251423, 3.4071422],
+        std=[0.17276553984335935, 3.76054903771461, 26.008978714330535],
+        to_rgb=False,
+        keys=['lidar_img'],
+        sensor_type='lidar'),
+    dict(type='LoadAnnotations', with_bbox=True),
+    dict(
+        type='Crop',
+        crop_size=(768, 1280),
+        offsets=(202, 280),
+        skip_keys=['lidar_img']),
+    dict(
+        type='Resize',
+        img_scale=(1280, 768),
+        keep_ratio=False,
+        skip_keys=['lidar_img']),
+    dict(
+        type='Crop',
+        crop_size=(384, 1248),
+        offsets=(192, 16),
+        thresh_in_frame=0.1),
+    dict(type='RandomFlip', flip_ratio=0.5),
+    dict(
+        type='Normalize',
+        mean=[95.07200648, 91.35659045, 87.7264499],
+        std=[42.78716034, 42.98587388, 43.82545466],
+        to_rgb=True,
+        keys=['img']),
+    dict(type='Pad', size_divisor=32),
+    dict(type='RandomDrop', p=[0.5, 0.5, 0.5, 0.5], keys=['img', 'lidar_img']),
+    dict(type='DefaultFormatBundle', sensor_keys=['img', 'lidar_img']),
+    dict(
+        type='Collect',
+        keys=['img', 'lidar_img', 'gt_bboxes', 'gt_labels'],
+        meta_keys=('filename', 'ori_filename', 'ori_shape', 'img_shape',
+                   'pad_shape', 'scale_factor', 'flip', 'flip_direction',
+                   'img_norm_cfg', 'lidar_ori_shape', 'lidar_norm_cfg'))
+]
+test_pipeline = [
+    dict(type='LoadImageFromFile', to_float32=True),
+    dict(
+        type='LoadProjectedSensorImageFile',
+        expected_shape=(768, 1280, 3),
+        sensor_type='lidar',
+        to_float32=True,
+        color_type='unchanged',
+        channels=['yzi']),
+    dict(
+        type='MultiScaleFlipAug',
+        img_scale=(1280, 768),
+        flip=False,
+        transforms=[
+            dict(
+                type='Normalize',
+                mean=[0.014311949, 0.39251423, 3.4071422],
+                std=[
+                    0.17276553984335935, 3.76054903771461, 26.008978714330535
+                ],
+                to_rgb=False,
+                keys=['lidar_img'],
+                sensor_type='lidar'),
+            dict(
+                type='Crop',
+                crop_size=(768, 1280),
+                offsets=(202, 280),
+                skip_keys=['lidar_img']),
+            dict(type='Resize', keep_ratio=False, skip_keys=['lidar_img']),
+            dict(
+                type='Normalize',
+                mean=[95.07200648, 91.35659045, 87.7264499],
+                std=[42.78716034, 42.98587388, 43.82545466],
+                to_rgb=True,
+                keys=['img'],
+                sensor_type='img'),
+            dict(
+                type='Crop',
+                crop_size=(384, 1248),
+                offsets=(192, 16),
+                thresh_in_frame=0.1),
+            dict(type='Pad', size_divisor=32),
+            dict(type='ImageToTensor', keys=['img', 'lidar_img']),
+            dict(
+                type='Collect',
+                keys=['img', 'lidar_img'],
+                meta_keys=('filename', 'ori_filename', 'ori_shape',
+                           'img_shape', 'pad_shape', 'scale_factor', 'flip',
+                           'flip_direction', 'img_norm_cfg', 'crop_factor'))
+        ])
+]
+data = dict(
+    samples_per_gpu=1,
+    workers_per_gpu=1,
+    train=dict(
+        type='Kitti2DDataset',
+        data_root='data/dense/',
+        ann_file='dense_infos_train_clear.pkl',
+        img_prefix='',
+        lidar_prefix='',
+        radar_prefix='',
+        lidar_img_mode=True,
+        radar_img_mode=False,
+        classes=['Pedestrian', 'Cyclist', 'Car'],
+        pipeline=[
+            dict(type='LoadImageFromFile', to_float32=True),
+            dict(
+                type='LoadProjectedSensorImageFile',
+                expected_shape=(768, 1280, 3),
+                sensor_type='lidar',
+                to_float32=True,
+                color_type='unchanged',
+                channels=['yzi']),
+            dict(
+                type='Normalize',
+                mean=[0.014311949, 0.39251423, 3.4071422],
+                std=[
+                    0.17276553984335935, 3.76054903771461, 26.008978714330535
+                ],
+                to_rgb=False,
+                keys=['lidar_img'],
+                sensor_type='lidar'),
+            dict(type='LoadAnnotations', with_bbox=True),
+            dict(
+                type='Crop',
+                crop_size=(768, 1280),
+                offsets=(202, 280),
+                skip_keys=['lidar_img']),
+            dict(
+                type='Resize',
+                img_scale=(1280, 768),
+                keep_ratio=False,
+                skip_keys=['lidar_img']),
+            dict(
+                type='Crop',
+                crop_size=(384, 1248),
+                offsets=(192, 16),
+                thresh_in_frame=0.1),
+            dict(type='RandomFlip', flip_ratio=0.5),
+            dict(
+                type='Normalize',
+                mean=[95.07200648, 91.35659045, 87.7264499],
+                std=[42.78716034, 42.98587388, 43.82545466],
+                to_rgb=True,
+                keys=['img']),
+            dict(type='Pad', size_divisor=32),
+            dict(
+                type='RandomDrop',
+                p=[0.5, 0.5, 0.5, 0.5],
+                keys=['img', 'lidar_img']),
+            dict(type='DefaultFormatBundle', sensor_keys=['img', 'lidar_img']),
+            dict(
+                type='Collect',
+                keys=['img', 'lidar_img', 'gt_bboxes', 'gt_labels'],
+                meta_keys=('filename', 'ori_filename', 'ori_shape',
+                           'img_shape', 'pad_shape', 'scale_factor', 'flip',
+                           'flip_direction', 'img_norm_cfg', 'lidar_ori_shape',
+                           'lidar_norm_cfg'))
+        ]),
+    val=dict(
+        type='Kitti2DDataset',
+        data_root='data/dense/',
+        ann_file='dense_infos_val_clear.pkl',
+        img_prefix='',
+        lidar_prefix='',
+        radar_prefix='',
+        lidar_img_mode=True,
+        radar_img_mode=False,
+        classes=['Pedestrian', 'Cyclist', 'Car'],
+        pipeline=[
+            dict(type='LoadImageFromFile', to_float32=True),
+            dict(
+                type='LoadProjectedSensorImageFile',
+                expected_shape=(768, 1280, 3),
+                sensor_type='lidar',
+                to_float32=True,
+                color_type='unchanged',
+                channels=['yzi']),
+            dict(
+                type='MultiScaleFlipAug',
+                img_scale=(1280, 768),
+                flip=False,
+                transforms=[
+                    dict(
+                        type='Normalize',
+                        mean=[0.014311949, 0.39251423, 3.4071422],
+                        std=[
+                            0.17276553984335935, 3.76054903771461,
+                            26.008978714330535
+                        ],
+                        to_rgb=False,
+                        keys=['lidar_img'],
+                        sensor_type='lidar'),
+                    dict(
+                        type='Crop',
+                        crop_size=(768, 1280),
+                        offsets=(202, 280),
+                        skip_keys=['lidar_img']),
+                    dict(
+                        type='Resize',
+                        keep_ratio=False,
+                        skip_keys=['lidar_img']),
+                    dict(
+                        type='Normalize',
+                        mean=[95.07200648, 91.35659045, 87.7264499],
+                        std=[42.78716034, 42.98587388, 43.82545466],
+                        to_rgb=True,
+                        keys=['img'],
+                        sensor_type='img'),
+                    dict(
+                        type='Crop',
+                        crop_size=(384, 1248),
+                        offsets=(192, 16),
+                        thresh_in_frame=0.1),
+                    dict(type='Pad', size_divisor=32),
+                    dict(type='ImageToTensor', keys=['img', 'lidar_img']),
+                    dict(
+                        type='Collect',
+                        keys=['img', 'lidar_img'],
+                        meta_keys=('filename', 'ori_filename', 'ori_shape',
+                                   'img_shape', 'pad_shape', 'scale_factor',
+                                   'flip', 'flip_direction', 'img_norm_cfg',
+                                   'crop_factor'))
+                ])
+        ]),
+    test=dict(
+        type='Kitti2DDataset',
+        data_root='data/dense/',
+        ann_file=[
+            'dense_infos_test_clear.pkl', 'dense_infos_light_fog.pkl',
+            'dense_infos_dense_fog.pkl', 'dense_infos_snow.pkl'
+        ],
+        img_prefix='',
+        lidar_prefix='',
+        radar_prefix='',
+        lidar_img_mode=True,
+        radar_img_mode=False,
+        classes=['Pedestrian', 'Cyclist', 'Car'],
+        pipeline=[
+            dict(type='LoadImageFromFile', to_float32=True),
+            dict(
+                type='LoadProjectedSensorImageFile',
+                expected_shape=(768, 1280, 3),
+                sensor_type='lidar',
+                to_float32=True,
+                color_type='unchanged',
+                channels=['yzi']),
+            dict(
+                type='MultiScaleFlipAug',
+                img_scale=(1280, 768),
+                flip=False,
+                transforms=[
+                    dict(
+                        type='Normalize',
+                        mean=[0.014311949, 0.39251423, 3.4071422],
+                        std=[
+                            0.17276553984335935, 3.76054903771461,
+                            26.008978714330535
+                        ],
+                        to_rgb=False,
+                        keys=['lidar_img'],
+                        sensor_type='lidar'),
+                    dict(
+                        type='Crop',
+                        crop_size=(768, 1280),
+                        offsets=(202, 280),
+                        skip_keys=['lidar_img']),
+                    dict(
+                        type='Resize',
+                        keep_ratio=False,
+                        skip_keys=['lidar_img']),
+                    dict(
+                        type='Normalize',
+                        mean=[95.07200648, 91.35659045, 87.7264499],
+                        std=[42.78716034, 42.98587388, 43.82545466],
+                        to_rgb=True,
+                        keys=['img'],
+                        sensor_type='img'),
+                    dict(
+                        type='Crop',
+                        crop_size=(384, 1248),
+                        offsets=(192, 16),
+                        thresh_in_frame=0.1),
+                    dict(type='Pad', size_divisor=32),
+                    dict(type='ImageToTensor', keys=['img', 'lidar_img']),
+                    dict(
+                        type='Collect',
+                        keys=['img', 'lidar_img'],
+                        meta_keys=('filename', 'ori_filename', 'ori_shape',
+                                   'img_shape', 'pad_shape', 'scale_factor',
+                                   'flip', 'flip_direction', 'img_norm_cfg',
+                                   'crop_factor'))
+                ])
+        ]))
+evaluation = dict(
+    interval=1,
+    eval_on_crop=dict(
+        offset_h=394, offset_w=296, img_shape=(384, 1248),
+        thresh_in_frame=0.1))
+checkpoint_config = dict(interval=1)
+log_config = dict(
+    interval=50,
+    hooks=[dict(type='TextLoggerHook'),
+           dict(type='TensorboardLoggerHook')])
+custom_hooks = [dict(type='NumClassCheckHook')]
+dist_params = dict(backend='nccl')
+log_level = 'INFO'
+load_from = None
+resume_from = None
+workflow = [('train', 1)]
+optimizer = dict(
+    type='AdamW',
+    lr=0.001,
+    betas=(0.9, 0.999),
+    weight_decay=0.01,
+    paramwise_cfg=dict(
+        custom_keys=dict(
+            absolute_pos_embed=dict(decay_mult=0.0),
+            relative_position_bias_table=dict(decay_mult=0.0),
+            norm=dict(decay_mult=0.0))))
+optimizer_config = dict(grad_clip=None)
+lr_config = dict(
+    policy='step',
+    warmup='linear',
+    warmup_iters=500,
+    warmup_ratio=0.001,
+    step=[40, 50])
+runner = dict(type='EpochBasedRunner', max_epochs=60)
+seed = 0
+work_dir = './work_dirs/cascade_rcnn_hrfuser_t_1x_stf_r1248_c_l_2mod_bn'
+gpu_ids = range(0, 1)
+
+2023-11-17 23:25:28,318 - mmdet - INFO - Set random seed to 0, deterministic: False
+/home/kpatel2s/anaconda3/envs/hrfuser-cuda102-torch110-mmcv-full-1317/lib/python3.8/site-packages/torch/functional.py:445: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at  ../aten/src/ATen/native/TensorShape.cpp:2157.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+2023-11-17 23:25:28,837 - mmdet - INFO - initialize HRFuserHRFormerBased with init_cfg [{'type': 'Kaiming', 'layer': 'Conv2d'}, {'type': 'Constant', 'val': 1, 'layer': ['_BatchNorm', 'GroupNorm']}]
+2023-11-17 23:25:29,059 - mmdet - INFO - initialize HRFPN with init_cfg {'type': 'Caffe2Xavier', 'layer': 'Conv2d'}
+2023-11-17 23:25:29,080 - mmdet - INFO - initialize RPNHead with init_cfg {'type': 'Normal', 'layer': 'Conv2d', 'std': 0.01}
+2023-11-17 23:25:29,086 - mmdet - INFO - initialize Shared2FCBBoxHead with init_cfg [{'type': 'Normal', 'std': 0.01, 'override': {'name': 'fc_cls'}}, {'type': 'Normal', 'std': 0.001, 'override': {'name': 'fc_reg'}}, {'type': 'Xavier', 'distribution': 'uniform', 'override': [{'name': 'shared_fcs'}, {'name': 'cls_fcs'}, {'name': 'reg_fcs'}]}]
+2023-11-17 23:25:29,163 - mmdet - INFO - initialize Shared2FCBBoxHead with init_cfg [{'type': 'Normal', 'std': 0.01, 'override': {'name': 'fc_cls'}}, {'type': 'Normal', 'std': 0.001, 'override': {'name': 'fc_reg'}}, {'type': 'Xavier', 'distribution': 'uniform', 'override': [{'name': 'shared_fcs'}, {'name': 'cls_fcs'}, {'name': 'reg_fcs'}]}]
+2023-11-17 23:25:29,241 - mmdet - INFO - initialize Shared2FCBBoxHead with init_cfg [{'type': 'Normal', 'std': 0.01, 'override': {'name': 'fc_cls'}}, {'type': 'Normal', 'std': 0.001, 'override': {'name': 'fc_reg'}}, {'type': 'Xavier', 'distribution': 'uniform', 'override': [{'name': 'shared_fcs'}, {'name': 'cls_fcs'}, {'name': 'reg_fcs'}]}]
+/home/kpatel2s/anaconda3/envs/hrfuser-cuda102-torch110-mmcv-full-1317/lib/python3.8/site-packages/torch/nn/functional.py:3631: UserWarning: Default upsampling behavior when mode=bilinear is changed to align_corners=False since 0.4.0. Please specify align_corners=True if the old behavior is desired. See the documentation of nn.Upsample for details.
+  warnings.warn(
