@@ -34,6 +34,8 @@ pip install -v -e .
         - If possible train only C+R
 - [DENSE]
     - Train with only Camera + Radar - [RUNNING]
+    - Train with Camera + Lidar - [QUEUE]
+    - Train with Camera + Lidar + Radar - [QUEUE]
 
 
 ##################################################################################
