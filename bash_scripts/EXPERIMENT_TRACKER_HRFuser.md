@@ -32,10 +32,7 @@ pip install -v -e .
     - Train HRFuser with only 7 classes to match with SAF-FCOS - [RUNNING]
         - bicycle, car, motorcycle, bus, train(trailer + construction vehicle), truck
         - If possible train only C+R
-- [DENSE]
-    - Train with only Camera + Radar - [RUNNING]
-    - Train with Camera + Lidar - [QUEUE]
-    - Train with Camera + Lidar + Radar - [QUEUE]
+
 
 
 ##################################################################################
@@ -60,6 +57,16 @@ pip install -v -e .
 
 ### DONE
 
+- TIMESTAMP: 17-Nov-2023 23:55
+    - [DENSE]
+        - Train with only Camera + Radar - DONE
+            - Evaluation class-wise - DONE
+        - Train with Camera + Lidar - DONE
+            - Evaluation class-wise - DONE
+        - Train with Camera + Lidar + Radar - DONE
+            - Evaluation class-wise - DONE
+
+-------------------------------------------------------------------------------
 - TIMESTAMP: 16-Nov-2023 7:55
     - [DENSE]
         - Evaluate on all weather with Day and Night split
