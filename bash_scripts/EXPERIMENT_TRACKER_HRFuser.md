@@ -28,12 +28,21 @@ pip install -v -e .
 
 - START WRITING REPORT NOW
 
+- [nuscenes] 
+    - Train HRFuser with only 7 classes to match with SAF-FCOS - [RUNNING]
+        - bicycle, car, motorcycle, bus, train(trailer + construction vehicle), truck
+        - If possible train only C+R
+- [DENSE]
+    - Train with only Camera + Radar - [RUNNING]
+
+
 ##################################################################################
 
 ### Pending
 
 - Read the HRFuser paper again
 - [Study] model summary
+
 
 - Plot confusion matrix
 - Replace all results with CAR ONLY RESULTS (only required for SAF-FCOS)
@@ -325,3 +334,11 @@ pip install -v -e .
         else:
             text, _ = FormatCode(text, style_config=yapf_style, verify=True)
         ```
+
+### How to get model summary
+
+    - Change to `model_summary` branch
+    - Run `py tools/train.py configs/hrfuser/cascade_rcnn_hrfuser_t_1x_stf_r1248_4mod_bn.py`
+        - [NOTE]
+            - Need to change `batch_size` to 1 in config file
+            - Run only 1 GPU based config file (with batch normalization one)
