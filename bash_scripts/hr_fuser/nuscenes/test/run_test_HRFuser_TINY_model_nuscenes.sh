@@ -34,11 +34,10 @@ echo -e "[bash] --------------------------------------------\n"
 #############
 ### NOTE: change checkpoint path accordingly
 #############
-python tools/test.py configs/hrfuser/cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion_orig.py /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/nuscenes/work_dirs/hrfuser_TINY_nuScenes_c_l_r_fusion_epoch_12_batch_12_orig_config_multi_gpu_2023-11-02_00-28-39_214445/epoch_12.pth \
-        --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/nuscenes/inference/hrfuser_TINY_nuScenes_c_l_r_fusion_orig_config_multi_gpu_2023-11-02_00-28-39_214445${CURRENT_DATE_TIME}_${SLURM_JOB_ID} \
+python tools/test.py /home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/hrfuser/configs/hrfuser/cascade_rcnn_hrfuser_t_1x_nus_r640_l_r_fusion_bn.py /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/nuscenes/work_dirs/camera_radar/hrfuser_TINY_nuScenes_c_r_fusion_epoch_12_batch_12_orig_config_multi_gpu_2023-11-17_04-53-32_221903/epoch_12.pth \
+        --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/nuscenes/inference/camera_radar/hrfuser_TINY_nuScenes_c_r_fusion_epoch_12_batch_12_orig_config_multi_gpu_2023-11-17_04-53-32_221903_${CURRENT_DATE_TIME}_${SLURM_JOB_ID} \
         --eval bbox \
-        --show \
-        --show-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/nuscenes/inference/hrfuser_TINY_nuScenes_c_l_r_fusion_orig_config_multi_gpu_2023-11-02_00-28-39_214445${CURRENT_DATE_TIME}_${SLURM_JOB_ID} \
+        --show-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/nuscenes/inference/camera_radar/hrfuser_TINY_nuScenes_c_r_fusion_epoch_12_batch_12_orig_config_multi_gpu_2023-11-17_04-53-32_221903_${CURRENT_DATE_TIME}_${SLURM_JOB_ID} \
         --cfg-options data.test.samples_per_gpu=32
 
 echo "[bash] Testing completed..."
