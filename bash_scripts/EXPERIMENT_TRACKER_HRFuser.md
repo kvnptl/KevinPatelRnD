@@ -57,6 +57,13 @@ pip install -v -e .
 
 ### DONE
 
+- TIMESTAMP: 18-Nov-2023 23:55
+    - [DENSE]
+        - Test on CL on KITTI style - DONE
+        - Test on CR on KITTI style - DONE
+        - Test on CLR on KITTI style - DONE
+
+--------------------------------------------------------------------------
 - TIMESTAMP: 17-Nov-2023 23:55
     - [DENSE]
         - Train with only Camera + Radar - DONE

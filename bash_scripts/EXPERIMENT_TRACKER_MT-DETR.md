@@ -35,6 +35,11 @@ NOTE: For A100 GPU, use `pip install torch==1.10.1+cu111 torchvision==0.11.2+cu1
 
 - START WRITING REPORT NOW
 
+- Training with 10 percentage of adverse weather data - [RUNNING]
+    - Early C+L+R - [RUNNING]
+    - Middle C+L+R - [RUNNING]
+    - Tightly-coupled C+L+R - [RUNNING]
+
 ##################################################################################
 
 ### Pending
