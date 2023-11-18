@@ -32,6 +32,7 @@ pip install -v -e .
     - Train HRFuser with only 7 classes to match with SAF-FCOS - [RUNNING]
         - bicycle, car, motorcycle, bus, train(trailer + construction vehicle), truck
         - If possible train only C+R
+        - Evaluate on C+R - [RUNNING]
 
 
 

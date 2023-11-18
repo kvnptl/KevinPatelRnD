@@ -35,10 +35,24 @@ NOTE: For A100 GPU, use `pip install torch==1.10.1+cu111 torchvision==0.11.2+cu1
 
 - START WRITING REPORT NOW
 
-- Training with 10 percentage of adverse weather data - [RUNNING]
-    - Early C+L+R - [RUNNING]
+- Training with 10 percentage of adverse weather(light fog, dense fog, snow) data - [RUNNING]
+    - Dataset split
+        - 10 perc training, 5 perc for validation
+        - Taking 10 perc from all 3 seasons with day and night separately
+    - Early C+L+R - DONE
+        - SOMETHING WRONG, got AP 0.0
+            - Maybe because of increased batch size 8 and LR 0.0004
+            - Retrain with original setting 0 - [RUNNING]
     - Middle C+L+R - [RUNNING]
     - Tightly-coupled C+L+R - [RUNNING]
+
+- Training with 50 percentage of adverse weather(light fog, dense fog, snow) data - [RUNNING]
+    - Dataset split
+        - 50 perc training, 5 perc for validation
+        - Taking 50 perc from all 3 seasons with day and night separately
+    - Early C+L+R - [QUEUED]
+    - Middle C+L+R - [QUEUED]
+    - Tightly-coupled C+L+R - [QUEUED]
 
 ##################################################################################
 
