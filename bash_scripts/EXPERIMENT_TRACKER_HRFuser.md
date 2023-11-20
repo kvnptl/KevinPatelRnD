@@ -28,12 +28,17 @@ pip install -v -e .
 
 - START WRITING REPORT NOW
 
-- [nuscenes] 
-    - Train HRFuser with only 7 classes to match with SAF-FCOS - [RUNNING]
-        - bicycle, car, motorcycle, bus, train(trailer + construction vehicle), truck
-        - If possible train only C+R
-        - Evaluate on C+R - [RUNNING]
-
+- TIMESTAMP: 20-Nov-2023 23:55
+    - [nuScenes]
+        - FOUND BIG PROBLEM WHEN COMPARING WITH SAF-FCOS
+            - Dataset mismatch
+            - Discussed data split in experiment tracker sheet
+        - Started training on new dataset split same as SAF-FCOS - STOPPED
+            - check how to do evaluation on only 1 class, because we have annotations for only 1 class, vehicle
+                - Need to modify api/test.py
+                - WAIT, I modified the annotations itself to give only one class, vehicle
+        - Started training on new dataset split, same as SAF-FCOS (WITH ONLY 1 CLASS) - [RUNNING]
+            - Check loss curve, if it is not saturated then train for more epochs
 
 
 ##################################################################################
@@ -58,6 +63,19 @@ pip install -v -e .
 
 ### DONE
 
+- TIMESTAMP: 20-Nov-2023 23:55
+    - [nuscenes] 
+        - Train HRFuser with only 7 classes to match with SAF-FCOS - DONE
+            - bicycle, car, motorcycle, bus, train(trailer + construction vehicle), truck
+            - If possible train only C+R
+            - Evaluate on C+R - DONE
+
+--------------------------------------------------------------------------
+- TIMESTAMP: 19-Nov-2023 23:55
+    - [nuScenes]
+        - Create a new train, val, and test split to match with SAF-FCOS - DONE
+
+-----------------------------------------------------------------------
 - TIMESTAMP: 18-Nov-2023 23:55
     - [DENSE]
         - Test on CL on KITTI style - DONE
