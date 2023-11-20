@@ -38,7 +38,7 @@ python tools/test.py /home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/hrf
         --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/nuscenes/inference/camera_radar/hrfuser_TINY_nuScenes_c_r_fusion_epoch_12_batch_12_orig_config_multi_gpu_2023-11-17_04-53-32_221903_${CURRENT_DATE_TIME}_${SLURM_JOB_ID} \
         --eval bbox \
         --show-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/nuscenes/inference/camera_radar/hrfuser_TINY_nuScenes_c_r_fusion_epoch_12_batch_12_orig_config_multi_gpu_2023-11-17_04-53-32_221903_${CURRENT_DATE_TIME}_${SLURM_JOB_ID} \
-        --cfg-options data.test.samples_per_gpu=32
+        # --cfg-options data.test.samples_per_gpu=32
 
 echo "[bash] Testing completed..."
 
