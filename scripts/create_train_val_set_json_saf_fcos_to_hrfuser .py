@@ -13,6 +13,8 @@ run_testset = False
 
 new_hrfuser_json = "/home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/datasets/nuScenes/nuscenes_infos_val_mono3d_saf_fcos.coco.json"
 
+class_mapping = ['car', 'truck', 'trailer', 'bus', 'construction_vehicle', 'bicycle', 'motorcycle']
+
 # Function to load JSON data
 def load_json(file_path):
     with open(file_path) as f:
@@ -109,21 +111,40 @@ if not run_testset:
     for ann in hrfuser_data["annotations"]:
         if ann["file_name"].split('/')[-1].split('.')[0] in base_names_saf_fcos:
             ann["id"] = ann_id_cnt
-            ann["category_name"] = "vehicle" # Fixed class to match with SAF FCOS
-            ann["category_id"] = 0 # Fixed class to match with SAF FCOS
+
+            # Class mapping
+            if ann["category_name"] in class_mapping:
+                ann["category_name"] = "vehicle" # Fixed class to match with SAF FCOS
+                ann["category_id"] = 0 # Fixed class to match with SAF FCOS
+            else:
+                ann["category_name"] = "ignore" # Fixed class to match with SAF FCOS
+                ann["category_id"] = 1
             filtered_annotations.append(ann)
             ann_id_cnt += 1
 
     for ann in hrfuser_data_val["annotations"]:
         if ann["file_name"].split('/')[-1].split('.')[0] in base_names_saf_fcos:
             ann["id"] = ann_id_cnt
-            ann["category_name"] = "vehicle" # Fixed class to match with SAF FCOS
-            ann["category_id"] = 0 # Fixed class to match with SAF FCOS
+
+            # Class mapping
+            if ann["category_name"] in class_mapping:
+                ann["category_name"] = "vehicle" # Fixed class to match with SAF FCOS
+                ann["category_id"] = 0 # Fixed class to match with SAF FCOS
+            else:
+                ann["category_name"] = "ignore" # Fixed class to match with SAF FCOS
+                ann["category_id"] = 1
+
             filtered_annotations.append(ann)
             ann_id_cnt += 1
 
     categories = saf_fcos_data["categories"]
     categories[0]["id"] = 0
+
+    # Add ignore to category
+    categories.append({
+        "id": 1,
+        "name": "ignore",
+    })
     
 else:
     for img in filtered_images:
