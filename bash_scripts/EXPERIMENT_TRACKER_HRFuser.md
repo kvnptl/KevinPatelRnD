@@ -3,6 +3,10 @@
 Note:
     - write down last activity on this window
     - put timestamp (date, time in 24h format)
+    - Only for nuScenes dataset
+        - Keep `undo_gt_crop=False`
+            - In file `/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/hrfuser/mmdet/apis/test.py`
+
 
 [Experiment Tracker sheet: https://docs.google.com/spreadsheets/d/1m2jxf0A0iqpwQYJDxDnoZ1-XZ8W_OqSWHnVe_a6aSKY/edit?pli=1#gid=11409550]
 
@@ -37,8 +41,12 @@ pip install -v -e .
             - check how to do evaluation on only 1 class, because we have annotations for only 1 class, vehicle
                 - Need to modify api/test.py
                 - WAIT, I modified the annotations itself to give only one class, vehicle
-        - Started training on new dataset split, same as SAF-FCOS (WITH ONLY 1 CLASS) - [RUNNING]
+        - Started training on new dataset split, same as SAF-FCOS (WITH ONLY 1 CLASS) - DONE
             - Check loss curve, if it is not saturated then train for more epochs
+            - val bbox_mAP = 44.9
+            - Evaluation on C+R - [IN-PROGRESS]
+        - As loss curve is not saturated, train for more epochs, 36 - [RUNNING]
+            - bbox_mAP = 
 
 
 ##################################################################################
