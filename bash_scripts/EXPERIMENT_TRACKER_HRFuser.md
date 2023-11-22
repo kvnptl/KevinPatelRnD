@@ -44,9 +44,11 @@ pip install -v -e .
         - Started training on new dataset split, same as SAF-FCOS (WITH ONLY 1 CLASS) - DONE
             - Check loss curve, if it is not saturated then train for more epochs
             - val bbox_mAP = 44.9
-            - Evaluation on C+R - [IN-PROGRESS]
-        - As loss curve is not saturated, train for more epochs, 36 - [RUNNING]
-            - bbox_mAP = 
+            - Evaluation on C+R - DONE
+        - As loss curve is not saturated, train for more epochs, 36 - [FAILED]
+            - Forgot to change LR step for 36 epochs, now changed to 27,33
+            - Re-training - [RUNNING]
+                - val bbox_mAP = ??
 
 
 ##################################################################################
