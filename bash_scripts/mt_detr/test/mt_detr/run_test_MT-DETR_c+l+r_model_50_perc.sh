@@ -4,8 +4,8 @@
 #SBATCH --ntasks-per-node=64    # cores
 #SBATCH --mem 180GB               # memory per node in MB (different units with suffix K|M|G|T)
 #SBATCH --time 0-24:00              # total runtime of job allocation (format D-HH:MM)
-#SBATCH --output test_mt_detr_c+l+r_10_perc_output.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
-#SBATCH --error test_mt_detr_c+l+r_10_perc_output.%j.err  # filename for STDERR
+#SBATCH --output test_mt_detr_c+l+r_50_perc_output.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
+#SBATCH --error test_mt_detr_c+l+r_50_perc_output.%j.err  # filename for STDERR
 
 echo "[bash] My HOSTNAME is "
 echo `hostname`
@@ -39,13 +39,12 @@ weather_list=(test_clear_day test_clear_night light_fog_day_test_set light_fog_n
 for w in "${weather_list[@]}"
 do
     python tools/test.py \
-        configs/mt_detr/mt_detr_c+l+r.py \
-        /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/work_dirs/camera_lidar_radar_single_multi_single_A100_gpu_2023-11-03_08-31-53_214469/epoch_36.pth \
+        configs/mt_detr/mt_detr_c+l+r_50_perc.py \
+        /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/work_dirs/c_l_r/camera_lidar_radar_single_multi_single_A100_gpu_50_perc_2023-11-20_07-37-30_223050/epoch_36.pth \
         --weather ${w} \
-        --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/inference/camera_lidar_radar_single_multi_single_A100_gpu_2023-11-03_08-31-53_214469_${CURRENT_DATE_TIME}_${SLURM_JOB_ID} \
+        --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/inference/camera_lidar_radar_single_multi_single_A100_gpu_50_perc_2023-11-20_07-37-30_223050_${CURRENT_DATE_TIME}_${SLURM_JOB_ID} \
         --eval bbox \
-        --show \
-        --show-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/inference/camera_lidar_radar_single_multi_single_A100_gpu_2023-11-03_08-31-53_214469_${CURRENT_DATE_TIME}_${SLURM_JOB_ID} \
+        --show-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/inference/camera_lidar_radar_single_multi_single_A100_gpu_50_perc_2023-11-20_07-37-30_223050_${CURRENT_DATE_TIME}_${SLURM_JOB_ID} \
         --cfg-options data.test.samples_per_gpu=16
 done
 
