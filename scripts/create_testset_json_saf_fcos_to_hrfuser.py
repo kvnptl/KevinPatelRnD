@@ -151,6 +151,7 @@ new_hrfuser_data = {
     "categories": categories
 }
 
+print("Writing to {}...".format(new_hrfuser_json))
 # Write to a new JSON file
 with open(new_hrfuser_json, 'w') as f:
     json.dump(new_hrfuser_data, f)

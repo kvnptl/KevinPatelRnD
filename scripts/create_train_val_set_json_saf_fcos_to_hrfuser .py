@@ -3,15 +3,15 @@ import os
 from tqdm import tqdm
 
 # Define file paths
-saf_fcos_json = "/home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/datasets/nuScenes/v1.0-trainval/gt_fcos_coco_val.json"
+saf_fcos_json = "/home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/datasets/nuScenes/v1.0-trainval/gt_fcos_coco_train.json"
 
 hrfuser_json = "/home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/datasets/nuScenes/nuscenes_infos_train_mono3d.coco.json"
 hrfuser_json_val = "/home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/datasets/nuScenes/nuscenes_infos_val_mono3d.coco.json"
 
 hrfuser_json_test = "/home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/datasets/nuScenes/nuscenes_infos_test_mono3d.coco.json"
-run_testset = False
+run_testset = True # Means don't use HRFuser's annotaions, take annotaions from SAF-FCOS
 
-new_hrfuser_json = "/home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/datasets/nuScenes/nuscenes_infos_val_mono3d_saf_fcos.coco.json"
+new_hrfuser_json = "/home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/datasets/nuScenes/nuscenes_infos_train_mono3d_saf_fcos_with_SAF_FCOS_ANNOTATIONS.coco.json"
 
 class_mapping = ['car', 'truck', 'trailer', 'bus', 'construction_vehicle', 'bicycle', 'motorcycle']
 
@@ -160,8 +160,8 @@ else:
                         "file_name": img['file_name'],
                         "image_id": img['id'],
                         "area": ann_saf_fcos["area"],
-                        "category_name": "vehicle",
-                        "category_id": 0,
+                        "category_name": "vehicle", # Fixed class to match with SAF FCOS
+                        "category_id": 0, # Fixed class to match with SAF FCOS
                         "bbox": ann_saf_fcos["bbox"],
                         "iscrowd": ann_saf_fcos["iscrowd"],
                         "visibility_token": '2',
