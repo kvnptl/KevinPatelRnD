@@ -32,7 +32,47 @@ pip install -v -e .
 
 - START WRITING REPORT NOW
 
-- TIMESTAMP: 20-Nov-2023 23:55
+- TIMESTAMP: 26-Nov-2023 19:55
+    - Training with C+L+R on SAF-FCOS - DONE
+        - Log results in sheer - Pending
+        - Test - Pending
+
+##################################################################################
+
+### Pending
+
+- Read the HRFuser paper again
+- [Study] model summary
+- Plot confusion matrix
+
+- Check experiment tracker sheet for more TODOs
+
+
+##################################################################################
+
+### DONE
+
+- TIMESTAMP: 26-Nov-2023 19:55
+    - Replace all results with CAR ONLY RESULTS (only required for SAF-FCOS)
+    - Get model summary with single modality
+        - For only camera
+        - For camera + lidar (understand how to do this?)
+        - For camera + radar
+
+
+    - [TRAINING AGAIN WITH SAF_FCOS ANNOTAIONS] 
+        - Training with C+L on SAF-FCOS - DONE
+            - Log results in sheer - DONE
+            - Test - DONE
+        - Training with C+R on SAF-FCOS - DONE
+            - Log results in sheer - DONE
+            - Test - DONE
+
+    - [FOR-REPORT]
+        - Running inference on best HRFuser model with Ground Truth - DONE
+            - id: 225760
+
+
     - [nuScenes]
         - FOUND BIG PROBLEM WHEN COMPARING WITH SAF-FCOS
             - Dataset mismatch
@@ -41,37 +81,6 @@ pip install -v -e .
             - check how to do evaluation on only 1 class, because we have annotations for only 1 class, vehicle
                 - Need to modify api/test.py
                 - WAIT, I modified the annotations itself to give only one class, vehicle
-        - Started training on new dataset split, same as SAF-FCOS (WITH ONLY 1 CLASS) - DONE
-            - Check loss curve, if it is not saturated then train for more epochs
-            - val bbox_mAP = 44.9
-            - Evaluation on C+R - DONE
-        - As loss curve is not saturated, train for more epochs, 36 - [FAILED]
-            - Forgot to change LR step for 36 epochs, now changed to 27,33
-            - Re-training - [RUNNING]
-                - val bbox_mAP = ??
-
-
-##################################################################################
-
-### Pending
-
-- Read the HRFuser paper again
-- [Study] model summary
-
-
-- Plot confusion matrix
-- Replace all results with CAR ONLY RESULTS (only required for SAF-FCOS)
-- Get model summary with single modality
-    - For only camera
-    - For camera + lidar (understand how to do this?)
-    - For camera + radar
-
-- Check experiment tracker sheet for more TODOs
-
-
-##################################################################################
-
-### DONE
 
 - TIMESTAMP: 20-Nov-2023 23:55
     - [nuscenes] 
