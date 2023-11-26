@@ -38,7 +38,7 @@ echo -e "[bash] --------------------------------------------\n"
 tools/dist_train.sh configs/hrfuser/cascade_rcnn_hrfuser_t_1x_nus_r640_c_r_fusion_setting2_saf_fcos.py \
                     4 \
                     --seed 8 \
-                    --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/nuscenes/work_dirs/camera_radar_saf_fcos/hrfuser_TINY_nuScenes_c_r_fusion_epoch_36_batch_12_orig_config_SAF_FCOS_multi_gpu_${CURRENT_DATE_TIME}_${SLURM_JOB_ID}
+                    --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/nuscenes/work_dirs/camera_radar_saf_fcos/hrfuser_TINY_nuScenes_c_r_fusion_epoch_36_batch_12_orig_config_SAF_FCOS_with_SAF_FCOS_ANNOTAIONS_multi_gpu_${CURRENT_DATE_TIME}_${SLURM_JOB_ID}
 
 echo "[bash] Training completed..."
 
