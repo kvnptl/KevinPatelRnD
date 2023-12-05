@@ -1,0 +1,16 @@
+/home/kpatel2s/anaconda3/envs/hrfuser-cuda102-torch110-mmcv-full-1317/lib/python3.8/site-packages/torch/functional.py:445: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at  ../aten/src/ATen/native/TensorShape.cpp:2157.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+Traceback (most recent call last):
+  File "tools/test.py", line 334, in <module>
+    main()
+  File "tools/test.py", line 207, in main
+    checkpoint = load_checkpoint(model, args.checkpoint, map_location='cpu')
+  File "/home/kpatel2s/anaconda3/envs/hrfuser-cuda102-torch110-mmcv-full-1317/lib/python3.8/site-packages/mmcv/runner/checkpoint.py", line 528, in load_checkpoint
+    checkpoint = _load_checkpoint(filename, map_location, logger)
+  File "/home/kpatel2s/anaconda3/envs/hrfuser-cuda102-torch110-mmcv-full-1317/lib/python3.8/site-packages/mmcv/runner/checkpoint.py", line 467, in _load_checkpoint
+    return CheckpointLoader.load_checkpoint(filename, map_location, logger)
+  File "/home/kpatel2s/anaconda3/envs/hrfuser-cuda102-torch110-mmcv-full-1317/lib/python3.8/site-packages/mmcv/runner/checkpoint.py", line 245, in load_checkpoint
+    return checkpoint_loader(filename, map_location)
+  File "/home/kpatel2s/anaconda3/envs/hrfuser-cuda102-torch110-mmcv-full-1317/lib/python3.8/site-packages/mmcv/runner/checkpoint.py", line 261, in load_from_local
+    raise IOError(f'{filename} is not a checkpoint file')
+OSError: /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/nuscenes/work_dirs/camera_lidar_radar_saf_fcos/hrfuser_TINY_nuScenes_c_l_r_fusion_epoch_36_batch_12_orig_No_Drop_Proj_Drop_Rate_0p0_config_SAF_FCOS_with_SAF_FCOS_ANNOTAIONS_multi_A100_gpu_2023-11-28_05-13-45_225883/epoch_36.pth is not a checkpoint file

@@ -1,0 +1,3122 @@
+[bash] My HOSTNAME is 
+wr25
+[bash] CURRENT_DATE_TIME is 2023-11-18_07-12-01
+[bash] Loading GCC and CUDA modules...
+[bash] Directory changed to /home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr_cuda11p1
+[bash] Start training MT-DETR Camera + Lidar + Radar model on DENSE dataset...
+[bash] --------------------------------------------
+
+apex is not installed
+apex is not installed
+apex is not installed
+apex is not installed
+backbones loaded!!!!
+start loading pretrained convnext from checkpoint/convnext_base_22k_1k_384.pth!
+pretrained backbone loaded
+start loading pretrained convnext from checkpoint/convnext_base_22k_1k_384.pth!
+pretrained backbone loaded
+start loading pretrained convnext from checkpoint/convnext_base_22k_1k_384.pth!
+pretrained backbone loaded
+loading annotations into memory...
+Done (t=0.26s)
+creating index...
+index created!
+start construct optimizer!!!!!!!!!!
+{'decay_rate': 0.7, 'decay_type': 'layer_wise_multi', 'num_layers': 12}
+Build LearningRateDecayOptimizerConstructor layer_wise_multi 0.700000 - 14
+set param backbone.model1.downsample_layers.0.0.weight as id 0
+set param backbone.model1.downsample_layers.0.0.bias as id 0
+set param backbone.model1.downsample_layers.0.1.weight as id 0
+set param backbone.model1.downsample_layers.0.1.bias as id 0
+set param backbone.model1.downsample_layers.1.0.weight as id 2
+set param backbone.model1.downsample_layers.1.0.bias as id 2
+set param backbone.model1.downsample_layers.1.1.weight as id 2
+set param backbone.model1.downsample_layers.1.1.bias as id 2
+set param backbone.model1.downsample_layers.2.0.weight as id 3
+set param backbone.model1.downsample_layers.2.0.bias as id 3
+set param backbone.model1.downsample_layers.2.1.weight as id 3
+set param backbone.model1.downsample_layers.2.1.bias as id 3
+set param backbone.model1.downsample_layers.3.0.weight as id 12
+set param backbone.model1.downsample_layers.3.0.bias as id 12
+set param backbone.model1.downsample_layers.3.1.weight as id 12
+set param backbone.model1.downsample_layers.3.1.bias as id 12
+set param backbone.model1.stages.0.0.gamma as id 1
+set param backbone.model1.stages.0.0.dwconv.weight as id 1
+set param backbone.model1.stages.0.0.dwconv.bias as id 1
+set param backbone.model1.stages.0.0.norm.weight as id 1
+set param backbone.model1.stages.0.0.norm.bias as id 1
+set param backbone.model1.stages.0.0.pwconv1.weight as id 1
+set param backbone.model1.stages.0.0.pwconv1.bias as id 1
+set param backbone.model1.stages.0.0.pwconv2.weight as id 1
+set param backbone.model1.stages.0.0.pwconv2.bias as id 1
+set param backbone.model1.stages.0.1.gamma as id 1
+set param backbone.model1.stages.0.1.dwconv.weight as id 1
+set param backbone.model1.stages.0.1.dwconv.bias as id 1
+set param backbone.model1.stages.0.1.norm.weight as id 1
+set param backbone.model1.stages.0.1.norm.bias as id 1
+set param backbone.model1.stages.0.1.pwconv1.weight as id 1
+set param backbone.model1.stages.0.1.pwconv1.bias as id 1
+set param backbone.model1.stages.0.1.pwconv2.weight as id 1
+set param backbone.model1.stages.0.1.pwconv2.bias as id 1
+set param backbone.model1.stages.0.2.gamma as id 1
+set param backbone.model1.stages.0.2.dwconv.weight as id 1
+set param backbone.model1.stages.0.2.dwconv.bias as id 1
+set param backbone.model1.stages.0.2.norm.weight as id 1
+set param backbone.model1.stages.0.2.norm.bias as id 1
+set param backbone.model1.stages.0.2.pwconv1.weight as id 1
+set param backbone.model1.stages.0.2.pwconv1.bias as id 1
+set param backbone.model1.stages.0.2.pwconv2.weight as id 1
+set param backbone.model1.stages.0.2.pwconv2.bias as id 1
+set param backbone.model1.stages.1.0.gamma as id 2
+set param backbone.model1.stages.1.0.dwconv.weight as id 2
+set param backbone.model1.stages.1.0.dwconv.bias as id 2
+set param backbone.model1.stages.1.0.norm.weight as id 2
+set param backbone.model1.stages.1.0.norm.bias as id 2
+set param backbone.model1.stages.1.0.pwconv1.weight as id 2
+set param backbone.model1.stages.1.0.pwconv1.bias as id 2
+set param backbone.model1.stages.1.0.pwconv2.weight as id 2
+set param backbone.model1.stages.1.0.pwconv2.bias as id 2
+set param backbone.model1.stages.1.1.gamma as id 2
+set param backbone.model1.stages.1.1.dwconv.weight as id 2
+set param backbone.model1.stages.1.1.dwconv.bias as id 2
+set param backbone.model1.stages.1.1.norm.weight as id 2
+set param backbone.model1.stages.1.1.norm.bias as id 2
+set param backbone.model1.stages.1.1.pwconv1.weight as id 2
+set param backbone.model1.stages.1.1.pwconv1.bias as id 2
+set param backbone.model1.stages.1.1.pwconv2.weight as id 2
+set param backbone.model1.stages.1.1.pwconv2.bias as id 2
+set param backbone.model1.stages.1.2.gamma as id 2
+set param backbone.model1.stages.1.2.dwconv.weight as id 2
+set param backbone.model1.stages.1.2.dwconv.bias as id 2
+set param backbone.model1.stages.1.2.norm.weight as id 2
+set param backbone.model1.stages.1.2.norm.bias as id 2
+set param backbone.model1.stages.1.2.pwconv1.weight as id 2
+set param backbone.model1.stages.1.2.pwconv1.bias as id 2
+set param backbone.model1.stages.1.2.pwconv2.weight as id 2
+set param backbone.model1.stages.1.2.pwconv2.bias as id 2
+set param backbone.model1.stages.2.0.gamma as id 3
+set param backbone.model1.stages.2.0.dwconv.weight as id 3
+set param backbone.model1.stages.2.0.dwconv.bias as id 3
+set param backbone.model1.stages.2.0.norm.weight as id 3
+set param backbone.model1.stages.2.0.norm.bias as id 3
+set param backbone.model1.stages.2.0.pwconv1.weight as id 3
+set param backbone.model1.stages.2.0.pwconv1.bias as id 3
+set param backbone.model1.stages.2.0.pwconv2.weight as id 3
+set param backbone.model1.stages.2.0.pwconv2.bias as id 3
+set param backbone.model1.stages.2.1.gamma as id 3
+set param backbone.model1.stages.2.1.dwconv.weight as id 3
+set param backbone.model1.stages.2.1.dwconv.bias as id 3
+set param backbone.model1.stages.2.1.norm.weight as id 3
+set param backbone.model1.stages.2.1.norm.bias as id 3
+set param backbone.model1.stages.2.1.pwconv1.weight as id 3
+set param backbone.model1.stages.2.1.pwconv1.bias as id 3
+set param backbone.model1.stages.2.1.pwconv2.weight as id 3
+set param backbone.model1.stages.2.1.pwconv2.bias as id 3
+set param backbone.model1.stages.2.2.gamma as id 3
+set param backbone.model1.stages.2.2.dwconv.weight as id 3
+set param backbone.model1.stages.2.2.dwconv.bias as id 3
+set param backbone.model1.stages.2.2.norm.weight as id 3
+set param backbone.model1.stages.2.2.norm.bias as id 3
+set param backbone.model1.stages.2.2.pwconv1.weight as id 3
+set param backbone.model1.stages.2.2.pwconv1.bias as id 3
+set param backbone.model1.stages.2.2.pwconv2.weight as id 3
+set param backbone.model1.stages.2.2.pwconv2.bias as id 3
+set param backbone.model1.stages.2.3.gamma as id 4
+set param backbone.model1.stages.2.3.dwconv.weight as id 4
+set param backbone.model1.stages.2.3.dwconv.bias as id 4
+set param backbone.model1.stages.2.3.norm.weight as id 4
+set param backbone.model1.stages.2.3.norm.bias as id 4
+set param backbone.model1.stages.2.3.pwconv1.weight as id 4
+set param backbone.model1.stages.2.3.pwconv1.bias as id 4
+set param backbone.model1.stages.2.3.pwconv2.weight as id 4
+set param backbone.model1.stages.2.3.pwconv2.bias as id 4
+set param backbone.model1.stages.2.4.gamma as id 4
+set param backbone.model1.stages.2.4.dwconv.weight as id 4
+set param backbone.model1.stages.2.4.dwconv.bias as id 4
+set param backbone.model1.stages.2.4.norm.weight as id 4
+set param backbone.model1.stages.2.4.norm.bias as id 4
+set param backbone.model1.stages.2.4.pwconv1.weight as id 4
+set param backbone.model1.stages.2.4.pwconv1.bias as id 4
+set param backbone.model1.stages.2.4.pwconv2.weight as id 4
+set param backbone.model1.stages.2.4.pwconv2.bias as id 4
+set param backbone.model1.stages.2.5.gamma as id 4
+set param backbone.model1.stages.2.5.dwconv.weight as id 4
+set param backbone.model1.stages.2.5.dwconv.bias as id 4
+set param backbone.model1.stages.2.5.norm.weight as id 4
+set param backbone.model1.stages.2.5.norm.bias as id 4
+set param backbone.model1.stages.2.5.pwconv1.weight as id 4
+set param backbone.model1.stages.2.5.pwconv1.bias as id 4
+set param backbone.model1.stages.2.5.pwconv2.weight as id 4
+set param backbone.model1.stages.2.5.pwconv2.bias as id 4
+set param backbone.model1.stages.2.6.gamma as id 5
+set param backbone.model1.stages.2.6.dwconv.weight as id 5
+set param backbone.model1.stages.2.6.dwconv.bias as id 5
+set param backbone.model1.stages.2.6.norm.weight as id 5
+set param backbone.model1.stages.2.6.norm.bias as id 5
+set param backbone.model1.stages.2.6.pwconv1.weight as id 5
+set param backbone.model1.stages.2.6.pwconv1.bias as id 5
+set param backbone.model1.stages.2.6.pwconv2.weight as id 5
+set param backbone.model1.stages.2.6.pwconv2.bias as id 5
+set param backbone.model1.stages.2.7.gamma as id 5
+set param backbone.model1.stages.2.7.dwconv.weight as id 5
+set param backbone.model1.stages.2.7.dwconv.bias as id 5
+set param backbone.model1.stages.2.7.norm.weight as id 5
+set param backbone.model1.stages.2.7.norm.bias as id 5
+set param backbone.model1.stages.2.7.pwconv1.weight as id 5
+set param backbone.model1.stages.2.7.pwconv1.bias as id 5
+set param backbone.model1.stages.2.7.pwconv2.weight as id 5
+set param backbone.model1.stages.2.7.pwconv2.bias as id 5
+set param backbone.model1.stages.2.8.gamma as id 5
+set param backbone.model1.stages.2.8.dwconv.weight as id 5
+set param backbone.model1.stages.2.8.dwconv.bias as id 5
+set param backbone.model1.stages.2.8.norm.weight as id 5
+set param backbone.model1.stages.2.8.norm.bias as id 5
+set param backbone.model1.stages.2.8.pwconv1.weight as id 5
+set param backbone.model1.stages.2.8.pwconv1.bias as id 5
+set param backbone.model1.stages.2.8.pwconv2.weight as id 5
+set param backbone.model1.stages.2.8.pwconv2.bias as id 5
+set param backbone.model1.stages.2.9.gamma as id 6
+set param backbone.model1.stages.2.9.dwconv.weight as id 6
+set param backbone.model1.stages.2.9.dwconv.bias as id 6
+set param backbone.model1.stages.2.9.norm.weight as id 6
+set param backbone.model1.stages.2.9.norm.bias as id 6
+set param backbone.model1.stages.2.9.pwconv1.weight as id 6
+set param backbone.model1.stages.2.9.pwconv1.bias as id 6
+set param backbone.model1.stages.2.9.pwconv2.weight as id 6
+set param backbone.model1.stages.2.9.pwconv2.bias as id 6
+set param backbone.model1.stages.2.10.gamma as id 6
+set param backbone.model1.stages.2.10.dwconv.weight as id 6
+set param backbone.model1.stages.2.10.dwconv.bias as id 6
+set param backbone.model1.stages.2.10.norm.weight as id 6
+set param backbone.model1.stages.2.10.norm.bias as id 6
+set param backbone.model1.stages.2.10.pwconv1.weight as id 6
+set param backbone.model1.stages.2.10.pwconv1.bias as id 6
+set param backbone.model1.stages.2.10.pwconv2.weight as id 6
+set param backbone.model1.stages.2.10.pwconv2.bias as id 6
+set param backbone.model1.stages.2.11.gamma as id 6
+set param backbone.model1.stages.2.11.dwconv.weight as id 6
+set param backbone.model1.stages.2.11.dwconv.bias as id 6
+set param backbone.model1.stages.2.11.norm.weight as id 6
+set param backbone.model1.stages.2.11.norm.bias as id 6
+set param backbone.model1.stages.2.11.pwconv1.weight as id 6
+set param backbone.model1.stages.2.11.pwconv1.bias as id 6
+set param backbone.model1.stages.2.11.pwconv2.weight as id 6
+set param backbone.model1.stages.2.11.pwconv2.bias as id 6
+set param backbone.model1.stages.2.12.gamma as id 7
+set param backbone.model1.stages.2.12.dwconv.weight as id 7
+set param backbone.model1.stages.2.12.dwconv.bias as id 7
+set param backbone.model1.stages.2.12.norm.weight as id 7
+set param backbone.model1.stages.2.12.norm.bias as id 7
+set param backbone.model1.stages.2.12.pwconv1.weight as id 7
+set param backbone.model1.stages.2.12.pwconv1.bias as id 7
+set param backbone.model1.stages.2.12.pwconv2.weight as id 7
+set param backbone.model1.stages.2.12.pwconv2.bias as id 7
+set param backbone.model1.stages.2.13.gamma as id 7
+set param backbone.model1.stages.2.13.dwconv.weight as id 7
+set param backbone.model1.stages.2.13.dwconv.bias as id 7
+set param backbone.model1.stages.2.13.norm.weight as id 7
+set param backbone.model1.stages.2.13.norm.bias as id 7
+set param backbone.model1.stages.2.13.pwconv1.weight as id 7
+set param backbone.model1.stages.2.13.pwconv1.bias as id 7
+set param backbone.model1.stages.2.13.pwconv2.weight as id 7
+set param backbone.model1.stages.2.13.pwconv2.bias as id 7
+set param backbone.model1.stages.2.14.gamma as id 7
+set param backbone.model1.stages.2.14.dwconv.weight as id 7
+set param backbone.model1.stages.2.14.dwconv.bias as id 7
+set param backbone.model1.stages.2.14.norm.weight as id 7
+set param backbone.model1.stages.2.14.norm.bias as id 7
+set param backbone.model1.stages.2.14.pwconv1.weight as id 7
+set param backbone.model1.stages.2.14.pwconv1.bias as id 7
+set param backbone.model1.stages.2.14.pwconv2.weight as id 7
+set param backbone.model1.stages.2.14.pwconv2.bias as id 7
+set param backbone.model1.stages.2.15.gamma as id 8
+set param backbone.model1.stages.2.15.dwconv.weight as id 8
+set param backbone.model1.stages.2.15.dwconv.bias as id 8
+set param backbone.model1.stages.2.15.norm.weight as id 8
+set param backbone.model1.stages.2.15.norm.bias as id 8
+set param backbone.model1.stages.2.15.pwconv1.weight as id 8
+set param backbone.model1.stages.2.15.pwconv1.bias as id 8
+set param backbone.model1.stages.2.15.pwconv2.weight as id 8
+set param backbone.model1.stages.2.15.pwconv2.bias as id 8
+set param backbone.model1.stages.2.16.gamma as id 8
+set param backbone.model1.stages.2.16.dwconv.weight as id 8
+set param backbone.model1.stages.2.16.dwconv.bias as id 8
+set param backbone.model1.stages.2.16.norm.weight as id 8
+set param backbone.model1.stages.2.16.norm.bias as id 8
+set param backbone.model1.stages.2.16.pwconv1.weight as id 8
+set param backbone.model1.stages.2.16.pwconv1.bias as id 8
+set param backbone.model1.stages.2.16.pwconv2.weight as id 8
+set param backbone.model1.stages.2.16.pwconv2.bias as id 8
+set param backbone.model1.stages.2.17.gamma as id 8
+set param backbone.model1.stages.2.17.dwconv.weight as id 8
+set param backbone.model1.stages.2.17.dwconv.bias as id 8
+set param backbone.model1.stages.2.17.norm.weight as id 8
+set param backbone.model1.stages.2.17.norm.bias as id 8
+set param backbone.model1.stages.2.17.pwconv1.weight as id 8
+set param backbone.model1.stages.2.17.pwconv1.bias as id 8
+set param backbone.model1.stages.2.17.pwconv2.weight as id 8
+set param backbone.model1.stages.2.17.pwconv2.bias as id 8
+set param backbone.model1.stages.2.18.gamma as id 9
+set param backbone.model1.stages.2.18.dwconv.weight as id 9
+set param backbone.model1.stages.2.18.dwconv.bias as id 9
+set param backbone.model1.stages.2.18.norm.weight as id 9
+set param backbone.model1.stages.2.18.norm.bias as id 9
+set param backbone.model1.stages.2.18.pwconv1.weight as id 9
+set param backbone.model1.stages.2.18.pwconv1.bias as id 9
+set param backbone.model1.stages.2.18.pwconv2.weight as id 9
+set param backbone.model1.stages.2.18.pwconv2.bias as id 9
+set param backbone.model1.stages.2.19.gamma as id 9
+set param backbone.model1.stages.2.19.dwconv.weight as id 9
+set param backbone.model1.stages.2.19.dwconv.bias as id 9
+set param backbone.model1.stages.2.19.norm.weight as id 9
+set param backbone.model1.stages.2.19.norm.bias as id 9
+set param backbone.model1.stages.2.19.pwconv1.weight as id 9
+set param backbone.model1.stages.2.19.pwconv1.bias as id 9
+set param backbone.model1.stages.2.19.pwconv2.weight as id 9
+set param backbone.model1.stages.2.19.pwconv2.bias as id 9
+set param backbone.model1.stages.2.20.gamma as id 9
+set param backbone.model1.stages.2.20.dwconv.weight as id 9
+set param backbone.model1.stages.2.20.dwconv.bias as id 9
+set param backbone.model1.stages.2.20.norm.weight as id 9
+set param backbone.model1.stages.2.20.norm.bias as id 9
+set param backbone.model1.stages.2.20.pwconv1.weight as id 9
+set param backbone.model1.stages.2.20.pwconv1.bias as id 9
+set param backbone.model1.stages.2.20.pwconv2.weight as id 9
+set param backbone.model1.stages.2.20.pwconv2.bias as id 9
+set param backbone.model1.stages.2.21.gamma as id 10
+set param backbone.model1.stages.2.21.dwconv.weight as id 10
+set param backbone.model1.stages.2.21.dwconv.bias as id 10
+set param backbone.model1.stages.2.21.norm.weight as id 10
+set param backbone.model1.stages.2.21.norm.bias as id 10
+set param backbone.model1.stages.2.21.pwconv1.weight as id 10
+set param backbone.model1.stages.2.21.pwconv1.bias as id 10
+set param backbone.model1.stages.2.21.pwconv2.weight as id 10
+set param backbone.model1.stages.2.21.pwconv2.bias as id 10
+set param backbone.model1.stages.2.22.gamma as id 10
+set param backbone.model1.stages.2.22.dwconv.weight as id 10
+set param backbone.model1.stages.2.22.dwconv.bias as id 10
+set param backbone.model1.stages.2.22.norm.weight as id 10
+set param backbone.model1.stages.2.22.norm.bias as id 10
+set param backbone.model1.stages.2.22.pwconv1.weight as id 10
+set param backbone.model1.stages.2.22.pwconv1.bias as id 10
+set param backbone.model1.stages.2.22.pwconv2.weight as id 10
+set param backbone.model1.stages.2.22.pwconv2.bias as id 10
+set param backbone.model1.stages.2.23.gamma as id 10
+set param backbone.model1.stages.2.23.dwconv.weight as id 10
+set param backbone.model1.stages.2.23.dwconv.bias as id 10
+set param backbone.model1.stages.2.23.norm.weight as id 10
+set param backbone.model1.stages.2.23.norm.bias as id 10
+set param backbone.model1.stages.2.23.pwconv1.weight as id 10
+set param backbone.model1.stages.2.23.pwconv1.bias as id 10
+set param backbone.model1.stages.2.23.pwconv2.weight as id 10
+set param backbone.model1.stages.2.23.pwconv2.bias as id 10
+set param backbone.model1.stages.2.24.gamma as id 11
+set param backbone.model1.stages.2.24.dwconv.weight as id 11
+set param backbone.model1.stages.2.24.dwconv.bias as id 11
+set param backbone.model1.stages.2.24.norm.weight as id 11
+set param backbone.model1.stages.2.24.norm.bias as id 11
+set param backbone.model1.stages.2.24.pwconv1.weight as id 11
+set param backbone.model1.stages.2.24.pwconv1.bias as id 11
+set param backbone.model1.stages.2.24.pwconv2.weight as id 11
+set param backbone.model1.stages.2.24.pwconv2.bias as id 11
+set param backbone.model1.stages.2.25.gamma as id 11
+set param backbone.model1.stages.2.25.dwconv.weight as id 11
+set param backbone.model1.stages.2.25.dwconv.bias as id 11
+set param backbone.model1.stages.2.25.norm.weight as id 11
+set param backbone.model1.stages.2.25.norm.bias as id 11
+set param backbone.model1.stages.2.25.pwconv1.weight as id 11
+set param backbone.model1.stages.2.25.pwconv1.bias as id 11
+set param backbone.model1.stages.2.25.pwconv2.weight as id 11
+set param backbone.model1.stages.2.25.pwconv2.bias as id 11
+set param backbone.model1.stages.2.26.gamma as id 11
+set param backbone.model1.stages.2.26.dwconv.weight as id 11
+set param backbone.model1.stages.2.26.dwconv.bias as id 11
+set param backbone.model1.stages.2.26.norm.weight as id 11
+set param backbone.model1.stages.2.26.norm.bias as id 11
+set param backbone.model1.stages.2.26.pwconv1.weight as id 11
+set param backbone.model1.stages.2.26.pwconv1.bias as id 11
+set param backbone.model1.stages.2.26.pwconv2.weight as id 11
+set param backbone.model1.stages.2.26.pwconv2.bias as id 11
+set param backbone.model1.stages.3.0.gamma as id 12
+set param backbone.model1.stages.3.0.dwconv.weight as id 12
+set param backbone.model1.stages.3.0.dwconv.bias as id 12
+set param backbone.model1.stages.3.0.norm.weight as id 12
+set param backbone.model1.stages.3.0.norm.bias as id 12
+set param backbone.model1.stages.3.0.pwconv1.weight as id 12
+set param backbone.model1.stages.3.0.pwconv1.bias as id 12
+set param backbone.model1.stages.3.0.pwconv2.weight as id 12
+set param backbone.model1.stages.3.0.pwconv2.bias as id 12
+set param backbone.model1.stages.3.1.gamma as id 12
+set param backbone.model1.stages.3.1.dwconv.weight as id 12
+set param backbone.model1.stages.3.1.dwconv.bias as id 12
+set param backbone.model1.stages.3.1.norm.weight as id 12
+set param backbone.model1.stages.3.1.norm.bias as id 12
+set param backbone.model1.stages.3.1.pwconv1.weight as id 12
+set param backbone.model1.stages.3.1.pwconv1.bias as id 12
+set param backbone.model1.stages.3.1.pwconv2.weight as id 12
+set param backbone.model1.stages.3.1.pwconv2.bias as id 12
+set param backbone.model1.stages.3.2.gamma as id 12
+set param backbone.model1.stages.3.2.dwconv.weight as id 12
+set param backbone.model1.stages.3.2.dwconv.bias as id 12
+set param backbone.model1.stages.3.2.norm.weight as id 12
+set param backbone.model1.stages.3.2.norm.bias as id 12
+set param backbone.model1.stages.3.2.pwconv1.weight as id 12
+set param backbone.model1.stages.3.2.pwconv1.bias as id 12
+set param backbone.model1.stages.3.2.pwconv2.weight as id 12
+set param backbone.model1.stages.3.2.pwconv2.bias as id 12
+set param backbone.model1.norm0.weight as id 13
+set param backbone.model1.norm0.bias as id 13
+set param backbone.model1.norm1.weight as id 13
+set param backbone.model1.norm1.bias as id 13
+set param backbone.model1.norm2.weight as id 13
+set param backbone.model1.norm2.bias as id 13
+set param backbone.model1.norm3.weight as id 13
+set param backbone.model1.norm3.bias as id 13
+set param backbone.model2.downsample_layers.0.0.weight as id 0
+set param backbone.model2.downsample_layers.0.0.bias as id 0
+set param backbone.model2.downsample_layers.0.1.weight as id 0
+set param backbone.model2.downsample_layers.0.1.bias as id 0
+set param backbone.model2.downsample_layers.1.0.weight as id 2
+set param backbone.model2.downsample_layers.1.0.bias as id 2
+set param backbone.model2.downsample_layers.1.1.weight as id 2
+set param backbone.model2.downsample_layers.1.1.bias as id 2
+set param backbone.model2.downsample_layers.2.0.weight as id 3
+set param backbone.model2.downsample_layers.2.0.bias as id 3
+set param backbone.model2.downsample_layers.2.1.weight as id 3
+set param backbone.model2.downsample_layers.2.1.bias as id 3
+set param backbone.model2.downsample_layers.3.0.weight as id 12
+set param backbone.model2.downsample_layers.3.0.bias as id 12
+set param backbone.model2.downsample_layers.3.1.weight as id 12
+set param backbone.model2.downsample_layers.3.1.bias as id 12
+set param backbone.model2.stages.0.0.gamma as id 1
+set param backbone.model2.stages.0.0.dwconv.weight as id 1
+set param backbone.model2.stages.0.0.dwconv.bias as id 1
+set param backbone.model2.stages.0.0.norm.weight as id 1
+set param backbone.model2.stages.0.0.norm.bias as id 1
+set param backbone.model2.stages.0.0.pwconv1.weight as id 1
+set param backbone.model2.stages.0.0.pwconv1.bias as id 1
+set param backbone.model2.stages.0.0.pwconv2.weight as id 1
+set param backbone.model2.stages.0.0.pwconv2.bias as id 1
+set param backbone.model2.stages.0.1.gamma as id 1
+set param backbone.model2.stages.0.1.dwconv.weight as id 1
+set param backbone.model2.stages.0.1.dwconv.bias as id 1
+set param backbone.model2.stages.0.1.norm.weight as id 1
+set param backbone.model2.stages.0.1.norm.bias as id 1
+set param backbone.model2.stages.0.1.pwconv1.weight as id 1
+set param backbone.model2.stages.0.1.pwconv1.bias as id 1
+set param backbone.model2.stages.0.1.pwconv2.weight as id 1
+set param backbone.model2.stages.0.1.pwconv2.bias as id 1
+set param backbone.model2.stages.0.2.gamma as id 1
+set param backbone.model2.stages.0.2.dwconv.weight as id 1
+set param backbone.model2.stages.0.2.dwconv.bias as id 1
+set param backbone.model2.stages.0.2.norm.weight as id 1
+set param backbone.model2.stages.0.2.norm.bias as id 1
+set param backbone.model2.stages.0.2.pwconv1.weight as id 1
+set param backbone.model2.stages.0.2.pwconv1.bias as id 1
+set param backbone.model2.stages.0.2.pwconv2.weight as id 1
+set param backbone.model2.stages.0.2.pwconv2.bias as id 1
+set param backbone.model2.stages.1.0.gamma as id 2
+set param backbone.model2.stages.1.0.dwconv.weight as id 2
+set param backbone.model2.stages.1.0.dwconv.bias as id 2
+set param backbone.model2.stages.1.0.norm.weight as id 2
+set param backbone.model2.stages.1.0.norm.bias as id 2
+set param backbone.model2.stages.1.0.pwconv1.weight as id 2
+set param backbone.model2.stages.1.0.pwconv1.bias as id 2
+set param backbone.model2.stages.1.0.pwconv2.weight as id 2
+set param backbone.model2.stages.1.0.pwconv2.bias as id 2
+set param backbone.model2.stages.1.1.gamma as id 2
+set param backbone.model2.stages.1.1.dwconv.weight as id 2
+set param backbone.model2.stages.1.1.dwconv.bias as id 2
+set param backbone.model2.stages.1.1.norm.weight as id 2
+set param backbone.model2.stages.1.1.norm.bias as id 2
+set param backbone.model2.stages.1.1.pwconv1.weight as id 2
+set param backbone.model2.stages.1.1.pwconv1.bias as id 2
+set param backbone.model2.stages.1.1.pwconv2.weight as id 2
+set param backbone.model2.stages.1.1.pwconv2.bias as id 2
+set param backbone.model2.stages.1.2.gamma as id 2
+set param backbone.model2.stages.1.2.dwconv.weight as id 2
+set param backbone.model2.stages.1.2.dwconv.bias as id 2
+set param backbone.model2.stages.1.2.norm.weight as id 2
+set param backbone.model2.stages.1.2.norm.bias as id 2
+set param backbone.model2.stages.1.2.pwconv1.weight as id 2
+set param backbone.model2.stages.1.2.pwconv1.bias as id 2
+set param backbone.model2.stages.1.2.pwconv2.weight as id 2
+set param backbone.model2.stages.1.2.pwconv2.bias as id 2
+set param backbone.model2.stages.2.0.gamma as id 3
+set param backbone.model2.stages.2.0.dwconv.weight as id 3
+set param backbone.model2.stages.2.0.dwconv.bias as id 3
+set param backbone.model2.stages.2.0.norm.weight as id 3
+set param backbone.model2.stages.2.0.norm.bias as id 3
+set param backbone.model2.stages.2.0.pwconv1.weight as id 3
+set param backbone.model2.stages.2.0.pwconv1.bias as id 3
+set param backbone.model2.stages.2.0.pwconv2.weight as id 3
+set param backbone.model2.stages.2.0.pwconv2.bias as id 3
+set param backbone.model2.stages.2.1.gamma as id 3
+set param backbone.model2.stages.2.1.dwconv.weight as id 3
+set param backbone.model2.stages.2.1.dwconv.bias as id 3
+set param backbone.model2.stages.2.1.norm.weight as id 3
+set param backbone.model2.stages.2.1.norm.bias as id 3
+set param backbone.model2.stages.2.1.pwconv1.weight as id 3
+set param backbone.model2.stages.2.1.pwconv1.bias as id 3
+set param backbone.model2.stages.2.1.pwconv2.weight as id 3
+set param backbone.model2.stages.2.1.pwconv2.bias as id 3
+set param backbone.model2.stages.2.2.gamma as id 3
+set param backbone.model2.stages.2.2.dwconv.weight as id 3
+set param backbone.model2.stages.2.2.dwconv.bias as id 3
+set param backbone.model2.stages.2.2.norm.weight as id 3
+set param backbone.model2.stages.2.2.norm.bias as id 3
+set param backbone.model2.stages.2.2.pwconv1.weight as id 3
+set param backbone.model2.stages.2.2.pwconv1.bias as id 3
+set param backbone.model2.stages.2.2.pwconv2.weight as id 3
+set param backbone.model2.stages.2.2.pwconv2.bias as id 3
+set param backbone.model2.stages.2.3.gamma as id 4
+set param backbone.model2.stages.2.3.dwconv.weight as id 4
+set param backbone.model2.stages.2.3.dwconv.bias as id 4
+set param backbone.model2.stages.2.3.norm.weight as id 4
+set param backbone.model2.stages.2.3.norm.bias as id 4
+set param backbone.model2.stages.2.3.pwconv1.weight as id 4
+set param backbone.model2.stages.2.3.pwconv1.bias as id 4
+set param backbone.model2.stages.2.3.pwconv2.weight as id 4
+set param backbone.model2.stages.2.3.pwconv2.bias as id 4
+set param backbone.model2.stages.2.4.gamma as id 4
+set param backbone.model2.stages.2.4.dwconv.weight as id 4
+set param backbone.model2.stages.2.4.dwconv.bias as id 4
+set param backbone.model2.stages.2.4.norm.weight as id 4
+set param backbone.model2.stages.2.4.norm.bias as id 4
+set param backbone.model2.stages.2.4.pwconv1.weight as id 4
+set param backbone.model2.stages.2.4.pwconv1.bias as id 4
+set param backbone.model2.stages.2.4.pwconv2.weight as id 4
+set param backbone.model2.stages.2.4.pwconv2.bias as id 4
+set param backbone.model2.stages.2.5.gamma as id 4
+set param backbone.model2.stages.2.5.dwconv.weight as id 4
+set param backbone.model2.stages.2.5.dwconv.bias as id 4
+set param backbone.model2.stages.2.5.norm.weight as id 4
+set param backbone.model2.stages.2.5.norm.bias as id 4
+set param backbone.model2.stages.2.5.pwconv1.weight as id 4
+set param backbone.model2.stages.2.5.pwconv1.bias as id 4
+set param backbone.model2.stages.2.5.pwconv2.weight as id 4
+set param backbone.model2.stages.2.5.pwconv2.bias as id 4
+set param backbone.model2.stages.2.6.gamma as id 5
+set param backbone.model2.stages.2.6.dwconv.weight as id 5
+set param backbone.model2.stages.2.6.dwconv.bias as id 5
+set param backbone.model2.stages.2.6.norm.weight as id 5
+set param backbone.model2.stages.2.6.norm.bias as id 5
+set param backbone.model2.stages.2.6.pwconv1.weight as id 5
+set param backbone.model2.stages.2.6.pwconv1.bias as id 5
+set param backbone.model2.stages.2.6.pwconv2.weight as id 5
+set param backbone.model2.stages.2.6.pwconv2.bias as id 5
+set param backbone.model2.stages.2.7.gamma as id 5
+set param backbone.model2.stages.2.7.dwconv.weight as id 5
+set param backbone.model2.stages.2.7.dwconv.bias as id 5
+set param backbone.model2.stages.2.7.norm.weight as id 5
+set param backbone.model2.stages.2.7.norm.bias as id 5
+set param backbone.model2.stages.2.7.pwconv1.weight as id 5
+set param backbone.model2.stages.2.7.pwconv1.bias as id 5
+set param backbone.model2.stages.2.7.pwconv2.weight as id 5
+set param backbone.model2.stages.2.7.pwconv2.bias as id 5
+set param backbone.model2.stages.2.8.gamma as id 5
+set param backbone.model2.stages.2.8.dwconv.weight as id 5
+set param backbone.model2.stages.2.8.dwconv.bias as id 5
+set param backbone.model2.stages.2.8.norm.weight as id 5
+set param backbone.model2.stages.2.8.norm.bias as id 5
+set param backbone.model2.stages.2.8.pwconv1.weight as id 5
+set param backbone.model2.stages.2.8.pwconv1.bias as id 5
+set param backbone.model2.stages.2.8.pwconv2.weight as id 5
+set param backbone.model2.stages.2.8.pwconv2.bias as id 5
+set param backbone.model2.stages.2.9.gamma as id 6
+set param backbone.model2.stages.2.9.dwconv.weight as id 6
+set param backbone.model2.stages.2.9.dwconv.bias as id 6
+set param backbone.model2.stages.2.9.norm.weight as id 6
+set param backbone.model2.stages.2.9.norm.bias as id 6
+set param backbone.model2.stages.2.9.pwconv1.weight as id 6
+set param backbone.model2.stages.2.9.pwconv1.bias as id 6
+set param backbone.model2.stages.2.9.pwconv2.weight as id 6
+set param backbone.model2.stages.2.9.pwconv2.bias as id 6
+set param backbone.model2.stages.2.10.gamma as id 6
+set param backbone.model2.stages.2.10.dwconv.weight as id 6
+set param backbone.model2.stages.2.10.dwconv.bias as id 6
+set param backbone.model2.stages.2.10.norm.weight as id 6
+set param backbone.model2.stages.2.10.norm.bias as id 6
+set param backbone.model2.stages.2.10.pwconv1.weight as id 6
+set param backbone.model2.stages.2.10.pwconv1.bias as id 6
+set param backbone.model2.stages.2.10.pwconv2.weight as id 6
+set param backbone.model2.stages.2.10.pwconv2.bias as id 6
+set param backbone.model2.stages.2.11.gamma as id 6
+set param backbone.model2.stages.2.11.dwconv.weight as id 6
+set param backbone.model2.stages.2.11.dwconv.bias as id 6
+set param backbone.model2.stages.2.11.norm.weight as id 6
+set param backbone.model2.stages.2.11.norm.bias as id 6
+set param backbone.model2.stages.2.11.pwconv1.weight as id 6
+set param backbone.model2.stages.2.11.pwconv1.bias as id 6
+set param backbone.model2.stages.2.11.pwconv2.weight as id 6
+set param backbone.model2.stages.2.11.pwconv2.bias as id 6
+set param backbone.model2.stages.2.12.gamma as id 7
+set param backbone.model2.stages.2.12.dwconv.weight as id 7
+set param backbone.model2.stages.2.12.dwconv.bias as id 7
+set param backbone.model2.stages.2.12.norm.weight as id 7
+set param backbone.model2.stages.2.12.norm.bias as id 7
+set param backbone.model2.stages.2.12.pwconv1.weight as id 7
+set param backbone.model2.stages.2.12.pwconv1.bias as id 7
+set param backbone.model2.stages.2.12.pwconv2.weight as id 7
+set param backbone.model2.stages.2.12.pwconv2.bias as id 7
+set param backbone.model2.stages.2.13.gamma as id 7
+set param backbone.model2.stages.2.13.dwconv.weight as id 7
+set param backbone.model2.stages.2.13.dwconv.bias as id 7
+set param backbone.model2.stages.2.13.norm.weight as id 7
+set param backbone.model2.stages.2.13.norm.bias as id 7
+set param backbone.model2.stages.2.13.pwconv1.weight as id 7
+set param backbone.model2.stages.2.13.pwconv1.bias as id 7
+set param backbone.model2.stages.2.13.pwconv2.weight as id 7
+set param backbone.model2.stages.2.13.pwconv2.bias as id 7
+set param backbone.model2.stages.2.14.gamma as id 7
+set param backbone.model2.stages.2.14.dwconv.weight as id 7
+set param backbone.model2.stages.2.14.dwconv.bias as id 7
+set param backbone.model2.stages.2.14.norm.weight as id 7
+set param backbone.model2.stages.2.14.norm.bias as id 7
+set param backbone.model2.stages.2.14.pwconv1.weight as id 7
+set param backbone.model2.stages.2.14.pwconv1.bias as id 7
+set param backbone.model2.stages.2.14.pwconv2.weight as id 7
+set param backbone.model2.stages.2.14.pwconv2.bias as id 7
+set param backbone.model2.stages.2.15.gamma as id 8
+set param backbone.model2.stages.2.15.dwconv.weight as id 8
+set param backbone.model2.stages.2.15.dwconv.bias as id 8
+set param backbone.model2.stages.2.15.norm.weight as id 8
+set param backbone.model2.stages.2.15.norm.bias as id 8
+set param backbone.model2.stages.2.15.pwconv1.weight as id 8
+set param backbone.model2.stages.2.15.pwconv1.bias as id 8
+set param backbone.model2.stages.2.15.pwconv2.weight as id 8
+set param backbone.model2.stages.2.15.pwconv2.bias as id 8
+set param backbone.model2.stages.2.16.gamma as id 8
+set param backbone.model2.stages.2.16.dwconv.weight as id 8
+set param backbone.model2.stages.2.16.dwconv.bias as id 8
+set param backbone.model2.stages.2.16.norm.weight as id 8
+set param backbone.model2.stages.2.16.norm.bias as id 8
+set param backbone.model2.stages.2.16.pwconv1.weight as id 8
+set param backbone.model2.stages.2.16.pwconv1.bias as id 8
+set param backbone.model2.stages.2.16.pwconv2.weight as id 8
+set param backbone.model2.stages.2.16.pwconv2.bias as id 8
+set param backbone.model2.stages.2.17.gamma as id 8
+set param backbone.model2.stages.2.17.dwconv.weight as id 8
+set param backbone.model2.stages.2.17.dwconv.bias as id 8
+set param backbone.model2.stages.2.17.norm.weight as id 8
+set param backbone.model2.stages.2.17.norm.bias as id 8
+set param backbone.model2.stages.2.17.pwconv1.weight as id 8
+set param backbone.model2.stages.2.17.pwconv1.bias as id 8
+set param backbone.model2.stages.2.17.pwconv2.weight as id 8
+set param backbone.model2.stages.2.17.pwconv2.bias as id 8
+set param backbone.model2.stages.2.18.gamma as id 9
+set param backbone.model2.stages.2.18.dwconv.weight as id 9
+set param backbone.model2.stages.2.18.dwconv.bias as id 9
+set param backbone.model2.stages.2.18.norm.weight as id 9
+set param backbone.model2.stages.2.18.norm.bias as id 9
+set param backbone.model2.stages.2.18.pwconv1.weight as id 9
+set param backbone.model2.stages.2.18.pwconv1.bias as id 9
+set param backbone.model2.stages.2.18.pwconv2.weight as id 9
+set param backbone.model2.stages.2.18.pwconv2.bias as id 9
+set param backbone.model2.stages.2.19.gamma as id 9
+set param backbone.model2.stages.2.19.dwconv.weight as id 9
+set param backbone.model2.stages.2.19.dwconv.bias as id 9
+set param backbone.model2.stages.2.19.norm.weight as id 9
+set param backbone.model2.stages.2.19.norm.bias as id 9
+set param backbone.model2.stages.2.19.pwconv1.weight as id 9
+set param backbone.model2.stages.2.19.pwconv1.bias as id 9
+set param backbone.model2.stages.2.19.pwconv2.weight as id 9
+set param backbone.model2.stages.2.19.pwconv2.bias as id 9
+set param backbone.model2.stages.2.20.gamma as id 9
+set param backbone.model2.stages.2.20.dwconv.weight as id 9
+set param backbone.model2.stages.2.20.dwconv.bias as id 9
+set param backbone.model2.stages.2.20.norm.weight as id 9
+set param backbone.model2.stages.2.20.norm.bias as id 9
+set param backbone.model2.stages.2.20.pwconv1.weight as id 9
+set param backbone.model2.stages.2.20.pwconv1.bias as id 9
+set param backbone.model2.stages.2.20.pwconv2.weight as id 9
+set param backbone.model2.stages.2.20.pwconv2.bias as id 9
+set param backbone.model2.stages.2.21.gamma as id 10
+set param backbone.model2.stages.2.21.dwconv.weight as id 10
+set param backbone.model2.stages.2.21.dwconv.bias as id 10
+set param backbone.model2.stages.2.21.norm.weight as id 10
+set param backbone.model2.stages.2.21.norm.bias as id 10
+set param backbone.model2.stages.2.21.pwconv1.weight as id 10
+set param backbone.model2.stages.2.21.pwconv1.bias as id 10
+set param backbone.model2.stages.2.21.pwconv2.weight as id 10
+set param backbone.model2.stages.2.21.pwconv2.bias as id 10
+set param backbone.model2.stages.2.22.gamma as id 10
+set param backbone.model2.stages.2.22.dwconv.weight as id 10
+set param backbone.model2.stages.2.22.dwconv.bias as id 10
+set param backbone.model2.stages.2.22.norm.weight as id 10
+set param backbone.model2.stages.2.22.norm.bias as id 10
+set param backbone.model2.stages.2.22.pwconv1.weight as id 10
+set param backbone.model2.stages.2.22.pwconv1.bias as id 10
+set param backbone.model2.stages.2.22.pwconv2.weight as id 10
+set param backbone.model2.stages.2.22.pwconv2.bias as id 10
+set param backbone.model2.stages.2.23.gamma as id 10
+set param backbone.model2.stages.2.23.dwconv.weight as id 10
+set param backbone.model2.stages.2.23.dwconv.bias as id 10
+set param backbone.model2.stages.2.23.norm.weight as id 10
+set param backbone.model2.stages.2.23.norm.bias as id 10
+set param backbone.model2.stages.2.23.pwconv1.weight as id 10
+set param backbone.model2.stages.2.23.pwconv1.bias as id 10
+set param backbone.model2.stages.2.23.pwconv2.weight as id 10
+set param backbone.model2.stages.2.23.pwconv2.bias as id 10
+set param backbone.model2.stages.2.24.gamma as id 11
+set param backbone.model2.stages.2.24.dwconv.weight as id 11
+set param backbone.model2.stages.2.24.dwconv.bias as id 11
+set param backbone.model2.stages.2.24.norm.weight as id 11
+set param backbone.model2.stages.2.24.norm.bias as id 11
+set param backbone.model2.stages.2.24.pwconv1.weight as id 11
+set param backbone.model2.stages.2.24.pwconv1.bias as id 11
+set param backbone.model2.stages.2.24.pwconv2.weight as id 11
+set param backbone.model2.stages.2.24.pwconv2.bias as id 11
+set param backbone.model2.stages.2.25.gamma as id 11
+set param backbone.model2.stages.2.25.dwconv.weight as id 11
+set param backbone.model2.stages.2.25.dwconv.bias as id 11
+set param backbone.model2.stages.2.25.norm.weight as id 11
+set param backbone.model2.stages.2.25.norm.bias as id 11
+set param backbone.model2.stages.2.25.pwconv1.weight as id 11
+set param backbone.model2.stages.2.25.pwconv1.bias as id 11
+set param backbone.model2.stages.2.25.pwconv2.weight as id 11
+set param backbone.model2.stages.2.25.pwconv2.bias as id 11
+set param backbone.model2.stages.2.26.gamma as id 11
+set param backbone.model2.stages.2.26.dwconv.weight as id 11
+set param backbone.model2.stages.2.26.dwconv.bias as id 11
+set param backbone.model2.stages.2.26.norm.weight as id 11
+set param backbone.model2.stages.2.26.norm.bias as id 11
+set param backbone.model2.stages.2.26.pwconv1.weight as id 11
+set param backbone.model2.stages.2.26.pwconv1.bias as id 11
+set param backbone.model2.stages.2.26.pwconv2.weight as id 11
+set param backbone.model2.stages.2.26.pwconv2.bias as id 11
+set param backbone.model2.stages.3.0.gamma as id 12
+set param backbone.model2.stages.3.0.dwconv.weight as id 12
+set param backbone.model2.stages.3.0.dwconv.bias as id 12
+set param backbone.model2.stages.3.0.norm.weight as id 12
+set param backbone.model2.stages.3.0.norm.bias as id 12
+set param backbone.model2.stages.3.0.pwconv1.weight as id 12
+set param backbone.model2.stages.3.0.pwconv1.bias as id 12
+set param backbone.model2.stages.3.0.pwconv2.weight as id 12
+set param backbone.model2.stages.3.0.pwconv2.bias as id 12
+set param backbone.model2.stages.3.1.gamma as id 12
+set param backbone.model2.stages.3.1.dwconv.weight as id 12
+set param backbone.model2.stages.3.1.dwconv.bias as id 12
+set param backbone.model2.stages.3.1.norm.weight as id 12
+set param backbone.model2.stages.3.1.norm.bias as id 12
+set param backbone.model2.stages.3.1.pwconv1.weight as id 12
+set param backbone.model2.stages.3.1.pwconv1.bias as id 12
+set param backbone.model2.stages.3.1.pwconv2.weight as id 12
+set param backbone.model2.stages.3.1.pwconv2.bias as id 12
+set param backbone.model2.stages.3.2.gamma as id 12
+set param backbone.model2.stages.3.2.dwconv.weight as id 12
+set param backbone.model2.stages.3.2.dwconv.bias as id 12
+set param backbone.model2.stages.3.2.norm.weight as id 12
+set param backbone.model2.stages.3.2.norm.bias as id 12
+set param backbone.model2.stages.3.2.pwconv1.weight as id 12
+set param backbone.model2.stages.3.2.pwconv1.bias as id 12
+set param backbone.model2.stages.3.2.pwconv2.weight as id 12
+set param backbone.model2.stages.3.2.pwconv2.bias as id 12
+set param backbone.model2.norm0.weight as id 13
+set param backbone.model2.norm0.bias as id 13
+set param backbone.model2.norm1.weight as id 13
+set param backbone.model2.norm1.bias as id 13
+set param backbone.model2.norm2.weight as id 13
+set param backbone.model2.norm2.bias as id 13
+set param backbone.model2.norm3.weight as id 13
+set param backbone.model2.norm3.bias as id 13
+set param backbone.model3.downsample_layers.0.0.weight as id 0
+set param backbone.model3.downsample_layers.0.0.bias as id 0
+set param backbone.model3.downsample_layers.0.1.weight as id 0
+set param backbone.model3.downsample_layers.0.1.bias as id 0
+set param backbone.model3.downsample_layers.1.0.weight as id 2
+set param backbone.model3.downsample_layers.1.0.bias as id 2
+set param backbone.model3.downsample_layers.1.1.weight as id 2
+set param backbone.model3.downsample_layers.1.1.bias as id 2
+set param backbone.model3.downsample_layers.2.0.weight as id 3
+set param backbone.model3.downsample_layers.2.0.bias as id 3
+set param backbone.model3.downsample_layers.2.1.weight as id 3
+set param backbone.model3.downsample_layers.2.1.bias as id 3
+set param backbone.model3.downsample_layers.3.0.weight as id 12
+set param backbone.model3.downsample_layers.3.0.bias as id 12
+set param backbone.model3.downsample_layers.3.1.weight as id 12
+set param backbone.model3.downsample_layers.3.1.bias as id 12
+set param backbone.model3.stages.0.0.gamma as id 1
+set param backbone.model3.stages.0.0.dwconv.weight as id 1
+set param backbone.model3.stages.0.0.dwconv.bias as id 1
+set param backbone.model3.stages.0.0.norm.weight as id 1
+set param backbone.model3.stages.0.0.norm.bias as id 1
+set param backbone.model3.stages.0.0.pwconv1.weight as id 1
+set param backbone.model3.stages.0.0.pwconv1.bias as id 1
+set param backbone.model3.stages.0.0.pwconv2.weight as id 1
+set param backbone.model3.stages.0.0.pwconv2.bias as id 1
+set param backbone.model3.stages.0.1.gamma as id 1
+set param backbone.model3.stages.0.1.dwconv.weight as id 1
+set param backbone.model3.stages.0.1.dwconv.bias as id 1
+set param backbone.model3.stages.0.1.norm.weight as id 1
+set param backbone.model3.stages.0.1.norm.bias as id 1
+set param backbone.model3.stages.0.1.pwconv1.weight as id 1
+set param backbone.model3.stages.0.1.pwconv1.bias as id 1
+set param backbone.model3.stages.0.1.pwconv2.weight as id 1
+set param backbone.model3.stages.0.1.pwconv2.bias as id 1
+set param backbone.model3.stages.0.2.gamma as id 1
+set param backbone.model3.stages.0.2.dwconv.weight as id 1
+set param backbone.model3.stages.0.2.dwconv.bias as id 1
+set param backbone.model3.stages.0.2.norm.weight as id 1
+set param backbone.model3.stages.0.2.norm.bias as id 1
+set param backbone.model3.stages.0.2.pwconv1.weight as id 1
+set param backbone.model3.stages.0.2.pwconv1.bias as id 1
+set param backbone.model3.stages.0.2.pwconv2.weight as id 1
+set param backbone.model3.stages.0.2.pwconv2.bias as id 1
+set param backbone.model3.stages.1.0.gamma as id 2
+set param backbone.model3.stages.1.0.dwconv.weight as id 2
+set param backbone.model3.stages.1.0.dwconv.bias as id 2
+set param backbone.model3.stages.1.0.norm.weight as id 2
+set param backbone.model3.stages.1.0.norm.bias as id 2
+set param backbone.model3.stages.1.0.pwconv1.weight as id 2
+set param backbone.model3.stages.1.0.pwconv1.bias as id 2
+set param backbone.model3.stages.1.0.pwconv2.weight as id 2
+set param backbone.model3.stages.1.0.pwconv2.bias as id 2
+set param backbone.model3.stages.1.1.gamma as id 2
+set param backbone.model3.stages.1.1.dwconv.weight as id 2
+set param backbone.model3.stages.1.1.dwconv.bias as id 2
+set param backbone.model3.stages.1.1.norm.weight as id 2
+set param backbone.model3.stages.1.1.norm.bias as id 2
+set param backbone.model3.stages.1.1.pwconv1.weight as id 2
+set param backbone.model3.stages.1.1.pwconv1.bias as id 2
+set param backbone.model3.stages.1.1.pwconv2.weight as id 2
+set param backbone.model3.stages.1.1.pwconv2.bias as id 2
+set param backbone.model3.stages.1.2.gamma as id 2
+set param backbone.model3.stages.1.2.dwconv.weight as id 2
+set param backbone.model3.stages.1.2.dwconv.bias as id 2
+set param backbone.model3.stages.1.2.norm.weight as id 2
+set param backbone.model3.stages.1.2.norm.bias as id 2
+set param backbone.model3.stages.1.2.pwconv1.weight as id 2
+set param backbone.model3.stages.1.2.pwconv1.bias as id 2
+set param backbone.model3.stages.1.2.pwconv2.weight as id 2
+set param backbone.model3.stages.1.2.pwconv2.bias as id 2
+set param backbone.model3.stages.2.0.gamma as id 3
+set param backbone.model3.stages.2.0.dwconv.weight as id 3
+set param backbone.model3.stages.2.0.dwconv.bias as id 3
+set param backbone.model3.stages.2.0.norm.weight as id 3
+set param backbone.model3.stages.2.0.norm.bias as id 3
+set param backbone.model3.stages.2.0.pwconv1.weight as id 3
+set param backbone.model3.stages.2.0.pwconv1.bias as id 3
+set param backbone.model3.stages.2.0.pwconv2.weight as id 3
+set param backbone.model3.stages.2.0.pwconv2.bias as id 3
+set param backbone.model3.stages.2.1.gamma as id 3
+set param backbone.model3.stages.2.1.dwconv.weight as id 3
+set param backbone.model3.stages.2.1.dwconv.bias as id 3
+set param backbone.model3.stages.2.1.norm.weight as id 3
+set param backbone.model3.stages.2.1.norm.bias as id 3
+set param backbone.model3.stages.2.1.pwconv1.weight as id 3
+set param backbone.model3.stages.2.1.pwconv1.bias as id 3
+set param backbone.model3.stages.2.1.pwconv2.weight as id 3
+set param backbone.model3.stages.2.1.pwconv2.bias as id 3
+set param backbone.model3.stages.2.2.gamma as id 3
+set param backbone.model3.stages.2.2.dwconv.weight as id 3
+set param backbone.model3.stages.2.2.dwconv.bias as id 3
+set param backbone.model3.stages.2.2.norm.weight as id 3
+set param backbone.model3.stages.2.2.norm.bias as id 3
+set param backbone.model3.stages.2.2.pwconv1.weight as id 3
+set param backbone.model3.stages.2.2.pwconv1.bias as id 3
+set param backbone.model3.stages.2.2.pwconv2.weight as id 3
+set param backbone.model3.stages.2.2.pwconv2.bias as id 3
+set param backbone.model3.stages.2.3.gamma as id 4
+set param backbone.model3.stages.2.3.dwconv.weight as id 4
+set param backbone.model3.stages.2.3.dwconv.bias as id 4
+set param backbone.model3.stages.2.3.norm.weight as id 4
+set param backbone.model3.stages.2.3.norm.bias as id 4
+set param backbone.model3.stages.2.3.pwconv1.weight as id 4
+set param backbone.model3.stages.2.3.pwconv1.bias as id 4
+set param backbone.model3.stages.2.3.pwconv2.weight as id 4
+set param backbone.model3.stages.2.3.pwconv2.bias as id 4
+set param backbone.model3.stages.2.4.gamma as id 4
+set param backbone.model3.stages.2.4.dwconv.weight as id 4
+set param backbone.model3.stages.2.4.dwconv.bias as id 4
+set param backbone.model3.stages.2.4.norm.weight as id 4
+set param backbone.model3.stages.2.4.norm.bias as id 4
+set param backbone.model3.stages.2.4.pwconv1.weight as id 4
+set param backbone.model3.stages.2.4.pwconv1.bias as id 4
+set param backbone.model3.stages.2.4.pwconv2.weight as id 4
+set param backbone.model3.stages.2.4.pwconv2.bias as id 4
+set param backbone.model3.stages.2.5.gamma as id 4
+set param backbone.model3.stages.2.5.dwconv.weight as id 4
+set param backbone.model3.stages.2.5.dwconv.bias as id 4
+set param backbone.model3.stages.2.5.norm.weight as id 4
+set param backbone.model3.stages.2.5.norm.bias as id 4
+set param backbone.model3.stages.2.5.pwconv1.weight as id 4
+set param backbone.model3.stages.2.5.pwconv1.bias as id 4
+set param backbone.model3.stages.2.5.pwconv2.weight as id 4
+set param backbone.model3.stages.2.5.pwconv2.bias as id 4
+set param backbone.model3.stages.2.6.gamma as id 5
+set param backbone.model3.stages.2.6.dwconv.weight as id 5
+set param backbone.model3.stages.2.6.dwconv.bias as id 5
+set param backbone.model3.stages.2.6.norm.weight as id 5
+set param backbone.model3.stages.2.6.norm.bias as id 5
+set param backbone.model3.stages.2.6.pwconv1.weight as id 5
+set param backbone.model3.stages.2.6.pwconv1.bias as id 5
+set param backbone.model3.stages.2.6.pwconv2.weight as id 5
+set param backbone.model3.stages.2.6.pwconv2.bias as id 5
+set param backbone.model3.stages.2.7.gamma as id 5
+set param backbone.model3.stages.2.7.dwconv.weight as id 5
+set param backbone.model3.stages.2.7.dwconv.bias as id 5
+set param backbone.model3.stages.2.7.norm.weight as id 5
+set param backbone.model3.stages.2.7.norm.bias as id 5
+set param backbone.model3.stages.2.7.pwconv1.weight as id 5
+set param backbone.model3.stages.2.7.pwconv1.bias as id 5
+set param backbone.model3.stages.2.7.pwconv2.weight as id 5
+set param backbone.model3.stages.2.7.pwconv2.bias as id 5
+set param backbone.model3.stages.2.8.gamma as id 5
+set param backbone.model3.stages.2.8.dwconv.weight as id 5
+set param backbone.model3.stages.2.8.dwconv.bias as id 5
+set param backbone.model3.stages.2.8.norm.weight as id 5
+set param backbone.model3.stages.2.8.norm.bias as id 5
+set param backbone.model3.stages.2.8.pwconv1.weight as id 5
+set param backbone.model3.stages.2.8.pwconv1.bias as id 5
+set param backbone.model3.stages.2.8.pwconv2.weight as id 5
+set param backbone.model3.stages.2.8.pwconv2.bias as id 5
+set param backbone.model3.stages.2.9.gamma as id 6
+set param backbone.model3.stages.2.9.dwconv.weight as id 6
+set param backbone.model3.stages.2.9.dwconv.bias as id 6
+set param backbone.model3.stages.2.9.norm.weight as id 6
+set param backbone.model3.stages.2.9.norm.bias as id 6
+set param backbone.model3.stages.2.9.pwconv1.weight as id 6
+set param backbone.model3.stages.2.9.pwconv1.bias as id 6
+set param backbone.model3.stages.2.9.pwconv2.weight as id 6
+set param backbone.model3.stages.2.9.pwconv2.bias as id 6
+set param backbone.model3.stages.2.10.gamma as id 6
+set param backbone.model3.stages.2.10.dwconv.weight as id 6
+set param backbone.model3.stages.2.10.dwconv.bias as id 6
+set param backbone.model3.stages.2.10.norm.weight as id 6
+set param backbone.model3.stages.2.10.norm.bias as id 6
+set param backbone.model3.stages.2.10.pwconv1.weight as id 6
+set param backbone.model3.stages.2.10.pwconv1.bias as id 6
+set param backbone.model3.stages.2.10.pwconv2.weight as id 6
+set param backbone.model3.stages.2.10.pwconv2.bias as id 6
+set param backbone.model3.stages.2.11.gamma as id 6
+set param backbone.model3.stages.2.11.dwconv.weight as id 6
+set param backbone.model3.stages.2.11.dwconv.bias as id 6
+set param backbone.model3.stages.2.11.norm.weight as id 6
+set param backbone.model3.stages.2.11.norm.bias as id 6
+set param backbone.model3.stages.2.11.pwconv1.weight as id 6
+set param backbone.model3.stages.2.11.pwconv1.bias as id 6
+set param backbone.model3.stages.2.11.pwconv2.weight as id 6
+set param backbone.model3.stages.2.11.pwconv2.bias as id 6
+set param backbone.model3.stages.2.12.gamma as id 7
+set param backbone.model3.stages.2.12.dwconv.weight as id 7
+set param backbone.model3.stages.2.12.dwconv.bias as id 7
+set param backbone.model3.stages.2.12.norm.weight as id 7
+set param backbone.model3.stages.2.12.norm.bias as id 7
+set param backbone.model3.stages.2.12.pwconv1.weight as id 7
+set param backbone.model3.stages.2.12.pwconv1.bias as id 7
+set param backbone.model3.stages.2.12.pwconv2.weight as id 7
+set param backbone.model3.stages.2.12.pwconv2.bias as id 7
+set param backbone.model3.stages.2.13.gamma as id 7
+set param backbone.model3.stages.2.13.dwconv.weight as id 7
+set param backbone.model3.stages.2.13.dwconv.bias as id 7
+set param backbone.model3.stages.2.13.norm.weight as id 7
+set param backbone.model3.stages.2.13.norm.bias as id 7
+set param backbone.model3.stages.2.13.pwconv1.weight as id 7
+set param backbone.model3.stages.2.13.pwconv1.bias as id 7
+set param backbone.model3.stages.2.13.pwconv2.weight as id 7
+set param backbone.model3.stages.2.13.pwconv2.bias as id 7
+set param backbone.model3.stages.2.14.gamma as id 7
+set param backbone.model3.stages.2.14.dwconv.weight as id 7
+set param backbone.model3.stages.2.14.dwconv.bias as id 7
+set param backbone.model3.stages.2.14.norm.weight as id 7
+set param backbone.model3.stages.2.14.norm.bias as id 7
+set param backbone.model3.stages.2.14.pwconv1.weight as id 7
+set param backbone.model3.stages.2.14.pwconv1.bias as id 7
+set param backbone.model3.stages.2.14.pwconv2.weight as id 7
+set param backbone.model3.stages.2.14.pwconv2.bias as id 7
+set param backbone.model3.stages.2.15.gamma as id 8
+set param backbone.model3.stages.2.15.dwconv.weight as id 8
+set param backbone.model3.stages.2.15.dwconv.bias as id 8
+set param backbone.model3.stages.2.15.norm.weight as id 8
+set param backbone.model3.stages.2.15.norm.bias as id 8
+set param backbone.model3.stages.2.15.pwconv1.weight as id 8
+set param backbone.model3.stages.2.15.pwconv1.bias as id 8
+set param backbone.model3.stages.2.15.pwconv2.weight as id 8
+set param backbone.model3.stages.2.15.pwconv2.bias as id 8
+set param backbone.model3.stages.2.16.gamma as id 8
+set param backbone.model3.stages.2.16.dwconv.weight as id 8
+set param backbone.model3.stages.2.16.dwconv.bias as id 8
+set param backbone.model3.stages.2.16.norm.weight as id 8
+set param backbone.model3.stages.2.16.norm.bias as id 8
+set param backbone.model3.stages.2.16.pwconv1.weight as id 8
+set param backbone.model3.stages.2.16.pwconv1.bias as id 8
+set param backbone.model3.stages.2.16.pwconv2.weight as id 8
+set param backbone.model3.stages.2.16.pwconv2.bias as id 8
+set param backbone.model3.stages.2.17.gamma as id 8
+set param backbone.model3.stages.2.17.dwconv.weight as id 8
+set param backbone.model3.stages.2.17.dwconv.bias as id 8
+set param backbone.model3.stages.2.17.norm.weight as id 8
+set param backbone.model3.stages.2.17.norm.bias as id 8
+set param backbone.model3.stages.2.17.pwconv1.weight as id 8
+set param backbone.model3.stages.2.17.pwconv1.bias as id 8
+set param backbone.model3.stages.2.17.pwconv2.weight as id 8
+set param backbone.model3.stages.2.17.pwconv2.bias as id 8
+set param backbone.model3.stages.2.18.gamma as id 9
+set param backbone.model3.stages.2.18.dwconv.weight as id 9
+set param backbone.model3.stages.2.18.dwconv.bias as id 9
+set param backbone.model3.stages.2.18.norm.weight as id 9
+set param backbone.model3.stages.2.18.norm.bias as id 9
+set param backbone.model3.stages.2.18.pwconv1.weight as id 9
+set param backbone.model3.stages.2.18.pwconv1.bias as id 9
+set param backbone.model3.stages.2.18.pwconv2.weight as id 9
+set param backbone.model3.stages.2.18.pwconv2.bias as id 9
+set param backbone.model3.stages.2.19.gamma as id 9
+set param backbone.model3.stages.2.19.dwconv.weight as id 9
+set param backbone.model3.stages.2.19.dwconv.bias as id 9
+set param backbone.model3.stages.2.19.norm.weight as id 9
+set param backbone.model3.stages.2.19.norm.bias as id 9
+set param backbone.model3.stages.2.19.pwconv1.weight as id 9
+set param backbone.model3.stages.2.19.pwconv1.bias as id 9
+set param backbone.model3.stages.2.19.pwconv2.weight as id 9
+set param backbone.model3.stages.2.19.pwconv2.bias as id 9
+set param backbone.model3.stages.2.20.gamma as id 9
+set param backbone.model3.stages.2.20.dwconv.weight as id 9
+set param backbone.model3.stages.2.20.dwconv.bias as id 9
+set param backbone.model3.stages.2.20.norm.weight as id 9
+set param backbone.model3.stages.2.20.norm.bias as id 9
+set param backbone.model3.stages.2.20.pwconv1.weight as id 9
+set param backbone.model3.stages.2.20.pwconv1.bias as id 9
+set param backbone.model3.stages.2.20.pwconv2.weight as id 9
+set param backbone.model3.stages.2.20.pwconv2.bias as id 9
+set param backbone.model3.stages.2.21.gamma as id 10
+set param backbone.model3.stages.2.21.dwconv.weight as id 10
+set param backbone.model3.stages.2.21.dwconv.bias as id 10
+set param backbone.model3.stages.2.21.norm.weight as id 10
+set param backbone.model3.stages.2.21.norm.bias as id 10
+set param backbone.model3.stages.2.21.pwconv1.weight as id 10
+set param backbone.model3.stages.2.21.pwconv1.bias as id 10
+set param backbone.model3.stages.2.21.pwconv2.weight as id 10
+set param backbone.model3.stages.2.21.pwconv2.bias as id 10
+set param backbone.model3.stages.2.22.gamma as id 10
+set param backbone.model3.stages.2.22.dwconv.weight as id 10
+set param backbone.model3.stages.2.22.dwconv.bias as id 10
+set param backbone.model3.stages.2.22.norm.weight as id 10
+set param backbone.model3.stages.2.22.norm.bias as id 10
+set param backbone.model3.stages.2.22.pwconv1.weight as id 10
+set param backbone.model3.stages.2.22.pwconv1.bias as id 10
+set param backbone.model3.stages.2.22.pwconv2.weight as id 10
+set param backbone.model3.stages.2.22.pwconv2.bias as id 10
+set param backbone.model3.stages.2.23.gamma as id 10
+set param backbone.model3.stages.2.23.dwconv.weight as id 10
+set param backbone.model3.stages.2.23.dwconv.bias as id 10
+set param backbone.model3.stages.2.23.norm.weight as id 10
+set param backbone.model3.stages.2.23.norm.bias as id 10
+set param backbone.model3.stages.2.23.pwconv1.weight as id 10
+set param backbone.model3.stages.2.23.pwconv1.bias as id 10
+set param backbone.model3.stages.2.23.pwconv2.weight as id 10
+set param backbone.model3.stages.2.23.pwconv2.bias as id 10
+set param backbone.model3.stages.2.24.gamma as id 11
+set param backbone.model3.stages.2.24.dwconv.weight as id 11
+set param backbone.model3.stages.2.24.dwconv.bias as id 11
+set param backbone.model3.stages.2.24.norm.weight as id 11
+set param backbone.model3.stages.2.24.norm.bias as id 11
+set param backbone.model3.stages.2.24.pwconv1.weight as id 11
+set param backbone.model3.stages.2.24.pwconv1.bias as id 11
+set param backbone.model3.stages.2.24.pwconv2.weight as id 11
+set param backbone.model3.stages.2.24.pwconv2.bias as id 11
+set param backbone.model3.stages.2.25.gamma as id 11
+set param backbone.model3.stages.2.25.dwconv.weight as id 11
+set param backbone.model3.stages.2.25.dwconv.bias as id 11
+set param backbone.model3.stages.2.25.norm.weight as id 11
+set param backbone.model3.stages.2.25.norm.bias as id 11
+set param backbone.model3.stages.2.25.pwconv1.weight as id 11
+set param backbone.model3.stages.2.25.pwconv1.bias as id 11
+set param backbone.model3.stages.2.25.pwconv2.weight as id 11
+set param backbone.model3.stages.2.25.pwconv2.bias as id 11
+set param backbone.model3.stages.2.26.gamma as id 11
+set param backbone.model3.stages.2.26.dwconv.weight as id 11
+set param backbone.model3.stages.2.26.dwconv.bias as id 11
+set param backbone.model3.stages.2.26.norm.weight as id 11
+set param backbone.model3.stages.2.26.norm.bias as id 11
+set param backbone.model3.stages.2.26.pwconv1.weight as id 11
+set param backbone.model3.stages.2.26.pwconv1.bias as id 11
+set param backbone.model3.stages.2.26.pwconv2.weight as id 11
+set param backbone.model3.stages.2.26.pwconv2.bias as id 11
+set param backbone.model3.stages.3.0.gamma as id 12
+set param backbone.model3.stages.3.0.dwconv.weight as id 12
+set param backbone.model3.stages.3.0.dwconv.bias as id 12
+set param backbone.model3.stages.3.0.norm.weight as id 12
+set param backbone.model3.stages.3.0.norm.bias as id 12
+set param backbone.model3.stages.3.0.pwconv1.weight as id 12
+set param backbone.model3.stages.3.0.pwconv1.bias as id 12
+set param backbone.model3.stages.3.0.pwconv2.weight as id 12
+set param backbone.model3.stages.3.0.pwconv2.bias as id 12
+set param backbone.model3.stages.3.1.gamma as id 12
+set param backbone.model3.stages.3.1.dwconv.weight as id 12
+set param backbone.model3.stages.3.1.dwconv.bias as id 12
+set param backbone.model3.stages.3.1.norm.weight as id 12
+set param backbone.model3.stages.3.1.norm.bias as id 12
+set param backbone.model3.stages.3.1.pwconv1.weight as id 12
+set param backbone.model3.stages.3.1.pwconv1.bias as id 12
+set param backbone.model3.stages.3.1.pwconv2.weight as id 12
+set param backbone.model3.stages.3.1.pwconv2.bias as id 12
+set param backbone.model3.stages.3.2.gamma as id 12
+set param backbone.model3.stages.3.2.dwconv.weight as id 12
+set param backbone.model3.stages.3.2.dwconv.bias as id 12
+set param backbone.model3.stages.3.2.norm.weight as id 12
+set param backbone.model3.stages.3.2.norm.bias as id 12
+set param backbone.model3.stages.3.2.pwconv1.weight as id 12
+set param backbone.model3.stages.3.2.pwconv1.bias as id 12
+set param backbone.model3.stages.3.2.pwconv2.weight as id 12
+set param backbone.model3.stages.3.2.pwconv2.bias as id 12
+set param backbone.model3.norm0.weight as id 13
+set param backbone.model3.norm0.bias as id 13
+set param backbone.model3.norm1.weight as id 13
+set param backbone.model3.norm1.bias as id 13
+set param backbone.model3.norm2.weight as id 13
+set param backbone.model3.norm2.bias as id 13
+set param backbone.model3.norm3.weight as id 13
+set param backbone.model3.norm3.bias as id 13
+set param backbone.fusion1.fusion_layers.0.0.weight as id 13
+set param backbone.fusion1.fusion_layers.0.0.bias as id 13
+set param backbone.fusion1.fusion_layers.0.1.weight as id 13
+set param backbone.fusion1.fusion_layers.0.1.bias as id 13
+set param backbone.fusion1.fusion_layers.1.0.weight as id 13
+set param backbone.fusion1.fusion_layers.1.0.bias as id 13
+set param backbone.fusion1.fusion_layers.1.1.weight as id 13
+set param backbone.fusion1.fusion_layers.1.1.bias as id 13
+set param backbone.fusion1.fusion_layers.2.0.weight as id 13
+set param backbone.fusion1.fusion_layers.2.0.bias as id 13
+set param backbone.fusion1.fusion_layers.2.1.weight as id 13
+set param backbone.fusion1.fusion_layers.2.1.bias as id 13
+set param backbone.fusion1.fusion_layers.3.0.weight as id 13
+set param backbone.fusion1.fusion_layers.3.0.bias as id 13
+set param backbone.fusion1.fusion_layers.3.1.weight as id 13
+set param backbone.fusion1.fusion_layers.3.1.bias as id 13
+set param backbone.fusion1.norm0.weight as id 13
+set param backbone.fusion1.norm0.bias as id 13
+set param backbone.fusion1.norm1.weight as id 13
+set param backbone.fusion1.norm1.bias as id 13
+set param backbone.fusion1.norm2.weight as id 13
+set param backbone.fusion1.norm2.bias as id 13
+set param backbone.fusion1.norm3.weight as id 13
+set param backbone.fusion1.norm3.bias as id 13
+set param backbone.fusion2.fusion_layers.0.0.weight as id 13
+set param backbone.fusion2.fusion_layers.0.0.bias as id 13
+set param backbone.fusion2.fusion_layers.0.1.weight as id 13
+set param backbone.fusion2.fusion_layers.0.1.bias as id 13
+set param backbone.fusion2.fusion_layers.1.0.weight as id 13
+set param backbone.fusion2.fusion_layers.1.0.bias as id 13
+set param backbone.fusion2.fusion_layers.1.1.weight as id 13
+set param backbone.fusion2.fusion_layers.1.1.bias as id 13
+set param backbone.fusion2.fusion_layers.2.0.weight as id 13
+set param backbone.fusion2.fusion_layers.2.0.bias as id 13
+set param backbone.fusion2.fusion_layers.2.1.weight as id 13
+set param backbone.fusion2.fusion_layers.2.1.bias as id 13
+set param backbone.fusion2.fusion_layers.3.0.weight as id 13
+set param backbone.fusion2.fusion_layers.3.0.bias as id 13
+set param backbone.fusion2.fusion_layers.3.1.weight as id 13
+set param backbone.fusion2.fusion_layers.3.1.bias as id 13
+set param backbone.fusion2.norm0.weight as id 13
+set param backbone.fusion2.norm0.bias as id 13
+set param backbone.fusion2.norm1.weight as id 13
+set param backbone.fusion2.norm1.bias as id 13
+set param backbone.fusion2.norm2.weight as id 13
+set param backbone.fusion2.norm2.bias as id 13
+set param backbone.fusion2.norm3.weight as id 13
+set param backbone.fusion2.norm3.bias as id 13
+set param backbone.scatter1.fusion_layers.0.0.weight as id 13
+set param backbone.scatter1.fusion_layers.0.0.bias as id 13
+set param backbone.scatter1.fusion_layers.0.1.weight as id 13
+set param backbone.scatter1.fusion_layers.0.1.bias as id 13
+set param backbone.scatter1.fusion_layers.1.0.weight as id 13
+set param backbone.scatter1.fusion_layers.1.0.bias as id 13
+set param backbone.scatter1.fusion_layers.1.1.weight as id 13
+set param backbone.scatter1.fusion_layers.1.1.bias as id 13
+set param backbone.scatter1.fusion_layers.2.0.weight as id 13
+set param backbone.scatter1.fusion_layers.2.0.bias as id 13
+set param backbone.scatter1.fusion_layers.2.1.weight as id 13
+set param backbone.scatter1.fusion_layers.2.1.bias as id 13
+set param backbone.scatter1.fusion_layers.3.0.weight as id 13
+set param backbone.scatter1.fusion_layers.3.0.bias as id 13
+set param backbone.scatter1.fusion_layers.3.1.weight as id 13
+set param backbone.scatter1.fusion_layers.3.1.bias as id 13
+set param backbone.scatter2.fusion_layers.0.0.weight as id 13
+set param backbone.scatter2.fusion_layers.0.0.bias as id 13
+set param backbone.scatter2.fusion_layers.0.1.weight as id 13
+set param backbone.scatter2.fusion_layers.0.1.bias as id 13
+set param backbone.scatter2.fusion_layers.1.0.weight as id 13
+set param backbone.scatter2.fusion_layers.1.0.bias as id 13
+set param backbone.scatter2.fusion_layers.1.1.weight as id 13
+set param backbone.scatter2.fusion_layers.1.1.bias as id 13
+set param backbone.scatter2.fusion_layers.2.0.weight as id 13
+set param backbone.scatter2.fusion_layers.2.0.bias as id 13
+set param backbone.scatter2.fusion_layers.2.1.weight as id 13
+set param backbone.scatter2.fusion_layers.2.1.bias as id 13
+set param backbone.scatter2.fusion_layers.3.0.weight as id 13
+set param backbone.scatter2.fusion_layers.3.0.bias as id 13
+set param backbone.scatter2.fusion_layers.3.1.weight as id 13
+set param backbone.scatter2.fusion_layers.3.1.bias as id 13
+set param backbone.scatter3.fusion_layers.0.0.weight as id 13
+set param backbone.scatter3.fusion_layers.0.0.bias as id 13
+set param backbone.scatter3.fusion_layers.0.1.weight as id 13
+set param backbone.scatter3.fusion_layers.0.1.bias as id 13
+set param backbone.scatter3.fusion_layers.1.0.weight as id 13
+set param backbone.scatter3.fusion_layers.1.0.bias as id 13
+set param backbone.scatter3.fusion_layers.1.1.weight as id 13
+set param backbone.scatter3.fusion_layers.1.1.bias as id 13
+set param backbone.scatter3.fusion_layers.2.0.weight as id 13
+set param backbone.scatter3.fusion_layers.2.0.bias as id 13
+set param backbone.scatter3.fusion_layers.2.1.weight as id 13
+set param backbone.scatter3.fusion_layers.2.1.bias as id 13
+set param backbone.scatter3.fusion_layers.3.0.weight as id 13
+set param backbone.scatter3.fusion_layers.3.0.bias as id 13
+set param backbone.scatter3.fusion_layers.3.1.weight as id 13
+set param backbone.scatter3.fusion_layers.3.1.bias as id 13
+set param neck.convs.0.conv.weight as id 13
+set param neck.convs.0.gn.weight as id 13
+set param neck.convs.0.gn.bias as id 13
+set param neck.convs.1.conv.weight as id 13
+set param neck.convs.1.gn.weight as id 13
+set param neck.convs.1.gn.bias as id 13
+set param neck.convs.2.conv.weight as id 13
+set param neck.convs.2.gn.weight as id 13
+set param neck.convs.2.gn.bias as id 13
+set param neck.extra_convs.0.conv.weight as id 13
+set param neck.extra_convs.0.gn.weight as id 13
+set param neck.extra_convs.0.gn.bias as id 13
+set param bbox_head.transformer.level_embeds as id 13
+set param bbox_head.transformer.encoder.layers.0.attentions.0.sampling_offsets.weight as id 13
+set param bbox_head.transformer.encoder.layers.0.attentions.0.sampling_offsets.bias as id 13
+set param bbox_head.transformer.encoder.layers.0.attentions.0.attention_weights.weight as id 13
+set param bbox_head.transformer.encoder.layers.0.attentions.0.attention_weights.bias as id 13
+set param bbox_head.transformer.encoder.layers.0.attentions.0.value_proj.weight as id 13
+set param bbox_head.transformer.encoder.layers.0.attentions.0.value_proj.bias as id 13
+set param bbox_head.transformer.encoder.layers.0.attentions.0.output_proj.weight as id 13
+set param bbox_head.transformer.encoder.layers.0.attentions.0.output_proj.bias as id 13
+set param bbox_head.transformer.encoder.layers.0.ffns.0.layers.0.0.weight as id 13
+set param bbox_head.transformer.encoder.layers.0.ffns.0.layers.0.0.bias as id 13
+set param bbox_head.transformer.encoder.layers.0.ffns.0.layers.1.weight as id 13
+set param bbox_head.transformer.encoder.layers.0.ffns.0.layers.1.bias as id 13
+set param bbox_head.transformer.encoder.layers.0.norms.0.weight as id 13
+set param bbox_head.transformer.encoder.layers.0.norms.0.bias as id 13
+set param bbox_head.transformer.encoder.layers.0.norms.1.weight as id 13
+set param bbox_head.transformer.encoder.layers.0.norms.1.bias as id 13
+set param bbox_head.transformer.encoder.layers.1.attentions.0.sampling_offsets.weight as id 13
+set param bbox_head.transformer.encoder.layers.1.attentions.0.sampling_offsets.bias as id 13
+set param bbox_head.transformer.encoder.layers.1.attentions.0.attention_weights.weight as id 13
+set param bbox_head.transformer.encoder.layers.1.attentions.0.attention_weights.bias as id 13
+set param bbox_head.transformer.encoder.layers.1.attentions.0.value_proj.weight as id 13
+set param bbox_head.transformer.encoder.layers.1.attentions.0.value_proj.bias as id 13
+set param bbox_head.transformer.encoder.layers.1.attentions.0.output_proj.weight as id 13
+set param bbox_head.transformer.encoder.layers.1.attentions.0.output_proj.bias as id 13
+set param bbox_head.transformer.encoder.layers.1.ffns.0.layers.0.0.weight as id 13
+set param bbox_head.transformer.encoder.layers.1.ffns.0.layers.0.0.bias as id 13
+set param bbox_head.transformer.encoder.layers.1.ffns.0.layers.1.weight as id 13
+set param bbox_head.transformer.encoder.layers.1.ffns.0.layers.1.bias as id 13
+set param bbox_head.transformer.encoder.layers.1.norms.0.weight as id 13
+set param bbox_head.transformer.encoder.layers.1.norms.0.bias as id 13
+set param bbox_head.transformer.encoder.layers.1.norms.1.weight as id 13
+set param bbox_head.transformer.encoder.layers.1.norms.1.bias as id 13
+set param bbox_head.transformer.encoder.layers.2.attentions.0.sampling_offsets.weight as id 13
+set param bbox_head.transformer.encoder.layers.2.attentions.0.sampling_offsets.bias as id 13
+set param bbox_head.transformer.encoder.layers.2.attentions.0.attention_weights.weight as id 13
+set param bbox_head.transformer.encoder.layers.2.attentions.0.attention_weights.bias as id 13
+set param bbox_head.transformer.encoder.layers.2.attentions.0.value_proj.weight as id 13
+set param bbox_head.transformer.encoder.layers.2.attentions.0.value_proj.bias as id 13
+set param bbox_head.transformer.encoder.layers.2.attentions.0.output_proj.weight as id 13
+set param bbox_head.transformer.encoder.layers.2.attentions.0.output_proj.bias as id 13
+set param bbox_head.transformer.encoder.layers.2.ffns.0.layers.0.0.weight as id 13
+set param bbox_head.transformer.encoder.layers.2.ffns.0.layers.0.0.bias as id 13
+set param bbox_head.transformer.encoder.layers.2.ffns.0.layers.1.weight as id 13
+set param bbox_head.transformer.encoder.layers.2.ffns.0.layers.1.bias as id 13
+set param bbox_head.transformer.encoder.layers.2.norms.0.weight as id 13
+set param bbox_head.transformer.encoder.layers.2.norms.0.bias as id 13
+set param bbox_head.transformer.encoder.layers.2.norms.1.weight as id 13
+set param bbox_head.transformer.encoder.layers.2.norms.1.bias as id 13
+set param bbox_head.transformer.encoder.layers.3.attentions.0.sampling_offsets.weight as id 13
+set param bbox_head.transformer.encoder.layers.3.attentions.0.sampling_offsets.bias as id 13
+set param bbox_head.transformer.encoder.layers.3.attentions.0.attention_weights.weight as id 13
+set param bbox_head.transformer.encoder.layers.3.attentions.0.attention_weights.bias as id 13
+set param bbox_head.transformer.encoder.layers.3.attentions.0.value_proj.weight as id 13
+set param bbox_head.transformer.encoder.layers.3.attentions.0.value_proj.bias as id 13
+set param bbox_head.transformer.encoder.layers.3.attentions.0.output_proj.weight as id 13
+set param bbox_head.transformer.encoder.layers.3.attentions.0.output_proj.bias as id 13
+set param bbox_head.transformer.encoder.layers.3.ffns.0.layers.0.0.weight as id 13
+set param bbox_head.transformer.encoder.layers.3.ffns.0.layers.0.0.bias as id 13
+set param bbox_head.transformer.encoder.layers.3.ffns.0.layers.1.weight as id 13
+set param bbox_head.transformer.encoder.layers.3.ffns.0.layers.1.bias as id 13
+set param bbox_head.transformer.encoder.layers.3.norms.0.weight as id 13
+set param bbox_head.transformer.encoder.layers.3.norms.0.bias as id 13
+set param bbox_head.transformer.encoder.layers.3.norms.1.weight as id 13
+set param bbox_head.transformer.encoder.layers.3.norms.1.bias as id 13
+set param bbox_head.transformer.encoder.layers.4.attentions.0.sampling_offsets.weight as id 13
+set param bbox_head.transformer.encoder.layers.4.attentions.0.sampling_offsets.bias as id 13
+set param bbox_head.transformer.encoder.layers.4.attentions.0.attention_weights.weight as id 13
+set param bbox_head.transformer.encoder.layers.4.attentions.0.attention_weights.bias as id 13
+set param bbox_head.transformer.encoder.layers.4.attentions.0.value_proj.weight as id 13
+set param bbox_head.transformer.encoder.layers.4.attentions.0.value_proj.bias as id 13
+set param bbox_head.transformer.encoder.layers.4.attentions.0.output_proj.weight as id 13
+set param bbox_head.transformer.encoder.layers.4.attentions.0.output_proj.bias as id 13
+set param bbox_head.transformer.encoder.layers.4.ffns.0.layers.0.0.weight as id 13
+set param bbox_head.transformer.encoder.layers.4.ffns.0.layers.0.0.bias as id 13
+set param bbox_head.transformer.encoder.layers.4.ffns.0.layers.1.weight as id 13
+set param bbox_head.transformer.encoder.layers.4.ffns.0.layers.1.bias as id 13
+set param bbox_head.transformer.encoder.layers.4.norms.0.weight as id 13
+set param bbox_head.transformer.encoder.layers.4.norms.0.bias as id 13
+set param bbox_head.transformer.encoder.layers.4.norms.1.weight as id 13
+set param bbox_head.transformer.encoder.layers.4.norms.1.bias as id 13
+set param bbox_head.transformer.encoder.layers.5.attentions.0.sampling_offsets.weight as id 13
+set param bbox_head.transformer.encoder.layers.5.attentions.0.sampling_offsets.bias as id 13
+set param bbox_head.transformer.encoder.layers.5.attentions.0.attention_weights.weight as id 13
+set param bbox_head.transformer.encoder.layers.5.attentions.0.attention_weights.bias as id 13
+set param bbox_head.transformer.encoder.layers.5.attentions.0.value_proj.weight as id 13
+set param bbox_head.transformer.encoder.layers.5.attentions.0.value_proj.bias as id 13
+set param bbox_head.transformer.encoder.layers.5.attentions.0.output_proj.weight as id 13
+set param bbox_head.transformer.encoder.layers.5.attentions.0.output_proj.bias as id 13
+set param bbox_head.transformer.encoder.layers.5.ffns.0.layers.0.0.weight as id 13
+set param bbox_head.transformer.encoder.layers.5.ffns.0.layers.0.0.bias as id 13
+set param bbox_head.transformer.encoder.layers.5.ffns.0.layers.1.weight as id 13
+set param bbox_head.transformer.encoder.layers.5.ffns.0.layers.1.bias as id 13
+set param bbox_head.transformer.encoder.layers.5.norms.0.weight as id 13
+set param bbox_head.transformer.encoder.layers.5.norms.0.bias as id 13
+set param bbox_head.transformer.encoder.layers.5.norms.1.weight as id 13
+set param bbox_head.transformer.encoder.layers.5.norms.1.bias as id 13
+set param bbox_head.transformer.decoder.layers.0.attentions.0.attn.in_proj_weight as id 13
+set param bbox_head.transformer.decoder.layers.0.attentions.0.attn.in_proj_bias as id 13
+set param bbox_head.transformer.decoder.layers.0.attentions.0.attn.out_proj.weight as id 13
+set param bbox_head.transformer.decoder.layers.0.attentions.0.attn.out_proj.bias as id 13
+set param bbox_head.transformer.decoder.layers.0.attentions.1.sampling_offsets.weight as id 13
+set param bbox_head.transformer.decoder.layers.0.attentions.1.sampling_offsets.bias as id 13
+set param bbox_head.transformer.decoder.layers.0.attentions.1.attention_weights.weight as id 13
+set param bbox_head.transformer.decoder.layers.0.attentions.1.attention_weights.bias as id 13
+set param bbox_head.transformer.decoder.layers.0.attentions.1.value_proj.weight as id 13
+set param bbox_head.transformer.decoder.layers.0.attentions.1.value_proj.bias as id 13
+set param bbox_head.transformer.decoder.layers.0.attentions.1.output_proj.weight as id 13
+set param bbox_head.transformer.decoder.layers.0.attentions.1.output_proj.bias as id 13
+set param bbox_head.transformer.decoder.layers.0.ffns.0.layers.0.0.weight as id 13
+set param bbox_head.transformer.decoder.layers.0.ffns.0.layers.0.0.bias as id 13
+set param bbox_head.transformer.decoder.layers.0.ffns.0.layers.1.weight as id 13
+set param bbox_head.transformer.decoder.layers.0.ffns.0.layers.1.bias as id 13
+set param bbox_head.transformer.decoder.layers.0.norms.0.weight as id 13
+set param bbox_head.transformer.decoder.layers.0.norms.0.bias as id 13
+set param bbox_head.transformer.decoder.layers.0.norms.1.weight as id 13
+set param bbox_head.transformer.decoder.layers.0.norms.1.bias as id 13
+set param bbox_head.transformer.decoder.layers.0.norms.2.weight as id 13
+set param bbox_head.transformer.decoder.layers.0.norms.2.bias as id 13
+set param bbox_head.transformer.decoder.layers.1.attentions.0.attn.in_proj_weight as id 13
+set param bbox_head.transformer.decoder.layers.1.attentions.0.attn.in_proj_bias as id 13
+set param bbox_head.transformer.decoder.layers.1.attentions.0.attn.out_proj.weight as id 13
+set param bbox_head.transformer.decoder.layers.1.attentions.0.attn.out_proj.bias as id 13
+set param bbox_head.transformer.decoder.layers.1.attentions.1.sampling_offsets.weight as id 13
+set param bbox_head.transformer.decoder.layers.1.attentions.1.sampling_offsets.bias as id 13
+set param bbox_head.transformer.decoder.layers.1.attentions.1.attention_weights.weight as id 13
+set param bbox_head.transformer.decoder.layers.1.attentions.1.attention_weights.bias as id 13
+set param bbox_head.transformer.decoder.layers.1.attentions.1.value_proj.weight as id 13
+set param bbox_head.transformer.decoder.layers.1.attentions.1.value_proj.bias as id 13
+set param bbox_head.transformer.decoder.layers.1.attentions.1.output_proj.weight as id 13
+set param bbox_head.transformer.decoder.layers.1.attentions.1.output_proj.bias as id 13
+set param bbox_head.transformer.decoder.layers.1.ffns.0.layers.0.0.weight as id 13
+set param bbox_head.transformer.decoder.layers.1.ffns.0.layers.0.0.bias as id 13
+set param bbox_head.transformer.decoder.layers.1.ffns.0.layers.1.weight as id 13
+set param bbox_head.transformer.decoder.layers.1.ffns.0.layers.1.bias as id 13
+set param bbox_head.transformer.decoder.layers.1.norms.0.weight as id 13
+set param bbox_head.transformer.decoder.layers.1.norms.0.bias as id 13
+set param bbox_head.transformer.decoder.layers.1.norms.1.weight as id 13
+set param bbox_head.transformer.decoder.layers.1.norms.1.bias as id 13
+set param bbox_head.transformer.decoder.layers.1.norms.2.weight as id 13
+set param bbox_head.transformer.decoder.layers.1.norms.2.bias as id 13
+set param bbox_head.transformer.decoder.layers.2.attentions.0.attn.in_proj_weight as id 13
+set param bbox_head.transformer.decoder.layers.2.attentions.0.attn.in_proj_bias as id 13
+set param bbox_head.transformer.decoder.layers.2.attentions.0.attn.out_proj.weight as id 13
+set param bbox_head.transformer.decoder.layers.2.attentions.0.attn.out_proj.bias as id 13
+set param bbox_head.transformer.decoder.layers.2.attentions.1.sampling_offsets.weight as id 13
+set param bbox_head.transformer.decoder.layers.2.attentions.1.sampling_offsets.bias as id 13
+set param bbox_head.transformer.decoder.layers.2.attentions.1.attention_weights.weight as id 13
+set param bbox_head.transformer.decoder.layers.2.attentions.1.attention_weights.bias as id 13
+set param bbox_head.transformer.decoder.layers.2.attentions.1.value_proj.weight as id 13
+set param bbox_head.transformer.decoder.layers.2.attentions.1.value_proj.bias as id 13
+set param bbox_head.transformer.decoder.layers.2.attentions.1.output_proj.weight as id 13
+set param bbox_head.transformer.decoder.layers.2.attentions.1.output_proj.bias as id 13
+set param bbox_head.transformer.decoder.layers.2.ffns.0.layers.0.0.weight as id 13
+set param bbox_head.transformer.decoder.layers.2.ffns.0.layers.0.0.bias as id 13
+set param bbox_head.transformer.decoder.layers.2.ffns.0.layers.1.weight as id 13
+set param bbox_head.transformer.decoder.layers.2.ffns.0.layers.1.bias as id 13
+set param bbox_head.transformer.decoder.layers.2.norms.0.weight as id 13
+set param bbox_head.transformer.decoder.layers.2.norms.0.bias as id 13
+set param bbox_head.transformer.decoder.layers.2.norms.1.weight as id 13
+set param bbox_head.transformer.decoder.layers.2.norms.1.bias as id 13
+set param bbox_head.transformer.decoder.layers.2.norms.2.weight as id 13
+set param bbox_head.transformer.decoder.layers.2.norms.2.bias as id 13
+set param bbox_head.transformer.decoder.layers.3.attentions.0.attn.in_proj_weight as id 13
+set param bbox_head.transformer.decoder.layers.3.attentions.0.attn.in_proj_bias as id 13
+set param bbox_head.transformer.decoder.layers.3.attentions.0.attn.out_proj.weight as id 13
+set param bbox_head.transformer.decoder.layers.3.attentions.0.attn.out_proj.bias as id 13
+set param bbox_head.transformer.decoder.layers.3.attentions.1.sampling_offsets.weight as id 13
+set param bbox_head.transformer.decoder.layers.3.attentions.1.sampling_offsets.bias as id 13
+set param bbox_head.transformer.decoder.layers.3.attentions.1.attention_weights.weight as id 13
+set param bbox_head.transformer.decoder.layers.3.attentions.1.attention_weights.bias as id 13
+set param bbox_head.transformer.decoder.layers.3.attentions.1.value_proj.weight as id 13
+set param bbox_head.transformer.decoder.layers.3.attentions.1.value_proj.bias as id 13
+set param bbox_head.transformer.decoder.layers.3.attentions.1.output_proj.weight as id 13
+set param bbox_head.transformer.decoder.layers.3.attentions.1.output_proj.bias as id 13
+set param bbox_head.transformer.decoder.layers.3.ffns.0.layers.0.0.weight as id 13
+set param bbox_head.transformer.decoder.layers.3.ffns.0.layers.0.0.bias as id 13
+set param bbox_head.transformer.decoder.layers.3.ffns.0.layers.1.weight as id 13
+set param bbox_head.transformer.decoder.layers.3.ffns.0.layers.1.bias as id 13
+set param bbox_head.transformer.decoder.layers.3.norms.0.weight as id 13
+set param bbox_head.transformer.decoder.layers.3.norms.0.bias as id 13
+set param bbox_head.transformer.decoder.layers.3.norms.1.weight as id 13
+set param bbox_head.transformer.decoder.layers.3.norms.1.bias as id 13
+set param bbox_head.transformer.decoder.layers.3.norms.2.weight as id 13
+set param bbox_head.transformer.decoder.layers.3.norms.2.bias as id 13
+set param bbox_head.transformer.decoder.layers.4.attentions.0.attn.in_proj_weight as id 13
+set param bbox_head.transformer.decoder.layers.4.attentions.0.attn.in_proj_bias as id 13
+set param bbox_head.transformer.decoder.layers.4.attentions.0.attn.out_proj.weight as id 13
+set param bbox_head.transformer.decoder.layers.4.attentions.0.attn.out_proj.bias as id 13
+set param bbox_head.transformer.decoder.layers.4.attentions.1.sampling_offsets.weight as id 13
+set param bbox_head.transformer.decoder.layers.4.attentions.1.sampling_offsets.bias as id 13
+set param bbox_head.transformer.decoder.layers.4.attentions.1.attention_weights.weight as id 13
+set param bbox_head.transformer.decoder.layers.4.attentions.1.attention_weights.bias as id 13
+set param bbox_head.transformer.decoder.layers.4.attentions.1.value_proj.weight as id 13
+set param bbox_head.transformer.decoder.layers.4.attentions.1.value_proj.bias as id 13
+set param bbox_head.transformer.decoder.layers.4.attentions.1.output_proj.weight as id 13
+set param bbox_head.transformer.decoder.layers.4.attentions.1.output_proj.bias as id 13
+set param bbox_head.transformer.decoder.layers.4.ffns.0.layers.0.0.weight as id 13
+set param bbox_head.transformer.decoder.layers.4.ffns.0.layers.0.0.bias as id 13
+set param bbox_head.transformer.decoder.layers.4.ffns.0.layers.1.weight as id 13
+set param bbox_head.transformer.decoder.layers.4.ffns.0.layers.1.bias as id 13
+set param bbox_head.transformer.decoder.layers.4.norms.0.weight as id 13
+set param bbox_head.transformer.decoder.layers.4.norms.0.bias as id 13
+set param bbox_head.transformer.decoder.layers.4.norms.1.weight as id 13
+set param bbox_head.transformer.decoder.layers.4.norms.1.bias as id 13
+set param bbox_head.transformer.decoder.layers.4.norms.2.weight as id 13
+set param bbox_head.transformer.decoder.layers.4.norms.2.bias as id 13
+set param bbox_head.transformer.decoder.layers.5.attentions.0.attn.in_proj_weight as id 13
+set param bbox_head.transformer.decoder.layers.5.attentions.0.attn.in_proj_bias as id 13
+set param bbox_head.transformer.decoder.layers.5.attentions.0.attn.out_proj.weight as id 13
+set param bbox_head.transformer.decoder.layers.5.attentions.0.attn.out_proj.bias as id 13
+set param bbox_head.transformer.decoder.layers.5.attentions.1.sampling_offsets.weight as id 13
+set param bbox_head.transformer.decoder.layers.5.attentions.1.sampling_offsets.bias as id 13
+set param bbox_head.transformer.decoder.layers.5.attentions.1.attention_weights.weight as id 13
+set param bbox_head.transformer.decoder.layers.5.attentions.1.attention_weights.bias as id 13
+set param bbox_head.transformer.decoder.layers.5.attentions.1.value_proj.weight as id 13
+set param bbox_head.transformer.decoder.layers.5.attentions.1.value_proj.bias as id 13
+set param bbox_head.transformer.decoder.layers.5.attentions.1.output_proj.weight as id 13
+set param bbox_head.transformer.decoder.layers.5.attentions.1.output_proj.bias as id 13
+set param bbox_head.transformer.decoder.layers.5.ffns.0.layers.0.0.weight as id 13
+set param bbox_head.transformer.decoder.layers.5.ffns.0.layers.0.0.bias as id 13
+set param bbox_head.transformer.decoder.layers.5.ffns.0.layers.1.weight as id 13
+set param bbox_head.transformer.decoder.layers.5.ffns.0.layers.1.bias as id 13
+set param bbox_head.transformer.decoder.layers.5.norms.0.weight as id 13
+set param bbox_head.transformer.decoder.layers.5.norms.0.bias as id 13
+set param bbox_head.transformer.decoder.layers.5.norms.1.weight as id 13
+set param bbox_head.transformer.decoder.layers.5.norms.1.bias as id 13
+set param bbox_head.transformer.decoder.layers.5.norms.2.weight as id 13
+set param bbox_head.transformer.decoder.layers.5.norms.2.bias as id 13
+set param bbox_head.transformer.enc_output.weight as id 13
+set param bbox_head.transformer.enc_output.bias as id 13
+set param bbox_head.transformer.enc_output_norm.weight as id 13
+set param bbox_head.transformer.enc_output_norm.bias as id 13
+set param bbox_head.transformer.pos_trans.weight as id 13
+set param bbox_head.transformer.pos_trans.bias as id 13
+set param bbox_head.transformer.pos_trans_norm.weight as id 13
+set param bbox_head.transformer.pos_trans_norm.bias as id 13
+set param bbox_head.cls_branches.0.weight as id 13
+set param bbox_head.cls_branches.0.bias as id 13
+set param bbox_head.cls_branches.1.weight as id 13
+set param bbox_head.cls_branches.1.bias as id 13
+set param bbox_head.cls_branches.2.weight as id 13
+set param bbox_head.cls_branches.2.bias as id 13
+set param bbox_head.cls_branches.3.weight as id 13
+set param bbox_head.cls_branches.3.bias as id 13
+set param bbox_head.cls_branches.4.weight as id 13
+set param bbox_head.cls_branches.4.bias as id 13
+set param bbox_head.cls_branches.5.weight as id 13
+set param bbox_head.cls_branches.5.bias as id 13
+set param bbox_head.cls_branches.6.weight as id 13
+set param bbox_head.cls_branches.6.bias as id 13
+set param bbox_head.reg_branches.0.0.weight as id 13
+set param bbox_head.reg_branches.0.0.bias as id 13
+set param bbox_head.reg_branches.0.2.weight as id 13
+set param bbox_head.reg_branches.0.2.bias as id 13
+set param bbox_head.reg_branches.0.4.weight as id 13
+set param bbox_head.reg_branches.0.4.bias as id 13
+set param bbox_head.reg_branches.1.0.weight as id 13
+set param bbox_head.reg_branches.1.0.bias as id 13
+set param bbox_head.reg_branches.1.2.weight as id 13
+set param bbox_head.reg_branches.1.2.bias as id 13
+set param bbox_head.reg_branches.1.4.weight as id 13
+set param bbox_head.reg_branches.1.4.bias as id 13
+set param bbox_head.reg_branches.2.0.weight as id 13
+set param bbox_head.reg_branches.2.0.bias as id 13
+set param bbox_head.reg_branches.2.2.weight as id 13
+set param bbox_head.reg_branches.2.2.bias as id 13
+set param bbox_head.reg_branches.2.4.weight as id 13
+set param bbox_head.reg_branches.2.4.bias as id 13
+set param bbox_head.reg_branches.3.0.weight as id 13
+set param bbox_head.reg_branches.3.0.bias as id 13
+set param bbox_head.reg_branches.3.2.weight as id 13
+set param bbox_head.reg_branches.3.2.bias as id 13
+set param bbox_head.reg_branches.3.4.weight as id 13
+set param bbox_head.reg_branches.3.4.bias as id 13
+set param bbox_head.reg_branches.4.0.weight as id 13
+set param bbox_head.reg_branches.4.0.bias as id 13
+set param bbox_head.reg_branches.4.2.weight as id 13
+set param bbox_head.reg_branches.4.2.bias as id 13
+set param bbox_head.reg_branches.4.4.weight as id 13
+set param bbox_head.reg_branches.4.4.bias as id 13
+set param bbox_head.reg_branches.5.0.weight as id 13
+set param bbox_head.reg_branches.5.0.bias as id 13
+set param bbox_head.reg_branches.5.2.weight as id 13
+set param bbox_head.reg_branches.5.2.bias as id 13
+set param bbox_head.reg_branches.5.4.weight as id 13
+set param bbox_head.reg_branches.5.4.bias as id 13
+set param bbox_head.reg_branches.6.0.weight as id 13
+set param bbox_head.reg_branches.6.0.bias as id 13
+set param bbox_head.reg_branches.6.2.weight as id 13
+set param bbox_head.reg_branches.6.2.bias as id 13
+set param bbox_head.reg_branches.6.4.weight as id 13
+set param bbox_head.reg_branches.6.4.bias as id 13
+Param groups = {
+  "layer_0_decay": {
+    "param_names": [
+      "backbone.model1.downsample_layers.0.0.weight",
+      "backbone.model2.downsample_layers.0.0.weight",
+      "backbone.model3.downsample_layers.0.0.weight"
+    ],
+    "lr_scale": 0.009688901040699992,
+    "lr": 1.9377802081399986e-06,
+    "weight_decay": 0.05
+  },
+  "layer_0_no_decay": {
+    "param_names": [
+      "backbone.model1.downsample_layers.0.0.bias",
+      "backbone.model1.downsample_layers.0.1.weight",
+      "backbone.model1.downsample_layers.0.1.bias",
+      "backbone.model2.downsample_layers.0.0.bias",
+      "backbone.model2.downsample_layers.0.1.weight",
+      "backbone.model2.downsample_layers.0.1.bias",
+      "backbone.model3.downsample_layers.0.0.bias",
+      "backbone.model3.downsample_layers.0.1.weight",
+      "backbone.model3.downsample_layers.0.1.bias"
+    ],
+    "lr_scale": 0.009688901040699992,
+    "lr": 1.9377802081399986e-06,
+    "weight_decay": 0.0
+  },
+  "layer_2_no_decay": {
+    "param_names": [
+      "backbone.model1.downsample_layers.1.0.weight",
+      "backbone.model1.downsample_layers.1.0.bias",
+      "backbone.model1.downsample_layers.1.1.bias",
+      "backbone.model1.stages.1.0.gamma",
+      "backbone.model1.stages.1.0.dwconv.bias",
+      "backbone.model1.stages.1.0.norm.weight",
+      "backbone.model1.stages.1.0.norm.bias",
+      "backbone.model1.stages.1.0.pwconv1.bias",
+      "backbone.model1.stages.1.0.pwconv2.bias",
+      "backbone.model1.stages.1.1.gamma",
+      "backbone.model1.stages.1.1.dwconv.bias",
+      "backbone.model1.stages.1.1.norm.weight",
+      "backbone.model1.stages.1.1.norm.bias",
+      "backbone.model1.stages.1.1.pwconv1.bias",
+      "backbone.model1.stages.1.1.pwconv2.bias",
+      "backbone.model1.stages.1.2.gamma",
+      "backbone.model1.stages.1.2.dwconv.bias",
+      "backbone.model1.stages.1.2.norm.weight",
+      "backbone.model1.stages.1.2.norm.bias",
+      "backbone.model1.stages.1.2.pwconv1.bias",
+      "backbone.model1.stages.1.2.pwconv2.bias",
+      "backbone.model2.downsample_layers.1.0.weight",
+      "backbone.model2.downsample_layers.1.0.bias",
+      "backbone.model2.downsample_layers.1.1.bias",
+      "backbone.model2.stages.1.0.gamma",
+      "backbone.model2.stages.1.0.dwconv.bias",
+      "backbone.model2.stages.1.0.norm.weight",
+      "backbone.model2.stages.1.0.norm.bias",
+      "backbone.model2.stages.1.0.pwconv1.bias",
+      "backbone.model2.stages.1.0.pwconv2.bias",
+      "backbone.model2.stages.1.1.gamma",
+      "backbone.model2.stages.1.1.dwconv.bias",
+      "backbone.model2.stages.1.1.norm.weight",
+      "backbone.model2.stages.1.1.norm.bias",
+      "backbone.model2.stages.1.1.pwconv1.bias",
+      "backbone.model2.stages.1.1.pwconv2.bias",
+      "backbone.model2.stages.1.2.gamma",
+      "backbone.model2.stages.1.2.dwconv.bias",
+      "backbone.model2.stages.1.2.norm.weight",
+      "backbone.model2.stages.1.2.norm.bias",
+      "backbone.model2.stages.1.2.pwconv1.bias",
+      "backbone.model2.stages.1.2.pwconv2.bias",
+      "backbone.model3.downsample_layers.1.0.weight",
+      "backbone.model3.downsample_layers.1.0.bias",
+      "backbone.model3.downsample_layers.1.1.bias",
+      "backbone.model3.stages.1.0.gamma",
+      "backbone.model3.stages.1.0.dwconv.bias",
+      "backbone.model3.stages.1.0.norm.weight",
+      "backbone.model3.stages.1.0.norm.bias",
+      "backbone.model3.stages.1.0.pwconv1.bias",
+      "backbone.model3.stages.1.0.pwconv2.bias",
+      "backbone.model3.stages.1.1.gamma",
+      "backbone.model3.stages.1.1.dwconv.bias",
+      "backbone.model3.stages.1.1.norm.weight",
+      "backbone.model3.stages.1.1.norm.bias",
+      "backbone.model3.stages.1.1.pwconv1.bias",
+      "backbone.model3.stages.1.1.pwconv2.bias",
+      "backbone.model3.stages.1.2.gamma",
+      "backbone.model3.stages.1.2.dwconv.bias",
+      "backbone.model3.stages.1.2.norm.weight",
+      "backbone.model3.stages.1.2.norm.bias",
+      "backbone.model3.stages.1.2.pwconv1.bias",
+      "backbone.model3.stages.1.2.pwconv2.bias"
+    ],
+    "lr_scale": 0.019773267429999988,
+    "lr": 3.954653485999998e-06,
+    "weight_decay": 0.0
+  },
+  "layer_2_decay": {
+    "param_names": [
+      "backbone.model1.downsample_layers.1.1.weight",
+      "backbone.model1.stages.1.0.dwconv.weight",
+      "backbone.model1.stages.1.0.pwconv1.weight",
+      "backbone.model1.stages.1.0.pwconv2.weight",
+      "backbone.model1.stages.1.1.dwconv.weight",
+      "backbone.model1.stages.1.1.pwconv1.weight",
+      "backbone.model1.stages.1.1.pwconv2.weight",
+      "backbone.model1.stages.1.2.dwconv.weight",
+      "backbone.model1.stages.1.2.pwconv1.weight",
+      "backbone.model1.stages.1.2.pwconv2.weight",
+      "backbone.model2.downsample_layers.1.1.weight",
+      "backbone.model2.stages.1.0.dwconv.weight",
+      "backbone.model2.stages.1.0.pwconv1.weight",
+      "backbone.model2.stages.1.0.pwconv2.weight",
+      "backbone.model2.stages.1.1.dwconv.weight",
+      "backbone.model2.stages.1.1.pwconv1.weight",
+      "backbone.model2.stages.1.1.pwconv2.weight",
+      "backbone.model2.stages.1.2.dwconv.weight",
+      "backbone.model2.stages.1.2.pwconv1.weight",
+      "backbone.model2.stages.1.2.pwconv2.weight",
+      "backbone.model3.downsample_layers.1.1.weight",
+      "backbone.model3.stages.1.0.dwconv.weight",
+      "backbone.model3.stages.1.0.pwconv1.weight",
+      "backbone.model3.stages.1.0.pwconv2.weight",
+      "backbone.model3.stages.1.1.dwconv.weight",
+      "backbone.model3.stages.1.1.pwconv1.weight",
+      "backbone.model3.stages.1.1.pwconv2.weight",
+      "backbone.model3.stages.1.2.dwconv.weight",
+      "backbone.model3.stages.1.2.pwconv1.weight",
+      "backbone.model3.stages.1.2.pwconv2.weight"
+    ],
+    "lr_scale": 0.019773267429999988,
+    "lr": 3.954653485999998e-06,
+    "weight_decay": 0.05
+  },
+  "layer_3_no_decay": {
+    "param_names": [
+      "backbone.model1.downsample_layers.2.0.weight",
+      "backbone.model1.downsample_layers.2.0.bias",
+      "backbone.model1.downsample_layers.2.1.bias",
+      "backbone.model1.stages.2.0.gamma",
+      "backbone.model1.stages.2.0.dwconv.bias",
+      "backbone.model1.stages.2.0.norm.weight",
+      "backbone.model1.stages.2.0.norm.bias",
+      "backbone.model1.stages.2.0.pwconv1.bias",
+      "backbone.model1.stages.2.0.pwconv2.bias",
+      "backbone.model1.stages.2.1.gamma",
+      "backbone.model1.stages.2.1.dwconv.bias",
+      "backbone.model1.stages.2.1.norm.weight",
+      "backbone.model1.stages.2.1.norm.bias",
+      "backbone.model1.stages.2.1.pwconv1.bias",
+      "backbone.model1.stages.2.1.pwconv2.bias",
+      "backbone.model1.stages.2.2.gamma",
+      "backbone.model1.stages.2.2.dwconv.bias",
+      "backbone.model1.stages.2.2.norm.weight",
+      "backbone.model1.stages.2.2.norm.bias",
+      "backbone.model1.stages.2.2.pwconv1.bias",
+      "backbone.model1.stages.2.2.pwconv2.bias",
+      "backbone.model2.downsample_layers.2.0.weight",
+      "backbone.model2.downsample_layers.2.0.bias",
+      "backbone.model2.downsample_layers.2.1.bias",
+      "backbone.model2.stages.2.0.gamma",
+      "backbone.model2.stages.2.0.dwconv.bias",
+      "backbone.model2.stages.2.0.norm.weight",
+      "backbone.model2.stages.2.0.norm.bias",
+      "backbone.model2.stages.2.0.pwconv1.bias",
+      "backbone.model2.stages.2.0.pwconv2.bias",
+      "backbone.model2.stages.2.1.gamma",
+      "backbone.model2.stages.2.1.dwconv.bias",
+      "backbone.model2.stages.2.1.norm.weight",
+      "backbone.model2.stages.2.1.norm.bias",
+      "backbone.model2.stages.2.1.pwconv1.bias",
+      "backbone.model2.stages.2.1.pwconv2.bias",
+      "backbone.model2.stages.2.2.gamma",
+      "backbone.model2.stages.2.2.dwconv.bias",
+      "backbone.model2.stages.2.2.norm.weight",
+      "backbone.model2.stages.2.2.norm.bias",
+      "backbone.model2.stages.2.2.pwconv1.bias",
+      "backbone.model2.stages.2.2.pwconv2.bias",
+      "backbone.model3.downsample_layers.2.0.weight",
+      "backbone.model3.downsample_layers.2.0.bias",
+      "backbone.model3.downsample_layers.2.1.bias",
+      "backbone.model3.stages.2.0.gamma",
+      "backbone.model3.stages.2.0.dwconv.bias",
+      "backbone.model3.stages.2.0.norm.weight",
+      "backbone.model3.stages.2.0.norm.bias",
+      "backbone.model3.stages.2.0.pwconv1.bias",
+      "backbone.model3.stages.2.0.pwconv2.bias",
+      "backbone.model3.stages.2.1.gamma",
+      "backbone.model3.stages.2.1.dwconv.bias",
+      "backbone.model3.stages.2.1.norm.weight",
+      "backbone.model3.stages.2.1.norm.bias",
+      "backbone.model3.stages.2.1.pwconv1.bias",
+      "backbone.model3.stages.2.1.pwconv2.bias",
+      "backbone.model3.stages.2.2.gamma",
+      "backbone.model3.stages.2.2.dwconv.bias",
+      "backbone.model3.stages.2.2.norm.weight",
+      "backbone.model3.stages.2.2.norm.bias",
+      "backbone.model3.stages.2.2.pwconv1.bias",
+      "backbone.model3.stages.2.2.pwconv2.bias"
+    ],
+    "lr_scale": 0.028247524899999984,
+    "lr": 5.649504979999997e-06,
+    "weight_decay": 0.0
+  },
+  "layer_3_decay": {
+    "param_names": [
+      "backbone.model1.downsample_layers.2.1.weight",
+      "backbone.model1.stages.2.0.dwconv.weight",
+      "backbone.model1.stages.2.0.pwconv1.weight",
+      "backbone.model1.stages.2.0.pwconv2.weight",
+      "backbone.model1.stages.2.1.dwconv.weight",
+      "backbone.model1.stages.2.1.pwconv1.weight",
+      "backbone.model1.stages.2.1.pwconv2.weight",
+      "backbone.model1.stages.2.2.dwconv.weight",
+      "backbone.model1.stages.2.2.pwconv1.weight",
+      "backbone.model1.stages.2.2.pwconv2.weight",
+      "backbone.model2.downsample_layers.2.1.weight",
+      "backbone.model2.stages.2.0.dwconv.weight",
+      "backbone.model2.stages.2.0.pwconv1.weight",
+      "backbone.model2.stages.2.0.pwconv2.weight",
+      "backbone.model2.stages.2.1.dwconv.weight",
+      "backbone.model2.stages.2.1.pwconv1.weight",
+      "backbone.model2.stages.2.1.pwconv2.weight",
+      "backbone.model2.stages.2.2.dwconv.weight",
+      "backbone.model2.stages.2.2.pwconv1.weight",
+      "backbone.model2.stages.2.2.pwconv2.weight",
+      "backbone.model3.downsample_layers.2.1.weight",
+      "backbone.model3.stages.2.0.dwconv.weight",
+      "backbone.model3.stages.2.0.pwconv1.weight",
+      "backbone.model3.stages.2.0.pwconv2.weight",
+      "backbone.model3.stages.2.1.dwconv.weight",
+      "backbone.model3.stages.2.1.pwconv1.weight",
+      "backbone.model3.stages.2.1.pwconv2.weight",
+      "backbone.model3.stages.2.2.dwconv.weight",
+      "backbone.model3.stages.2.2.pwconv1.weight",
+      "backbone.model3.stages.2.2.pwconv2.weight"
+    ],
+    "lr_scale": 0.028247524899999984,
+    "lr": 5.649504979999997e-06,
+    "weight_decay": 0.05
+  },
+  "layer_12_no_decay": {
+    "param_names": [
+      "backbone.model1.downsample_layers.3.0.weight",
+      "backbone.model1.downsample_layers.3.0.bias",
+      "backbone.model1.downsample_layers.3.1.bias",
+      "backbone.model1.stages.3.0.gamma",
+      "backbone.model1.stages.3.0.dwconv.bias",
+      "backbone.model1.stages.3.0.norm.weight",
+      "backbone.model1.stages.3.0.norm.bias",
+      "backbone.model1.stages.3.0.pwconv1.bias",
+      "backbone.model1.stages.3.0.pwconv2.bias",
+      "backbone.model1.stages.3.1.gamma",
+      "backbone.model1.stages.3.1.dwconv.bias",
+      "backbone.model1.stages.3.1.norm.weight",
+      "backbone.model1.stages.3.1.norm.bias",
+      "backbone.model1.stages.3.1.pwconv1.bias",
+      "backbone.model1.stages.3.1.pwconv2.bias",
+      "backbone.model1.stages.3.2.gamma",
+      "backbone.model1.stages.3.2.dwconv.bias",
+      "backbone.model1.stages.3.2.norm.weight",
+      "backbone.model1.stages.3.2.norm.bias",
+      "backbone.model1.stages.3.2.pwconv1.bias",
+      "backbone.model1.stages.3.2.pwconv2.bias",
+      "backbone.model2.downsample_layers.3.0.weight",
+      "backbone.model2.downsample_layers.3.0.bias",
+      "backbone.model2.downsample_layers.3.1.bias",
+      "backbone.model2.stages.3.0.gamma",
+      "backbone.model2.stages.3.0.dwconv.bias",
+      "backbone.model2.stages.3.0.norm.weight",
+      "backbone.model2.stages.3.0.norm.bias",
+      "backbone.model2.stages.3.0.pwconv1.bias",
+      "backbone.model2.stages.3.0.pwconv2.bias",
+      "backbone.model2.stages.3.1.gamma",
+      "backbone.model2.stages.3.1.dwconv.bias",
+      "backbone.model2.stages.3.1.norm.weight",
+      "backbone.model2.stages.3.1.norm.bias",
+      "backbone.model2.stages.3.1.pwconv1.bias",
+      "backbone.model2.stages.3.1.pwconv2.bias",
+      "backbone.model2.stages.3.2.gamma",
+      "backbone.model2.stages.3.2.dwconv.bias",
+      "backbone.model2.stages.3.2.norm.weight",
+      "backbone.model2.stages.3.2.norm.bias",
+      "backbone.model2.stages.3.2.pwconv1.bias",
+      "backbone.model2.stages.3.2.pwconv2.bias",
+      "backbone.model3.downsample_layers.3.0.weight",
+      "backbone.model3.downsample_layers.3.0.bias",
+      "backbone.model3.downsample_layers.3.1.bias",
+      "backbone.model3.stages.3.0.gamma",
+      "backbone.model3.stages.3.0.dwconv.bias",
+      "backbone.model3.stages.3.0.norm.weight",
+      "backbone.model3.stages.3.0.norm.bias",
+      "backbone.model3.stages.3.0.pwconv1.bias",
+      "backbone.model3.stages.3.0.pwconv2.bias",
+      "backbone.model3.stages.3.1.gamma",
+      "backbone.model3.stages.3.1.dwconv.bias",
+      "backbone.model3.stages.3.1.norm.weight",
+      "backbone.model3.stages.3.1.norm.bias",
+      "backbone.model3.stages.3.1.pwconv1.bias",
+      "backbone.model3.stages.3.1.pwconv2.bias",
+      "backbone.model3.stages.3.2.gamma",
+      "backbone.model3.stages.3.2.dwconv.bias",
+      "backbone.model3.stages.3.2.norm.weight",
+      "backbone.model3.stages.3.2.norm.bias",
+      "backbone.model3.stages.3.2.pwconv1.bias",
+      "backbone.model3.stages.3.2.pwconv2.bias"
+    ],
+    "lr_scale": 0.7,
+    "lr": 0.00014,
+    "weight_decay": 0.0
+  },
+  "layer_12_decay": {
+    "param_names": [
+      "backbone.model1.downsample_layers.3.1.weight",
+      "backbone.model1.stages.3.0.dwconv.weight",
+      "backbone.model1.stages.3.0.pwconv1.weight",
+      "backbone.model1.stages.3.0.pwconv2.weight",
+      "backbone.model1.stages.3.1.dwconv.weight",
+      "backbone.model1.stages.3.1.pwconv1.weight",
+      "backbone.model1.stages.3.1.pwconv2.weight",
+      "backbone.model1.stages.3.2.dwconv.weight",
+      "backbone.model1.stages.3.2.pwconv1.weight",
+      "backbone.model1.stages.3.2.pwconv2.weight",
+      "backbone.model2.downsample_layers.3.1.weight",
+      "backbone.model2.stages.3.0.dwconv.weight",
+      "backbone.model2.stages.3.0.pwconv1.weight",
+      "backbone.model2.stages.3.0.pwconv2.weight",
+      "backbone.model2.stages.3.1.dwconv.weight",
+      "backbone.model2.stages.3.1.pwconv1.weight",
+      "backbone.model2.stages.3.1.pwconv2.weight",
+      "backbone.model2.stages.3.2.dwconv.weight",
+      "backbone.model2.stages.3.2.pwconv1.weight",
+      "backbone.model2.stages.3.2.pwconv2.weight",
+      "backbone.model3.downsample_layers.3.1.weight",
+      "backbone.model3.stages.3.0.dwconv.weight",
+      "backbone.model3.stages.3.0.pwconv1.weight",
+      "backbone.model3.stages.3.0.pwconv2.weight",
+      "backbone.model3.stages.3.1.dwconv.weight",
+      "backbone.model3.stages.3.1.pwconv1.weight",
+      "backbone.model3.stages.3.1.pwconv2.weight",
+      "backbone.model3.stages.3.2.dwconv.weight",
+      "backbone.model3.stages.3.2.pwconv1.weight",
+      "backbone.model3.stages.3.2.pwconv2.weight"
+    ],
+    "lr_scale": 0.7,
+    "lr": 0.00014,
+    "weight_decay": 0.05
+  },
+  "layer_1_no_decay": {
+    "param_names": [
+      "backbone.model1.stages.0.0.gamma",
+      "backbone.model1.stages.0.0.dwconv.bias",
+      "backbone.model1.stages.0.0.norm.weight",
+      "backbone.model1.stages.0.0.norm.bias",
+      "backbone.model1.stages.0.0.pwconv1.bias",
+      "backbone.model1.stages.0.0.pwconv2.bias",
+      "backbone.model1.stages.0.1.gamma",
+      "backbone.model1.stages.0.1.dwconv.bias",
+      "backbone.model1.stages.0.1.norm.weight",
+      "backbone.model1.stages.0.1.norm.bias",
+      "backbone.model1.stages.0.1.pwconv1.bias",
+      "backbone.model1.stages.0.1.pwconv2.bias",
+      "backbone.model1.stages.0.2.gamma",
+      "backbone.model1.stages.0.2.dwconv.bias",
+      "backbone.model1.stages.0.2.norm.weight",
+      "backbone.model1.stages.0.2.norm.bias",
+      "backbone.model1.stages.0.2.pwconv1.bias",
+      "backbone.model1.stages.0.2.pwconv2.bias",
+      "backbone.model2.stages.0.0.gamma",
+      "backbone.model2.stages.0.0.dwconv.bias",
+      "backbone.model2.stages.0.0.norm.weight",
+      "backbone.model2.stages.0.0.norm.bias",
+      "backbone.model2.stages.0.0.pwconv1.bias",
+      "backbone.model2.stages.0.0.pwconv2.bias",
+      "backbone.model2.stages.0.1.gamma",
+      "backbone.model2.stages.0.1.dwconv.bias",
+      "backbone.model2.stages.0.1.norm.weight",
+      "backbone.model2.stages.0.1.norm.bias",
+      "backbone.model2.stages.0.1.pwconv1.bias",
+      "backbone.model2.stages.0.1.pwconv2.bias",
+      "backbone.model2.stages.0.2.gamma",
+      "backbone.model2.stages.0.2.dwconv.bias",
+      "backbone.model2.stages.0.2.norm.weight",
+      "backbone.model2.stages.0.2.norm.bias",
+      "backbone.model2.stages.0.2.pwconv1.bias",
+      "backbone.model2.stages.0.2.pwconv2.bias",
+      "backbone.model3.stages.0.0.gamma",
+      "backbone.model3.stages.0.0.dwconv.bias",
+      "backbone.model3.stages.0.0.norm.weight",
+      "backbone.model3.stages.0.0.norm.bias",
+      "backbone.model3.stages.0.0.pwconv1.bias",
+      "backbone.model3.stages.0.0.pwconv2.bias",
+      "backbone.model3.stages.0.1.gamma",
+      "backbone.model3.stages.0.1.dwconv.bias",
+      "backbone.model3.stages.0.1.norm.weight",
+      "backbone.model3.stages.0.1.norm.bias",
+      "backbone.model3.stages.0.1.pwconv1.bias",
+      "backbone.model3.stages.0.1.pwconv2.bias",
+      "backbone.model3.stages.0.2.gamma",
+      "backbone.model3.stages.0.2.dwconv.bias",
+      "backbone.model3.stages.0.2.norm.weight",
+      "backbone.model3.stages.0.2.norm.bias",
+      "backbone.model3.stages.0.2.pwconv1.bias",
+      "backbone.model3.stages.0.2.pwconv2.bias"
+    ],
+    "lr_scale": 0.01384128720099999,
+    "lr": 2.768257440199998e-06,
+    "weight_decay": 0.0
+  },
+  "layer_1_decay": {
+    "param_names": [
+      "backbone.model1.stages.0.0.dwconv.weight",
+      "backbone.model1.stages.0.0.pwconv1.weight",
+      "backbone.model1.stages.0.0.pwconv2.weight",
+      "backbone.model1.stages.0.1.dwconv.weight",
+      "backbone.model1.stages.0.1.pwconv1.weight",
+      "backbone.model1.stages.0.1.pwconv2.weight",
+      "backbone.model1.stages.0.2.dwconv.weight",
+      "backbone.model1.stages.0.2.pwconv1.weight",
+      "backbone.model1.stages.0.2.pwconv2.weight",
+      "backbone.model2.stages.0.0.dwconv.weight",
+      "backbone.model2.stages.0.0.pwconv1.weight",
+      "backbone.model2.stages.0.0.pwconv2.weight",
+      "backbone.model2.stages.0.1.dwconv.weight",
+      "backbone.model2.stages.0.1.pwconv1.weight",
+      "backbone.model2.stages.0.1.pwconv2.weight",
+      "backbone.model2.stages.0.2.dwconv.weight",
+      "backbone.model2.stages.0.2.pwconv1.weight",
+      "backbone.model2.stages.0.2.pwconv2.weight",
+      "backbone.model3.stages.0.0.dwconv.weight",
+      "backbone.model3.stages.0.0.pwconv1.weight",
+      "backbone.model3.stages.0.0.pwconv2.weight",
+      "backbone.model3.stages.0.1.dwconv.weight",
+      "backbone.model3.stages.0.1.pwconv1.weight",
+      "backbone.model3.stages.0.1.pwconv2.weight",
+      "backbone.model3.stages.0.2.dwconv.weight",
+      "backbone.model3.stages.0.2.pwconv1.weight",
+      "backbone.model3.stages.0.2.pwconv2.weight"
+    ],
+    "lr_scale": 0.01384128720099999,
+    "lr": 2.768257440199998e-06,
+    "weight_decay": 0.05
+  },
+  "layer_4_no_decay": {
+    "param_names": [
+      "backbone.model1.stages.2.3.gamma",
+      "backbone.model1.stages.2.3.dwconv.bias",
+      "backbone.model1.stages.2.3.norm.weight",
+      "backbone.model1.stages.2.3.norm.bias",
+      "backbone.model1.stages.2.3.pwconv1.bias",
+      "backbone.model1.stages.2.3.pwconv2.bias",
+      "backbone.model1.stages.2.4.gamma",
+      "backbone.model1.stages.2.4.dwconv.bias",
+      "backbone.model1.stages.2.4.norm.weight",
+      "backbone.model1.stages.2.4.norm.bias",
+      "backbone.model1.stages.2.4.pwconv1.bias",
+      "backbone.model1.stages.2.4.pwconv2.bias",
+      "backbone.model1.stages.2.5.gamma",
+      "backbone.model1.stages.2.5.dwconv.bias",
+      "backbone.model1.stages.2.5.norm.weight",
+      "backbone.model1.stages.2.5.norm.bias",
+      "backbone.model1.stages.2.5.pwconv1.bias",
+      "backbone.model1.stages.2.5.pwconv2.bias",
+      "backbone.model2.stages.2.3.gamma",
+      "backbone.model2.stages.2.3.dwconv.bias",
+      "backbone.model2.stages.2.3.norm.weight",
+      "backbone.model2.stages.2.3.norm.bias",
+      "backbone.model2.stages.2.3.pwconv1.bias",
+      "backbone.model2.stages.2.3.pwconv2.bias",
+      "backbone.model2.stages.2.4.gamma",
+      "backbone.model2.stages.2.4.dwconv.bias",
+      "backbone.model2.stages.2.4.norm.weight",
+      "backbone.model2.stages.2.4.norm.bias",
+      "backbone.model2.stages.2.4.pwconv1.bias",
+      "backbone.model2.stages.2.4.pwconv2.bias",
+      "backbone.model2.stages.2.5.gamma",
+      "backbone.model2.stages.2.5.dwconv.bias",
+      "backbone.model2.stages.2.5.norm.weight",
+      "backbone.model2.stages.2.5.norm.bias",
+      "backbone.model2.stages.2.5.pwconv1.bias",
+      "backbone.model2.stages.2.5.pwconv2.bias",
+      "backbone.model3.stages.2.3.gamma",
+      "backbone.model3.stages.2.3.dwconv.bias",
+      "backbone.model3.stages.2.3.norm.weight",
+      "backbone.model3.stages.2.3.norm.bias",
+      "backbone.model3.stages.2.3.pwconv1.bias",
+      "backbone.model3.stages.2.3.pwconv2.bias",
+      "backbone.model3.stages.2.4.gamma",
+      "backbone.model3.stages.2.4.dwconv.bias",
+      "backbone.model3.stages.2.4.norm.weight",
+      "backbone.model3.stages.2.4.norm.bias",
+      "backbone.model3.stages.2.4.pwconv1.bias",
+      "backbone.model3.stages.2.4.pwconv2.bias",
+      "backbone.model3.stages.2.5.gamma",
+      "backbone.model3.stages.2.5.dwconv.bias",
+      "backbone.model3.stages.2.5.norm.weight",
+      "backbone.model3.stages.2.5.norm.bias",
+      "backbone.model3.stages.2.5.pwconv1.bias",
+      "backbone.model3.stages.2.5.pwconv2.bias"
+    ],
+    "lr_scale": 0.04035360699999998,
+    "lr": 8.070721399999996e-06,
+    "weight_decay": 0.0
+  },
+  "layer_4_decay": {
+    "param_names": [
+      "backbone.model1.stages.2.3.dwconv.weight",
+      "backbone.model1.stages.2.3.pwconv1.weight",
+      "backbone.model1.stages.2.3.pwconv2.weight",
+      "backbone.model1.stages.2.4.dwconv.weight",
+      "backbone.model1.stages.2.4.pwconv1.weight",
+      "backbone.model1.stages.2.4.pwconv2.weight",
+      "backbone.model1.stages.2.5.dwconv.weight",
+      "backbone.model1.stages.2.5.pwconv1.weight",
+      "backbone.model1.stages.2.5.pwconv2.weight",
+      "backbone.model2.stages.2.3.dwconv.weight",
+      "backbone.model2.stages.2.3.pwconv1.weight",
+      "backbone.model2.stages.2.3.pwconv2.weight",
+      "backbone.model2.stages.2.4.dwconv.weight",
+      "backbone.model2.stages.2.4.pwconv1.weight",
+      "backbone.model2.stages.2.4.pwconv2.weight",
+      "backbone.model2.stages.2.5.dwconv.weight",
+      "backbone.model2.stages.2.5.pwconv1.weight",
+      "backbone.model2.stages.2.5.pwconv2.weight",
+      "backbone.model3.stages.2.3.dwconv.weight",
+      "backbone.model3.stages.2.3.pwconv1.weight",
+      "backbone.model3.stages.2.3.pwconv2.weight",
+      "backbone.model3.stages.2.4.dwconv.weight",
+      "backbone.model3.stages.2.4.pwconv1.weight",
+      "backbone.model3.stages.2.4.pwconv2.weight",
+      "backbone.model3.stages.2.5.dwconv.weight",
+      "backbone.model3.stages.2.5.pwconv1.weight",
+      "backbone.model3.stages.2.5.pwconv2.weight"
+    ],
+    "lr_scale": 0.04035360699999998,
+    "lr": 8.070721399999996e-06,
+    "weight_decay": 0.05
+  },
+  "layer_5_no_decay": {
+    "param_names": [
+      "backbone.model1.stages.2.6.gamma",
+      "backbone.model1.stages.2.6.dwconv.bias",
+      "backbone.model1.stages.2.6.norm.weight",
+      "backbone.model1.stages.2.6.norm.bias",
+      "backbone.model1.stages.2.6.pwconv1.bias",
+      "backbone.model1.stages.2.6.pwconv2.bias",
+      "backbone.model1.stages.2.7.gamma",
+      "backbone.model1.stages.2.7.dwconv.bias",
+      "backbone.model1.stages.2.7.norm.weight",
+      "backbone.model1.stages.2.7.norm.bias",
+      "backbone.model1.stages.2.7.pwconv1.bias",
+      "backbone.model1.stages.2.7.pwconv2.bias",
+      "backbone.model1.stages.2.8.gamma",
+      "backbone.model1.stages.2.8.dwconv.bias",
+      "backbone.model1.stages.2.8.norm.weight",
+      "backbone.model1.stages.2.8.norm.bias",
+      "backbone.model1.stages.2.8.pwconv1.bias",
+      "backbone.model1.stages.2.8.pwconv2.bias",
+      "backbone.model2.stages.2.6.gamma",
+      "backbone.model2.stages.2.6.dwconv.bias",
+      "backbone.model2.stages.2.6.norm.weight",
+      "backbone.model2.stages.2.6.norm.bias",
+      "backbone.model2.stages.2.6.pwconv1.bias",
+      "backbone.model2.stages.2.6.pwconv2.bias",
+      "backbone.model2.stages.2.7.gamma",
+      "backbone.model2.stages.2.7.dwconv.bias",
+      "backbone.model2.stages.2.7.norm.weight",
+      "backbone.model2.stages.2.7.norm.bias",
+      "backbone.model2.stages.2.7.pwconv1.bias",
+      "backbone.model2.stages.2.7.pwconv2.bias",
+      "backbone.model2.stages.2.8.gamma",
+      "backbone.model2.stages.2.8.dwconv.bias",
+      "backbone.model2.stages.2.8.norm.weight",
+      "backbone.model2.stages.2.8.norm.bias",
+      "backbone.model2.stages.2.8.pwconv1.bias",
+      "backbone.model2.stages.2.8.pwconv2.bias",
+      "backbone.model3.stages.2.6.gamma",
+      "backbone.model3.stages.2.6.dwconv.bias",
+      "backbone.model3.stages.2.6.norm.weight",
+      "backbone.model3.stages.2.6.norm.bias",
+      "backbone.model3.stages.2.6.pwconv1.bias",
+      "backbone.model3.stages.2.6.pwconv2.bias",
+      "backbone.model3.stages.2.7.gamma",
+      "backbone.model3.stages.2.7.dwconv.bias",
+      "backbone.model3.stages.2.7.norm.weight",
+      "backbone.model3.stages.2.7.norm.bias",
+      "backbone.model3.stages.2.7.pwconv1.bias",
+      "backbone.model3.stages.2.7.pwconv2.bias",
+      "backbone.model3.stages.2.8.gamma",
+      "backbone.model3.stages.2.8.dwconv.bias",
+      "backbone.model3.stages.2.8.norm.weight",
+      "backbone.model3.stages.2.8.norm.bias",
+      "backbone.model3.stages.2.8.pwconv1.bias",
+      "backbone.model3.stages.2.8.pwconv2.bias"
+    ],
+    "lr_scale": 0.05764800999999997,
+    "lr": 1.1529601999999994e-05,
+    "weight_decay": 0.0
+  },
+  "layer_5_decay": {
+    "param_names": [
+      "backbone.model1.stages.2.6.dwconv.weight",
+      "backbone.model1.stages.2.6.pwconv1.weight",
+      "backbone.model1.stages.2.6.pwconv2.weight",
+      "backbone.model1.stages.2.7.dwconv.weight",
+      "backbone.model1.stages.2.7.pwconv1.weight",
+      "backbone.model1.stages.2.7.pwconv2.weight",
+      "backbone.model1.stages.2.8.dwconv.weight",
+      "backbone.model1.stages.2.8.pwconv1.weight",
+      "backbone.model1.stages.2.8.pwconv2.weight",
+      "backbone.model2.stages.2.6.dwconv.weight",
+      "backbone.model2.stages.2.6.pwconv1.weight",
+      "backbone.model2.stages.2.6.pwconv2.weight",
+      "backbone.model2.stages.2.7.dwconv.weight",
+      "backbone.model2.stages.2.7.pwconv1.weight",
+      "backbone.model2.stages.2.7.pwconv2.weight",
+      "backbone.model2.stages.2.8.dwconv.weight",
+      "backbone.model2.stages.2.8.pwconv1.weight",
+      "backbone.model2.stages.2.8.pwconv2.weight",
+      "backbone.model3.stages.2.6.dwconv.weight",
+      "backbone.model3.stages.2.6.pwconv1.weight",
+      "backbone.model3.stages.2.6.pwconv2.weight",
+      "backbone.model3.stages.2.7.dwconv.weight",
+      "backbone.model3.stages.2.7.pwconv1.weight",
+      "backbone.model3.stages.2.7.pwconv2.weight",
+      "backbone.model3.stages.2.8.dwconv.weight",
+      "backbone.model3.stages.2.8.pwconv1.weight",
+      "backbone.model3.stages.2.8.pwconv2.weight"
+    ],
+    "lr_scale": 0.05764800999999997,
+    "lr": 1.1529601999999994e-05,
+    "weight_decay": 0.05
+  },
+  "layer_6_no_decay": {
+    "param_names": [
+      "backbone.model1.stages.2.9.gamma",
+      "backbone.model1.stages.2.9.dwconv.bias",
+      "backbone.model1.stages.2.9.norm.weight",
+      "backbone.model1.stages.2.9.norm.bias",
+      "backbone.model1.stages.2.9.pwconv1.bias",
+      "backbone.model1.stages.2.9.pwconv2.bias",
+      "backbone.model1.stages.2.10.gamma",
+      "backbone.model1.stages.2.10.dwconv.bias",
+      "backbone.model1.stages.2.10.norm.weight",
+      "backbone.model1.stages.2.10.norm.bias",
+      "backbone.model1.stages.2.10.pwconv1.bias",
+      "backbone.model1.stages.2.10.pwconv2.bias",
+      "backbone.model1.stages.2.11.gamma",
+      "backbone.model1.stages.2.11.dwconv.bias",
+      "backbone.model1.stages.2.11.norm.weight",
+      "backbone.model1.stages.2.11.norm.bias",
+      "backbone.model1.stages.2.11.pwconv1.bias",
+      "backbone.model1.stages.2.11.pwconv2.bias",
+      "backbone.model2.stages.2.9.gamma",
+      "backbone.model2.stages.2.9.dwconv.bias",
+      "backbone.model2.stages.2.9.norm.weight",
+      "backbone.model2.stages.2.9.norm.bias",
+      "backbone.model2.stages.2.9.pwconv1.bias",
+      "backbone.model2.stages.2.9.pwconv2.bias",
+      "backbone.model2.stages.2.10.gamma",
+      "backbone.model2.stages.2.10.dwconv.bias",
+      "backbone.model2.stages.2.10.norm.weight",
+      "backbone.model2.stages.2.10.norm.bias",
+      "backbone.model2.stages.2.10.pwconv1.bias",
+      "backbone.model2.stages.2.10.pwconv2.bias",
+      "backbone.model2.stages.2.11.gamma",
+      "backbone.model2.stages.2.11.dwconv.bias",
+      "backbone.model2.stages.2.11.norm.weight",
+      "backbone.model2.stages.2.11.norm.bias",
+      "backbone.model2.stages.2.11.pwconv1.bias",
+      "backbone.model2.stages.2.11.pwconv2.bias",
+      "backbone.model3.stages.2.9.gamma",
+      "backbone.model3.stages.2.9.dwconv.bias",
+      "backbone.model3.stages.2.9.norm.weight",
+      "backbone.model3.stages.2.9.norm.bias",
+      "backbone.model3.stages.2.9.pwconv1.bias",
+      "backbone.model3.stages.2.9.pwconv2.bias",
+      "backbone.model3.stages.2.10.gamma",
+      "backbone.model3.stages.2.10.dwconv.bias",
+      "backbone.model3.stages.2.10.norm.weight",
+      "backbone.model3.stages.2.10.norm.bias",
+      "backbone.model3.stages.2.10.pwconv1.bias",
+      "backbone.model3.stages.2.10.pwconv2.bias",
+      "backbone.model3.stages.2.11.gamma",
+      "backbone.model3.stages.2.11.dwconv.bias",
+      "backbone.model3.stages.2.11.norm.weight",
+      "backbone.model3.stages.2.11.norm.bias",
+      "backbone.model3.stages.2.11.pwconv1.bias",
+      "backbone.model3.stages.2.11.pwconv2.bias"
+    ],
+    "lr_scale": 0.08235429999999996,
+    "lr": 1.6470859999999992e-05,
+    "weight_decay": 0.0
+  },
+  "layer_6_decay": {
+    "param_names": [
+      "backbone.model1.stages.2.9.dwconv.weight",
+      "backbone.model1.stages.2.9.pwconv1.weight",
+      "backbone.model1.stages.2.9.pwconv2.weight",
+      "backbone.model1.stages.2.10.dwconv.weight",
+      "backbone.model1.stages.2.10.pwconv1.weight",
+      "backbone.model1.stages.2.10.pwconv2.weight",
+      "backbone.model1.stages.2.11.dwconv.weight",
+      "backbone.model1.stages.2.11.pwconv1.weight",
+      "backbone.model1.stages.2.11.pwconv2.weight",
+      "backbone.model2.stages.2.9.dwconv.weight",
+      "backbone.model2.stages.2.9.pwconv1.weight",
+      "backbone.model2.stages.2.9.pwconv2.weight",
+      "backbone.model2.stages.2.10.dwconv.weight",
+      "backbone.model2.stages.2.10.pwconv1.weight",
+      "backbone.model2.stages.2.10.pwconv2.weight",
+      "backbone.model2.stages.2.11.dwconv.weight",
+      "backbone.model2.stages.2.11.pwconv1.weight",
+      "backbone.model2.stages.2.11.pwconv2.weight",
+      "backbone.model3.stages.2.9.dwconv.weight",
+      "backbone.model3.stages.2.9.pwconv1.weight",
+      "backbone.model3.stages.2.9.pwconv2.weight",
+      "backbone.model3.stages.2.10.dwconv.weight",
+      "backbone.model3.stages.2.10.pwconv1.weight",
+      "backbone.model3.stages.2.10.pwconv2.weight",
+      "backbone.model3.stages.2.11.dwconv.weight",
+      "backbone.model3.stages.2.11.pwconv1.weight",
+      "backbone.model3.stages.2.11.pwconv2.weight"
+    ],
+    "lr_scale": 0.08235429999999996,
+    "lr": 1.6470859999999992e-05,
+    "weight_decay": 0.05
+  },
+  "layer_7_no_decay": {
+    "param_names": [
+      "backbone.model1.stages.2.12.gamma",
+      "backbone.model1.stages.2.12.dwconv.bias",
+      "backbone.model1.stages.2.12.norm.weight",
+      "backbone.model1.stages.2.12.norm.bias",
+      "backbone.model1.stages.2.12.pwconv1.bias",
+      "backbone.model1.stages.2.12.pwconv2.bias",
+      "backbone.model1.stages.2.13.gamma",
+      "backbone.model1.stages.2.13.dwconv.bias",
+      "backbone.model1.stages.2.13.norm.weight",
+      "backbone.model1.stages.2.13.norm.bias",
+      "backbone.model1.stages.2.13.pwconv1.bias",
+      "backbone.model1.stages.2.13.pwconv2.bias",
+      "backbone.model1.stages.2.14.gamma",
+      "backbone.model1.stages.2.14.dwconv.bias",
+      "backbone.model1.stages.2.14.norm.weight",
+      "backbone.model1.stages.2.14.norm.bias",
+      "backbone.model1.stages.2.14.pwconv1.bias",
+      "backbone.model1.stages.2.14.pwconv2.bias",
+      "backbone.model2.stages.2.12.gamma",
+      "backbone.model2.stages.2.12.dwconv.bias",
+      "backbone.model2.stages.2.12.norm.weight",
+      "backbone.model2.stages.2.12.norm.bias",
+      "backbone.model2.stages.2.12.pwconv1.bias",
+      "backbone.model2.stages.2.12.pwconv2.bias",
+      "backbone.model2.stages.2.13.gamma",
+      "backbone.model2.stages.2.13.dwconv.bias",
+      "backbone.model2.stages.2.13.norm.weight",
+      "backbone.model2.stages.2.13.norm.bias",
+      "backbone.model2.stages.2.13.pwconv1.bias",
+      "backbone.model2.stages.2.13.pwconv2.bias",
+      "backbone.model2.stages.2.14.gamma",
+      "backbone.model2.stages.2.14.dwconv.bias",
+      "backbone.model2.stages.2.14.norm.weight",
+      "backbone.model2.stages.2.14.norm.bias",
+      "backbone.model2.stages.2.14.pwconv1.bias",
+      "backbone.model2.stages.2.14.pwconv2.bias",
+      "backbone.model3.stages.2.12.gamma",
+      "backbone.model3.stages.2.12.dwconv.bias",
+      "backbone.model3.stages.2.12.norm.weight",
+      "backbone.model3.stages.2.12.norm.bias",
+      "backbone.model3.stages.2.12.pwconv1.bias",
+      "backbone.model3.stages.2.12.pwconv2.bias",
+      "backbone.model3.stages.2.13.gamma",
+      "backbone.model3.stages.2.13.dwconv.bias",
+      "backbone.model3.stages.2.13.norm.weight",
+      "backbone.model3.stages.2.13.norm.bias",
+      "backbone.model3.stages.2.13.pwconv1.bias",
+      "backbone.model3.stages.2.13.pwconv2.bias",
+      "backbone.model3.stages.2.14.gamma",
+      "backbone.model3.stages.2.14.dwconv.bias",
+      "backbone.model3.stages.2.14.norm.weight",
+      "backbone.model3.stages.2.14.norm.bias",
+      "backbone.model3.stages.2.14.pwconv1.bias",
+      "backbone.model3.stages.2.14.pwconv2.bias"
+    ],
+    "lr_scale": 0.11764899999999996,
+    "lr": 2.3529799999999993e-05,
+    "weight_decay": 0.0
+  },
+  "layer_7_decay": {
+    "param_names": [
+      "backbone.model1.stages.2.12.dwconv.weight",
+      "backbone.model1.stages.2.12.pwconv1.weight",
+      "backbone.model1.stages.2.12.pwconv2.weight",
+      "backbone.model1.stages.2.13.dwconv.weight",
+      "backbone.model1.stages.2.13.pwconv1.weight",
+      "backbone.model1.stages.2.13.pwconv2.weight",
+      "backbone.model1.stages.2.14.dwconv.weight",
+      "backbone.model1.stages.2.14.pwconv1.weight",
+      "backbone.model1.stages.2.14.pwconv2.weight",
+      "backbone.model2.stages.2.12.dwconv.weight",
+      "backbone.model2.stages.2.12.pwconv1.weight",
+      "backbone.model2.stages.2.12.pwconv2.weight",
+      "backbone.model2.stages.2.13.dwconv.weight",
+      "backbone.model2.stages.2.13.pwconv1.weight",
+      "backbone.model2.stages.2.13.pwconv2.weight",
+      "backbone.model2.stages.2.14.dwconv.weight",
+      "backbone.model2.stages.2.14.pwconv1.weight",
+      "backbone.model2.stages.2.14.pwconv2.weight",
+      "backbone.model3.stages.2.12.dwconv.weight",
+      "backbone.model3.stages.2.12.pwconv1.weight",
+      "backbone.model3.stages.2.12.pwconv2.weight",
+      "backbone.model3.stages.2.13.dwconv.weight",
+      "backbone.model3.stages.2.13.pwconv1.weight",
+      "backbone.model3.stages.2.13.pwconv2.weight",
+      "backbone.model3.stages.2.14.dwconv.weight",
+      "backbone.model3.stages.2.14.pwconv1.weight",
+      "backbone.model3.stages.2.14.pwconv2.weight"
+    ],
+    "lr_scale": 0.11764899999999996,
+    "lr": 2.3529799999999993e-05,
+    "weight_decay": 0.05
+  },
+  "layer_8_no_decay": {
+    "param_names": [
+      "backbone.model1.stages.2.15.gamma",
+      "backbone.model1.stages.2.15.dwconv.bias",
+      "backbone.model1.stages.2.15.norm.weight",
+      "backbone.model1.stages.2.15.norm.bias",
+      "backbone.model1.stages.2.15.pwconv1.bias",
+      "backbone.model1.stages.2.15.pwconv2.bias",
+      "backbone.model1.stages.2.16.gamma",
+      "backbone.model1.stages.2.16.dwconv.bias",
+      "backbone.model1.stages.2.16.norm.weight",
+      "backbone.model1.stages.2.16.norm.bias",
+      "backbone.model1.stages.2.16.pwconv1.bias",
+      "backbone.model1.stages.2.16.pwconv2.bias",
+      "backbone.model1.stages.2.17.gamma",
+      "backbone.model1.stages.2.17.dwconv.bias",
+      "backbone.model1.stages.2.17.norm.weight",
+      "backbone.model1.stages.2.17.norm.bias",
+      "backbone.model1.stages.2.17.pwconv1.bias",
+      "backbone.model1.stages.2.17.pwconv2.bias",
+      "backbone.model2.stages.2.15.gamma",
+      "backbone.model2.stages.2.15.dwconv.bias",
+      "backbone.model2.stages.2.15.norm.weight",
+      "backbone.model2.stages.2.15.norm.bias",
+      "backbone.model2.stages.2.15.pwconv1.bias",
+      "backbone.model2.stages.2.15.pwconv2.bias",
+      "backbone.model2.stages.2.16.gamma",
+      "backbone.model2.stages.2.16.dwconv.bias",
+      "backbone.model2.stages.2.16.norm.weight",
+      "backbone.model2.stages.2.16.norm.bias",
+      "backbone.model2.stages.2.16.pwconv1.bias",
+      "backbone.model2.stages.2.16.pwconv2.bias",
+      "backbone.model2.stages.2.17.gamma",
+      "backbone.model2.stages.2.17.dwconv.bias",
+      "backbone.model2.stages.2.17.norm.weight",
+      "backbone.model2.stages.2.17.norm.bias",
+      "backbone.model2.stages.2.17.pwconv1.bias",
+      "backbone.model2.stages.2.17.pwconv2.bias",
+      "backbone.model3.stages.2.15.gamma",
+      "backbone.model3.stages.2.15.dwconv.bias",
+      "backbone.model3.stages.2.15.norm.weight",
+      "backbone.model3.stages.2.15.norm.bias",
+      "backbone.model3.stages.2.15.pwconv1.bias",
+      "backbone.model3.stages.2.15.pwconv2.bias",
+      "backbone.model3.stages.2.16.gamma",
+      "backbone.model3.stages.2.16.dwconv.bias",
+      "backbone.model3.stages.2.16.norm.weight",
+      "backbone.model3.stages.2.16.norm.bias",
+      "backbone.model3.stages.2.16.pwconv1.bias",
+      "backbone.model3.stages.2.16.pwconv2.bias",
+      "backbone.model3.stages.2.17.gamma",
+      "backbone.model3.stages.2.17.dwconv.bias",
+      "backbone.model3.stages.2.17.norm.weight",
+      "backbone.model3.stages.2.17.norm.bias",
+      "backbone.model3.stages.2.17.pwconv1.bias",
+      "backbone.model3.stages.2.17.pwconv2.bias"
+    ],
+    "lr_scale": 0.16806999999999994,
+    "lr": 3.361399999999999e-05,
+    "weight_decay": 0.0
+  },
+  "layer_8_decay": {
+    "param_names": [
+      "backbone.model1.stages.2.15.dwconv.weight",
+      "backbone.model1.stages.2.15.pwconv1.weight",
+      "backbone.model1.stages.2.15.pwconv2.weight",
+      "backbone.model1.stages.2.16.dwconv.weight",
+      "backbone.model1.stages.2.16.pwconv1.weight",
+      "backbone.model1.stages.2.16.pwconv2.weight",
+      "backbone.model1.stages.2.17.dwconv.weight",
+      "backbone.model1.stages.2.17.pwconv1.weight",
+      "backbone.model1.stages.2.17.pwconv2.weight",
+      "backbone.model2.stages.2.15.dwconv.weight",
+      "backbone.model2.stages.2.15.pwconv1.weight",
+      "backbone.model2.stages.2.15.pwconv2.weight",
+      "backbone.model2.stages.2.16.dwconv.weight",
+      "backbone.model2.stages.2.16.pwconv1.weight",
+      "backbone.model2.stages.2.16.pwconv2.weight",
+      "backbone.model2.stages.2.17.dwconv.weight",
+      "backbone.model2.stages.2.17.pwconv1.weight",
+      "backbone.model2.stages.2.17.pwconv2.weight",
+      "backbone.model3.stages.2.15.dwconv.weight",
+      "backbone.model3.stages.2.15.pwconv1.weight",
+      "backbone.model3.stages.2.15.pwconv2.weight",
+      "backbone.model3.stages.2.16.dwconv.weight",
+      "backbone.model3.stages.2.16.pwconv1.weight",
+      "backbone.model3.stages.2.16.pwconv2.weight",
+      "backbone.model3.stages.2.17.dwconv.weight",
+      "backbone.model3.stages.2.17.pwconv1.weight",
+      "backbone.model3.stages.2.17.pwconv2.weight"
+    ],
+    "lr_scale": 0.16806999999999994,
+    "lr": 3.361399999999999e-05,
+    "weight_decay": 0.05
+  },
+  "layer_9_no_decay": {
+    "param_names": [
+      "backbone.model1.stages.2.18.gamma",
+      "backbone.model1.stages.2.18.dwconv.bias",
+      "backbone.model1.stages.2.18.norm.weight",
+      "backbone.model1.stages.2.18.norm.bias",
+      "backbone.model1.stages.2.18.pwconv1.bias",
+      "backbone.model1.stages.2.18.pwconv2.bias",
+      "backbone.model1.stages.2.19.gamma",
+      "backbone.model1.stages.2.19.dwconv.bias",
+      "backbone.model1.stages.2.19.norm.weight",
+      "backbone.model1.stages.2.19.norm.bias",
+      "backbone.model1.stages.2.19.pwconv1.bias",
+      "backbone.model1.stages.2.19.pwconv2.bias",
+      "backbone.model1.stages.2.20.gamma",
+      "backbone.model1.stages.2.20.dwconv.bias",
+      "backbone.model1.stages.2.20.norm.weight",
+      "backbone.model1.stages.2.20.norm.bias",
+      "backbone.model1.stages.2.20.pwconv1.bias",
+      "backbone.model1.stages.2.20.pwconv2.bias",
+      "backbone.model2.stages.2.18.gamma",
+      "backbone.model2.stages.2.18.dwconv.bias",
+      "backbone.model2.stages.2.18.norm.weight",
+      "backbone.model2.stages.2.18.norm.bias",
+      "backbone.model2.stages.2.18.pwconv1.bias",
+      "backbone.model2.stages.2.18.pwconv2.bias",
+      "backbone.model2.stages.2.19.gamma",
+      "backbone.model2.stages.2.19.dwconv.bias",
+      "backbone.model2.stages.2.19.norm.weight",
+      "backbone.model2.stages.2.19.norm.bias",
+      "backbone.model2.stages.2.19.pwconv1.bias",
+      "backbone.model2.stages.2.19.pwconv2.bias",
+      "backbone.model2.stages.2.20.gamma",
+      "backbone.model2.stages.2.20.dwconv.bias",
+      "backbone.model2.stages.2.20.norm.weight",
+      "backbone.model2.stages.2.20.norm.bias",
+      "backbone.model2.stages.2.20.pwconv1.bias",
+      "backbone.model2.stages.2.20.pwconv2.bias",
+      "backbone.model3.stages.2.18.gamma",
+      "backbone.model3.stages.2.18.dwconv.bias",
+      "backbone.model3.stages.2.18.norm.weight",
+      "backbone.model3.stages.2.18.norm.bias",
+      "backbone.model3.stages.2.18.pwconv1.bias",
+      "backbone.model3.stages.2.18.pwconv2.bias",
+      "backbone.model3.stages.2.19.gamma",
+      "backbone.model3.stages.2.19.dwconv.bias",
+      "backbone.model3.stages.2.19.norm.weight",
+      "backbone.model3.stages.2.19.norm.bias",
+      "backbone.model3.stages.2.19.pwconv1.bias",
+      "backbone.model3.stages.2.19.pwconv2.bias",
+      "backbone.model3.stages.2.20.gamma",
+      "backbone.model3.stages.2.20.dwconv.bias",
+      "backbone.model3.stages.2.20.norm.weight",
+      "backbone.model3.stages.2.20.norm.bias",
+      "backbone.model3.stages.2.20.pwconv1.bias",
+      "backbone.model3.stages.2.20.pwconv2.bias"
+    ],
+    "lr_scale": 0.24009999999999995,
+    "lr": 4.801999999999999e-05,
+    "weight_decay": 0.0
+  },
+  "layer_9_decay": {
+    "param_names": [
+      "backbone.model1.stages.2.18.dwconv.weight",
+      "backbone.model1.stages.2.18.pwconv1.weight",
+      "backbone.model1.stages.2.18.pwconv2.weight",
+      "backbone.model1.stages.2.19.dwconv.weight",
+      "backbone.model1.stages.2.19.pwconv1.weight",
+      "backbone.model1.stages.2.19.pwconv2.weight",
+      "backbone.model1.stages.2.20.dwconv.weight",
+      "backbone.model1.stages.2.20.pwconv1.weight",
+      "backbone.model1.stages.2.20.pwconv2.weight",
+      "backbone.model2.stages.2.18.dwconv.weight",
+      "backbone.model2.stages.2.18.pwconv1.weight",
+      "backbone.model2.stages.2.18.pwconv2.weight",
+      "backbone.model2.stages.2.19.dwconv.weight",
+      "backbone.model2.stages.2.19.pwconv1.weight",
+      "backbone.model2.stages.2.19.pwconv2.weight",
+      "backbone.model2.stages.2.20.dwconv.weight",
+      "backbone.model2.stages.2.20.pwconv1.weight",
+      "backbone.model2.stages.2.20.pwconv2.weight",
+      "backbone.model3.stages.2.18.dwconv.weight",
+      "backbone.model3.stages.2.18.pwconv1.weight",
+      "backbone.model3.stages.2.18.pwconv2.weight",
+      "backbone.model3.stages.2.19.dwconv.weight",
+      "backbone.model3.stages.2.19.pwconv1.weight",
+      "backbone.model3.stages.2.19.pwconv2.weight",
+      "backbone.model3.stages.2.20.dwconv.weight",
+      "backbone.model3.stages.2.20.pwconv1.weight",
+      "backbone.model3.stages.2.20.pwconv2.weight"
+    ],
+    "lr_scale": 0.24009999999999995,
+    "lr": 4.801999999999999e-05,
+    "weight_decay": 0.05
+  },
+  "layer_10_no_decay": {
+    "param_names": [
+      "backbone.model1.stages.2.21.gamma",
+      "backbone.model1.stages.2.21.dwconv.bias",
+      "backbone.model1.stages.2.21.norm.weight",
+      "backbone.model1.stages.2.21.norm.bias",
+      "backbone.model1.stages.2.21.pwconv1.bias",
+      "backbone.model1.stages.2.21.pwconv2.bias",
+      "backbone.model1.stages.2.22.gamma",
+      "backbone.model1.stages.2.22.dwconv.bias",
+      "backbone.model1.stages.2.22.norm.weight",
+      "backbone.model1.stages.2.22.norm.bias",
+      "backbone.model1.stages.2.22.pwconv1.bias",
+      "backbone.model1.stages.2.22.pwconv2.bias",
+      "backbone.model1.stages.2.23.gamma",
+      "backbone.model1.stages.2.23.dwconv.bias",
+      "backbone.model1.stages.2.23.norm.weight",
+      "backbone.model1.stages.2.23.norm.bias",
+      "backbone.model1.stages.2.23.pwconv1.bias",
+      "backbone.model1.stages.2.23.pwconv2.bias",
+      "backbone.model2.stages.2.21.gamma",
+      "backbone.model2.stages.2.21.dwconv.bias",
+      "backbone.model2.stages.2.21.norm.weight",
+      "backbone.model2.stages.2.21.norm.bias",
+      "backbone.model2.stages.2.21.pwconv1.bias",
+      "backbone.model2.stages.2.21.pwconv2.bias",
+      "backbone.model2.stages.2.22.gamma",
+      "backbone.model2.stages.2.22.dwconv.bias",
+      "backbone.model2.stages.2.22.norm.weight",
+      "backbone.model2.stages.2.22.norm.bias",
+      "backbone.model2.stages.2.22.pwconv1.bias",
+      "backbone.model2.stages.2.22.pwconv2.bias",
+      "backbone.model2.stages.2.23.gamma",
+      "backbone.model2.stages.2.23.dwconv.bias",
+      "backbone.model2.stages.2.23.norm.weight",
+      "backbone.model2.stages.2.23.norm.bias",
+      "backbone.model2.stages.2.23.pwconv1.bias",
+      "backbone.model2.stages.2.23.pwconv2.bias",
+      "backbone.model3.stages.2.21.gamma",
+      "backbone.model3.stages.2.21.dwconv.bias",
+      "backbone.model3.stages.2.21.norm.weight",
+      "backbone.model3.stages.2.21.norm.bias",
+      "backbone.model3.stages.2.21.pwconv1.bias",
+      "backbone.model3.stages.2.21.pwconv2.bias",
+      "backbone.model3.stages.2.22.gamma",
+      "backbone.model3.stages.2.22.dwconv.bias",
+      "backbone.model3.stages.2.22.norm.weight",
+      "backbone.model3.stages.2.22.norm.bias",
+      "backbone.model3.stages.2.22.pwconv1.bias",
+      "backbone.model3.stages.2.22.pwconv2.bias",
+      "backbone.model3.stages.2.23.gamma",
+      "backbone.model3.stages.2.23.dwconv.bias",
+      "backbone.model3.stages.2.23.norm.weight",
+      "backbone.model3.stages.2.23.norm.bias",
+      "backbone.model3.stages.2.23.pwconv1.bias",
+      "backbone.model3.stages.2.23.pwconv2.bias"
+    ],
+    "lr_scale": 0.3429999999999999,
+    "lr": 6.859999999999999e-05,
+    "weight_decay": 0.0
+  },
+  "layer_10_decay": {
+    "param_names": [
+      "backbone.model1.stages.2.21.dwconv.weight",
+      "backbone.model1.stages.2.21.pwconv1.weight",
+      "backbone.model1.stages.2.21.pwconv2.weight",
+      "backbone.model1.stages.2.22.dwconv.weight",
+      "backbone.model1.stages.2.22.pwconv1.weight",
+      "backbone.model1.stages.2.22.pwconv2.weight",
+      "backbone.model1.stages.2.23.dwconv.weight",
+      "backbone.model1.stages.2.23.pwconv1.weight",
+      "backbone.model1.stages.2.23.pwconv2.weight",
+      "backbone.model2.stages.2.21.dwconv.weight",
+      "backbone.model2.stages.2.21.pwconv1.weight",
+      "backbone.model2.stages.2.21.pwconv2.weight",
+      "backbone.model2.stages.2.22.dwconv.weight",
+      "backbone.model2.stages.2.22.pwconv1.weight",
+      "backbone.model2.stages.2.22.pwconv2.weight",
+      "backbone.model2.stages.2.23.dwconv.weight",
+      "backbone.model2.stages.2.23.pwconv1.weight",
+      "backbone.model2.stages.2.23.pwconv2.weight",
+      "backbone.model3.stages.2.21.dwconv.weight",
+      "backbone.model3.stages.2.21.pwconv1.weight",
+      "backbone.model3.stages.2.21.pwconv2.weight",
+      "backbone.model3.stages.2.22.dwconv.weight",
+      "backbone.model3.stages.2.22.pwconv1.weight",
+      "backbone.model3.stages.2.22.pwconv2.weight",
+      "backbone.model3.stages.2.23.dwconv.weight",
+      "backbone.model3.stages.2.23.pwconv1.weight",
+      "backbone.model3.stages.2.23.pwconv2.weight"
+    ],
+    "lr_scale": 0.3429999999999999,
+    "lr": 6.859999999999999e-05,
+    "weight_decay": 0.05
+  },
+  "layer_11_no_decay": {
+    "param_names": [
+      "backbone.model1.stages.2.24.gamma",
+      "backbone.model1.stages.2.24.dwconv.bias",
+      "backbone.model1.stages.2.24.norm.weight",
+      "backbone.model1.stages.2.24.norm.bias",
+      "backbone.model1.stages.2.24.pwconv1.bias",
+      "backbone.model1.stages.2.24.pwconv2.bias",
+      "backbone.model1.stages.2.25.gamma",
+      "backbone.model1.stages.2.25.dwconv.bias",
+      "backbone.model1.stages.2.25.norm.weight",
+      "backbone.model1.stages.2.25.norm.bias",
+      "backbone.model1.stages.2.25.pwconv1.bias",
+      "backbone.model1.stages.2.25.pwconv2.bias",
+      "backbone.model1.stages.2.26.gamma",
+      "backbone.model1.stages.2.26.dwconv.bias",
+      "backbone.model1.stages.2.26.norm.weight",
+      "backbone.model1.stages.2.26.norm.bias",
+      "backbone.model1.stages.2.26.pwconv1.bias",
+      "backbone.model1.stages.2.26.pwconv2.bias",
+      "backbone.model2.stages.2.24.gamma",
+      "backbone.model2.stages.2.24.dwconv.bias",
+      "backbone.model2.stages.2.24.norm.weight",
+      "backbone.model2.stages.2.24.norm.bias",
+      "backbone.model2.stages.2.24.pwconv1.bias",
+      "backbone.model2.stages.2.24.pwconv2.bias",
+      "backbone.model2.stages.2.25.gamma",
+      "backbone.model2.stages.2.25.dwconv.bias",
+      "backbone.model2.stages.2.25.norm.weight",
+      "backbone.model2.stages.2.25.norm.bias",
+      "backbone.model2.stages.2.25.pwconv1.bias",
+      "backbone.model2.stages.2.25.pwconv2.bias",
+      "backbone.model2.stages.2.26.gamma",
+      "backbone.model2.stages.2.26.dwconv.bias",
+      "backbone.model2.stages.2.26.norm.weight",
+      "backbone.model2.stages.2.26.norm.bias",
+      "backbone.model2.stages.2.26.pwconv1.bias",
+      "backbone.model2.stages.2.26.pwconv2.bias",
+      "backbone.model3.stages.2.24.gamma",
+      "backbone.model3.stages.2.24.dwconv.bias",
+      "backbone.model3.stages.2.24.norm.weight",
+      "backbone.model3.stages.2.24.norm.bias",
+      "backbone.model3.stages.2.24.pwconv1.bias",
+      "backbone.model3.stages.2.24.pwconv2.bias",
+      "backbone.model3.stages.2.25.gamma",
+      "backbone.model3.stages.2.25.dwconv.bias",
+      "backbone.model3.stages.2.25.norm.weight",
+      "backbone.model3.stages.2.25.norm.bias",
+      "backbone.model3.stages.2.25.pwconv1.bias",
+      "backbone.model3.stages.2.25.pwconv2.bias",
+      "backbone.model3.stages.2.26.gamma",
+      "backbone.model3.stages.2.26.dwconv.bias",
+      "backbone.model3.stages.2.26.norm.weight",
+      "backbone.model3.stages.2.26.norm.bias",
+      "backbone.model3.stages.2.26.pwconv1.bias",
+      "backbone.model3.stages.2.26.pwconv2.bias"
+    ],
+    "lr_scale": 0.48999999999999994,
+    "lr": 9.8e-05,
+    "weight_decay": 0.0
+  },
+  "layer_11_decay": {
+    "param_names": [
+      "backbone.model1.stages.2.24.dwconv.weight",
+      "backbone.model1.stages.2.24.pwconv1.weight",
+      "backbone.model1.stages.2.24.pwconv2.weight",
+      "backbone.model1.stages.2.25.dwconv.weight",
+      "backbone.model1.stages.2.25.pwconv1.weight",
+      "backbone.model1.stages.2.25.pwconv2.weight",
+      "backbone.model1.stages.2.26.dwconv.weight",
+      "backbone.model1.stages.2.26.pwconv1.weight",
+      "backbone.model1.stages.2.26.pwconv2.weight",
+      "backbone.model2.stages.2.24.dwconv.weight",
+      "backbone.model2.stages.2.24.pwconv1.weight",
+      "backbone.model2.stages.2.24.pwconv2.weight",
+      "backbone.model2.stages.2.25.dwconv.weight",
+      "backbone.model2.stages.2.25.pwconv1.weight",
+      "backbone.model2.stages.2.25.pwconv2.weight",
+      "backbone.model2.stages.2.26.dwconv.weight",
+      "backbone.model2.stages.2.26.pwconv1.weight",
+      "backbone.model2.stages.2.26.pwconv2.weight",
+      "backbone.model3.stages.2.24.dwconv.weight",
+      "backbone.model3.stages.2.24.pwconv1.weight",
+      "backbone.model3.stages.2.24.pwconv2.weight",
+      "backbone.model3.stages.2.25.dwconv.weight",
+      "backbone.model3.stages.2.25.pwconv1.weight",
+      "backbone.model3.stages.2.25.pwconv2.weight",
+      "backbone.model3.stages.2.26.dwconv.weight",
+      "backbone.model3.stages.2.26.pwconv1.weight",
+      "backbone.model3.stages.2.26.pwconv2.weight"
+    ],
+    "lr_scale": 0.48999999999999994,
+    "lr": 9.8e-05,
+    "weight_decay": 0.05
+  },
+  "layer_13_no_decay": {
+    "param_names": [
+      "backbone.model1.norm0.weight",
+      "backbone.model1.norm0.bias",
+      "backbone.model1.norm1.weight",
+      "backbone.model1.norm1.bias",
+      "backbone.model1.norm2.weight",
+      "backbone.model1.norm2.bias",
+      "backbone.model1.norm3.weight",
+      "backbone.model1.norm3.bias",
+      "backbone.model2.norm0.weight",
+      "backbone.model2.norm0.bias",
+      "backbone.model2.norm1.weight",
+      "backbone.model2.norm1.bias",
+      "backbone.model2.norm2.weight",
+      "backbone.model2.norm2.bias",
+      "backbone.model2.norm3.weight",
+      "backbone.model2.norm3.bias",
+      "backbone.model3.norm0.weight",
+      "backbone.model3.norm0.bias",
+      "backbone.model3.norm1.weight",
+      "backbone.model3.norm1.bias",
+      "backbone.model3.norm2.weight",
+      "backbone.model3.norm2.bias",
+      "backbone.model3.norm3.weight",
+      "backbone.model3.norm3.bias",
+      "backbone.fusion1.fusion_layers.0.0.weight",
+      "backbone.fusion1.fusion_layers.0.0.bias",
+      "backbone.fusion1.fusion_layers.0.1.bias",
+      "backbone.fusion1.fusion_layers.1.0.weight",
+      "backbone.fusion1.fusion_layers.1.0.bias",
+      "backbone.fusion1.fusion_layers.1.1.bias",
+      "backbone.fusion1.fusion_layers.2.0.weight",
+      "backbone.fusion1.fusion_layers.2.0.bias",
+      "backbone.fusion1.fusion_layers.2.1.bias",
+      "backbone.fusion1.fusion_layers.3.0.weight",
+      "backbone.fusion1.fusion_layers.3.0.bias",
+      "backbone.fusion1.fusion_layers.3.1.bias",
+      "backbone.fusion1.norm0.weight",
+      "backbone.fusion1.norm0.bias",
+      "backbone.fusion1.norm1.weight",
+      "backbone.fusion1.norm1.bias",
+      "backbone.fusion1.norm2.weight",
+      "backbone.fusion1.norm2.bias",
+      "backbone.fusion1.norm3.weight",
+      "backbone.fusion1.norm3.bias",
+      "backbone.fusion2.fusion_layers.0.0.weight",
+      "backbone.fusion2.fusion_layers.0.0.bias",
+      "backbone.fusion2.fusion_layers.0.1.bias",
+      "backbone.fusion2.fusion_layers.1.0.weight",
+      "backbone.fusion2.fusion_layers.1.0.bias",
+      "backbone.fusion2.fusion_layers.1.1.bias",
+      "backbone.fusion2.fusion_layers.2.0.weight",
+      "backbone.fusion2.fusion_layers.2.0.bias",
+      "backbone.fusion2.fusion_layers.2.1.bias",
+      "backbone.fusion2.fusion_layers.3.0.weight",
+      "backbone.fusion2.fusion_layers.3.0.bias",
+      "backbone.fusion2.fusion_layers.3.1.bias",
+      "backbone.fusion2.norm0.weight",
+      "backbone.fusion2.norm0.bias",
+      "backbone.fusion2.norm1.weight",
+      "backbone.fusion2.norm1.bias",
+      "backbone.fusion2.norm2.weight",
+      "backbone.fusion2.norm2.bias",
+      "backbone.fusion2.norm3.weight",
+      "backbone.fusion2.norm3.bias",
+      "backbone.scatter1.fusion_layers.0.0.weight",
+      "backbone.scatter1.fusion_layers.0.0.bias",
+      "backbone.scatter1.fusion_layers.0.1.bias",
+      "backbone.scatter1.fusion_layers.1.0.weight",
+      "backbone.scatter1.fusion_layers.1.0.bias",
+      "backbone.scatter1.fusion_layers.1.1.bias",
+      "backbone.scatter1.fusion_layers.2.0.weight",
+      "backbone.scatter1.fusion_layers.2.0.bias",
+      "backbone.scatter1.fusion_layers.2.1.bias",
+      "backbone.scatter1.fusion_layers.3.0.weight",
+      "backbone.scatter1.fusion_layers.3.0.bias",
+      "backbone.scatter1.fusion_layers.3.1.bias",
+      "backbone.scatter2.fusion_layers.0.0.weight",
+      "backbone.scatter2.fusion_layers.0.0.bias",
+      "backbone.scatter2.fusion_layers.0.1.bias",
+      "backbone.scatter2.fusion_layers.1.0.weight",
+      "backbone.scatter2.fusion_layers.1.0.bias",
+      "backbone.scatter2.fusion_layers.1.1.bias",
+      "backbone.scatter2.fusion_layers.2.0.weight",
+      "backbone.scatter2.fusion_layers.2.0.bias",
+      "backbone.scatter2.fusion_layers.2.1.bias",
+      "backbone.scatter2.fusion_layers.3.0.weight",
+      "backbone.scatter2.fusion_layers.3.0.bias",
+      "backbone.scatter2.fusion_layers.3.1.bias",
+      "backbone.scatter3.fusion_layers.0.0.weight",
+      "backbone.scatter3.fusion_layers.0.0.bias",
+      "backbone.scatter3.fusion_layers.0.1.bias",
+      "backbone.scatter3.fusion_layers.1.0.weight",
+      "backbone.scatter3.fusion_layers.1.0.bias",
+      "backbone.scatter3.fusion_layers.1.1.bias",
+      "backbone.scatter3.fusion_layers.2.0.weight",
+      "backbone.scatter3.fusion_layers.2.0.bias",
+      "backbone.scatter3.fusion_layers.2.1.bias",
+      "backbone.scatter3.fusion_layers.3.0.weight",
+      "backbone.scatter3.fusion_layers.3.0.bias",
+      "backbone.scatter3.fusion_layers.3.1.bias",
+      "neck.convs.0.gn.weight",
+      "neck.convs.0.gn.bias",
+      "neck.convs.1.gn.weight",
+      "neck.convs.1.gn.bias",
+      "neck.convs.2.gn.weight",
+      "neck.convs.2.gn.bias",
+      "neck.extra_convs.0.gn.weight",
+      "neck.extra_convs.0.gn.bias",
+      "bbox_head.transformer.encoder.layers.0.attentions.0.sampling_offsets.bias",
+      "bbox_head.transformer.encoder.layers.0.attentions.0.attention_weights.bias",
+      "bbox_head.transformer.encoder.layers.0.attentions.0.value_proj.bias",
+      "bbox_head.transformer.encoder.layers.0.attentions.0.output_proj.bias",
+      "bbox_head.transformer.encoder.layers.0.ffns.0.layers.0.0.bias",
+      "bbox_head.transformer.encoder.layers.0.ffns.0.layers.1.bias",
+      "bbox_head.transformer.encoder.layers.0.norms.0.weight",
+      "bbox_head.transformer.encoder.layers.0.norms.0.bias",
+      "bbox_head.transformer.encoder.layers.0.norms.1.weight",
+      "bbox_head.transformer.encoder.layers.0.norms.1.bias",
+      "bbox_head.transformer.encoder.layers.1.attentions.0.sampling_offsets.bias",
+      "bbox_head.transformer.encoder.layers.1.attentions.0.attention_weights.bias",
+      "bbox_head.transformer.encoder.layers.1.attentions.0.value_proj.bias",
+      "bbox_head.transformer.encoder.layers.1.attentions.0.output_proj.bias",
+      "bbox_head.transformer.encoder.layers.1.ffns.0.layers.0.0.bias",
+      "bbox_head.transformer.encoder.layers.1.ffns.0.layers.1.bias",
+      "bbox_head.transformer.encoder.layers.1.norms.0.weight",
+      "bbox_head.transformer.encoder.layers.1.norms.0.bias",
+      "bbox_head.transformer.encoder.layers.1.norms.1.weight",
+      "bbox_head.transformer.encoder.layers.1.norms.1.bias",
+      "bbox_head.transformer.encoder.layers.2.attentions.0.sampling_offsets.bias",
+      "bbox_head.transformer.encoder.layers.2.attentions.0.attention_weights.bias",
+      "bbox_head.transformer.encoder.layers.2.attentions.0.value_proj.bias",
+      "bbox_head.transformer.encoder.layers.2.attentions.0.output_proj.bias",
+      "bbox_head.transformer.encoder.layers.2.ffns.0.layers.0.0.bias",
+      "bbox_head.transformer.encoder.layers.2.ffns.0.layers.1.bias",
+      "bbox_head.transformer.encoder.layers.2.norms.0.weight",
+      "bbox_head.transformer.encoder.layers.2.norms.0.bias",
+      "bbox_head.transformer.encoder.layers.2.norms.1.weight",
+      "bbox_head.transformer.encoder.layers.2.norms.1.bias",
+      "bbox_head.transformer.encoder.layers.3.attentions.0.sampling_offsets.bias",
+      "bbox_head.transformer.encoder.layers.3.attentions.0.attention_weights.bias",
+      "bbox_head.transformer.encoder.layers.3.attentions.0.value_proj.bias",
+      "bbox_head.transformer.encoder.layers.3.attentions.0.output_proj.bias",
+      "bbox_head.transformer.encoder.layers.3.ffns.0.layers.0.0.bias",
+      "bbox_head.transformer.encoder.layers.3.ffns.0.layers.1.bias",
+      "bbox_head.transformer.encoder.layers.3.norms.0.weight",
+      "bbox_head.transformer.encoder.layers.3.norms.0.bias",
+      "bbox_head.transformer.encoder.layers.3.norms.1.weight",
+      "bbox_head.transformer.encoder.layers.3.norms.1.bias",
+      "bbox_head.transformer.encoder.layers.4.attentions.0.sampling_offsets.bias",
+      "bbox_head.transformer.encoder.layers.4.attentions.0.attention_weights.bias",
+      "bbox_head.transformer.encoder.layers.4.attentions.0.value_proj.bias",
+      "bbox_head.transformer.encoder.layers.4.attentions.0.output_proj.bias",
+      "bbox_head.transformer.encoder.layers.4.ffns.0.layers.0.0.bias",
+      "bbox_head.transformer.encoder.layers.4.ffns.0.layers.1.bias",
+      "bbox_head.transformer.encoder.layers.4.norms.0.weight",
+      "bbox_head.transformer.encoder.layers.4.norms.0.bias",
+      "bbox_head.transformer.encoder.layers.4.norms.1.weight",
+      "bbox_head.transformer.encoder.layers.4.norms.1.bias",
+      "bbox_head.transformer.encoder.layers.5.attentions.0.sampling_offsets.bias",
+      "bbox_head.transformer.encoder.layers.5.attentions.0.attention_weights.bias",
+      "bbox_head.transformer.encoder.layers.5.attentions.0.value_proj.bias",
+      "bbox_head.transformer.encoder.layers.5.attentions.0.output_proj.bias",
+      "bbox_head.transformer.encoder.layers.5.ffns.0.layers.0.0.bias",
+      "bbox_head.transformer.encoder.layers.5.ffns.0.layers.1.bias",
+      "bbox_head.transformer.encoder.layers.5.norms.0.weight",
+      "bbox_head.transformer.encoder.layers.5.norms.0.bias",
+      "bbox_head.transformer.encoder.layers.5.norms.1.weight",
+      "bbox_head.transformer.encoder.layers.5.norms.1.bias",
+      "bbox_head.transformer.decoder.layers.0.attentions.0.attn.in_proj_bias",
+      "bbox_head.transformer.decoder.layers.0.attentions.0.attn.out_proj.bias",
+      "bbox_head.transformer.decoder.layers.0.attentions.1.sampling_offsets.bias",
+      "bbox_head.transformer.decoder.layers.0.attentions.1.attention_weights.bias",
+      "bbox_head.transformer.decoder.layers.0.attentions.1.value_proj.bias",
+      "bbox_head.transformer.decoder.layers.0.attentions.1.output_proj.bias",
+      "bbox_head.transformer.decoder.layers.0.ffns.0.layers.0.0.bias",
+      "bbox_head.transformer.decoder.layers.0.ffns.0.layers.1.bias",
+      "bbox_head.transformer.decoder.layers.0.norms.0.weight",
+      "bbox_head.transformer.decoder.layers.0.norms.0.bias",
+      "bbox_head.transformer.decoder.layers.0.norms.1.weight",
+      "bbox_head.transformer.decoder.layers.0.norms.1.bias",
+      "bbox_head.transformer.decoder.layers.0.norms.2.weight",
+      "bbox_head.transformer.decoder.layers.0.norms.2.bias",
+      "bbox_head.transformer.decoder.layers.1.attentions.0.attn.in_proj_bias",
+      "bbox_head.transformer.decoder.layers.1.attentions.0.attn.out_proj.bias",
+      "bbox_head.transformer.decoder.layers.1.attentions.1.sampling_offsets.bias",
+      "bbox_head.transformer.decoder.layers.1.attentions.1.attention_weights.bias",
+      "bbox_head.transformer.decoder.layers.1.attentions.1.value_proj.bias",
+      "bbox_head.transformer.decoder.layers.1.attentions.1.output_proj.bias",
+      "bbox_head.transformer.decoder.layers.1.ffns.0.layers.0.0.bias",
+      "bbox_head.transformer.decoder.layers.1.ffns.0.layers.1.bias",
+      "bbox_head.transformer.decoder.layers.1.norms.0.weight",
+      "bbox_head.transformer.decoder.layers.1.norms.0.bias",
+      "bbox_head.transformer.decoder.layers.1.norms.1.weight",
+      "bbox_head.transformer.decoder.layers.1.norms.1.bias",
+      "bbox_head.transformer.decoder.layers.1.norms.2.weight",
+      "bbox_head.transformer.decoder.layers.1.norms.2.bias",
+      "bbox_head.transformer.decoder.layers.2.attentions.0.attn.in_proj_bias",
+      "bbox_head.transformer.decoder.layers.2.attentions.0.attn.out_proj.bias",
+      "bbox_head.transformer.decoder.layers.2.attentions.1.sampling_offsets.bias",
+      "bbox_head.transformer.decoder.layers.2.attentions.1.attention_weights.bias",
+      "bbox_head.transformer.decoder.layers.2.attentions.1.value_proj.bias",
+      "bbox_head.transformer.decoder.layers.2.attentions.1.output_proj.bias",
+      "bbox_head.transformer.decoder.layers.2.ffns.0.layers.0.0.bias",
+      "bbox_head.transformer.decoder.layers.2.ffns.0.layers.1.bias",
+      "bbox_head.transformer.decoder.layers.2.norms.0.weight",
+      "bbox_head.transformer.decoder.layers.2.norms.0.bias",
+      "bbox_head.transformer.decoder.layers.2.norms.1.weight",
+      "bbox_head.transformer.decoder.layers.2.norms.1.bias",
+      "bbox_head.transformer.decoder.layers.2.norms.2.weight",
+      "bbox_head.transformer.decoder.layers.2.norms.2.bias",
+      "bbox_head.transformer.decoder.layers.3.attentions.0.attn.in_proj_bias",
+      "bbox_head.transformer.decoder.layers.3.attentions.0.attn.out_proj.bias",
+      "bbox_head.transformer.decoder.layers.3.attentions.1.sampling_offsets.bias",
+      "bbox_head.transformer.decoder.layers.3.attentions.1.attention_weights.bias",
+      "bbox_head.transformer.decoder.layers.3.attentions.1.value_proj.bias",
+      "bbox_head.transformer.decoder.layers.3.attentions.1.output_proj.bias",
+      "bbox_head.transformer.decoder.layers.3.ffns.0.layers.0.0.bias",
+      "bbox_head.transformer.decoder.layers.3.ffns.0.layers.1.bias",
+      "bbox_head.transformer.decoder.layers.3.norms.0.weight",
+      "bbox_head.transformer.decoder.layers.3.norms.0.bias",
+      "bbox_head.transformer.decoder.layers.3.norms.1.weight",
+      "bbox_head.transformer.decoder.layers.3.norms.1.bias",
+      "bbox_head.transformer.decoder.layers.3.norms.2.weight",
+      "bbox_head.transformer.decoder.layers.3.norms.2.bias",
+      "bbox_head.transformer.decoder.layers.4.attentions.0.attn.in_proj_bias",
+      "bbox_head.transformer.decoder.layers.4.attentions.0.attn.out_proj.bias",
+      "bbox_head.transformer.decoder.layers.4.attentions.1.sampling_offsets.bias",
+      "bbox_head.transformer.decoder.layers.4.attentions.1.attention_weights.bias",
+      "bbox_head.transformer.decoder.layers.4.attentions.1.value_proj.bias",
+      "bbox_head.transformer.decoder.layers.4.attentions.1.output_proj.bias",
+      "bbox_head.transformer.decoder.layers.4.ffns.0.layers.0.0.bias",
+      "bbox_head.transformer.decoder.layers.4.ffns.0.layers.1.bias",
+      "bbox_head.transformer.decoder.layers.4.norms.0.weight",
+      "bbox_head.transformer.decoder.layers.4.norms.0.bias",
+      "bbox_head.transformer.decoder.layers.4.norms.1.weight",
+      "bbox_head.transformer.decoder.layers.4.norms.1.bias",
+      "bbox_head.transformer.decoder.layers.4.norms.2.weight",
+      "bbox_head.transformer.decoder.layers.4.norms.2.bias",
+      "bbox_head.transformer.decoder.layers.5.attentions.0.attn.in_proj_bias",
+      "bbox_head.transformer.decoder.layers.5.attentions.0.attn.out_proj.bias",
+      "bbox_head.transformer.decoder.layers.5.attentions.1.sampling_offsets.bias",
+      "bbox_head.transformer.decoder.layers.5.attentions.1.attention_weights.bias",
+      "bbox_head.transformer.decoder.layers.5.attentions.1.value_proj.bias",
+      "bbox_head.transformer.decoder.layers.5.attentions.1.output_proj.bias",
+      "bbox_head.transformer.decoder.layers.5.ffns.0.layers.0.0.bias",
+      "bbox_head.transformer.decoder.layers.5.ffns.0.layers.1.bias",
+      "bbox_head.transformer.decoder.layers.5.norms.0.weight",
+      "bbox_head.transformer.decoder.layers.5.norms.0.bias",
+      "bbox_head.transformer.decoder.layers.5.norms.1.weight",
+      "bbox_head.transformer.decoder.layers.5.norms.1.bias",
+      "bbox_head.transformer.decoder.layers.5.norms.2.weight",
+      "bbox_head.transformer.decoder.layers.5.norms.2.bias",
+      "bbox_head.transformer.enc_output.bias",
+      "bbox_head.transformer.enc_output_norm.weight",
+      "bbox_head.transformer.enc_output_norm.bias",
+      "bbox_head.transformer.pos_trans.bias",
+      "bbox_head.transformer.pos_trans_norm.weight",
+      "bbox_head.transformer.pos_trans_norm.bias",
+      "bbox_head.cls_branches.0.bias",
+      "bbox_head.cls_branches.1.bias",
+      "bbox_head.cls_branches.2.bias",
+      "bbox_head.cls_branches.3.bias",
+      "bbox_head.cls_branches.4.bias",
+      "bbox_head.cls_branches.5.bias",
+      "bbox_head.cls_branches.6.bias",
+      "bbox_head.reg_branches.0.0.bias",
+      "bbox_head.reg_branches.0.2.bias",
+      "bbox_head.reg_branches.0.4.bias",
+      "bbox_head.reg_branches.1.0.bias",
+      "bbox_head.reg_branches.1.2.bias",
+      "bbox_head.reg_branches.1.4.bias",
+      "bbox_head.reg_branches.2.0.bias",
+      "bbox_head.reg_branches.2.2.bias",
+      "bbox_head.reg_branches.2.4.bias",
+      "bbox_head.reg_branches.3.0.bias",
+      "bbox_head.reg_branches.3.2.bias",
+      "bbox_head.reg_branches.3.4.bias",
+      "bbox_head.reg_branches.4.0.bias",
+      "bbox_head.reg_branches.4.2.bias",
+      "bbox_head.reg_branches.4.4.bias",
+      "bbox_head.reg_branches.5.0.bias",
+      "bbox_head.reg_branches.5.2.bias",
+      "bbox_head.reg_branches.5.4.bias",
+      "bbox_head.reg_branches.6.0.bias",
+      "bbox_head.reg_branches.6.2.bias",
+      "bbox_head.reg_branches.6.4.bias"
+    ],
+    "lr_scale": 1.0,
+    "lr": 0.0002,
+    "weight_decay": 0.0
+  },
+  "layer_13_decay": {
+    "param_names": [
+      "backbone.fusion1.fusion_layers.0.1.weight",
+      "backbone.fusion1.fusion_layers.1.1.weight",
+      "backbone.fusion1.fusion_layers.2.1.weight",
+      "backbone.fusion1.fusion_layers.3.1.weight",
+      "backbone.fusion2.fusion_layers.0.1.weight",
+      "backbone.fusion2.fusion_layers.1.1.weight",
+      "backbone.fusion2.fusion_layers.2.1.weight",
+      "backbone.fusion2.fusion_layers.3.1.weight",
+      "backbone.scatter1.fusion_layers.0.1.weight",
+      "backbone.scatter1.fusion_layers.1.1.weight",
+      "backbone.scatter1.fusion_layers.2.1.weight",
+      "backbone.scatter1.fusion_layers.3.1.weight",
+      "backbone.scatter2.fusion_layers.0.1.weight",
+      "backbone.scatter2.fusion_layers.1.1.weight",
+      "backbone.scatter2.fusion_layers.2.1.weight",
+      "backbone.scatter2.fusion_layers.3.1.weight",
+      "backbone.scatter3.fusion_layers.0.1.weight",
+      "backbone.scatter3.fusion_layers.1.1.weight",
+      "backbone.scatter3.fusion_layers.2.1.weight",
+      "backbone.scatter3.fusion_layers.3.1.weight",
+      "neck.convs.0.conv.weight",
+      "neck.convs.1.conv.weight",
+      "neck.convs.2.conv.weight",
+      "neck.extra_convs.0.conv.weight",
+      "bbox_head.transformer.level_embeds",
+      "bbox_head.transformer.encoder.layers.0.attentions.0.sampling_offsets.weight",
+      "bbox_head.transformer.encoder.layers.0.attentions.0.attention_weights.weight",
+      "bbox_head.transformer.encoder.layers.0.attentions.0.value_proj.weight",
+      "bbox_head.transformer.encoder.layers.0.attentions.0.output_proj.weight",
+      "bbox_head.transformer.encoder.layers.0.ffns.0.layers.0.0.weight",
+      "bbox_head.transformer.encoder.layers.0.ffns.0.layers.1.weight",
+      "bbox_head.transformer.encoder.layers.1.attentions.0.sampling_offsets.weight",
+      "bbox_head.transformer.encoder.layers.1.attentions.0.attention_weights.weight",
+      "bbox_head.transformer.encoder.layers.1.attentions.0.value_proj.weight",
+      "bbox_head.transformer.encoder.layers.1.attentions.0.output_proj.weight",
+      "bbox_head.transformer.encoder.layers.1.ffns.0.layers.0.0.weight",
+      "bbox_head.transformer.encoder.layers.1.ffns.0.layers.1.weight",
+      "bbox_head.transformer.encoder.layers.2.attentions.0.sampling_offsets.weight",
+      "bbox_head.transformer.encoder.layers.2.attentions.0.attention_weights.weight",
+      "bbox_head.transformer.encoder.layers.2.attentions.0.value_proj.weight",
+      "bbox_head.transformer.encoder.layers.2.attentions.0.output_proj.weight",
+      "bbox_head.transformer.encoder.layers.2.ffns.0.layers.0.0.weight",
+      "bbox_head.transformer.encoder.layers.2.ffns.0.layers.1.weight",
+      "bbox_head.transformer.encoder.layers.3.attentions.0.sampling_offsets.weight",
+      "bbox_head.transformer.encoder.layers.3.attentions.0.attention_weights.weight",
+      "bbox_head.transformer.encoder.layers.3.attentions.0.value_proj.weight",
+      "bbox_head.transformer.encoder.layers.3.attentions.0.output_proj.weight",
+      "bbox_head.transformer.encoder.layers.3.ffns.0.layers.0.0.weight",
+      "bbox_head.transformer.encoder.layers.3.ffns.0.layers.1.weight",
+      "bbox_head.transformer.encoder.layers.4.attentions.0.sampling_offsets.weight",
+      "bbox_head.transformer.encoder.layers.4.attentions.0.attention_weights.weight",
+      "bbox_head.transformer.encoder.layers.4.attentions.0.value_proj.weight",
+      "bbox_head.transformer.encoder.layers.4.attentions.0.output_proj.weight",
+      "bbox_head.transformer.encoder.layers.4.ffns.0.layers.0.0.weight",
+      "bbox_head.transformer.encoder.layers.4.ffns.0.layers.1.weight",
+      "bbox_head.transformer.encoder.layers.5.attentions.0.sampling_offsets.weight",
+      "bbox_head.transformer.encoder.layers.5.attentions.0.attention_weights.weight",
+      "bbox_head.transformer.encoder.layers.5.attentions.0.value_proj.weight",
+      "bbox_head.transformer.encoder.layers.5.attentions.0.output_proj.weight",
+      "bbox_head.transformer.encoder.layers.5.ffns.0.layers.0.0.weight",
+      "bbox_head.transformer.encoder.layers.5.ffns.0.layers.1.weight",
+      "bbox_head.transformer.decoder.layers.0.attentions.0.attn.in_proj_weight",
+      "bbox_head.transformer.decoder.layers.0.attentions.0.attn.out_proj.weight",
+      "bbox_head.transformer.decoder.layers.0.attentions.1.sampling_offsets.weight",
+      "bbox_head.transformer.decoder.layers.0.attentions.1.attention_weights.weight",
+      "bbox_head.transformer.decoder.layers.0.attentions.1.value_proj.weight",
+      "bbox_head.transformer.decoder.layers.0.attentions.1.output_proj.weight",
+      "bbox_head.transformer.decoder.layers.0.ffns.0.layers.0.0.weight",
+      "bbox_head.transformer.decoder.layers.0.ffns.0.layers.1.weight",
+      "bbox_head.transformer.decoder.layers.1.attentions.0.attn.in_proj_weight",
+      "bbox_head.transformer.decoder.layers.1.attentions.0.attn.out_proj.weight",
+      "bbox_head.transformer.decoder.layers.1.attentions.1.sampling_offsets.weight",
+      "bbox_head.transformer.decoder.layers.1.attentions.1.attention_weights.weight",
+      "bbox_head.transformer.decoder.layers.1.attentions.1.value_proj.weight",
+      "bbox_head.transformer.decoder.layers.1.attentions.1.output_proj.weight",
+      "bbox_head.transformer.decoder.layers.1.ffns.0.layers.0.0.weight",
+      "bbox_head.transformer.decoder.layers.1.ffns.0.layers.1.weight",
+      "bbox_head.transformer.decoder.layers.2.attentions.0.attn.in_proj_weight",
+      "bbox_head.transformer.decoder.layers.2.attentions.0.attn.out_proj.weight",
+      "bbox_head.transformer.decoder.layers.2.attentions.1.sampling_offsets.weight",
+      "bbox_head.transformer.decoder.layers.2.attentions.1.attention_weights.weight",
+      "bbox_head.transformer.decoder.layers.2.attentions.1.value_proj.weight",
+      "bbox_head.transformer.decoder.layers.2.attentions.1.output_proj.weight",
+      "bbox_head.transformer.decoder.layers.2.ffns.0.layers.0.0.weight",
+      "bbox_head.transformer.decoder.layers.2.ffns.0.layers.1.weight",
+      "bbox_head.transformer.decoder.layers.3.attentions.0.attn.in_proj_weight",
+      "bbox_head.transformer.decoder.layers.3.attentions.0.attn.out_proj.weight",
+      "bbox_head.transformer.decoder.layers.3.attentions.1.sampling_offsets.weight",
+      "bbox_head.transformer.decoder.layers.3.attentions.1.attention_weights.weight",
+      "bbox_head.transformer.decoder.layers.3.attentions.1.value_proj.weight",
+      "bbox_head.transformer.decoder.layers.3.attentions.1.output_proj.weight",
+      "bbox_head.transformer.decoder.layers.3.ffns.0.layers.0.0.weight",
+      "bbox_head.transformer.decoder.layers.3.ffns.0.layers.1.weight",
+      "bbox_head.transformer.decoder.layers.4.attentions.0.attn.in_proj_weight",
+      "bbox_head.transformer.decoder.layers.4.attentions.0.attn.out_proj.weight",
+      "bbox_head.transformer.decoder.layers.4.attentions.1.sampling_offsets.weight",
+      "bbox_head.transformer.decoder.layers.4.attentions.1.attention_weights.weight",
+      "bbox_head.transformer.decoder.layers.4.attentions.1.value_proj.weight",
+      "bbox_head.transformer.decoder.layers.4.attentions.1.output_proj.weight",
+      "bbox_head.transformer.decoder.layers.4.ffns.0.layers.0.0.weight",
+      "bbox_head.transformer.decoder.layers.4.ffns.0.layers.1.weight",
+      "bbox_head.transformer.decoder.layers.5.attentions.0.attn.in_proj_weight",
+      "bbox_head.transformer.decoder.layers.5.attentions.0.attn.out_proj.weight",
+      "bbox_head.transformer.decoder.layers.5.attentions.1.sampling_offsets.weight",
+      "bbox_head.transformer.decoder.layers.5.attentions.1.attention_weights.weight",
+      "bbox_head.transformer.decoder.layers.5.attentions.1.value_proj.weight",
+      "bbox_head.transformer.decoder.layers.5.attentions.1.output_proj.weight",
+      "bbox_head.transformer.decoder.layers.5.ffns.0.layers.0.0.weight",
+      "bbox_head.transformer.decoder.layers.5.ffns.0.layers.1.weight",
+      "bbox_head.transformer.enc_output.weight",
+      "bbox_head.transformer.pos_trans.weight",
+      "bbox_head.cls_branches.0.weight",
+      "bbox_head.cls_branches.1.weight",
+      "bbox_head.cls_branches.2.weight",
+      "bbox_head.cls_branches.3.weight",
+      "bbox_head.cls_branches.4.weight",
+      "bbox_head.cls_branches.5.weight",
+      "bbox_head.cls_branches.6.weight",
+      "bbox_head.reg_branches.0.0.weight",
+      "bbox_head.reg_branches.0.2.weight",
+      "bbox_head.reg_branches.0.4.weight",
+      "bbox_head.reg_branches.1.0.weight",
+      "bbox_head.reg_branches.1.2.weight",
+      "bbox_head.reg_branches.1.4.weight",
+      "bbox_head.reg_branches.2.0.weight",
+      "bbox_head.reg_branches.2.2.weight",
+      "bbox_head.reg_branches.2.4.weight",
+      "bbox_head.reg_branches.3.0.weight",
+      "bbox_head.reg_branches.3.2.weight",
+      "bbox_head.reg_branches.3.4.weight",
+      "bbox_head.reg_branches.4.0.weight",
+      "bbox_head.reg_branches.4.2.weight",
+      "bbox_head.reg_branches.4.4.weight",
+      "bbox_head.reg_branches.5.0.weight",
+      "bbox_head.reg_branches.5.2.weight",
+      "bbox_head.reg_branches.5.4.weight",
+      "bbox_head.reg_branches.6.0.weight",
+      "bbox_head.reg_branches.6.2.weight",
+      "bbox_head.reg_branches.6.4.weight"
+    ],
+    "lr_scale": 1.0,
+    "lr": 0.0002,
+    "weight_decay": 0.05
+  }
+}
+loading annotations into memory...
+Done (t=0.03s)
+creating index...
+index created!
+[bash] Training completed...
+[bash] --------------------------------------------
+
+[bash] Total time taken (HH:MM): 00:36

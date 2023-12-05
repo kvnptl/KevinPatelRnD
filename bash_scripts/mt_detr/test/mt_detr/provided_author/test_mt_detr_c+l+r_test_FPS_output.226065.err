@@ -1,0 +1,186 @@
+/home/kpatel2s/anaconda3/envs/mt_detr/lib/python3.8/site-packages/mmcv/cnn/bricks/transformer.py:341: UserWarning: The arguments `feedforward_channels` in BaseTransformerLayer has been deprecated, now you should set `feedforward_channels` and other FFN related arguments to a dict named `ffn_cfgs`. 
+  warnings.warn(
+/home/kpatel2s/anaconda3/envs/mt_detr/lib/python3.8/site-packages/mmcv/cnn/bricks/transformer.py:341: UserWarning: The arguments `ffn_dropout` in BaseTransformerLayer has been deprecated, now you should set `ffn_drop` and other FFN related arguments to a dict named `ffn_cfgs`. 
+  warnings.warn(
+/home/kpatel2s/anaconda3/envs/mt_detr/lib/python3.8/site-packages/mmcv/cnn/bricks/transformer.py:341: UserWarning: The arguments `ffn_num_fcs` in BaseTransformerLayer has been deprecated, now you should set `num_fcs` and other FFN related arguments to a dict named `ffn_cfgs`. 
+  warnings.warn(
+/home/kpatel2s/anaconda3/envs/mt_detr/lib/python3.8/site-packages/mmcv/cnn/bricks/transformer.py:92: UserWarning: The arguments `dropout` in MultiheadAttention has been deprecated, now you can separately set `attn_drop`(float), proj_drop(float), and `dropout_layer`(dict) 
+  warnings.warn('The arguments `dropout` in MultiheadAttention '
+/home/kpatel2s/anaconda3/envs/mt_detr/lib/python3.8/site-packages/torch/nn/functional.py:1806: UserWarning: nn.functional.sigmoid is deprecated. Use torch.sigmoid instead.
+  warnings.warn("nn.functional.sigmoid is deprecated. Use torch.sigmoid instead.")
+/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr/mmdet/models/utils/positional_encoding.py:80: UserWarning: __floordiv__ is deprecated, and its behavior will change in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values. To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor').
+  dim_t = self.temperature**(2 * (dim_t // 2) / self.num_feats)
+/home/kpatel2s/anaconda3/envs/mt_detr/lib/python3.8/site-packages/torch/functional.py:445: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at  ../aten/src/ATen/native/TensorShape.cpp:2157.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr/mmdet/models/utils/transformer.py:522: UserWarning: __floordiv__ is deprecated, and its behavior will change in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values. To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor').
+  dim_t = temperature**(2 * (dim_t // 2) / num_pos_feats)
+/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr/mmdet/models/dense_heads/detr_head.py:665: UserWarning: __floordiv__ is deprecated, and its behavior will change in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values. To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor').
+  bbox_index = indexes // self.num_classes
+/home/kpatel2s/anaconda3/envs/mt_detr/lib/python3.8/site-packages/mmcv/cnn/bricks/transformer.py:341: UserWarning: The arguments `feedforward_channels` in BaseTransformerLayer has been deprecated, now you should set `feedforward_channels` and other FFN related arguments to a dict named `ffn_cfgs`. 
+  warnings.warn(
+/home/kpatel2s/anaconda3/envs/mt_detr/lib/python3.8/site-packages/mmcv/cnn/bricks/transformer.py:341: UserWarning: The arguments `ffn_dropout` in BaseTransformerLayer has been deprecated, now you should set `ffn_drop` and other FFN related arguments to a dict named `ffn_cfgs`. 
+  warnings.warn(
+/home/kpatel2s/anaconda3/envs/mt_detr/lib/python3.8/site-packages/mmcv/cnn/bricks/transformer.py:341: UserWarning: The arguments `ffn_num_fcs` in BaseTransformerLayer has been deprecated, now you should set `num_fcs` and other FFN related arguments to a dict named `ffn_cfgs`. 
+  warnings.warn(
+/home/kpatel2s/anaconda3/envs/mt_detr/lib/python3.8/site-packages/mmcv/cnn/bricks/transformer.py:92: UserWarning: The arguments `dropout` in MultiheadAttention has been deprecated, now you can separately set `attn_drop`(float), proj_drop(float), and `dropout_layer`(dict) 
+  warnings.warn('The arguments `dropout` in MultiheadAttention '
+/home/kpatel2s/anaconda3/envs/mt_detr/lib/python3.8/site-packages/torch/nn/functional.py:1806: UserWarning: nn.functional.sigmoid is deprecated. Use torch.sigmoid instead.
+  warnings.warn("nn.functional.sigmoid is deprecated. Use torch.sigmoid instead.")
+/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr/mmdet/models/utils/positional_encoding.py:80: UserWarning: __floordiv__ is deprecated, and its behavior will change in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values. To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor').
+  dim_t = self.temperature**(2 * (dim_t // 2) / self.num_feats)
+/home/kpatel2s/anaconda3/envs/mt_detr/lib/python3.8/site-packages/torch/functional.py:445: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at  ../aten/src/ATen/native/TensorShape.cpp:2157.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr/mmdet/models/utils/transformer.py:522: UserWarning: __floordiv__ is deprecated, and its behavior will change in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values. To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor').
+  dim_t = temperature**(2 * (dim_t // 2) / num_pos_feats)
+/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr/mmdet/models/dense_heads/detr_head.py:665: UserWarning: __floordiv__ is deprecated, and its behavior will change in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values. To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor').
+  bbox_index = indexes // self.num_classes
+Traceback (most recent call last):
+  File "/home/kpatel2s/anaconda3/envs/mt_detr/lib/python3.8/site-packages/mmcv/utils/registry.py", line 52, in build_from_cfg
+    return obj_cls(**args)
+  File "/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr/mmdet/datasets/custom.py", line 88, in __init__
+    self.data_infos = self.load_annotations(self.ann_file)
+  File "/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr/mmdet/datasets/coco.py", line 47, in load_annotations
+    self.coco = COCO(ann_file)
+  File "/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr/mmdet/datasets/api_wrappers/coco_api.py", line 22, in __init__
+    super().__init__(annotation_file=annotation_file)
+  File "/home/kpatel2s/anaconda3/envs/mt_detr/lib/python3.8/site-packages/pycocotools/coco.py", line 81, in __init__
+    with open(annotation_file, 'r') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'data/coco_annotation/new_split_10_perc_train_raw/light_fog_day.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "tools/test.py", line 261, in <module>
+    main()
+  File "tools/test.py", line 190, in main
+    dataset = build_dataset(cfg.data.test)
+  File "/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr/mmdet/datasets/builder.py", line 71, in build_dataset
+    dataset = build_from_cfg(cfg, DATASETS, default_args)
+  File "/home/kpatel2s/anaconda3/envs/mt_detr/lib/python3.8/site-packages/mmcv/utils/registry.py", line 55, in build_from_cfg
+    raise type(e)(f'{obj_cls.__name__}: {e}')
+FileNotFoundError: CocoDataset: [Errno 2] No such file or directory: 'data/coco_annotation/new_split_10_perc_train_raw/light_fog_day.json'
+Traceback (most recent call last):
+  File "/home/kpatel2s/anaconda3/envs/mt_detr/lib/python3.8/site-packages/mmcv/utils/registry.py", line 52, in build_from_cfg
+    return obj_cls(**args)
+  File "/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr/mmdet/datasets/custom.py", line 88, in __init__
+    self.data_infos = self.load_annotations(self.ann_file)
+  File "/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr/mmdet/datasets/coco.py", line 47, in load_annotations
+    self.coco = COCO(ann_file)
+  File "/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr/mmdet/datasets/api_wrappers/coco_api.py", line 22, in __init__
+    super().__init__(annotation_file=annotation_file)
+  File "/home/kpatel2s/anaconda3/envs/mt_detr/lib/python3.8/site-packages/pycocotools/coco.py", line 81, in __init__
+    with open(annotation_file, 'r') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'data/coco_annotation/new_split_10_perc_train_raw/light_fog_night.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "tools/test.py", line 261, in <module>
+    main()
+  File "tools/test.py", line 190, in main
+    dataset = build_dataset(cfg.data.test)
+  File "/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr/mmdet/datasets/builder.py", line 71, in build_dataset
+    dataset = build_from_cfg(cfg, DATASETS, default_args)
+  File "/home/kpatel2s/anaconda3/envs/mt_detr/lib/python3.8/site-packages/mmcv/utils/registry.py", line 55, in build_from_cfg
+    raise type(e)(f'{obj_cls.__name__}: {e}')
+FileNotFoundError: CocoDataset: [Errno 2] No such file or directory: 'data/coco_annotation/new_split_10_perc_train_raw/light_fog_night.json'
+Traceback (most recent call last):
+  File "/home/kpatel2s/anaconda3/envs/mt_detr/lib/python3.8/site-packages/mmcv/utils/registry.py", line 52, in build_from_cfg
+    return obj_cls(**args)
+  File "/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr/mmdet/datasets/custom.py", line 88, in __init__
+    self.data_infos = self.load_annotations(self.ann_file)
+  File "/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr/mmdet/datasets/coco.py", line 47, in load_annotations
+    self.coco = COCO(ann_file)
+  File "/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr/mmdet/datasets/api_wrappers/coco_api.py", line 22, in __init__
+    super().__init__(annotation_file=annotation_file)
+  File "/home/kpatel2s/anaconda3/envs/mt_detr/lib/python3.8/site-packages/pycocotools/coco.py", line 81, in __init__
+    with open(annotation_file, 'r') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'data/coco_annotation/new_split_10_perc_train_raw/dense_fog_day.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "tools/test.py", line 261, in <module>
+    main()
+  File "tools/test.py", line 190, in main
+    dataset = build_dataset(cfg.data.test)
+  File "/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr/mmdet/datasets/builder.py", line 71, in build_dataset
+    dataset = build_from_cfg(cfg, DATASETS, default_args)
+  File "/home/kpatel2s/anaconda3/envs/mt_detr/lib/python3.8/site-packages/mmcv/utils/registry.py", line 55, in build_from_cfg
+    raise type(e)(f'{obj_cls.__name__}: {e}')
+FileNotFoundError: CocoDataset: [Errno 2] No such file or directory: 'data/coco_annotation/new_split_10_perc_train_raw/dense_fog_day.json'
+Traceback (most recent call last):
+  File "/home/kpatel2s/anaconda3/envs/mt_detr/lib/python3.8/site-packages/mmcv/utils/registry.py", line 52, in build_from_cfg
+    return obj_cls(**args)
+  File "/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr/mmdet/datasets/custom.py", line 88, in __init__
+    self.data_infos = self.load_annotations(self.ann_file)
+  File "/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr/mmdet/datasets/coco.py", line 47, in load_annotations
+    self.coco = COCO(ann_file)
+  File "/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr/mmdet/datasets/api_wrappers/coco_api.py", line 22, in __init__
+    super().__init__(annotation_file=annotation_file)
+  File "/home/kpatel2s/anaconda3/envs/mt_detr/lib/python3.8/site-packages/pycocotools/coco.py", line 81, in __init__
+    with open(annotation_file, 'r') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'data/coco_annotation/new_split_10_perc_train_raw/dense_fog_night.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "tools/test.py", line 261, in <module>
+    main()
+  File "tools/test.py", line 190, in main
+    dataset = build_dataset(cfg.data.test)
+  File "/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr/mmdet/datasets/builder.py", line 71, in build_dataset
+    dataset = build_from_cfg(cfg, DATASETS, default_args)
+  File "/home/kpatel2s/anaconda3/envs/mt_detr/lib/python3.8/site-packages/mmcv/utils/registry.py", line 55, in build_from_cfg
+    raise type(e)(f'{obj_cls.__name__}: {e}')
+FileNotFoundError: CocoDataset: [Errno 2] No such file or directory: 'data/coco_annotation/new_split_10_perc_train_raw/dense_fog_night.json'
+Traceback (most recent call last):
+  File "/home/kpatel2s/anaconda3/envs/mt_detr/lib/python3.8/site-packages/mmcv/utils/registry.py", line 52, in build_from_cfg
+    return obj_cls(**args)
+  File "/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr/mmdet/datasets/custom.py", line 88, in __init__
+    self.data_infos = self.load_annotations(self.ann_file)
+  File "/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr/mmdet/datasets/coco.py", line 47, in load_annotations
+    self.coco = COCO(ann_file)
+  File "/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr/mmdet/datasets/api_wrappers/coco_api.py", line 22, in __init__
+    super().__init__(annotation_file=annotation_file)
+  File "/home/kpatel2s/anaconda3/envs/mt_detr/lib/python3.8/site-packages/pycocotools/coco.py", line 81, in __init__
+    with open(annotation_file, 'r') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'data/coco_annotation/new_split_10_perc_train_raw/snow_day.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "tools/test.py", line 261, in <module>
+    main()
+  File "tools/test.py", line 190, in main
+    dataset = build_dataset(cfg.data.test)
+  File "/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr/mmdet/datasets/builder.py", line 71, in build_dataset
+    dataset = build_from_cfg(cfg, DATASETS, default_args)
+  File "/home/kpatel2s/anaconda3/envs/mt_detr/lib/python3.8/site-packages/mmcv/utils/registry.py", line 55, in build_from_cfg
+    raise type(e)(f'{obj_cls.__name__}: {e}')
+FileNotFoundError: CocoDataset: [Errno 2] No such file or directory: 'data/coco_annotation/new_split_10_perc_train_raw/snow_day.json'
+Traceback (most recent call last):
+  File "/home/kpatel2s/anaconda3/envs/mt_detr/lib/python3.8/site-packages/mmcv/utils/registry.py", line 52, in build_from_cfg
+    return obj_cls(**args)
+  File "/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr/mmdet/datasets/custom.py", line 88, in __init__
+    self.data_infos = self.load_annotations(self.ann_file)
+  File "/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr/mmdet/datasets/coco.py", line 47, in load_annotations
+    self.coco = COCO(ann_file)
+  File "/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr/mmdet/datasets/api_wrappers/coco_api.py", line 22, in __init__
+    super().__init__(annotation_file=annotation_file)
+  File "/home/kpatel2s/anaconda3/envs/mt_detr/lib/python3.8/site-packages/pycocotools/coco.py", line 81, in __init__
+    with open(annotation_file, 'r') as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'data/coco_annotation/new_split_10_perc_train_raw/snow_night.json'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "tools/test.py", line 261, in <module>
+    main()
+  File "tools/test.py", line 190, in main
+    dataset = build_dataset(cfg.data.test)
+  File "/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr/mmdet/datasets/builder.py", line 71, in build_dataset
+    dataset = build_from_cfg(cfg, DATASETS, default_args)
+  File "/home/kpatel2s/anaconda3/envs/mt_detr/lib/python3.8/site-packages/mmcv/utils/registry.py", line 55, in build_from_cfg
+    raise type(e)(f'{obj_cls.__name__}: {e}')
+FileNotFoundError: CocoDataset: [Errno 2] No such file or directory: 'data/coco_annotation/new_split_10_perc_train_raw/snow_night.json'

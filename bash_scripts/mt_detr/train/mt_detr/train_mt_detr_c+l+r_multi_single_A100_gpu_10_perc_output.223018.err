@@ -1,0 +1,613 @@
+2023-11-18 07:12:11,315 - mmdet - INFO - Environment info:
+------------------------------------------------------------
+sys.platform: linux
+Python: 3.8.18 (default, Sep 11 2023, 13:40:15) [GCC 11.2.0]
+CUDA available: True
+GPU 0,1,2,3: NVIDIA A100-SXM4-80GB
+CUDA_HOME: /usr/local/cuda-11.2
+NVCC: Build cuda_11.2.r11.2/compiler.29618528_0
+GCC: gcc (GCC) 10.1.0
+PyTorch: 1.10.1+cu111
+PyTorch compiling details: PyTorch built with:
+  - GCC 7.3
+  - C++ Version: 201402
+  - Intel(R) oneAPI Math Kernel Library Version 2023.1-Product Build 20230303 for Intel(R) 64 architecture applications
+  - Intel(R) MKL-DNN v2.2.3 (Git Hash 7336ca9f055cf1bfa13efb658fe15dc9b41f0740)
+  - OpenMP 201511 (a.k.a. OpenMP 4.5)
+  - LAPACK is enabled (usually provided by MKL)
+  - NNPACK is enabled
+  - CPU capability usage: AVX2
+  - CUDA Runtime 11.1
+  - NVCC architecture flags: -gencode;arch=compute_37,code=sm_37;-gencode;arch=compute_50,code=sm_50;-gencode;arch=compute_60,code=sm_60;-gencode;arch=compute_70,code=sm_70;-gencode;arch=compute_75,code=sm_75;-gencode;arch=compute_80,code=sm_80;-gencode;arch=compute_86,code=sm_86
+  - CuDNN 8.0.5
+  - Magma 2.5.2
+  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, CUDA_VERSION=11.1, CUDNN_VERSION=8.0.5, CXX_COMPILER=/opt/rh/devtoolset-7/root/usr/bin/c++, CXX_FLAGS= -Wno-deprecated -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -fopenmp -DNDEBUG -DUSE_KINETO -DUSE_FBGEMM -DUSE_QNNPACK -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -DEDGE_PROFILER_USE_KINETO -O2 -fPIC -Wno-narrowing -Wall -Wextra -Werror=return-type -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-sign-compare -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function -Wno-unused-result -Wno-unused-local-typedefs -Wno-strict-overflow -Wno-strict-aliasing -Wno-error=deprecated-declarations -Wno-stringop-overflow -Wno-psabi -Wno-error=pedantic -Wno-error=redundant-decls -Wno-error=old-style-cast -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, PERF_WITH_AVX512=1, TORCH_VERSION=1.10.1, USE_CUDA=ON, USE_CUDNN=ON, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=ON, USE_NNPACK=ON, USE_OPENMP=ON, 
+
+TorchVision: 0.11.2+cu111
+OpenCV: 4.8.1
+MMCV: 1.3.17
+MMCV Compiler: GCC 7.3
+MMCV CUDA Compiler: 11.1
+MMDetection: 2.14.0+3c098f4
+------------------------------------------------------------
+
+2023-11-18 07:12:13,609 - mmdet - INFO - Distributed training: False
+2023-11-18 07:12:15,835 - mmdet - INFO - Config:
+dataset_type = 'CocoDataset'
+data_root = 'data/coco/'
+img_norm_cfg = dict(
+    mean=[
+        123.675, 116.28, 103.53, 123.675, 116.28, 103.53, 123.675, 116.28,
+        103.53
+    ],
+    std=[58.395, 57.12, 57.375, 58.395, 57.12, 57.375, 58.395, 57.12, 57.375],
+    to_rgb=False)
+train_pipeline = [
+    dict(type='LoadImageFromMultiFile'),
+    dict(type='LoadAnnotations', with_bbox=True),
+    dict(type='RandomFlip', flip_ratio=0.5),
+    dict(
+        type='AutoAugment',
+        policies=[[{
+            'type':
+            'Resize',
+            'img_scale': [(480, 1333), (512, 1333), (544, 1333), (576, 1333),
+                          (608, 1333), (640, 1333), (672, 1333), (704, 1333),
+                          (736, 1333), (768, 1333), (800, 1333)],
+            'multiscale_mode':
+            'value',
+            'keep_ratio':
+            True
+        }],
+                  [{
+                      'type': 'Resize',
+                      'img_scale': [(400, 4200), (500, 4200), (600, 4200)],
+                      'multiscale_mode': 'value',
+                      'keep_ratio': True
+                  }, {
+                      'type': 'RandomCrop',
+                      'crop_type': 'absolute_range',
+                      'crop_size': (384, 600),
+                      'allow_negative_crop': True
+                  }, {
+                      'type':
+                      'Resize',
+                      'img_scale': [(480, 1333), (512, 1333), (544, 1333),
+                                    (576, 1333), (608, 1333), (640, 1333),
+                                    (672, 1333), (704, 1333), (736, 1333),
+                                    (768, 1333), (800, 1333)],
+                      'multiscale_mode':
+                      'value',
+                      'override':
+                      True,
+                      'keep_ratio':
+                      True
+                  }]]),
+    dict(
+        type='Normalize',
+        mean=[
+            123.675, 116.28, 103.53, 123.675, 116.28, 103.53, 123.675, 116.28,
+            103.53
+        ],
+        std=[
+            58.395, 57.12, 57.375, 58.395, 57.12, 57.375, 58.395, 57.12, 57.375
+        ],
+        to_rgb=False),
+    dict(type='Pad', size_divisor=1),
+    dict(type='DefaultFormatBundle'),
+    dict(type='Collect', keys=['img', 'gt_bboxes', 'gt_labels'])
+]
+test_pipeline = [
+    dict(type='LoadImageFromMultiFile'),
+    dict(
+        type='MultiScaleFlipAug',
+        img_scale=(1333, 800),
+        flip=False,
+        transforms=[
+            dict(type='Resize', keep_ratio=True),
+            dict(type='RandomFlip'),
+            dict(
+                type='Normalize',
+                mean=[
+                    123.675, 116.28, 103.53, 123.675, 116.28, 103.53, 123.675,
+                    116.28, 103.53
+                ],
+                std=[
+                    58.395, 57.12, 57.375, 58.395, 57.12, 57.375, 58.395,
+                    57.12, 57.375
+                ],
+                to_rgb=False),
+            dict(type='Pad', size_divisor=1),
+            dict(type='ImageToTensor', keys=['img']),
+            dict(type='Collect', keys=['img'])
+        ])
+]
+data = dict(
+    samples_per_gpu=2,
+    workers_per_gpu=4,
+    train=dict(
+        type='CocoDataset',
+        ann_file=
+        'data/coco_annotation/new_additional_10_perc_split/train_all_simple_10_perc.json',
+        img_prefix=[
+            'data/cam_stereo_left_lut/', 'data/lidar_projection',
+            'data/radar_projection'
+        ],
+        pipeline=[
+            dict(type='LoadImageFromMultiFile'),
+            dict(type='LoadAnnotations', with_bbox=True),
+            dict(type='RandomFlip', flip_ratio=0.5),
+            dict(
+                type='AutoAugment',
+                policies=[[{
+                    'type':
+                    'Resize',
+                    'img_scale': [(480, 1333), (512, 1333), (544, 1333),
+                                  (576, 1333), (608, 1333), (640, 1333),
+                                  (672, 1333), (704, 1333), (736, 1333),
+                                  (768, 1333), (800, 1333)],
+                    'multiscale_mode':
+                    'value',
+                    'keep_ratio':
+                    True
+                }],
+                          [{
+                              'type': 'Resize',
+                              'img_scale': [(400, 4200), (500, 4200),
+                                            (600, 4200)],
+                              'multiscale_mode': 'value',
+                              'keep_ratio': True
+                          }, {
+                              'type': 'RandomCrop',
+                              'crop_type': 'absolute_range',
+                              'crop_size': (384, 600),
+                              'allow_negative_crop': True
+                          }, {
+                              'type':
+                              'Resize',
+                              'img_scale': [(480, 1333), (512, 1333),
+                                            (544, 1333), (576, 1333),
+                                            (608, 1333), (640, 1333),
+                                            (672, 1333), (704, 1333),
+                                            (736, 1333), (768, 1333),
+                                            (800, 1333)],
+                              'multiscale_mode':
+                              'value',
+                              'override':
+                              True,
+                              'keep_ratio':
+                              True
+                          }]]),
+            dict(
+                type='Normalize',
+                mean=[
+                    123.675, 116.28, 103.53, 123.675, 116.28, 103.53, 123.675,
+                    116.28, 103.53
+                ],
+                std=[
+                    58.395, 57.12, 57.375, 58.395, 57.12, 57.375, 58.395,
+                    57.12, 57.375
+                ],
+                to_rgb=False),
+            dict(type='Pad', size_divisor=1),
+            dict(type='DefaultFormatBundle'),
+            dict(type='Collect', keys=['img', 'gt_bboxes', 'gt_labels'])
+        ],
+        filter_empty_gt=False,
+        classes=('Vehicle', 'Pedestrian')),
+    val=dict(
+        type='CocoDataset',
+        ann_file=
+        'data/coco_annotation/new_additional_10_perc_split/val_all_simple_10_perc.json',
+        img_prefix=[
+            'data/cam_stereo_left_lut/', 'data/lidar_projection',
+            'data/radar_projection'
+        ],
+        pipeline=[
+            dict(type='LoadImageFromMultiFile'),
+            dict(
+                type='MultiScaleFlipAug',
+                img_scale=(1333, 800),
+                flip=False,
+                transforms=[
+                    dict(type='Resize', keep_ratio=True),
+                    dict(type='RandomFlip'),
+                    dict(
+                        type='Normalize',
+                        mean=[
+                            123.675, 116.28, 103.53, 123.675, 116.28, 103.53,
+                            123.675, 116.28, 103.53
+                        ],
+                        std=[
+                            58.395, 57.12, 57.375, 58.395, 57.12, 57.375,
+                            58.395, 57.12, 57.375
+                        ],
+                        to_rgb=False),
+                    dict(type='Pad', size_divisor=1),
+                    dict(type='ImageToTensor', keys=['img']),
+                    dict(type='Collect', keys=['img'])
+                ])
+        ],
+        classes=('Vehicle', 'Pedestrian')),
+    test=dict(
+        type='CocoDataset',
+        ann_file=
+        'data/coco_annotation/new_split_10_perc_train_raw/test_clear_simple.json',
+        img_prefix=[
+            'data/cam_stereo_left_lut/', 'data/lidar_projection',
+            'data/radar_projection'
+        ],
+        pipeline=[
+            dict(type='LoadImageFromMultiFile'),
+            dict(
+                type='MultiScaleFlipAug',
+                img_scale=(1333, 800),
+                flip=False,
+                transforms=[
+                    dict(type='Resize', keep_ratio=True),
+                    dict(type='RandomFlip'),
+                    dict(
+                        type='Normalize',
+                        mean=[
+                            123.675, 116.28, 103.53, 123.675, 116.28, 103.53,
+                            123.675, 116.28, 103.53
+                        ],
+                        std=[
+                            58.395, 57.12, 57.375, 58.395, 57.12, 57.375,
+                            58.395, 57.12, 57.375
+                        ],
+                        to_rgb=False),
+                    dict(type='Pad', size_divisor=1),
+                    dict(type='ImageToTensor', keys=['img']),
+                    dict(type='Collect', keys=['img'])
+                ])
+        ],
+        classes=('Vehicle', 'Pedestrian')))
+evaluation = dict(interval=1, metric='bbox')
+checkpoint_config = dict(interval=1)
+log_config = dict(
+    interval=50,
+    hooks=[dict(type='TextLoggerHook'),
+           dict(type='TensorboardLoggerHook')])
+custom_hooks = [dict(type='NumClassCheckHook')]
+dist_params = dict(backend='nccl')
+log_level = 'INFO'
+load_from = None
+resume_from = None
+workflow = [('train', 1)]
+model = dict(
+    type='DeformableDETR',
+    backbone=dict(
+        type='MT_DETR_three',
+        loss_type=2,
+        net1='ConvNeXt',
+        net2='ConvNeXt',
+        net3='ConvNeXt',
+        net4='ResidualFusionModule',
+        net5='ConfidenceFusionModule',
+        net6='EnhancementModule',
+        net7='EnhancementModule',
+        net8='EnhancementModule',
+        args1=dict(
+            in_chans=3,
+            depths=[3, 3, 27, 3],
+            dims=[128, 256, 512, 1024],
+            drop_path_rate=0.7,
+            layer_scale_init_value=1.0,
+            out_indices=(1, 2, 3),
+            pretrained='checkpoint/convnext_base_22k_1k_384.pth'),
+        args2=dict(
+            in_chans=3,
+            depths=[3, 3, 27, 3],
+            dims=[128, 256, 512, 1024],
+            drop_path_rate=0.7,
+            layer_scale_init_value=1.0,
+            out_indices=(1, 2, 3),
+            pretrained='checkpoint/convnext_base_22k_1k_384.pth'),
+        args3=dict(
+            in_chans=3,
+            depths=[3, 3, 27, 3],
+            dims=[128, 256, 512, 1024],
+            drop_path_rate=0.7,
+            layer_scale_init_value=1.0,
+            out_indices=(1, 2, 3),
+            pretrained='checkpoint/convnext_base_22k_1k_384.pth'),
+        args4=dict(
+            dims=[128, 256, 512, 1024], num_sensor=2, out_indices=(1, 2, 3)),
+        args5=dict(
+            dims=[128, 256, 512, 1024],
+            num_sensor=2,
+            out_indices=(1, 2, 3),
+            type=0),
+        args6=dict(dims=[128, 256, 512, 1024]),
+        args7=dict(dims=[128, 256, 512, 1024]),
+        args8=dict(dims=[128, 256, 512, 1024])),
+    neck=dict(
+        type='CBChannelMapper',
+        in_channels=[256, 512, 1024],
+        kernel_size=1,
+        out_channels=256,
+        act_cfg=None,
+        norm_cfg=dict(type='GN', num_groups=32),
+        num_outs=4),
+    bbox_head=dict(
+        type='DeformableDETRHead',
+        num_query=300,
+        num_classes=2,
+        in_channels=2048,
+        sync_cls_avg_factor=True,
+        as_two_stage=True,
+        transformer=dict(
+            type='DeformableDetrTransformer',
+            encoder=dict(
+                type='DetrTransformerEncoder',
+                num_layers=6,
+                transformerlayers=dict(
+                    type='BaseTransformerLayer',
+                    attn_cfgs=dict(
+                        type='MultiScaleDeformableAttention', embed_dims=256),
+                    feedforward_channels=1024,
+                    ffn_dropout=0.1,
+                    operation_order=('self_attn', 'norm', 'ffn', 'norm'))),
+            decoder=dict(
+                type='DeformableDetrTransformerDecoder',
+                num_layers=6,
+                return_intermediate=True,
+                transformerlayers=dict(
+                    type='DetrTransformerDecoderLayer',
+                    attn_cfgs=[
+                        dict(
+                            type='MultiheadAttention',
+                            embed_dims=256,
+                            num_heads=8,
+                            dropout=0.1),
+                        dict(
+                            type='MultiScaleDeformableAttention',
+                            embed_dims=256)
+                    ],
+                    feedforward_channels=1024,
+                    ffn_dropout=0.1,
+                    operation_order=('self_attn', 'norm', 'cross_attn', 'norm',
+                                     'ffn', 'norm')))),
+        positional_encoding=dict(
+            type='SinePositionalEncoding',
+            num_feats=128,
+            normalize=True,
+            offset=-0.5),
+        loss_cls=dict(
+            type='FocalLoss',
+            use_sigmoid=True,
+            gamma=2.0,
+            alpha=0.25,
+            loss_weight=2.0),
+        loss_bbox=dict(type='L1Loss', loss_weight=5.0),
+        loss_iou=dict(type='GIoULoss', loss_weight=2.0),
+        with_box_refine=True),
+    train_cfg=dict(
+        assigner=dict(
+            type='HungarianAssigner',
+            cls_cost=dict(type='FocalLossCost', weight=2.0),
+            reg_cost=dict(type='BBoxL1Cost', weight=5.0, box_format='xywh'),
+            iou_cost=dict(type='IoUCost', iou_mode='giou', weight=2.0))),
+    test_cfg=dict(max_per_img=100))
+optimizer = dict(
+    constructor='LearningRateDecayOptimizerConstructor',
+    type='AdamW',
+    lr=0.0002,
+    betas=(0.9, 0.999),
+    weight_decay=0.05,
+    paramwise_cfg=dict(
+        decay_rate=0.7, decay_type='layer_wise_multi', num_layers=12))
+optimizer_config = dict(grad_clip=dict(max_norm=0.1, norm_type=2))
+lr_config = dict(policy='step', step=[27, 33])
+runner = dict(type='EpochBasedRunner', max_epochs=36)
+prefix_list = [
+    'data/cam_stereo_left_lut/', 'data/lidar_projection',
+    'data/radar_projection'
+]
+classes = ('Vehicle', 'Pedestrian')
+work_dir = '/home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/work_dirs/c_l_r/camera_lidar_radar_single_multi_single_A100_gpu_10_perc_2023-11-18_07-12-01_223018'
+gpu_ids = [0]
+
+/home/kpatel2s/anaconda3/envs/mt_detr-cuda11p1/lib/python3.8/site-packages/mmcv/cnn/bricks/transformer.py:341: UserWarning: The arguments `feedforward_channels` in BaseTransformerLayer has been deprecated, now you should set `feedforward_channels` and other FFN related arguments to a dict named `ffn_cfgs`. 
+  warnings.warn(
+/home/kpatel2s/anaconda3/envs/mt_detr-cuda11p1/lib/python3.8/site-packages/mmcv/cnn/bricks/transformer.py:341: UserWarning: The arguments `ffn_dropout` in BaseTransformerLayer has been deprecated, now you should set `ffn_drop` and other FFN related arguments to a dict named `ffn_cfgs`. 
+  warnings.warn(
+/home/kpatel2s/anaconda3/envs/mt_detr-cuda11p1/lib/python3.8/site-packages/mmcv/cnn/bricks/transformer.py:341: UserWarning: The arguments `ffn_num_fcs` in BaseTransformerLayer has been deprecated, now you should set `num_fcs` and other FFN related arguments to a dict named `ffn_cfgs`. 
+  warnings.warn(
+/home/kpatel2s/anaconda3/envs/mt_detr-cuda11p1/lib/python3.8/site-packages/mmcv/cnn/bricks/transformer.py:92: UserWarning: The arguments `dropout` in MultiheadAttention has been deprecated, now you can separately set `attn_drop`(float), proj_drop(float), and `dropout_layer`(dict) 
+  warnings.warn('The arguments `dropout` in MultiheadAttention '
+2023-11-18 07:12:22,245 - mmdet - WARNING - The model and loaded state dict do not match exactly
+
+unexpected key in source state_dict: norm.weight, norm.bias, head.weight, head.bias
+
+missing keys in source state_dict: norm0.weight, norm0.bias, norm1.weight, norm1.bias, norm2.weight, norm2.bias, norm3.weight, norm3.bias
+
+2023-11-18 07:12:22,985 - mmdet - WARNING - The model and loaded state dict do not match exactly
+
+unexpected key in source state_dict: norm.weight, norm.bias, head.weight, head.bias
+
+missing keys in source state_dict: norm0.weight, norm0.bias, norm1.weight, norm1.bias, norm2.weight, norm2.bias, norm3.weight, norm3.bias
+
+2023-11-18 07:12:23,657 - mmdet - WARNING - The model and loaded state dict do not match exactly
+
+unexpected key in source state_dict: norm.weight, norm.bias, head.weight, head.bias
+
+missing keys in source state_dict: norm0.weight, norm0.bias, norm1.weight, norm1.bias, norm2.weight, norm2.bias, norm3.weight, norm3.bias
+
+2023-11-18 07:12:23,688 - mmdet - INFO - initialize CBChannelMapper with init_cfg {'type': 'Xavier', 'layer': 'Conv2d', 'distribution': 'uniform'}
+2023-11-18 07:12:28,927 - mmdet - INFO - Start running, host: kpatel2s@wr25, work_dir: /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/work_dirs/c_l_r/camera_lidar_radar_single_multi_single_A100_gpu_10_perc_2023-11-18_07-12-01_223018
+2023-11-18 07:12:28,927 - mmdet - INFO - Hooks will be executed in the following order:
+before_run:
+(VERY_HIGH   ) StepLrUpdaterHook                  
+(NORMAL      ) CheckpointHook                     
+(NORMAL      ) EvalHook                           
+(VERY_LOW    ) TextLoggerHook                     
+(VERY_LOW    ) TensorboardLoggerHook              
+ -------------------- 
+before_train_epoch:
+(VERY_HIGH   ) StepLrUpdaterHook                  
+(NORMAL      ) EvalHook                           
+(NORMAL      ) NumClassCheckHook                  
+(LOW         ) IterTimerHook                      
+(VERY_LOW    ) TextLoggerHook                     
+(VERY_LOW    ) TensorboardLoggerHook              
+ -------------------- 
+before_train_iter:
+(VERY_HIGH   ) StepLrUpdaterHook                  
+(NORMAL      ) EvalHook                           
+(LOW         ) IterTimerHook                      
+ -------------------- 
+after_train_iter:
+(ABOVE_NORMAL) OptimizerHook                      
+(NORMAL      ) CheckpointHook                     
+(NORMAL      ) EvalHook                           
+(LOW         ) IterTimerHook                      
+(VERY_LOW    ) TextLoggerHook                     
+(VERY_LOW    ) TensorboardLoggerHook              
+ -------------------- 
+after_train_epoch:
+(NORMAL      ) CheckpointHook                     
+(NORMAL      ) EvalHook                           
+(VERY_LOW    ) TextLoggerHook                     
+(VERY_LOW    ) TensorboardLoggerHook              
+ -------------------- 
+before_val_epoch:
+(NORMAL      ) NumClassCheckHook                  
+(LOW         ) IterTimerHook                      
+(VERY_LOW    ) TextLoggerHook                     
+(VERY_LOW    ) TensorboardLoggerHook              
+ -------------------- 
+before_val_iter:
+(LOW         ) IterTimerHook                      
+ -------------------- 
+after_val_iter:
+(LOW         ) IterTimerHook                      
+ -------------------- 
+after_val_epoch:
+(VERY_LOW    ) TextLoggerHook                     
+(VERY_LOW    ) TensorboardLoggerHook              
+ -------------------- 
+after_run:
+(VERY_LOW    ) TextLoggerHook                     
+(VERY_LOW    ) TensorboardLoggerHook              
+ -------------------- 
+2023-11-18 07:12:28,927 - mmdet - INFO - workflow: [('train', 1)], max: 36 epochs
+2023-11-18 07:12:28,927 - mmdet - INFO - Checkpoints will be saved to /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/work_dirs/c_l_r/camera_lidar_radar_single_multi_single_A100_gpu_10_perc_2023-11-18_07-12-01_223018 by HardDiskBackend.
+/home/kpatel2s/anaconda3/envs/mt_detr-cuda11p1/lib/python3.8/site-packages/torch/nn/functional.py:1806: UserWarning: nn.functional.sigmoid is deprecated. Use torch.sigmoid instead.
+  warnings.warn("nn.functional.sigmoid is deprecated. Use torch.sigmoid instead.")
+/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr_cuda11p1/mmdet/models/utils/positional_encoding.py:80: UserWarning: __floordiv__ is deprecated, and its behavior will change in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values. To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor').
+  dim_t = self.temperature**(2 * (dim_t // 2) / self.num_feats)
+/home/kpatel2s/anaconda3/envs/mt_detr-cuda11p1/lib/python3.8/site-packages/torch/functional.py:445: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at  ../aten/src/ATen/native/TensorShape.cpp:2157.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr_cuda11p1/mmdet/models/utils/transformer.py:522: UserWarning: __floordiv__ is deprecated, and its behavior will change in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values. To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor').
+  dim_t = temperature**(2 * (dim_t // 2) / num_pos_feats)
+2023-11-18 07:13:28,905 - mmdet - INFO - Epoch [1][50/2096]	lr: 1.938e-06, eta: 1 day, 0:56:10, time: 1.190, data_time: 0.094, memory: 57966, enc_loss_cls0_w0.5: 1.0138, enc_loss_bbox0_w0.5: 0.2067, enc_loss_iou0_w0.5: 0.5874, loss_cls0_w0.5: 0.6718, loss_bbox0_w0.5: 0.3475, loss_iou0_w0.5: 0.8196, d0.loss_cls0_w0.5: 0.6045, d0.loss_bbox0_w0.5: 0.3277, d0.loss_iou0_w0.5: 0.8254, d1.loss_cls0_w0.5: 0.6069, d1.loss_bbox0_w0.5: 0.3290, d1.loss_iou0_w0.5: 0.8247, d2.loss_cls0_w0.5: 0.6396, d2.loss_bbox0_w0.5: 0.3320, d2.loss_iou0_w0.5: 0.8246, d3.loss_cls0_w0.5: 0.6579, d3.loss_bbox0_w0.5: 0.3382, d3.loss_iou0_w0.5: 0.8224, d4.loss_cls0_w0.5: 0.6369, d4.loss_bbox0_w0.5: 0.3436, d4.loss_iou0_w0.5: 0.8223, enc_loss_cls1: 2.0537, enc_loss_bbox1: 0.4125, enc_loss_iou1: 1.1758, loss_cls1: 1.3349, loss_bbox1: 0.6883, loss_iou1: 1.6537, d0.loss_cls1: 1.2070, d0.loss_bbox1: 0.6600, d0.loss_iou1: 1.6767, d1.loss_cls1: 1.2194, d1.loss_bbox1: 0.6669, d1.loss_iou1: 1.6694, d2.loss_cls1: 1.2869, d2.loss_bbox1: 0.6737, d2.loss_iou1: 1.6646, d3.loss_cls1: 1.3136, d3.loss_bbox1: 0.6769, d3.loss_iou1: 1.6626, d4.loss_cls1: 1.2810, d4.loss_bbox1: 0.6845, d4.loss_iou1: 1.6511, enc_loss_cls2: 2.0376, enc_loss_bbox2: 0.4134, enc_loss_iou2: 1.1770, loss_cls2: 1.3348, loss_bbox2: 0.6721, loss_iou2: 1.6161, d0.loss_cls2: 1.2099, d0.loss_bbox2: 0.6496, d0.loss_iou2: 1.6359, d1.loss_cls2: 1.2189, d1.loss_bbox2: 0.6528, d1.loss_iou2: 1.6369, d2.loss_cls2: 1.2892, d2.loss_bbox2: 0.6557, d2.loss_iou2: 1.6340, d3.loss_cls2: 1.3073, d3.loss_bbox2: 0.6723, d3.loss_iou2: 1.6248, d4.loss_cls2: 1.2733, d4.loss_bbox2: 0.6678, d4.loss_iou2: 1.6194, loss: 62.8949, grad_norm: 165.4429
+2023-11-18 07:14:18,654 - mmdet - INFO - Epoch [1][100/2096]	lr: 1.938e-06, eta: 22:52:24, time: 0.995, data_time: 0.009, memory: 66394, enc_loss_cls0_w0.5: 0.8589, enc_loss_bbox0_w0.5: 0.1897, enc_loss_iou0_w0.5: 0.5738, loss_cls0_w0.5: 0.6247, loss_bbox0_w0.5: 0.3285, loss_iou0_w0.5: 0.7823, d0.loss_cls0_w0.5: 0.6339, d0.loss_bbox0_w0.5: 0.3104, d0.loss_iou0_w0.5: 0.7668, d1.loss_cls0_w0.5: 0.6345, d1.loss_bbox0_w0.5: 0.3093, d1.loss_iou0_w0.5: 0.7700, d2.loss_cls0_w0.5: 0.6319, d2.loss_bbox0_w0.5: 0.3118, d2.loss_iou0_w0.5: 0.7693, d3.loss_cls0_w0.5: 0.6237, d3.loss_bbox0_w0.5: 0.3179, d3.loss_iou0_w0.5: 0.7684, d4.loss_cls0_w0.5: 0.6402, d4.loss_bbox0_w0.5: 0.3254, d4.loss_iou0_w0.5: 0.7813, enc_loss_cls1: 1.6919, enc_loss_bbox1: 0.3759, enc_loss_iou1: 1.1468, loss_cls1: 1.2523, loss_bbox1: 0.6423, loss_iou1: 1.5902, d0.loss_cls1: 1.2766, d0.loss_bbox1: 0.6041, d0.loss_iou1: 1.5334, d1.loss_cls1: 1.2574, d1.loss_bbox1: 0.6117, d1.loss_iou1: 1.5439, d2.loss_cls1: 1.2664, d2.loss_bbox1: 0.6168, d2.loss_iou1: 1.5504, d3.loss_cls1: 1.2445, d3.loss_bbox1: 0.6248, d3.loss_iou1: 1.5602, d4.loss_cls1: 1.2739, d4.loss_bbox1: 0.6382, d4.loss_iou1: 1.5844, enc_loss_cls2: 1.7105, enc_loss_bbox2: 0.3784, enc_loss_iou2: 1.1437, loss_cls2: 1.2511, loss_bbox2: 0.6388, loss_iou2: 1.5578, d0.loss_cls2: 1.2737, d0.loss_bbox2: 0.5920, d0.loss_iou2: 1.5316, d1.loss_cls2: 1.2669, d1.loss_bbox2: 0.5996, d1.loss_iou2: 1.5398, d2.loss_cls2: 1.2630, d2.loss_bbox2: 0.6064, d2.loss_iou2: 1.5410, d3.loss_cls2: 1.2446, d3.loss_bbox2: 0.6087, d3.loss_iou2: 1.5490, d4.loss_cls2: 1.2755, d4.loss_bbox2: 0.6348, d4.loss_iou2: 1.5448, loss: 59.5907, grad_norm: 127.6423
+2023-11-18 07:15:10,900 - mmdet - INFO - Epoch [1][150/2096]	lr: 1.938e-06, eta: 22:31:29, time: 1.045, data_time: 0.009, memory: 66394, enc_loss_cls0_w0.5: 0.7807, enc_loss_bbox0_w0.5: 0.1962, enc_loss_iou0_w0.5: 0.5455, loss_cls0_w0.5: 0.6659, loss_bbox0_w0.5: 0.2687, loss_iou0_w0.5: 0.6708, d0.loss_cls0_w0.5: 0.6669, d0.loss_bbox0_w0.5: 0.2690, d0.loss_iou0_w0.5: 0.6699, d1.loss_cls0_w0.5: 0.6640, d1.loss_bbox0_w0.5: 0.2698, d1.loss_iou0_w0.5: 0.6700, d2.loss_cls0_w0.5: 0.6754, d2.loss_bbox0_w0.5: 0.2707, d2.loss_iou0_w0.5: 0.6718, d3.loss_cls0_w0.5: 0.6701, d3.loss_bbox0_w0.5: 0.2699, d3.loss_iou0_w0.5: 0.6715, d4.loss_cls0_w0.5: 0.6773, d4.loss_bbox0_w0.5: 0.2684, d4.loss_iou0_w0.5: 0.6711, enc_loss_cls1: 1.5302, enc_loss_bbox1: 0.3887, enc_loss_iou1: 1.0945, loss_cls1: 1.3241, loss_bbox1: 0.5125, loss_iou1: 1.3058, d0.loss_cls1: 1.3201, d0.loss_bbox1: 0.5096, d0.loss_iou1: 1.3106, d1.loss_cls1: 1.3318, d1.loss_bbox1: 0.5089, d1.loss_iou1: 1.3106, d2.loss_cls1: 1.3479, d2.loss_bbox1: 0.5076, d2.loss_iou1: 1.3112, d3.loss_cls1: 1.3315, d3.loss_bbox1: 0.5122, d3.loss_iou1: 1.3049, d4.loss_cls1: 1.3442, d4.loss_bbox1: 0.5116, d4.loss_iou1: 1.3065, enc_loss_cls2: 1.5473, enc_loss_bbox2: 0.3906, enc_loss_iou2: 1.0986, loss_cls2: 1.3248, loss_bbox2: 0.5039, loss_iou2: 1.3027, d0.loss_cls2: 1.3336, d0.loss_bbox2: 0.5052, d0.loss_iou2: 1.2922, d1.loss_cls2: 1.3389, d1.loss_bbox2: 0.5099, d1.loss_iou2: 1.2923, d2.loss_cls2: 1.3450, d2.loss_bbox2: 0.5086, d2.loss_iou2: 1.2980, d3.loss_cls2: 1.3313, d3.loss_bbox2: 0.5097, d3.loss_iou2: 1.3008, d4.loss_cls2: 1.3452, d4.loss_bbox2: 0.5048, d4.loss_iou2: 1.3027, loss: 54.9949, grad_norm: 134.5630
+2023-11-18 07:16:01,980 - mmdet - INFO - Epoch [1][200/2096]	lr: 1.938e-06, eta: 22:13:16, time: 1.022, data_time: 0.009, memory: 66394, enc_loss_cls0_w0.5: 0.8393, enc_loss_bbox0_w0.5: 0.1944, enc_loss_iou0_w0.5: 0.5536, loss_cls0_w0.5: 0.6176, loss_bbox0_w0.5: 0.2516, loss_iou0_w0.5: 0.6514, d0.loss_cls0_w0.5: 0.6350, d0.loss_bbox0_w0.5: 0.2537, d0.loss_iou0_w0.5: 0.6487, d1.loss_cls0_w0.5: 0.6335, d1.loss_bbox0_w0.5: 0.2521, d1.loss_iou0_w0.5: 0.6494, d2.loss_cls0_w0.5: 0.6245, d2.loss_bbox0_w0.5: 0.2530, d2.loss_iou0_w0.5: 0.6515, d3.loss_cls0_w0.5: 0.6216, d3.loss_bbox0_w0.5: 0.2503, d3.loss_iou0_w0.5: 0.6519, d4.loss_cls0_w0.5: 0.6182, d4.loss_bbox0_w0.5: 0.2498, d4.loss_iou0_w0.5: 0.6477, enc_loss_cls1: 1.4808, enc_loss_bbox1: 0.3906, enc_loss_iou1: 1.1030, loss_cls1: 1.2299, loss_bbox1: 0.4884, loss_iou1: 1.2692, d0.loss_cls1: 1.2483, d0.loss_bbox1: 0.4814, d0.loss_iou1: 1.2491, d1.loss_cls1: 1.2424, d1.loss_bbox1: 0.4793, d1.loss_iou1: 1.2515, d2.loss_cls1: 1.2410, d2.loss_bbox1: 0.4794, d2.loss_iou1: 1.2568, d3.loss_cls1: 1.2397, d3.loss_bbox1: 0.4819, d3.loss_iou1: 1.2536, d4.loss_cls1: 1.2229, d4.loss_bbox1: 0.4806, d4.loss_iou1: 1.2495, enc_loss_cls2: 1.5607, enc_loss_bbox2: 0.3878, enc_loss_iou2: 1.1040, loss_cls2: 1.2274, loss_bbox2: 0.4639, loss_iou2: 1.2492, d0.loss_cls2: 1.2537, d0.loss_bbox2: 0.4667, d0.loss_iou2: 1.2388, d1.loss_cls2: 1.2590, d1.loss_bbox2: 0.4664, d1.loss_iou2: 1.2420, d2.loss_cls2: 1.2400, d2.loss_bbox2: 0.4660, d2.loss_iou2: 1.2403, d3.loss_cls2: 1.2373, d3.loss_bbox2: 0.4647, d3.loss_iou2: 1.2380, d4.loss_cls2: 1.2310, d4.loss_bbox2: 0.4624, d4.loss_iou2: 1.2339, loss: 52.3016, grad_norm: 129.4528
+2023-11-18 07:17:04,842 - mmdet - INFO - Epoch [1][250/2096]	lr: 1.938e-06, eta: 23:01:05, time: 1.257, data_time: 0.240, memory: 66394, enc_loss_cls0_w0.5: 0.6370, enc_loss_bbox0_w0.5: 0.1818, enc_loss_iou0_w0.5: 0.5551, loss_cls0_w0.5: 0.6094, loss_bbox0_w0.5: 0.2275, loss_iou0_w0.5: 0.6513, d0.loss_cls0_w0.5: 0.6072, d0.loss_bbox0_w0.5: 0.2300, d0.loss_iou0_w0.5: 0.6449, d1.loss_cls0_w0.5: 0.6103, d1.loss_bbox0_w0.5: 0.2300, d1.loss_iou0_w0.5: 0.6447, d2.loss_cls0_w0.5: 0.6131, d2.loss_bbox0_w0.5: 0.2286, d2.loss_iou0_w0.5: 0.6450, d3.loss_cls0_w0.5: 0.6143, d3.loss_bbox0_w0.5: 0.2284, d3.loss_iou0_w0.5: 0.6452, d4.loss_cls0_w0.5: 0.6062, d4.loss_bbox0_w0.5: 0.2262, d4.loss_iou0_w0.5: 0.6488, enc_loss_cls1: 1.1839, enc_loss_bbox1: 0.3539, enc_loss_iou1: 1.1035, loss_cls1: 1.2096, loss_bbox1: 0.4180, loss_iou1: 1.2254, d0.loss_cls1: 1.2112, d0.loss_bbox1: 0.4215, d0.loss_iou1: 1.2251, d1.loss_cls1: 1.2109, d1.loss_bbox1: 0.4254, d1.loss_iou1: 1.2223, d2.loss_cls1: 1.2151, d2.loss_bbox1: 0.4216, d2.loss_iou1: 1.2212, d3.loss_cls1: 1.2204, d3.loss_bbox1: 0.4239, d3.loss_iou1: 1.2178, d4.loss_cls1: 1.2040, d4.loss_bbox1: 0.4178, d4.loss_iou1: 1.2239, enc_loss_cls2: 1.1976, enc_loss_bbox2: 0.3584, enc_loss_iou2: 1.1055, loss_cls2: 1.2097, loss_bbox2: 0.4137, loss_iou2: 1.2289, d0.loss_cls2: 1.2122, d0.loss_bbox2: 0.4163, d0.loss_iou2: 1.2105, d1.loss_cls2: 1.2108, d1.loss_bbox2: 0.4153, d1.loss_iou2: 1.2120, d2.loss_cls2: 1.2231, d2.loss_bbox2: 0.4170, d2.loss_iou2: 1.2125, d3.loss_cls2: 1.2210, d3.loss_bbox2: 0.4159, d3.loss_iou2: 1.2159, d4.loss_cls2: 1.2095, d4.loss_bbox2: 0.4126, d4.loss_iou2: 1.2192, loss: 49.7990, grad_norm: 110.1916
+2023-11-18 07:18:02,250 - mmdet - INFO - Epoch [1][300/2096]	lr: 1.938e-06, eta: 23:09:50, time: 1.148, data_time: 0.111, memory: 66394, enc_loss_cls0_w0.5: 0.6207, enc_loss_bbox0_w0.5: 0.2349, enc_loss_iou0_w0.5: 0.5424, loss_cls0_w0.5: 0.6379, loss_bbox0_w0.5: 0.2536, loss_iou0_w0.5: 0.5888, d0.loss_cls0_w0.5: 0.6419, d0.loss_bbox0_w0.5: 0.2536, d0.loss_iou0_w0.5: 0.5876, d1.loss_cls0_w0.5: 0.6448, d1.loss_bbox0_w0.5: 0.2533, d1.loss_iou0_w0.5: 0.5872, d2.loss_cls0_w0.5: 0.6420, d2.loss_bbox0_w0.5: 0.2531, d2.loss_iou0_w0.5: 0.5868, d3.loss_cls0_w0.5: 0.6440, d3.loss_bbox0_w0.5: 0.2537, d3.loss_iou0_w0.5: 0.5870, d4.loss_cls0_w0.5: 0.6376, d4.loss_bbox0_w0.5: 0.2536, d4.loss_iou0_w0.5: 0.5891, enc_loss_cls1: 1.0890, enc_loss_bbox1: 0.4535, enc_loss_iou1: 1.0734, loss_cls1: 1.2571, loss_bbox1: 0.4866, loss_iou1: 1.1246, d0.loss_cls1: 1.2686, d0.loss_bbox1: 0.4814, d0.loss_iou1: 1.1194, d1.loss_cls1: 1.2665, d1.loss_bbox1: 0.4798, d1.loss_iou1: 1.1219, d2.loss_cls1: 1.2651, d2.loss_bbox1: 0.4806, d2.loss_iou1: 1.1161, d3.loss_cls1: 1.2722, d3.loss_bbox1: 0.4832, d3.loss_iou1: 1.1150, d4.loss_cls1: 1.2578, d4.loss_bbox1: 0.4844, d4.loss_iou1: 1.1197, enc_loss_cls2: 1.1121, enc_loss_bbox2: 0.4498, enc_loss_iou2: 1.0686, loss_cls2: 1.2658, loss_bbox2: 0.4820, loss_iou2: 1.1127, d0.loss_cls2: 1.2757, d0.loss_bbox2: 0.4736, d0.loss_iou2: 1.1041, d1.loss_cls2: 1.2707, d1.loss_bbox2: 0.4770, d1.loss_iou2: 1.1064, d2.loss_cls2: 1.2781, d2.loss_bbox2: 0.4729, d2.loss_iou2: 1.1037, d3.loss_cls2: 1.2800, d3.loss_bbox2: 0.4768, d3.loss_iou2: 1.1030, d4.loss_cls2: 1.2679, d4.loss_bbox2: 0.4815, d4.loss_iou2: 1.1053, loss: 49.8778, grad_norm: 113.9123
+2023-11-18 07:18:53,182 - mmdet - INFO - Epoch [1][350/2096]	lr: 1.938e-06, eta: 22:52:39, time: 1.019, data_time: 0.009, memory: 66394, enc_loss_cls0_w0.5: 0.5523, enc_loss_bbox0_w0.5: 0.2167, enc_loss_iou0_w0.5: 0.5972, loss_cls0_w0.5: 0.6014, loss_bbox0_w0.5: 0.2298, loss_iou0_w0.5: 0.6393, d0.loss_cls0_w0.5: 0.5978, d0.loss_bbox0_w0.5: 0.2304, d0.loss_iou0_w0.5: 0.6373, d1.loss_cls0_w0.5: 0.6023, d1.loss_bbox0_w0.5: 0.2303, d1.loss_iou0_w0.5: 0.6379, d2.loss_cls0_w0.5: 0.6099, d2.loss_bbox0_w0.5: 0.2290, d2.loss_iou0_w0.5: 0.6389, d3.loss_cls0_w0.5: 0.6134, d3.loss_bbox0_w0.5: 0.2300, d3.loss_iou0_w0.5: 0.6354, d4.loss_cls0_w0.5: 0.5999, d4.loss_bbox0_w0.5: 0.2296, d4.loss_iou0_w0.5: 0.6393, enc_loss_cls1: 0.9545, enc_loss_bbox1: 0.3981, enc_loss_iou1: 1.1475, loss_cls1: 1.1298, loss_bbox1: 0.4327, loss_iou1: 1.2120, d0.loss_cls1: 1.1393, d0.loss_bbox1: 0.4307, d0.loss_iou1: 1.2127, d1.loss_cls1: 1.1399, d1.loss_bbox1: 0.4312, d1.loss_iou1: 1.2124, d2.loss_cls1: 1.1358, d2.loss_bbox1: 0.4322, d2.loss_iou1: 1.2173, d3.loss_cls1: 1.1355, d3.loss_bbox1: 0.4322, d3.loss_iou1: 1.2212, d4.loss_cls1: 1.1371, d4.loss_bbox1: 0.4351, d4.loss_iou1: 1.2055, enc_loss_cls2: 0.9478, enc_loss_bbox2: 0.3975, enc_loss_iou2: 1.1495, loss_cls2: 1.1473, loss_bbox2: 0.4195, loss_iou2: 1.1905, d0.loss_cls2: 1.1533, d0.loss_bbox2: 0.4203, d0.loss_iou2: 1.1848, d1.loss_cls2: 1.1557, d1.loss_bbox2: 0.4198, d1.loss_iou2: 1.1846, d2.loss_cls2: 1.1588, d2.loss_bbox2: 0.4201, d2.loss_iou2: 1.1886, d3.loss_cls2: 1.1513, d3.loss_bbox2: 0.4208, d3.loss_iou2: 1.1918, d4.loss_cls2: 1.1487, d4.loss_bbox2: 0.4174, d4.loss_iou2: 1.1905, loss: 48.4493, grad_norm: 123.8060
+2023-11-18 07:19:44,571 - mmdet - INFO - Epoch [1][400/2096]	lr: 1.938e-06, eta: 22:40:58, time: 1.028, data_time: 0.009, memory: 66394, enc_loss_cls0_w0.5: 0.5534, enc_loss_bbox0_w0.5: 0.2209, enc_loss_iou0_w0.5: 0.5803, loss_cls0_w0.5: 0.5526, loss_bbox0_w0.5: 0.2316, loss_iou0_w0.5: 0.6085, d0.loss_cls0_w0.5: 0.5558, d0.loss_bbox0_w0.5: 0.2281, d0.loss_iou0_w0.5: 0.6042, d1.loss_cls0_w0.5: 0.5497, d1.loss_bbox0_w0.5: 0.2295, d1.loss_iou0_w0.5: 0.6060, d2.loss_cls0_w0.5: 0.5473, d2.loss_bbox0_w0.5: 0.2302, d2.loss_iou0_w0.5: 0.6051, d3.loss_cls0_w0.5: 0.5495, d3.loss_bbox0_w0.5: 0.2336, d3.loss_iou0_w0.5: 0.6065, d4.loss_cls0_w0.5: 0.5476, d4.loss_bbox0_w0.5: 0.2321, d4.loss_iou0_w0.5: 0.6096, enc_loss_cls1: 0.8826, enc_loss_bbox1: 0.4117, enc_loss_iou1: 1.1424, loss_cls1: 1.0033, loss_bbox1: 0.4385, loss_iou1: 1.1884, d0.loss_cls1: 1.0192, d0.loss_bbox1: 0.4275, d0.loss_iou1: 1.1653, d1.loss_cls1: 1.0093, d1.loss_bbox1: 0.4305, d1.loss_iou1: 1.1652, d2.loss_cls1: 1.0001, d2.loss_bbox1: 0.4316, d2.loss_iou1: 1.1680, d3.loss_cls1: 0.9958, d3.loss_bbox1: 0.4340, d3.loss_iou1: 1.1650, d4.loss_cls1: 1.0071, d4.loss_bbox1: 0.4386, d4.loss_iou1: 1.1891, enc_loss_cls2: 0.8670, enc_loss_bbox2: 0.4171, enc_loss_iou2: 1.1445, loss_cls2: 0.9985, loss_bbox2: 0.4326, loss_iou2: 1.1726, d0.loss_cls2: 1.0225, d0.loss_bbox2: 0.4188, d0.loss_iou2: 1.1579, d1.loss_cls2: 1.0087, d1.loss_bbox2: 0.4220, d1.loss_iou2: 1.1597, d2.loss_cls2: 0.9985, d2.loss_bbox2: 0.4248, d2.loss_iou2: 1.1603, d3.loss_cls2: 0.9914, d3.loss_bbox2: 0.4282, d3.loss_iou2: 1.1582, d4.loss_cls2: 1.0038, d4.loss_bbox2: 0.4328, d4.loss_iou2: 1.1719, loss: 45.7867, grad_norm: 96.5494
+2023-11-18 07:20:35,660 - mmdet - INFO - Epoch [1][450/2096]	lr: 1.938e-06, eta: 22:30:52, time: 1.022, data_time: 0.010, memory: 66394, enc_loss_cls0_w0.5: 0.5406, enc_loss_bbox0_w0.5: 0.2235, enc_loss_iou0_w0.5: 0.5465, loss_cls0_w0.5: 0.6130, loss_bbox0_w0.5: 0.2369, loss_iou0_w0.5: 0.5865, d0.loss_cls0_w0.5: 0.6254, d0.loss_bbox0_w0.5: 0.2355, d0.loss_iou0_w0.5: 0.5840, d1.loss_cls0_w0.5: 0.6201, d1.loss_bbox0_w0.5: 0.2368, d1.loss_iou0_w0.5: 0.5853, d2.loss_cls0_w0.5: 0.6154, d2.loss_bbox0_w0.5: 0.2383, d2.loss_iou0_w0.5: 0.5846, d3.loss_cls0_w0.5: 0.6156, d3.loss_bbox0_w0.5: 0.2386, d3.loss_iou0_w0.5: 0.5832, d4.loss_cls0_w0.5: 0.6204, d4.loss_bbox0_w0.5: 0.2362, d4.loss_iou0_w0.5: 0.5856, enc_loss_cls1: 0.9053, enc_loss_bbox1: 0.4329, enc_loss_iou1: 1.0893, loss_cls1: 1.0687, loss_bbox1: 0.4535, loss_iou1: 1.1266, d0.loss_cls1: 1.0846, d0.loss_bbox1: 0.4537, d0.loss_iou1: 1.1309, d1.loss_cls1: 1.0736, d1.loss_bbox1: 0.4549, d1.loss_iou1: 1.1279, d2.loss_cls1: 1.0552, d2.loss_bbox1: 0.4583, d2.loss_iou1: 1.1305, d3.loss_cls1: 1.0612, d3.loss_bbox1: 0.4548, d3.loss_iou1: 1.1324, d4.loss_cls1: 1.0755, d4.loss_bbox1: 0.4531, d4.loss_iou1: 1.1252, enc_loss_cls2: 0.9152, enc_loss_bbox2: 0.4296, enc_loss_iou2: 1.0797, loss_cls2: 1.0744, loss_bbox2: 0.4458, loss_iou2: 1.1146, d0.loss_cls2: 1.0902, d0.loss_bbox2: 0.4507, d0.loss_iou2: 1.1175, d1.loss_cls2: 1.0616, d1.loss_bbox2: 0.4548, d1.loss_iou2: 1.1200, d2.loss_cls2: 1.0673, d2.loss_bbox2: 0.4520, d2.loss_iou2: 1.1198, d3.loss_cls2: 1.0720, d3.loss_bbox2: 0.4487, d3.loss_iou2: 1.1180, d4.loss_cls2: 1.0743, d4.loss_bbox2: 0.4459, d4.loss_iou2: 1.1169, loss: 46.5695, grad_norm: 137.9874
+2023-11-18 07:21:24,289 - mmdet - INFO - Epoch [1][500/2096]	lr: 1.938e-06, eta: 22:16:29, time: 0.973, data_time: 0.009, memory: 66394, enc_loss_cls0_w0.5: 0.5959, enc_loss_bbox0_w0.5: 0.2184, enc_loss_iou0_w0.5: 0.5853, loss_cls0_w0.5: 0.6125, loss_bbox0_w0.5: 0.2364, loss_iou0_w0.5: 0.6276, d0.loss_cls0_w0.5: 0.6292, d0.loss_bbox0_w0.5: 0.2321, d0.loss_iou0_w0.5: 0.6194, d1.loss_cls0_w0.5: 0.6106, d1.loss_bbox0_w0.5: 0.2364, d1.loss_iou0_w0.5: 0.6193, d2.loss_cls0_w0.5: 0.6201, d2.loss_bbox0_w0.5: 0.2350, d2.loss_iou0_w0.5: 0.6211, d3.loss_cls0_w0.5: 0.6140, d3.loss_bbox0_w0.5: 0.2363, d3.loss_iou0_w0.5: 0.6216, d4.loss_cls0_w0.5: 0.6224, d4.loss_bbox0_w0.5: 0.2322, d4.loss_iou0_w0.5: 0.6306, enc_loss_cls1: 0.9711, enc_loss_bbox1: 0.4089, enc_loss_iou1: 1.1480, loss_cls1: 1.0190, loss_bbox1: 0.4440, loss_iou1: 1.1985, d0.loss_cls1: 1.0599, d0.loss_bbox1: 0.4282, d0.loss_iou1: 1.1743, d1.loss_cls1: 1.0454, d1.loss_bbox1: 0.4333, d1.loss_iou1: 1.1744, d2.loss_cls1: 1.0453, d2.loss_bbox1: 0.4386, d2.loss_iou1: 1.1771, d3.loss_cls1: 1.0322, d3.loss_bbox1: 0.4394, d3.loss_iou1: 1.1820, d4.loss_cls1: 1.0287, d4.loss_bbox1: 0.4450, d4.loss_iou1: 1.1967, enc_loss_cls2: 0.9835, enc_loss_bbox2: 0.4139, enc_loss_iou2: 1.1461, loss_cls2: 1.0457, loss_bbox2: 0.4419, loss_iou2: 1.1939, d0.loss_cls2: 1.0835, d0.loss_bbox2: 0.4330, d0.loss_iou2: 1.1666, d1.loss_cls2: 1.0587, d1.loss_bbox2: 0.4355, d1.loss_iou2: 1.1727, d2.loss_cls2: 1.0689, d2.loss_bbox2: 0.4377, d2.loss_iou2: 1.1754, d3.loss_cls2: 1.0588, d3.loss_bbox2: 0.4393, d3.loss_iou2: 1.1767, d4.loss_cls2: 1.0638, d4.loss_bbox2: 0.4406, d4.loss_iou2: 1.1905, loss: 47.3732, grad_norm: 140.7692
+2023-11-18 07:22:13,810 - mmdet - INFO - Epoch [1][550/2096]	lr: 1.938e-06, eta: 22:06:34, time: 0.990, data_time: 0.009, memory: 66394, enc_loss_cls0_w0.5: 0.5136, enc_loss_bbox0_w0.5: 0.2190, enc_loss_iou0_w0.5: 0.5949, loss_cls0_w0.5: 0.5452, loss_bbox0_w0.5: 0.2356, loss_iou0_w0.5: 0.6239, d0.loss_cls0_w0.5: 0.5441, d0.loss_bbox0_w0.5: 0.2333, d0.loss_iou0_w0.5: 0.6143, d1.loss_cls0_w0.5: 0.5430, d1.loss_bbox0_w0.5: 0.2336, d1.loss_iou0_w0.5: 0.6210, d2.loss_cls0_w0.5: 0.5428, d2.loss_bbox0_w0.5: 0.2334, d2.loss_iou0_w0.5: 0.6195, d3.loss_cls0_w0.5: 0.5471, d3.loss_bbox0_w0.5: 0.2352, d3.loss_iou0_w0.5: 0.6197, d4.loss_cls0_w0.5: 0.5416, d4.loss_bbox0_w0.5: 0.2357, d4.loss_iou0_w0.5: 0.6242, enc_loss_cls1: 0.8863, enc_loss_bbox1: 0.4047, enc_loss_iou1: 1.1689, loss_cls1: 0.9374, loss_bbox1: 0.4328, loss_iou1: 1.2092, d0.loss_cls1: 0.9529, d0.loss_bbox1: 0.4251, d0.loss_iou1: 1.1978, d1.loss_cls1: 0.9555, d1.loss_bbox1: 0.4263, d1.loss_iou1: 1.2047, d2.loss_cls1: 0.9452, d2.loss_bbox1: 0.4237, d2.loss_iou1: 1.2038, d3.loss_cls1: 0.9579, d3.loss_bbox1: 0.4263, d3.loss_iou1: 1.2039, d4.loss_cls1: 0.9344, d4.loss_bbox1: 0.4296, d4.loss_iou1: 1.2044, enc_loss_cls2: 0.8730, enc_loss_bbox2: 0.4107, enc_loss_iou2: 1.1585, loss_cls2: 0.9406, loss_bbox2: 0.4317, loss_iou2: 1.1952, d0.loss_cls2: 0.9605, d0.loss_bbox2: 0.4215, d0.loss_iou2: 1.1944, d1.loss_cls2: 0.9639, d1.loss_bbox2: 0.4246, d1.loss_iou2: 1.1845, d2.loss_cls2: 0.9516, d2.loss_bbox2: 0.4251, d2.loss_iou2: 1.1889, d3.loss_cls2: 0.9491, d3.loss_bbox2: 0.4287, d3.loss_iou2: 1.1946, d4.loss_cls2: 0.9425, d4.loss_bbox2: 0.4297, d4.loss_iou2: 1.1911, loss: 45.5120, grad_norm: 104.6569
+2023-11-18 07:23:02,996 - mmdet - INFO - Epoch [1][600/2096]	lr: 1.938e-06, eta: 21:57:29, time: 0.984, data_time: 0.009, memory: 66394, enc_loss_cls0_w0.5: 0.6018, enc_loss_bbox0_w0.5: 0.2135, enc_loss_iou0_w0.5: 0.5817, loss_cls0_w0.5: 0.6419, loss_bbox0_w0.5: 0.2305, loss_iou0_w0.5: 0.6364, d0.loss_cls0_w0.5: 0.6345, d0.loss_bbox0_w0.5: 0.2306, d0.loss_iou0_w0.5: 0.6266, d1.loss_cls0_w0.5: 0.6333, d1.loss_bbox0_w0.5: 0.2315, d1.loss_iou0_w0.5: 0.6267, d2.loss_cls0_w0.5: 0.6372, d2.loss_bbox0_w0.5: 0.2302, d2.loss_iou0_w0.5: 0.6325, d3.loss_cls0_w0.5: 0.6402, d3.loss_bbox0_w0.5: 0.2305, d3.loss_iou0_w0.5: 0.6343, d4.loss_cls0_w0.5: 0.6403, d4.loss_bbox0_w0.5: 0.2337, d4.loss_iou0_w0.5: 0.6360, enc_loss_cls1: 0.9751, enc_loss_bbox1: 0.3844, enc_loss_iou1: 1.1363, loss_cls1: 1.0262, loss_bbox1: 0.4214, loss_iou1: 1.2112, d0.loss_cls1: 1.0395, d0.loss_bbox1: 0.4144, d0.loss_iou1: 1.1879, d1.loss_cls1: 1.0250, d1.loss_bbox1: 0.4181, d1.loss_iou1: 1.1910, d2.loss_cls1: 1.0307, d2.loss_bbox1: 0.4214, d2.loss_iou1: 1.1919, d3.loss_cls1: 1.0388, d3.loss_bbox1: 0.4206, d3.loss_iou1: 1.1912, d4.loss_cls1: 1.0360, d4.loss_bbox1: 0.4204, d4.loss_iou1: 1.2061, enc_loss_cls2: 0.9746, enc_loss_bbox2: 0.3833, enc_loss_iou2: 1.1224, loss_cls2: 1.0417, loss_bbox2: 0.4184, loss_iou2: 1.1887, d0.loss_cls2: 1.0455, d0.loss_bbox2: 0.4102, d0.loss_iou2: 1.1685, d1.loss_cls2: 1.0393, d1.loss_bbox2: 0.4096, d1.loss_iou2: 1.1687, d2.loss_cls2: 1.0434, d2.loss_bbox2: 0.4151, d2.loss_iou2: 1.1761, d3.loss_cls2: 1.0485, d3.loss_bbox2: 0.4157, d3.loss_iou2: 1.1820, d4.loss_cls2: 1.0482, d4.loss_bbox2: 0.4178, d4.loss_iou2: 1.1825, loss: 47.0920, grad_norm: 168.0361
+2023-11-18 07:23:54,573 - mmdet - INFO - Epoch [1][650/2096]	lr: 1.938e-06, eta: 21:54:15, time: 1.032, data_time: 0.009, memory: 66394, enc_loss_cls0_w0.5: 0.6520, enc_loss_bbox0_w0.5: 0.1866, enc_loss_iou0_w0.5: 0.5614, loss_cls0_w0.5: 0.5676, loss_bbox0_w0.5: 0.2049, loss_iou0_w0.5: 0.6058, d0.loss_cls0_w0.5: 0.5747, d0.loss_bbox0_w0.5: 0.2020, d0.loss_iou0_w0.5: 0.6043, d1.loss_cls0_w0.5: 0.5793, d1.loss_bbox0_w0.5: 0.2028, d1.loss_iou0_w0.5: 0.6044, d2.loss_cls0_w0.5: 0.5648, d2.loss_bbox0_w0.5: 0.2031, d2.loss_iou0_w0.5: 0.6034, d3.loss_cls0_w0.5: 0.5633, d3.loss_bbox0_w0.5: 0.2025, d3.loss_iou0_w0.5: 0.6037, d4.loss_cls0_w0.5: 0.5708, d4.loss_bbox0_w0.5: 0.2041, d4.loss_iou0_w0.5: 0.6058, enc_loss_cls1: 1.0585, enc_loss_bbox1: 0.3568, enc_loss_iou1: 1.1075, loss_cls1: 0.9490, loss_bbox1: 0.3840, loss_iou1: 1.1852, d0.loss_cls1: 0.9764, d0.loss_bbox1: 0.3893, d0.loss_iou1: 1.1849, d1.loss_cls1: 0.9849, d1.loss_bbox1: 0.3914, d1.loss_iou1: 1.1829, d2.loss_cls1: 0.9514, d2.loss_bbox1: 0.3886, d2.loss_iou1: 1.1844, d3.loss_cls1: 0.9495, d3.loss_bbox1: 0.3882, d3.loss_iou1: 1.1826, d4.loss_cls1: 0.9461, d4.loss_bbox1: 0.3865, d4.loss_iou1: 1.1895, enc_loss_cls2: 1.0674, enc_loss_bbox2: 0.3514, enc_loss_iou2: 1.0930, loss_cls2: 0.9694, loss_bbox2: 0.3788, loss_iou2: 1.1548, d0.loss_cls2: 1.0005, d0.loss_bbox2: 0.3837, d0.loss_iou2: 1.1556, d1.loss_cls2: 0.9972, d1.loss_bbox2: 0.3808, d1.loss_iou2: 1.1577, d2.loss_cls2: 0.9619, d2.loss_bbox2: 0.3799, d2.loss_iou2: 1.1569, d3.loss_cls2: 0.9680, d3.loss_bbox2: 0.3778, d3.loss_iou2: 1.1512, d4.loss_cls2: 0.9661, d4.loss_bbox2: 0.3817, d4.loss_iou2: 1.1562, loss: 44.9747, grad_norm: 138.5177
+2023-11-18 07:24:46,489 - mmdet - INFO - Epoch [1][700/2096]	lr: 1.938e-06, eta: 21:51:58, time: 1.038, data_time: 0.008, memory: 66394, enc_loss_cls0_w0.5: 0.5137, enc_loss_bbox0_w0.5: 0.2013, enc_loss_iou0_w0.5: 0.5716, loss_cls0_w0.5: 0.5249, loss_bbox0_w0.5: 0.2273, loss_iou0_w0.5: 0.6131, d0.loss_cls0_w0.5: 0.5331, d0.loss_bbox0_w0.5: 0.2255, d0.loss_iou0_w0.5: 0.6125, d1.loss_cls0_w0.5: 0.5196, d1.loss_bbox0_w0.5: 0.2273, d1.loss_iou0_w0.5: 0.6122, d2.loss_cls0_w0.5: 0.5285, d2.loss_bbox0_w0.5: 0.2264, d2.loss_iou0_w0.5: 0.6105, d3.loss_cls0_w0.5: 0.5268, d3.loss_bbox0_w0.5: 0.2278, d3.loss_iou0_w0.5: 0.6100, d4.loss_cls0_w0.5: 0.5278, d4.loss_bbox0_w0.5: 0.2287, d4.loss_iou0_w0.5: 0.6089, enc_loss_cls1: 0.9341, enc_loss_bbox1: 0.3903, enc_loss_iou1: 1.1244, loss_cls1: 0.9704, loss_bbox1: 0.4073, loss_iou1: 1.1599, d0.loss_cls1: 0.9740, d0.loss_bbox1: 0.4181, d0.loss_iou1: 1.1882, d1.loss_cls1: 0.9628, d1.loss_bbox1: 0.4151, d1.loss_iou1: 1.1760, d2.loss_cls1: 0.9666, d2.loss_bbox1: 0.4116, d2.loss_iou1: 1.1613, d3.loss_cls1: 0.9792, d3.loss_bbox1: 0.4044, d3.loss_iou1: 1.1600, d4.loss_cls1: 0.9576, d4.loss_bbox1: 0.4132, d4.loss_iou1: 1.1622, enc_loss_cls2: 0.9421, enc_loss_bbox2: 0.3850, enc_loss_iou2: 1.1253, loss_cls2: 0.9628, loss_bbox2: 0.4131, loss_iou2: 1.1629, d0.loss_cls2: 0.9724, d0.loss_bbox2: 0.4174, d0.loss_iou2: 1.1743, d1.loss_cls2: 0.9511, d1.loss_bbox2: 0.4170, d1.loss_iou2: 1.1750, d2.loss_cls2: 0.9604, d2.loss_bbox2: 0.4123, d2.loss_iou2: 1.1681, d3.loss_cls2: 0.9677, d3.loss_bbox2: 0.4097, d3.loss_iou2: 1.1627, d4.loss_cls2: 0.9622, d4.loss_bbox2: 0.4119, d4.loss_iou2: 1.1632, loss: 44.9309, grad_norm: 122.9882
+2023-11-18 07:25:39,140 - mmdet - INFO - Epoch [1][750/2096]	lr: 1.938e-06, eta: 21:51:06, time: 1.053, data_time: 0.010, memory: 66394, enc_loss_cls0_w0.5: 0.6836, enc_loss_bbox0_w0.5: 0.2023, enc_loss_iou0_w0.5: 0.5572, loss_cls0_w0.5: 0.6972, loss_bbox0_w0.5: 0.2097, loss_iou0_w0.5: 0.5655, d0.loss_cls0_w0.5: 0.6774, d0.loss_bbox0_w0.5: 0.2099, d0.loss_iou0_w0.5: 0.5627, d1.loss_cls0_w0.5: 0.6975, d1.loss_bbox0_w0.5: 0.2100, d1.loss_iou0_w0.5: 0.5576, d2.loss_cls0_w0.5: 0.6926, d2.loss_bbox0_w0.5: 0.2083, d2.loss_iou0_w0.5: 0.5576, d3.loss_cls0_w0.5: 0.6865, d3.loss_bbox0_w0.5: 0.2099, d3.loss_iou0_w0.5: 0.5594, d4.loss_cls0_w0.5: 0.6985, d4.loss_bbox0_w0.5: 0.2097, d4.loss_iou0_w0.5: 0.5643, enc_loss_cls1: 1.0317, enc_loss_bbox1: 0.3757, enc_loss_iou1: 1.0480, loss_cls1: 1.0454, loss_bbox1: 0.3647, loss_iou1: 1.0225, d0.loss_cls1: 1.0096, d0.loss_bbox1: 0.3840, d0.loss_iou1: 1.0472, d1.loss_cls1: 1.0503, d1.loss_bbox1: 0.3741, d1.loss_iou1: 1.0350, d2.loss_cls1: 1.0190, d2.loss_bbox1: 0.3693, d2.loss_iou1: 1.0313, d3.loss_cls1: 1.0197, d3.loss_bbox1: 0.3754, d3.loss_iou1: 1.0258, d4.loss_cls1: 1.0410, d4.loss_bbox1: 0.3674, d4.loss_iou1: 1.0231, enc_loss_cls2: 1.0199, enc_loss_bbox2: 0.3863, enc_loss_iou2: 1.0591, loss_cls2: 1.0594, loss_bbox2: 0.3582, loss_iou2: 1.0143, d0.loss_cls2: 1.0211, d0.loss_bbox2: 0.3753, d0.loss_iou2: 1.0398, d1.loss_cls2: 1.0701, d1.loss_bbox2: 0.3709, d1.loss_iou2: 1.0309, d2.loss_cls2: 1.0347, d2.loss_bbox2: 0.3703, d2.loss_iou2: 1.0232, d3.loss_cls2: 1.0374, d3.loss_bbox2: 0.3650, d3.loss_iou2: 1.0239, d4.loss_cls2: 1.0503, d4.loss_bbox2: 0.3590, d4.loss_iou2: 1.0172, loss: 44.3640, grad_norm: 203.7426
+2023-11-18 07:26:31,911 - mmdet - INFO - Epoch [1][800/2096]	lr: 1.938e-06, eta: 21:50:24, time: 1.055, data_time: 0.010, memory: 66394, enc_loss_cls0_w0.5: 0.5442, enc_loss_bbox0_w0.5: 0.2147, enc_loss_iou0_w0.5: 0.5870, loss_cls0_w0.5: 0.5809, loss_bbox0_w0.5: 0.2356, loss_iou0_w0.5: 0.6104, d0.loss_cls0_w0.5: 0.5612, d0.loss_bbox0_w0.5: 0.2360, d0.loss_iou0_w0.5: 0.6187, d1.loss_cls0_w0.5: 0.5581, d1.loss_bbox0_w0.5: 0.2379, d1.loss_iou0_w0.5: 0.6177, d2.loss_cls0_w0.5: 0.5693, d2.loss_bbox0_w0.5: 0.2355, d2.loss_iou0_w0.5: 0.6191, d3.loss_cls0_w0.5: 0.5703, d3.loss_bbox0_w0.5: 0.2384, d3.loss_iou0_w0.5: 0.6156, d4.loss_cls0_w0.5: 0.5821, d4.loss_bbox0_w0.5: 0.2361, d4.loss_iou0_w0.5: 0.6125, enc_loss_cls1: 0.8679, enc_loss_bbox1: 0.4038, enc_loss_iou1: 1.1376, loss_cls1: 0.9591, loss_bbox1: 0.3823, loss_iou1: 1.0839, d0.loss_cls1: 0.9093, d0.loss_bbox1: 0.3949, d0.loss_iou1: 1.0996, d1.loss_cls1: 0.9310, d1.loss_bbox1: 0.3919, d1.loss_iou1: 1.0883, d2.loss_cls1: 0.9474, d2.loss_bbox1: 0.3848, d2.loss_iou1: 1.0866, d3.loss_cls1: 0.9500, d3.loss_bbox1: 0.3822, d3.loss_iou1: 1.0805, d4.loss_cls1: 0.9356, d4.loss_bbox1: 0.3841, d4.loss_iou1: 1.0886, enc_loss_cls2: 0.8632, enc_loss_bbox2: 0.4028, enc_loss_iou2: 1.1407, loss_cls2: 0.9624, loss_bbox2: 0.3818, loss_iou2: 1.0777, d0.loss_cls2: 0.9076, d0.loss_bbox2: 0.3966, d0.loss_iou2: 1.1131, d1.loss_cls2: 0.9257, d1.loss_bbox2: 0.3865, d1.loss_iou2: 1.1013, d2.loss_cls2: 0.9353, d2.loss_bbox2: 0.3846, d2.loss_iou2: 1.0951, d3.loss_cls2: 0.9431, d3.loss_bbox2: 0.3850, d3.loss_iou2: 1.0947, d4.loss_cls2: 0.9420, d4.loss_bbox2: 0.3832, d4.loss_iou2: 1.0880, loss: 43.6811, grad_norm: 175.2936
+2023-11-18 07:27:22,619 - mmdet - INFO - Epoch [1][850/2096]	lr: 1.938e-06, eta: 21:46:40, time: 1.014, data_time: 0.010, memory: 66394, enc_loss_cls0_w0.5: 0.4970, enc_loss_bbox0_w0.5: 0.2115, enc_loss_iou0_w0.5: 0.5907, loss_cls0_w0.5: 0.5392, loss_bbox0_w0.5: 0.2149, loss_iou0_w0.5: 0.5917, d0.loss_cls0_w0.5: 0.5499, d0.loss_bbox0_w0.5: 0.2131, d0.loss_iou0_w0.5: 0.5913, d1.loss_cls0_w0.5: 0.5437, d1.loss_bbox0_w0.5: 0.2139, d1.loss_iou0_w0.5: 0.5854, d2.loss_cls0_w0.5: 0.5465, d2.loss_bbox0_w0.5: 0.2155, d2.loss_iou0_w0.5: 0.5898, d3.loss_cls0_w0.5: 0.5485, d3.loss_bbox0_w0.5: 0.2161, d3.loss_iou0_w0.5: 0.5910, d4.loss_cls0_w0.5: 0.5381, d4.loss_bbox0_w0.5: 0.2154, d4.loss_iou0_w0.5: 0.5931, enc_loss_cls1: 0.7712, enc_loss_bbox1: 0.3860, enc_loss_iou1: 1.0860, loss_cls1: 0.8544, loss_bbox1: 0.3501, loss_iou1: 1.0285, d0.loss_cls1: 0.8485, d0.loss_bbox1: 0.3620, d0.loss_iou1: 1.0574, d1.loss_cls1: 0.8492, d1.loss_bbox1: 0.3506, d1.loss_iou1: 1.0352, d2.loss_cls1: 0.8502, d2.loss_bbox1: 0.3532, d2.loss_iou1: 1.0273, d3.loss_cls1: 0.8526, d3.loss_bbox1: 0.3519, d3.loss_iou1: 1.0286, d4.loss_cls1: 0.8459, d4.loss_bbox1: 0.3539, d4.loss_iou1: 1.0286, enc_loss_cls2: 0.7723, enc_loss_bbox2: 0.3785, enc_loss_iou2: 1.0902, loss_cls2: 0.8475, loss_bbox2: 0.3468, loss_iou2: 1.0238, d0.loss_cls2: 0.8425, d0.loss_bbox2: 0.3548, d0.loss_iou2: 1.0513, d1.loss_cls2: 0.8400, d1.loss_bbox2: 0.3491, d1.loss_iou2: 1.0245, d2.loss_cls2: 0.8408, d2.loss_bbox2: 0.3471, d2.loss_iou2: 1.0237, d3.loss_cls2: 0.8496, d3.loss_bbox2: 0.3468, d3.loss_iou2: 1.0189, d4.loss_cls2: 0.8387, d4.loss_bbox2: 0.3480, d4.loss_iou2: 1.0279, loss: 40.6305, grad_norm: 141.4981
+2023-11-18 07:28:12,141 - mmdet - INFO - Epoch [1][900/2096]	lr: 1.938e-06, eta: 21:41:38, time: 0.990, data_time: 0.010, memory: 66394, enc_loss_cls0_w0.5: 0.5114, enc_loss_bbox0_w0.5: 0.1986, enc_loss_iou0_w0.5: 0.5677, loss_cls0_w0.5: 0.5340, loss_bbox0_w0.5: 0.2147, loss_iou0_w0.5: 0.5951, d0.loss_cls0_w0.5: 0.5142, d0.loss_bbox0_w0.5: 0.2113, d0.loss_iou0_w0.5: 0.6029, d1.loss_cls0_w0.5: 0.5208, d1.loss_bbox0_w0.5: 0.2112, d1.loss_iou0_w0.5: 0.6026, d2.loss_cls0_w0.5: 0.5304, d2.loss_bbox0_w0.5: 0.2148, d2.loss_iou0_w0.5: 0.5958, d3.loss_cls0_w0.5: 0.5317, d3.loss_bbox0_w0.5: 0.2137, d3.loss_iou0_w0.5: 0.5968, d4.loss_cls0_w0.5: 0.5332, d4.loss_bbox0_w0.5: 0.2137, d4.loss_iou0_w0.5: 0.5956, enc_loss_cls1: 0.8005, enc_loss_bbox1: 0.3388, enc_loss_iou1: 1.0224, loss_cls1: 0.8805, loss_bbox1: 0.3018, loss_iou1: 0.9700, d0.loss_cls1: 0.8772, d0.loss_bbox1: 0.3198, d0.loss_iou1: 1.0061, d1.loss_cls1: 0.8719, d1.loss_bbox1: 0.3073, d1.loss_iou1: 0.9833, d2.loss_cls1: 0.8750, d2.loss_bbox1: 0.3076, d2.loss_iou1: 0.9783, d3.loss_cls1: 0.8846, d3.loss_bbox1: 0.3039, d3.loss_iou1: 0.9759, d4.loss_cls1: 0.8840, d4.loss_bbox1: 0.3045, d4.loss_iou1: 0.9714, enc_loss_cls2: 0.8040, enc_loss_bbox2: 0.3468, enc_loss_iou2: 1.0261, loss_cls2: 0.8729, loss_bbox2: 0.3076, loss_iou2: 0.9793, d0.loss_cls2: 0.8693, d0.loss_bbox2: 0.3234, d0.loss_iou2: 1.0046, d1.loss_cls2: 0.8647, d1.loss_bbox2: 0.3111, d1.loss_iou2: 0.9840, d2.loss_cls2: 0.8635, d2.loss_bbox2: 0.3135, d2.loss_iou2: 0.9820, d3.loss_cls2: 0.8798, d3.loss_bbox2: 0.3106, d3.loss_iou2: 0.9746, d4.loss_cls2: 0.8665, d4.loss_bbox2: 0.3083, d4.loss_iou2: 0.9821, loss: 39.6498, grad_norm: 119.3472
+2023-11-18 07:29:06,250 - mmdet - INFO - Epoch [1][950/2096]	lr: 1.938e-06, eta: 21:43:01, time: 1.082, data_time: 0.009, memory: 70279, enc_loss_cls0_w0.5: 0.5395, enc_loss_bbox0_w0.5: 0.1995, enc_loss_iou0_w0.5: 0.5524, loss_cls0_w0.5: 0.5607, loss_bbox0_w0.5: 0.1911, loss_iou0_w0.5: 0.5552, d0.loss_cls0_w0.5: 0.5698, d0.loss_bbox0_w0.5: 0.1972, d0.loss_iou0_w0.5: 0.5599, d1.loss_cls0_w0.5: 0.5579, d1.loss_bbox0_w0.5: 0.1961, d1.loss_iou0_w0.5: 0.5558, d2.loss_cls0_w0.5: 0.5582, d2.loss_bbox0_w0.5: 0.1946, d2.loss_iou0_w0.5: 0.5550, d3.loss_cls0_w0.5: 0.5549, d3.loss_bbox0_w0.5: 0.1936, d3.loss_iou0_w0.5: 0.5557, d4.loss_cls0_w0.5: 0.5599, d4.loss_bbox0_w0.5: 0.1929, d4.loss_iou0_w0.5: 0.5544, enc_loss_cls1: 0.9233, enc_loss_bbox1: 0.3440, enc_loss_iou1: 1.0165, loss_cls1: 0.9314, loss_bbox1: 0.3069, loss_iou1: 0.9651, d0.loss_cls1: 0.9186, d0.loss_bbox1: 0.3213, d0.loss_iou1: 0.9937, d1.loss_cls1: 0.9314, d1.loss_bbox1: 0.3105, d1.loss_iou1: 0.9827, d2.loss_cls1: 0.9189, d2.loss_bbox1: 0.3084, d2.loss_iou1: 0.9704, d3.loss_cls1: 0.9214, d3.loss_bbox1: 0.3059, d3.loss_iou1: 0.9720, d4.loss_cls1: 0.9137, d4.loss_bbox1: 0.3073, d4.loss_iou1: 0.9647, enc_loss_cls2: 0.9125, enc_loss_bbox2: 0.3406, enc_loss_iou2: 1.0006, loss_cls2: 0.9315, loss_bbox2: 0.3012, loss_iou2: 0.9476, d0.loss_cls2: 0.9205, d0.loss_bbox2: 0.3114, d0.loss_iou2: 0.9720, d1.loss_cls2: 0.9406, d1.loss_bbox2: 0.3040, d1.loss_iou2: 0.9542, d2.loss_cls2: 0.9233, d2.loss_bbox2: 0.3047, d2.loss_iou2: 0.9531, d3.loss_cls2: 0.9228, d3.loss_bbox2: 0.3035, d3.loss_iou2: 0.9549, d4.loss_cls2: 0.9178, d4.loss_bbox2: 0.2999, d4.loss_iou2: 0.9502, loss: 40.0491, grad_norm: 151.4533
+2023-11-18 07:29:56,306 - mmdet - INFO - Exp name: mt_detr_c+l+r.py
+2023-11-18 07:29:56,306 - mmdet - INFO - Epoch [1][1000/2096]	lr: 1.938e-06, eta: 21:39:09, time: 1.001, data_time: 0.010, memory: 70279, enc_loss_cls0_w0.5: 0.5123, enc_loss_bbox0_w0.5: 0.1764, enc_loss_iou0_w0.5: 0.5460, loss_cls0_w0.5: 0.5505, loss_bbox0_w0.5: 0.1833, loss_iou0_w0.5: 0.5498, d0.loss_cls0_w0.5: 0.5346, d0.loss_bbox0_w0.5: 0.1827, d0.loss_iou0_w0.5: 0.5548, d1.loss_cls0_w0.5: 0.5420, d1.loss_bbox0_w0.5: 0.1819, d1.loss_iou0_w0.5: 0.5505, d2.loss_cls0_w0.5: 0.5529, d2.loss_bbox0_w0.5: 0.1836, d2.loss_iou0_w0.5: 0.5494, d3.loss_cls0_w0.5: 0.5518, d3.loss_bbox0_w0.5: 0.1828, d3.loss_iou0_w0.5: 0.5483, d4.loss_cls0_w0.5: 0.5475, d4.loss_bbox0_w0.5: 0.1836, d4.loss_iou0_w0.5: 0.5503, enc_loss_cls1: 0.9777, enc_loss_bbox1: 0.3192, enc_loss_iou1: 1.0101, loss_cls1: 1.0242, loss_bbox1: 0.2983, loss_iou1: 0.9815, d0.loss_cls1: 0.9693, d0.loss_bbox1: 0.3089, d0.loss_iou1: 1.0116, d1.loss_cls1: 0.9878, d1.loss_bbox1: 0.3027, d1.loss_iou1: 0.9904, d2.loss_cls1: 0.9971, d2.loss_bbox1: 0.2973, d2.loss_iou1: 0.9874, d3.loss_cls1: 1.0333, d3.loss_bbox1: 0.2972, d3.loss_iou1: 0.9887, d4.loss_cls1: 1.0189, d4.loss_bbox1: 0.3003, d4.loss_iou1: 0.9834, enc_loss_cls2: 0.9681, enc_loss_bbox2: 0.3166, enc_loss_iou2: 0.9882, loss_cls2: 1.0105, loss_bbox2: 0.2919, loss_iou2: 0.9609, d0.loss_cls2: 0.9459, d0.loss_bbox2: 0.3057, d0.loss_iou2: 0.9965, d1.loss_cls2: 0.9919, d1.loss_bbox2: 0.2994, d1.loss_iou2: 0.9682, d2.loss_cls2: 0.9906, d2.loss_bbox2: 0.2973, d2.loss_iou2: 0.9645, d3.loss_cls2: 1.0116, d3.loss_bbox2: 0.2961, d3.loss_iou2: 0.9636, d4.loss_cls2: 0.9972, d4.loss_bbox2: 0.2945, d4.loss_iou2: 0.9656, loss: 40.8252, grad_norm: 145.1484
+2023-11-18 07:30:49,978 - mmdet - INFO - Epoch [1][1050/2096]	lr: 1.938e-06, eta: 21:39:51, time: 1.073, data_time: 0.010, memory: 70279, enc_loss_cls0_w0.5: 0.4832, enc_loss_bbox0_w0.5: 0.2027, enc_loss_iou0_w0.5: 0.5359, loss_cls0_w0.5: 0.5174, loss_bbox0_w0.5: 0.2169, loss_iou0_w0.5: 0.5490, d0.loss_cls0_w0.5: 0.5057, d0.loss_bbox0_w0.5: 0.2182, d0.loss_iou0_w0.5: 0.5547, d1.loss_cls0_w0.5: 0.5044, d1.loss_bbox0_w0.5: 0.2170, d1.loss_iou0_w0.5: 0.5474, d2.loss_cls0_w0.5: 0.5113, d2.loss_bbox0_w0.5: 0.2170, d2.loss_iou0_w0.5: 0.5466, d3.loss_cls0_w0.5: 0.5115, d3.loss_bbox0_w0.5: 0.2161, d3.loss_iou0_w0.5: 0.5472, d4.loss_cls0_w0.5: 0.5152, d4.loss_bbox0_w0.5: 0.2177, d4.loss_iou0_w0.5: 0.5477, enc_loss_cls1: 0.8057, enc_loss_bbox1: 0.3714, enc_loss_iou1: 1.0000, loss_cls1: 0.8787, loss_bbox1: 0.3328, loss_iou1: 0.9363, d0.loss_cls1: 0.8431, d0.loss_bbox1: 0.3421, d0.loss_iou1: 0.9597, d1.loss_cls1: 0.8579, d1.loss_bbox1: 0.3372, d1.loss_iou1: 0.9404, d2.loss_cls1: 0.8695, d2.loss_bbox1: 0.3337, d2.loss_iou1: 0.9359, d3.loss_cls1: 0.8788, d3.loss_bbox1: 0.3341, d3.loss_iou1: 0.9340, d4.loss_cls1: 0.8758, d4.loss_bbox1: 0.3339, d4.loss_iou1: 0.9411, enc_loss_cls2: 0.8058, enc_loss_bbox2: 0.3699, enc_loss_iou2: 0.9908, loss_cls2: 0.8744, loss_bbox2: 0.3365, loss_iou2: 0.9421, d0.loss_cls2: 0.8383, d0.loss_bbox2: 0.3488, d0.loss_iou2: 0.9600, d1.loss_cls2: 0.8482, d1.loss_bbox2: 0.3409, d1.loss_iou2: 0.9381, d2.loss_cls2: 0.8588, d2.loss_bbox2: 0.3379, d2.loss_iou2: 0.9370, d3.loss_cls2: 0.8704, d3.loss_bbox2: 0.3399, d3.loss_iou2: 0.9343, d4.loss_cls2: 0.8725, d4.loss_bbox2: 0.3396, d4.loss_iou2: 0.9396, loss: 38.9489, grad_norm: 102.1370
+2023-11-18 07:31:40,404 - mmdet - INFO - Epoch [1][1100/2096]	lr: 1.938e-06, eta: 21:36:44, time: 1.009, data_time: 0.010, memory: 70279, enc_loss_cls0_w0.5: 0.5140, enc_loss_bbox0_w0.5: 0.1744, enc_loss_iou0_w0.5: 0.5023, loss_cls0_w0.5: 0.5535, loss_bbox0_w0.5: 0.1678, loss_iou0_w0.5: 0.5059, d0.loss_cls0_w0.5: 0.5517, d0.loss_bbox0_w0.5: 0.1718, d0.loss_iou0_w0.5: 0.5138, d1.loss_cls0_w0.5: 0.5382, d1.loss_bbox0_w0.5: 0.1703, d1.loss_iou0_w0.5: 0.5104, d2.loss_cls0_w0.5: 0.5493, d2.loss_bbox0_w0.5: 0.1700, d2.loss_iou0_w0.5: 0.5063, d3.loss_cls0_w0.5: 0.5497, d3.loss_bbox0_w0.5: 0.1684, d3.loss_iou0_w0.5: 0.5048, d4.loss_cls0_w0.5: 0.5474, d4.loss_bbox0_w0.5: 0.1701, d4.loss_iou0_w0.5: 0.5060, enc_loss_cls1: 0.8195, enc_loss_bbox1: 0.3277, enc_loss_iou1: 0.9731, loss_cls1: 0.9238, loss_bbox1: 0.2850, loss_iou1: 0.8986, d0.loss_cls1: 0.9058, d0.loss_bbox1: 0.2934, d0.loss_iou1: 0.9343, d1.loss_cls1: 0.8895, d1.loss_bbox1: 0.2828, d1.loss_iou1: 0.9109, d2.loss_cls1: 0.9139, d2.loss_bbox1: 0.2827, d2.loss_iou1: 0.8997, d3.loss_cls1: 0.9293, d3.loss_bbox1: 0.2797, d3.loss_iou1: 0.8998, d4.loss_cls1: 0.9063, d4.loss_bbox1: 0.2820, d4.loss_iou1: 0.8999, enc_loss_cls2: 0.8175, enc_loss_bbox2: 0.3249, enc_loss_iou2: 0.9667, loss_cls2: 0.9281, loss_bbox2: 0.2731, loss_iou2: 0.8826, d0.loss_cls2: 0.9026, d0.loss_bbox2: 0.2828, d0.loss_iou2: 0.9159, d1.loss_cls2: 0.8914, d1.loss_bbox2: 0.2756, d1.loss_iou2: 0.8914, d2.loss_cls2: 0.9125, d2.loss_bbox2: 0.2738, d2.loss_iou2: 0.8862, d3.loss_cls2: 0.9233, d3.loss_bbox2: 0.2735, d3.loss_iou2: 0.8892, d4.loss_cls2: 0.9073, d4.loss_bbox2: 0.2752, d4.loss_iou2: 0.8855, loss: 37.8626, grad_norm: 141.2975
+2023-11-18 07:32:31,279 - mmdet - INFO - Epoch [1][1150/2096]	lr: 1.938e-06, eta: 21:34:19, time: 1.017, data_time: 0.009, memory: 70279, enc_loss_cls0_w0.5: 0.5400, enc_loss_bbox0_w0.5: 0.2061, enc_loss_iou0_w0.5: 0.5459, loss_cls0_w0.5: 0.5508, loss_bbox0_w0.5: 0.2052, loss_iou0_w0.5: 0.5720, d0.loss_cls0_w0.5: 0.5506, d0.loss_bbox0_w0.5: 0.2033, d0.loss_iou0_w0.5: 0.5715, d1.loss_cls0_w0.5: 0.5541, d1.loss_bbox0_w0.5: 0.2057, d1.loss_iou0_w0.5: 0.5721, d2.loss_cls0_w0.5: 0.5562, d2.loss_bbox0_w0.5: 0.2063, d2.loss_iou0_w0.5: 0.5719, d3.loss_cls0_w0.5: 0.5485, d3.loss_bbox0_w0.5: 0.2055, d3.loss_iou0_w0.5: 0.5702, d4.loss_cls0_w0.5: 0.5534, d4.loss_bbox0_w0.5: 0.2054, d4.loss_iou0_w0.5: 0.5753, enc_loss_cls1: 0.8647, enc_loss_bbox1: 0.3553, enc_loss_iou1: 0.9939, loss_cls1: 0.9146, loss_bbox1: 0.3124, loss_iou1: 0.9348, d0.loss_cls1: 0.8858, d0.loss_bbox1: 0.3216, d0.loss_iou1: 0.9793, d1.loss_cls1: 0.9058, d1.loss_bbox1: 0.3157, d1.loss_iou1: 0.9491, d2.loss_cls1: 0.8969, d2.loss_bbox1: 0.3140, d2.loss_iou1: 0.9388, d3.loss_cls1: 0.9114, d3.loss_bbox1: 0.3140, d3.loss_iou1: 0.9336, d4.loss_cls1: 0.9184, d4.loss_bbox1: 0.3106, d4.loss_iou1: 0.9366, enc_loss_cls2: 0.8496, enc_loss_bbox2: 0.3611, enc_loss_iou2: 1.0097, loss_cls2: 0.9138, loss_bbox2: 0.3104, loss_iou2: 0.9308, d0.loss_cls2: 0.8920, d0.loss_bbox2: 0.3162, d0.loss_iou2: 0.9605, d1.loss_cls2: 0.9038, d1.loss_bbox2: 0.3175, d1.loss_iou2: 0.9346, d2.loss_cls2: 0.8974, d2.loss_bbox2: 0.3131, d2.loss_iou2: 0.9350, d3.loss_cls2: 0.9055, d3.loss_bbox2: 0.3114, d3.loss_iou2: 0.9349, d4.loss_cls2: 0.9168, d4.loss_bbox2: 0.3126, d4.loss_iou2: 0.9327, loss: 39.6371, grad_norm: 141.6870
+2023-11-18 07:33:21,882 - mmdet - INFO - Epoch [1][1200/2096]	lr: 1.938e-06, eta: 21:31:44, time: 1.012, data_time: 0.010, memory: 70279, enc_loss_cls0_w0.5: 0.5167, enc_loss_bbox0_w0.5: 0.1748, enc_loss_iou0_w0.5: 0.5185, loss_cls0_w0.5: 0.5261, loss_bbox0_w0.5: 0.1770, loss_iou0_w0.5: 0.5370, d0.loss_cls0_w0.5: 0.5279, d0.loss_bbox0_w0.5: 0.1765, d0.loss_iou0_w0.5: 0.5411, d1.loss_cls0_w0.5: 0.5243, d1.loss_bbox0_w0.5: 0.1767, d1.loss_iou0_w0.5: 0.5379, d2.loss_cls0_w0.5: 0.5272, d2.loss_bbox0_w0.5: 0.1763, d2.loss_iou0_w0.5: 0.5375, d3.loss_cls0_w0.5: 0.5296, d3.loss_bbox0_w0.5: 0.1761, d3.loss_iou0_w0.5: 0.5373, d4.loss_cls0_w0.5: 0.5374, d4.loss_bbox0_w0.5: 0.1769, d4.loss_iou0_w0.5: 0.5370, enc_loss_cls1: 0.8241, enc_loss_bbox1: 0.3284, enc_loss_iou1: 0.9730, loss_cls1: 0.9027, loss_bbox1: 0.3004, loss_iou1: 0.9076, d0.loss_cls1: 0.8880, d0.loss_bbox1: 0.3023, d0.loss_iou1: 0.9209, d1.loss_cls1: 0.8908, d1.loss_bbox1: 0.2973, d1.loss_iou1: 0.9140, d2.loss_cls1: 0.8947, d2.loss_bbox1: 0.2985, d2.loss_iou1: 0.9085, d3.loss_cls1: 0.9152, d3.loss_bbox1: 0.2967, d3.loss_iou1: 0.9075, d4.loss_cls1: 0.8962, d4.loss_bbox1: 0.2994, d4.loss_iou1: 0.9134, enc_loss_cls2: 0.8221, enc_loss_bbox2: 0.3246, enc_loss_iou2: 0.9661, loss_cls2: 0.8981, loss_bbox2: 0.2951, loss_iou2: 0.8979, d0.loss_cls2: 0.8811, d0.loss_bbox2: 0.2961, d0.loss_iou2: 0.9105, d1.loss_cls2: 0.8905, d1.loss_bbox2: 0.2911, d1.loss_iou2: 0.8977, d2.loss_cls2: 0.8844, d2.loss_bbox2: 0.2919, d2.loss_iou2: 0.8982, d3.loss_cls2: 0.9081, d3.loss_bbox2: 0.2936, d3.loss_iou2: 0.8948, d4.loss_cls2: 0.8974, d4.loss_bbox2: 0.2945, d4.loss_iou2: 0.9015, loss: 38.0845, grad_norm: 125.3798
+2023-11-18 07:34:11,721 - mmdet - INFO - Epoch [1][1250/2096]	lr: 1.938e-06, eta: 21:28:32, time: 0.997, data_time: 0.009, memory: 70279, enc_loss_cls0_w0.5: 0.5635, enc_loss_bbox0_w0.5: 0.1892, enc_loss_iou0_w0.5: 0.5238, loss_cls0_w0.5: 0.5518, loss_bbox0_w0.5: 0.2132, loss_iou0_w0.5: 0.5512, d0.loss_cls0_w0.5: 0.5545, d0.loss_bbox0_w0.5: 0.2141, d0.loss_iou0_w0.5: 0.5589, d1.loss_cls0_w0.5: 0.5522, d1.loss_bbox0_w0.5: 0.2130, d1.loss_iou0_w0.5: 0.5506, d2.loss_cls0_w0.5: 0.5490, d2.loss_bbox0_w0.5: 0.2129, d2.loss_iou0_w0.5: 0.5545, d3.loss_cls0_w0.5: 0.5532, d3.loss_bbox0_w0.5: 0.2130, d3.loss_iou0_w0.5: 0.5508, d4.loss_cls0_w0.5: 0.5556, d4.loss_bbox0_w0.5: 0.2131, d4.loss_iou0_w0.5: 0.5510, enc_loss_cls1: 0.8594, enc_loss_bbox1: 0.3500, enc_loss_iou1: 0.9714, loss_cls1: 0.9174, loss_bbox1: 0.3066, loss_iou1: 0.8982, d0.loss_cls1: 0.8771, d0.loss_bbox1: 0.3264, d0.loss_iou1: 0.9571, d1.loss_cls1: 0.8896, d1.loss_bbox1: 0.3160, d1.loss_iou1: 0.9253, d2.loss_cls1: 0.8997, d2.loss_bbox1: 0.3075, d2.loss_iou1: 0.9096, d3.loss_cls1: 0.9196, d3.loss_bbox1: 0.3065, d3.loss_iou1: 0.9040, d4.loss_cls1: 0.9202, d4.loss_bbox1: 0.3054, d4.loss_iou1: 0.9024, enc_loss_cls2: 0.8626, enc_loss_bbox2: 0.3432, enc_loss_iou2: 0.9557, loss_cls2: 0.9098, loss_bbox2: 0.3116, loss_iou2: 0.9018, d0.loss_cls2: 0.8781, d0.loss_bbox2: 0.3287, d0.loss_iou2: 0.9472, d1.loss_cls2: 0.8958, d1.loss_bbox2: 0.3117, d1.loss_iou2: 0.9128, d2.loss_cls2: 0.8995, d2.loss_bbox2: 0.3140, d2.loss_iou2: 0.9010, d3.loss_cls2: 0.9139, d3.loss_bbox2: 0.3120, d3.loss_iou2: 0.9061, d4.loss_cls2: 0.9078, d4.loss_bbox2: 0.3129, d4.loss_iou2: 0.8989, loss: 39.0838, grad_norm: 120.9721
+2023-11-18 07:35:02,353 - mmdet - INFO - Epoch [1][1300/2096]	lr: 1.938e-06, eta: 21:26:17, time: 1.013, data_time: 0.010, memory: 70279, enc_loss_cls0_w0.5: 0.4836, enc_loss_bbox0_w0.5: 0.1843, enc_loss_iou0_w0.5: 0.5430, loss_cls0_w0.5: 0.5071, loss_bbox0_w0.5: 0.2018, loss_iou0_w0.5: 0.5606, d0.loss_cls0_w0.5: 0.5112, d0.loss_bbox0_w0.5: 0.1995, d0.loss_iou0_w0.5: 0.5659, d1.loss_cls0_w0.5: 0.5077, d1.loss_bbox0_w0.5: 0.2008, d1.loss_iou0_w0.5: 0.5636, d2.loss_cls0_w0.5: 0.5094, d2.loss_bbox0_w0.5: 0.2012, d2.loss_iou0_w0.5: 0.5603, d3.loss_cls0_w0.5: 0.5114, d3.loss_bbox0_w0.5: 0.2005, d3.loss_iou0_w0.5: 0.5582, d4.loss_cls0_w0.5: 0.5070, d4.loss_bbox0_w0.5: 0.1999, d4.loss_iou0_w0.5: 0.5593, enc_loss_cls1: 0.7246, enc_loss_bbox1: 0.3314, enc_loss_iou1: 1.0064, loss_cls1: 0.8048, loss_bbox1: 0.2877, loss_iou1: 0.9496, d0.loss_cls1: 0.8012, d0.loss_bbox1: 0.2992, d0.loss_iou1: 0.9709, d1.loss_cls1: 0.8049, d1.loss_bbox1: 0.2899, d1.loss_iou1: 0.9568, d2.loss_cls1: 0.8083, d2.loss_bbox1: 0.2889, d2.loss_iou1: 0.9480, d3.loss_cls1: 0.8131, d3.loss_bbox1: 0.2899, d3.loss_iou1: 0.9464, d4.loss_cls1: 0.8088, d4.loss_bbox1: 0.2869, d4.loss_iou1: 0.9469, enc_loss_cls2: 0.7288, enc_loss_bbox2: 0.3291, enc_loss_iou2: 0.9904, loss_cls2: 0.8042, loss_bbox2: 0.3006, loss_iou2: 0.9440, d0.loss_cls2: 0.7919, d0.loss_bbox2: 0.3110, d0.loss_iou2: 0.9646, d1.loss_cls2: 0.7894, d1.loss_bbox2: 0.3034, d1.loss_iou2: 0.9540, d2.loss_cls2: 0.7973, d2.loss_bbox2: 0.3010, d2.loss_iou2: 0.9415, d3.loss_cls2: 0.8124, d3.loss_bbox2: 0.3000, d3.loss_iou2: 0.9414, d4.loss_cls2: 0.8057, d4.loss_bbox2: 0.3021, d4.loss_iou2: 0.9401, loss: 37.5542, grad_norm: 99.2371
+2023-11-18 07:35:54,793 - mmdet - INFO - Epoch [1][1350/2096]	lr: 1.938e-06, eta: 21:25:47, time: 1.049, data_time: 0.010, memory: 70279, enc_loss_cls0_w0.5: 0.4986, enc_loss_bbox0_w0.5: 0.1817, enc_loss_iou0_w0.5: 0.5187, loss_cls0_w0.5: 0.5257, loss_bbox0_w0.5: 0.1838, loss_iou0_w0.5: 0.5187, d0.loss_cls0_w0.5: 0.5089, d0.loss_bbox0_w0.5: 0.1861, d0.loss_iou0_w0.5: 0.5232, d1.loss_cls0_w0.5: 0.5266, d1.loss_bbox0_w0.5: 0.1835, d1.loss_iou0_w0.5: 0.5214, d2.loss_cls0_w0.5: 0.5253, d2.loss_bbox0_w0.5: 0.1846, d2.loss_iou0_w0.5: 0.5213, d3.loss_cls0_w0.5: 0.5275, d3.loss_bbox0_w0.5: 0.1835, d3.loss_iou0_w0.5: 0.5210, d4.loss_cls0_w0.5: 0.5264, d4.loss_bbox0_w0.5: 0.1835, d4.loss_iou0_w0.5: 0.5211, enc_loss_cls1: 0.7688, enc_loss_bbox1: 0.3243, enc_loss_iou1: 0.9553, loss_cls1: 0.8319, loss_bbox1: 0.2920, loss_iou1: 0.8953, d0.loss_cls1: 0.8020, d0.loss_bbox1: 0.2992, d0.loss_iou1: 0.9142, d1.loss_cls1: 0.8215, d1.loss_bbox1: 0.2967, d1.loss_iou1: 0.9024, d2.loss_cls1: 0.8267, d2.loss_bbox1: 0.2964, d2.loss_iou1: 0.8930, d3.loss_cls1: 0.8492, d3.loss_bbox1: 0.2878, d3.loss_iou1: 0.8963, d4.loss_cls1: 0.8449, d4.loss_bbox1: 0.2859, d4.loss_iou1: 0.8927, enc_loss_cls2: 0.7759, enc_loss_bbox2: 0.3197, enc_loss_iou2: 0.9486, loss_cls2: 0.8375, loss_bbox2: 0.2891, loss_iou2: 0.8951, d0.loss_cls2: 0.8041, d0.loss_bbox2: 0.2948, d0.loss_iou2: 0.9058, d1.loss_cls2: 0.8213, d1.loss_bbox2: 0.2891, d1.loss_iou2: 0.8949, d2.loss_cls2: 0.8265, d2.loss_bbox2: 0.2893, d2.loss_iou2: 0.8954, d3.loss_cls2: 0.8441, d3.loss_bbox2: 0.2892, d3.loss_iou2: 0.8922, d4.loss_cls2: 0.8443, d4.loss_bbox2: 0.2888, d4.loss_iou2: 0.8936, loss: 36.8871, grad_norm: 129.8018
+2023-11-18 07:36:48,089 - mmdet - INFO - Epoch [1][1400/2096]	lr: 1.938e-06, eta: 21:26:01, time: 1.066, data_time: 0.011, memory: 70279, enc_loss_cls0_w0.5: 0.5374, enc_loss_bbox0_w0.5: 0.2079, enc_loss_iou0_w0.5: 0.5244, loss_cls0_w0.5: 0.5488, loss_bbox0_w0.5: 0.2378, loss_iou0_w0.5: 0.5616, d0.loss_cls0_w0.5: 0.5589, d0.loss_bbox0_w0.5: 0.2387, d0.loss_iou0_w0.5: 0.5615, d1.loss_cls0_w0.5: 0.5305, d1.loss_bbox0_w0.5: 0.2386, d1.loss_iou0_w0.5: 0.5635, d2.loss_cls0_w0.5: 0.5449, d2.loss_bbox0_w0.5: 0.2381, d2.loss_iou0_w0.5: 0.5634, d3.loss_cls0_w0.5: 0.5491, d3.loss_bbox0_w0.5: 0.2369, d3.loss_iou0_w0.5: 0.5618, d4.loss_cls0_w0.5: 0.5392, d4.loss_bbox0_w0.5: 0.2372, d4.loss_iou0_w0.5: 0.5619, enc_loss_cls1: 0.8227, enc_loss_bbox1: 0.3870, enc_loss_iou1: 1.0101, loss_cls1: 0.9095, loss_bbox1: 0.3692, loss_iou1: 0.9924, d0.loss_cls1: 0.9082, d0.loss_bbox1: 0.3655, d0.loss_iou1: 0.9963, d1.loss_cls1: 0.8864, d1.loss_bbox1: 0.3744, d1.loss_iou1: 0.9901, d2.loss_cls1: 0.8976, d2.loss_bbox1: 0.3704, d2.loss_iou1: 0.9870, d3.loss_cls1: 0.9114, d3.loss_bbox1: 0.3673, d3.loss_iou1: 0.9818, d4.loss_cls1: 0.8984, d4.loss_bbox1: 0.3694, d4.loss_iou1: 0.9890, enc_loss_cls2: 0.8186, enc_loss_bbox2: 0.3834, enc_loss_iou2: 0.9889, loss_cls2: 0.9042, loss_bbox2: 0.3530, loss_iou2: 0.9785, d0.loss_cls2: 0.8984, d0.loss_bbox2: 0.3569, d0.loss_iou2: 0.9752, d1.loss_cls2: 0.8838, d1.loss_bbox2: 0.3610, d1.loss_iou2: 0.9629, d2.loss_cls2: 0.8941, d2.loss_bbox2: 0.3591, d2.loss_iou2: 0.9697, d3.loss_cls2: 0.9041, d3.loss_bbox2: 0.3569, d3.loss_iou2: 0.9670, d4.loss_cls2: 0.8872, d4.loss_bbox2: 0.3570, d4.loss_iou2: 0.9756, loss: 40.6611, grad_norm: 118.7235
+2023-11-18 07:37:39,639 - mmdet - INFO - Epoch [1][1450/2096]	lr: 1.938e-06, eta: 21:24:41, time: 1.031, data_time: 0.010, memory: 70279, enc_loss_cls0_w0.5: 0.5067, enc_loss_bbox0_w0.5: 0.1697, enc_loss_iou0_w0.5: 0.5097, loss_cls0_w0.5: 0.5344, loss_bbox0_w0.5: 0.1806, loss_iou0_w0.5: 0.5175, d0.loss_cls0_w0.5: 0.5293, d0.loss_bbox0_w0.5: 0.1836, d0.loss_iou0_w0.5: 0.5211, d1.loss_cls0_w0.5: 0.5340, d1.loss_bbox0_w0.5: 0.1838, d1.loss_iou0_w0.5: 0.5192, d2.loss_cls0_w0.5: 0.5280, d2.loss_bbox0_w0.5: 0.1834, d2.loss_iou0_w0.5: 0.5190, d3.loss_cls0_w0.5: 0.5267, d3.loss_bbox0_w0.5: 0.1827, d3.loss_iou0_w0.5: 0.5180, d4.loss_cls0_w0.5: 0.5326, d4.loss_bbox0_w0.5: 0.1798, d4.loss_iou0_w0.5: 0.5196, enc_loss_cls1: 0.7590, enc_loss_bbox1: 0.3010, enc_loss_iou1: 0.9383, loss_cls1: 0.8669, loss_bbox1: 0.2668, loss_iou1: 0.8494, d0.loss_cls1: 0.8515, d0.loss_bbox1: 0.2848, d0.loss_iou1: 0.8818, d1.loss_cls1: 0.8294, d1.loss_bbox1: 0.2775, d1.loss_iou1: 0.8660, d2.loss_cls1: 0.8466, d2.loss_bbox1: 0.2726, d2.loss_iou1: 0.8588, d3.loss_cls1: 0.8583, d3.loss_bbox1: 0.2703, d3.loss_iou1: 0.8502, d4.loss_cls1: 0.8567, d4.loss_bbox1: 0.2695, d4.loss_iou1: 0.8522, enc_loss_cls2: 0.7616, enc_loss_bbox2: 0.2913, enc_loss_iou2: 0.9316, loss_cls2: 0.8541, loss_bbox2: 0.2672, loss_iou2: 0.8501, d0.loss_cls2: 0.8526, d0.loss_bbox2: 0.2728, d0.loss_iou2: 0.8799, d1.loss_cls2: 0.8222, d1.loss_bbox2: 0.2701, d1.loss_iou2: 0.8679, d2.loss_cls2: 0.8286, d2.loss_bbox2: 0.2680, d2.loss_iou2: 0.8569, d3.loss_cls2: 0.8485, d3.loss_bbox2: 0.2647, d3.loss_iou2: 0.8527, d4.loss_cls2: 0.8489, d4.loss_bbox2: 0.2662, d4.loss_iou2: 0.8539, loss: 36.2969, grad_norm: 115.1645
+2023-11-18 07:38:30,317 - mmdet - INFO - Epoch [1][1500/2096]	lr: 1.938e-06, eta: 21:22:40, time: 1.014, data_time: 0.010, memory: 70279, enc_loss_cls0_w0.5: 0.5232, enc_loss_bbox0_w0.5: 0.1235, enc_loss_iou0_w0.5: 0.4590, loss_cls0_w0.5: 0.5489, loss_bbox0_w0.5: 0.1303, loss_iou0_w0.5: 0.4623, d0.loss_cls0_w0.5: 0.5308, d0.loss_bbox0_w0.5: 0.1305, d0.loss_iou0_w0.5: 0.4670, d1.loss_cls0_w0.5: 0.5335, d1.loss_bbox0_w0.5: 0.1304, d1.loss_iou0_w0.5: 0.4664, d2.loss_cls0_w0.5: 0.5392, d2.loss_bbox0_w0.5: 0.1295, d2.loss_iou0_w0.5: 0.4639, d3.loss_cls0_w0.5: 0.5483, d3.loss_bbox0_w0.5: 0.1298, d3.loss_iou0_w0.5: 0.4614, d4.loss_cls0_w0.5: 0.5399, d4.loss_bbox0_w0.5: 0.1301, d4.loss_iou0_w0.5: 0.4631, enc_loss_cls1: 0.7991, enc_loss_bbox1: 0.2147, enc_loss_iou1: 0.8584, loss_cls1: 0.9356, loss_bbox1: 0.1809, loss_iou1: 0.7489, d0.loss_cls1: 0.8626, d0.loss_bbox1: 0.1923, d0.loss_iou1: 0.7873, d1.loss_cls1: 0.8733, d1.loss_bbox1: 0.1873, d1.loss_iou1: 0.7691, d2.loss_cls1: 0.9037, d2.loss_bbox1: 0.1832, d2.loss_iou1: 0.7602, d3.loss_cls1: 0.9081, d3.loss_bbox1: 0.1823, d3.loss_iou1: 0.7517, d4.loss_cls1: 0.9028, d4.loss_bbox1: 0.1833, d4.loss_iou1: 0.7504, enc_loss_cls2: 0.8022, enc_loss_bbox2: 0.2063, enc_loss_iou2: 0.8466, loss_cls2: 0.9285, loss_bbox2: 0.1849, loss_iou2: 0.7534, d0.loss_cls2: 0.8580, d0.loss_bbox2: 0.1954, d0.loss_iou2: 0.7954, d1.loss_cls2: 0.8753, d1.loss_bbox2: 0.1901, d1.loss_iou2: 0.7646, d2.loss_cls2: 0.8937, d2.loss_bbox2: 0.1901, d2.loss_iou2: 0.7615, d3.loss_cls2: 0.9006, d3.loss_bbox2: 0.1865, d3.loss_iou2: 0.7636, d4.loss_cls2: 0.8925, d4.loss_bbox2: 0.1843, d4.loss_iou2: 0.7630, loss: 33.7826, grad_norm: 150.7541
+2023-11-18 07:39:21,756 - mmdet - INFO - Epoch [1][1550/2096]	lr: 1.938e-06, eta: 21:21:19, time: 1.029, data_time: 0.010, memory: 70279, enc_loss_cls0_w0.5: 0.4886, enc_loss_bbox0_w0.5: 0.1603, enc_loss_iou0_w0.5: 0.4865, loss_cls0_w0.5: 0.5130, loss_bbox0_w0.5: 0.1802, loss_iou0_w0.5: 0.5004, d0.loss_cls0_w0.5: 0.5173, d0.loss_bbox0_w0.5: 0.1831, d0.loss_iou0_w0.5: 0.5065, d1.loss_cls0_w0.5: 0.5031, d1.loss_bbox0_w0.5: 0.1838, d1.loss_iou0_w0.5: 0.5069, d2.loss_cls0_w0.5: 0.5130, d2.loss_bbox0_w0.5: 0.1830, d2.loss_iou0_w0.5: 0.5065, d3.loss_cls0_w0.5: 0.5234, d3.loss_bbox0_w0.5: 0.1809, d3.loss_iou0_w0.5: 0.5056, d4.loss_cls0_w0.5: 0.5126, d4.loss_bbox0_w0.5: 0.1808, d4.loss_iou0_w0.5: 0.5024, enc_loss_cls1: 0.8437, enc_loss_bbox1: 0.2797, enc_loss_iou1: 0.8976, loss_cls1: 0.8930, loss_bbox1: 0.2621, loss_iou1: 0.8505, d0.loss_cls1: 0.8707, d0.loss_bbox1: 0.2793, d0.loss_iou1: 0.8783, d1.loss_cls1: 0.8707, d1.loss_bbox1: 0.2671, d1.loss_iou1: 0.8669, d2.loss_cls1: 0.8714, d2.loss_bbox1: 0.2662, d2.loss_iou1: 0.8609, d3.loss_cls1: 0.8842, d3.loss_bbox1: 0.2647, d3.loss_iou1: 0.8605, d4.loss_cls1: 0.8885, d4.loss_bbox1: 0.2644, d4.loss_iou1: 0.8504, enc_loss_cls2: 0.8119, enc_loss_bbox2: 0.2842, enc_loss_iou2: 0.8946, loss_cls2: 0.8635, loss_bbox2: 0.2677, loss_iou2: 0.8605, d0.loss_cls2: 0.8489, d0.loss_bbox2: 0.2811, d0.loss_iou2: 0.8849, d1.loss_cls2: 0.8373, d1.loss_bbox2: 0.2735, d1.loss_iou2: 0.8648, d2.loss_cls2: 0.8405, d2.loss_bbox2: 0.2724, d2.loss_iou2: 0.8609, d3.loss_cls2: 0.8639, d3.loss_bbox2: 0.2683, d3.loss_iou2: 0.8606, d4.loss_cls2: 0.8582, d4.loss_bbox2: 0.2695, d4.loss_iou2: 0.8569, loss: 36.3327, grad_norm: 126.1019
+2023-11-18 07:40:15,588 - mmdet - INFO - Epoch [1][1600/2096]	lr: 1.938e-06, eta: 21:21:51, time: 1.077, data_time: 0.011, memory: 70279, enc_loss_cls0_w0.5: 0.4907, enc_loss_bbox0_w0.5: 0.1439, enc_loss_iou0_w0.5: 0.4750, loss_cls0_w0.5: 0.5028, loss_bbox0_w0.5: 0.1582, loss_iou0_w0.5: 0.4961, d0.loss_cls0_w0.5: 0.4974, d0.loss_bbox0_w0.5: 0.1592, d0.loss_iou0_w0.5: 0.5002, d1.loss_cls0_w0.5: 0.4960, d1.loss_bbox0_w0.5: 0.1612, d1.loss_iou0_w0.5: 0.5020, d2.loss_cls0_w0.5: 0.5004, d2.loss_bbox0_w0.5: 0.1592, d2.loss_iou0_w0.5: 0.5012, d3.loss_cls0_w0.5: 0.5060, d3.loss_bbox0_w0.5: 0.1584, d3.loss_iou0_w0.5: 0.4978, d4.loss_cls0_w0.5: 0.5043, d4.loss_bbox0_w0.5: 0.1594, d4.loss_iou0_w0.5: 0.4975, enc_loss_cls1: 0.7885, enc_loss_bbox1: 0.2689, enc_loss_iou1: 0.8893, loss_cls1: 0.8344, loss_bbox1: 0.2618, loss_iou1: 0.8613, d0.loss_cls1: 0.8120, d0.loss_bbox1: 0.2738, d0.loss_iou1: 0.8932, d1.loss_cls1: 0.8027, d1.loss_bbox1: 0.2696, d1.loss_iou1: 0.8720, d2.loss_cls1: 0.8175, d2.loss_bbox1: 0.2634, d2.loss_iou1: 0.8689, d3.loss_cls1: 0.8353, d3.loss_bbox1: 0.2644, d3.loss_iou1: 0.8592, d4.loss_cls1: 0.8293, d4.loss_bbox1: 0.2626, d4.loss_iou1: 0.8655, enc_loss_cls2: 0.7828, enc_loss_bbox2: 0.2653, enc_loss_iou2: 0.8817, loss_cls2: 0.8416, loss_bbox2: 0.2484, loss_iou2: 0.8449, d0.loss_cls2: 0.8190, d0.loss_bbox2: 0.2628, d0.loss_iou2: 0.8739, d1.loss_cls2: 0.8198, d1.loss_bbox2: 0.2557, d1.loss_iou2: 0.8548, d2.loss_cls2: 0.8188, d2.loss_bbox2: 0.2523, d2.loss_iou2: 0.8536, d3.loss_cls2: 0.8424, d3.loss_bbox2: 0.2508, d3.loss_iou2: 0.8440, d4.loss_cls2: 0.8368, d4.loss_bbox2: 0.2527, d4.loss_iou2: 0.8492, loss: 35.3117, grad_norm: 123.2737
+2023-11-18 07:41:10,500 - mmdet - INFO - Epoch [1][1650/2096]	lr: 1.938e-06, eta: 21:23:07, time: 1.098, data_time: 0.010, memory: 77823, enc_loss_cls0_w0.5: 0.4660, enc_loss_bbox0_w0.5: 0.1671, enc_loss_iou0_w0.5: 0.4974, loss_cls0_w0.5: 0.4709, loss_bbox0_w0.5: 0.1859, loss_iou0_w0.5: 0.5115, d0.loss_cls0_w0.5: 0.4654, d0.loss_bbox0_w0.5: 0.1848, d0.loss_iou0_w0.5: 0.5177, d1.loss_cls0_w0.5: 0.4655, d1.loss_bbox0_w0.5: 0.1862, d1.loss_iou0_w0.5: 0.5097, d2.loss_cls0_w0.5: 0.4661, d2.loss_bbox0_w0.5: 0.1863, d2.loss_iou0_w0.5: 0.5106, d3.loss_cls0_w0.5: 0.4747, d3.loss_bbox0_w0.5: 0.1832, d3.loss_iou0_w0.5: 0.5102, d4.loss_cls0_w0.5: 0.4701, d4.loss_bbox0_w0.5: 0.1843, d4.loss_iou0_w0.5: 0.5105, enc_loss_cls1: 0.7760, enc_loss_bbox1: 0.3116, enc_loss_iou1: 0.9194, loss_cls1: 0.8156, loss_bbox1: 0.2857, loss_iou1: 0.8508, d0.loss_cls1: 0.7857, d0.loss_bbox1: 0.2997, d0.loss_iou1: 0.8907, d1.loss_cls1: 0.8074, d1.loss_bbox1: 0.2872, d1.loss_iou1: 0.8528, d2.loss_cls1: 0.7954, d2.loss_bbox1: 0.2911, d2.loss_iou1: 0.8515, d3.loss_cls1: 0.8131, d3.loss_bbox1: 0.2873, d3.loss_iou1: 0.8509, d4.loss_cls1: 0.8113, d4.loss_bbox1: 0.2845, d4.loss_iou1: 0.8494, enc_loss_cls2: 0.7661, enc_loss_bbox2: 0.3127, enc_loss_iou2: 0.9279, loss_cls2: 0.8128, loss_bbox2: 0.2895, loss_iou2: 0.8677, d0.loss_cls2: 0.7873, d0.loss_bbox2: 0.2971, d0.loss_iou2: 0.9029, d1.loss_cls2: 0.7901, d1.loss_bbox2: 0.2925, d1.loss_iou2: 0.8730, d2.loss_cls2: 0.7884, d2.loss_bbox2: 0.2918, d2.loss_iou2: 0.8742, d3.loss_cls2: 0.8117, d3.loss_bbox2: 0.2898, d3.loss_iou2: 0.8645, d4.loss_cls2: 0.8112, d4.loss_bbox2: 0.2873, d4.loss_iou2: 0.8625, loss: 35.6426, grad_norm: 91.4594
+2023-11-18 07:42:01,865 - mmdet - INFO - Epoch [1][1700/2096]	lr: 1.938e-06, eta: 21:21:40, time: 1.027, data_time: 0.010, memory: 77823, enc_loss_cls0_w0.5: 0.4915, enc_loss_bbox0_w0.5: 0.1354, enc_loss_iou0_w0.5: 0.4627, loss_cls0_w0.5: 0.5232, loss_bbox0_w0.5: 0.1426, loss_iou0_w0.5: 0.4700, d0.loss_cls0_w0.5: 0.5160, d0.loss_bbox0_w0.5: 0.1467, d0.loss_iou0_w0.5: 0.4804, d1.loss_cls0_w0.5: 0.5145, d1.loss_bbox0_w0.5: 0.1450, d1.loss_iou0_w0.5: 0.4773, d2.loss_cls0_w0.5: 0.5203, d2.loss_bbox0_w0.5: 0.1432, d2.loss_iou0_w0.5: 0.4739, d3.loss_cls0_w0.5: 0.5279, d3.loss_bbox0_w0.5: 0.1429, d3.loss_iou0_w0.5: 0.4729, d4.loss_cls0_w0.5: 0.5221, d4.loss_bbox0_w0.5: 0.1423, d4.loss_iou0_w0.5: 0.4720, enc_loss_cls1: 0.7792, enc_loss_bbox1: 0.2514, enc_loss_iou1: 0.8504, loss_cls1: 0.8859, loss_bbox1: 0.2213, loss_iou1: 0.7643, d0.loss_cls1: 0.8650, d0.loss_bbox1: 0.2340, d0.loss_iou1: 0.7972, d1.loss_cls1: 0.8452, d1.loss_bbox1: 0.2265, d1.loss_iou1: 0.7794, d2.loss_cls1: 0.8645, d2.loss_bbox1: 0.2253, d2.loss_iou1: 0.7718, d3.loss_cls1: 0.8997, d3.loss_bbox1: 0.2222, d3.loss_iou1: 0.7659, d4.loss_cls1: 0.8586, d4.loss_bbox1: 0.2249, d4.loss_iou1: 0.7701, enc_loss_cls2: 0.7990, enc_loss_bbox2: 0.2376, enc_loss_iou2: 0.8284, loss_cls2: 0.8810, loss_bbox2: 0.2155, loss_iou2: 0.7554, d0.loss_cls2: 0.8600, d0.loss_bbox2: 0.2272, d0.loss_iou2: 0.7915, d1.loss_cls2: 0.8534, d1.loss_bbox2: 0.2227, d1.loss_iou2: 0.7731, d2.loss_cls2: 0.8581, d2.loss_bbox2: 0.2201, d2.loss_iou2: 0.7677, d3.loss_cls2: 0.8917, d3.loss_bbox2: 0.2184, d3.loss_iou2: 0.7623, d4.loss_cls2: 0.8546, d4.loss_bbox2: 0.2185, d4.loss_iou2: 0.7611, loss: 34.0229, grad_norm: 135.2739
+2023-11-18 07:42:53,917 - mmdet - INFO - Epoch [1][1750/2096]	lr: 1.938e-06, eta: 21:20:45, time: 1.041, data_time: 0.010, memory: 77823, enc_loss_cls0_w0.5: 0.4610, enc_loss_bbox0_w0.5: 0.1453, enc_loss_iou0_w0.5: 0.4825, loss_cls0_w0.5: 0.4789, loss_bbox0_w0.5: 0.1548, loss_iou0_w0.5: 0.5034, d0.loss_cls0_w0.5: 0.4633, d0.loss_bbox0_w0.5: 0.1561, d0.loss_iou0_w0.5: 0.5112, d1.loss_cls0_w0.5: 0.4650, d1.loss_bbox0_w0.5: 0.1562, d1.loss_iou0_w0.5: 0.5074, d2.loss_cls0_w0.5: 0.4729, d2.loss_bbox0_w0.5: 0.1551, d2.loss_iou0_w0.5: 0.5062, d3.loss_cls0_w0.5: 0.4717, d3.loss_bbox0_w0.5: 0.1547, d3.loss_iou0_w0.5: 0.5057, d4.loss_cls0_w0.5: 0.4737, d4.loss_bbox0_w0.5: 0.1552, d4.loss_iou0_w0.5: 0.5049, enc_loss_cls1: 0.7409, enc_loss_bbox1: 0.2662, enc_loss_iou1: 0.9035, loss_cls1: 0.8089, loss_bbox1: 0.2503, loss_iou1: 0.8585, d0.loss_cls1: 0.7790, d0.loss_bbox1: 0.2652, d0.loss_iou1: 0.8962, d1.loss_cls1: 0.7740, d1.loss_bbox1: 0.2597, d1.loss_iou1: 0.8794, d2.loss_cls1: 0.7866, d2.loss_bbox1: 0.2594, d2.loss_iou1: 0.8707, d3.loss_cls1: 0.7988, d3.loss_bbox1: 0.2552, d3.loss_iou1: 0.8696, d4.loss_cls1: 0.7958, d4.loss_bbox1: 0.2543, d4.loss_iou1: 0.8652, enc_loss_cls2: 0.7273, enc_loss_bbox2: 0.2680, enc_loss_iou2: 0.9021, loss_cls2: 0.8030, loss_bbox2: 0.2495, loss_iou2: 0.8485, d0.loss_cls2: 0.7774, d0.loss_bbox2: 0.2595, d0.loss_iou2: 0.8833, d1.loss_cls2: 0.7571, d1.loss_bbox2: 0.2593, d1.loss_iou2: 0.8755, d2.loss_cls2: 0.7753, d2.loss_bbox2: 0.2553, d2.loss_iou2: 0.8652, d3.loss_cls2: 0.7911, d3.loss_bbox2: 0.2542, d3.loss_iou2: 0.8579, d4.loss_cls2: 0.7951, d4.loss_bbox2: 0.2506, d4.loss_iou2: 0.8484, loss: 34.6266, grad_norm: 94.6199
+2023-11-18 07:43:46,045 - mmdet - INFO - Epoch [1][1800/2096]	lr: 1.938e-06, eta: 21:19:52, time: 1.043, data_time: 0.010, memory: 77823, enc_loss_cls0_w0.5: 0.4672, enc_loss_bbox0_w0.5: 0.1574, enc_loss_iou0_w0.5: 0.4828, loss_cls0_w0.5: 0.5013, loss_bbox0_w0.5: 0.1564, loss_iou0_w0.5: 0.4849, d0.loss_cls0_w0.5: 0.5017, d0.loss_bbox0_w0.5: 0.1572, d0.loss_iou0_w0.5: 0.4940, d1.loss_cls0_w0.5: 0.4938, d1.loss_bbox0_w0.5: 0.1568, d1.loss_iou0_w0.5: 0.4914, d2.loss_cls0_w0.5: 0.5029, d2.loss_bbox0_w0.5: 0.1569, d2.loss_iou0_w0.5: 0.4904, d3.loss_cls0_w0.5: 0.4996, d3.loss_bbox0_w0.5: 0.1559, d3.loss_iou0_w0.5: 0.4881, d4.loss_cls0_w0.5: 0.4986, d4.loss_bbox0_w0.5: 0.1580, d4.loss_iou0_w0.5: 0.4869, enc_loss_cls1: 0.7929, enc_loss_bbox1: 0.2743, enc_loss_iou1: 0.9150, loss_cls1: 0.9021, loss_bbox1: 0.2384, loss_iou1: 0.8276, d0.loss_cls1: 0.8745, d0.loss_bbox1: 0.2473, d0.loss_iou1: 0.8573, d1.loss_cls1: 0.8699, d1.loss_bbox1: 0.2438, d1.loss_iou1: 0.8365, d2.loss_cls1: 0.8723, d2.loss_bbox1: 0.2432, d2.loss_iou1: 0.8371, d3.loss_cls1: 0.8689, d3.loss_bbox1: 0.2429, d3.loss_iou1: 0.8294, d4.loss_cls1: 0.8748, d4.loss_bbox1: 0.2425, d4.loss_iou1: 0.8308, enc_loss_cls2: 0.8002, enc_loss_bbox2: 0.2698, enc_loss_iou2: 0.8993, loss_cls2: 0.8815, loss_bbox2: 0.2395, loss_iou2: 0.8274, d0.loss_cls2: 0.8710, d0.loss_bbox2: 0.2449, d0.loss_iou2: 0.8481, d1.loss_cls2: 0.8575, d1.loss_bbox2: 0.2445, d1.loss_iou2: 0.8350, d2.loss_cls2: 0.8590, d2.loss_bbox2: 0.2425, d2.loss_iou2: 0.8376, d3.loss_cls2: 0.8621, d3.loss_bbox2: 0.2418, d3.loss_iou2: 0.8346, d4.loss_cls2: 0.8454, d4.loss_bbox2: 0.2408, d4.loss_iou2: 0.8348, loss: 35.3211, grad_norm: 117.9434
+2023-11-18 07:44:37,661 - mmdet - INFO - Epoch [1][1850/2096]	lr: 1.938e-06, eta: 21:18:40, time: 1.032, data_time: 0.010, memory: 77823, enc_loss_cls0_w0.5: 0.4625, enc_loss_bbox0_w0.5: 0.1461, enc_loss_iou0_w0.5: 0.4848, loss_cls0_w0.5: 0.4962, loss_bbox0_w0.5: 0.1598, loss_iou0_w0.5: 0.5014, d0.loss_cls0_w0.5: 0.4798, d0.loss_bbox0_w0.5: 0.1608, d0.loss_iou0_w0.5: 0.5101, d1.loss_cls0_w0.5: 0.4675, d1.loss_bbox0_w0.5: 0.1603, d1.loss_iou0_w0.5: 0.5090, d2.loss_cls0_w0.5: 0.4696, d2.loss_bbox0_w0.5: 0.1605, d2.loss_iou0_w0.5: 0.5100, d3.loss_cls0_w0.5: 0.4838, d3.loss_bbox0_w0.5: 0.1573, d3.loss_iou0_w0.5: 0.5015, d4.loss_cls0_w0.5: 0.4886, d4.loss_bbox0_w0.5: 0.1589, d4.loss_iou0_w0.5: 0.5021, enc_loss_cls1: 0.7317, enc_loss_bbox1: 0.2653, enc_loss_iou1: 0.8846, loss_cls1: 0.8063, loss_bbox1: 0.2473, loss_iou1: 0.8199, d0.loss_cls1: 0.7879, d0.loss_bbox1: 0.2578, d0.loss_iou1: 0.8461, d1.loss_cls1: 0.7527, d1.loss_bbox1: 0.2538, d1.loss_iou1: 0.8400, d2.loss_cls1: 0.7663, d2.loss_bbox1: 0.2523, d2.loss_iou1: 0.8347, d3.loss_cls1: 0.7877, d3.loss_bbox1: 0.2507, d3.loss_iou1: 0.8268, d4.loss_cls1: 0.7950, d4.loss_bbox1: 0.2479, d4.loss_iou1: 0.8216, enc_loss_cls2: 0.7200, enc_loss_bbox2: 0.2666, enc_loss_iou2: 0.8841, loss_cls2: 0.8043, loss_bbox2: 0.2443, loss_iou2: 0.8042, d0.loss_cls2: 0.7750, d0.loss_bbox2: 0.2548, d0.loss_iou2: 0.8426, d1.loss_cls2: 0.7497, d1.loss_bbox2: 0.2491, d1.loss_iou2: 0.8255, d2.loss_cls2: 0.7554, d2.loss_bbox2: 0.2479, d2.loss_iou2: 0.8236, d3.loss_cls2: 0.7821, d3.loss_bbox2: 0.2465, d3.loss_iou2: 0.8112, d4.loss_cls2: 0.7856, d4.loss_bbox2: 0.2476, d4.loss_iou2: 0.8126, loss: 33.9795, grad_norm: 101.0296
+2023-11-18 07:45:26,884 - mmdet - INFO - Epoch [1][1900/2096]	lr: 1.938e-06, eta: 21:15:56, time: 0.984, data_time: 0.010, memory: 77823, enc_loss_cls0_w0.5: 0.4449, enc_loss_bbox0_w0.5: 0.1597, enc_loss_iou0_w0.5: 0.4835, loss_cls0_w0.5: 0.4986, loss_bbox0_w0.5: 0.1603, loss_iou0_w0.5: 0.4807, d0.loss_cls0_w0.5: 0.4978, d0.loss_bbox0_w0.5: 0.1619, d0.loss_iou0_w0.5: 0.4827, d1.loss_cls0_w0.5: 0.4970, d1.loss_bbox0_w0.5: 0.1612, d1.loss_iou0_w0.5: 0.4831, d2.loss_cls0_w0.5: 0.4949, d2.loss_bbox0_w0.5: 0.1614, d2.loss_iou0_w0.5: 0.4854, d3.loss_cls0_w0.5: 0.4949, d3.loss_bbox0_w0.5: 0.1605, d3.loss_iou0_w0.5: 0.4815, d4.loss_cls0_w0.5: 0.4902, d4.loss_bbox0_w0.5: 0.1619, d4.loss_iou0_w0.5: 0.4817, enc_loss_cls1: 0.7614, enc_loss_bbox1: 0.3029, enc_loss_iou1: 0.9049, loss_cls1: 0.8488, loss_bbox1: 0.2593, loss_iou1: 0.7972, d0.loss_cls1: 0.8595, d0.loss_bbox1: 0.2765, d0.loss_iou1: 0.8410, d1.loss_cls1: 0.8467, d1.loss_bbox1: 0.2679, d1.loss_iou1: 0.8208, d2.loss_cls1: 0.8417, d2.loss_bbox1: 0.2633, d2.loss_iou1: 0.8124, d3.loss_cls1: 0.8445, d3.loss_bbox1: 0.2608, d3.loss_iou1: 0.8006, d4.loss_cls1: 0.8337, d4.loss_bbox1: 0.2614, d4.loss_iou1: 0.7993, enc_loss_cls2: 0.7395, enc_loss_bbox2: 0.3029, enc_loss_iou2: 0.9057, loss_cls2: 0.8324, loss_bbox2: 0.2608, loss_iou2: 0.7953, d0.loss_cls2: 0.8477, d0.loss_bbox2: 0.2710, d0.loss_iou2: 0.8339, d1.loss_cls2: 0.8349, d1.loss_bbox2: 0.2621, d1.loss_iou2: 0.8121, d2.loss_cls2: 0.8195, d2.loss_bbox2: 0.2631, d2.loss_iou2: 0.8084, d3.loss_cls2: 0.8255, d3.loss_bbox2: 0.2613, d3.loss_iou2: 0.8023, d4.loss_cls2: 0.8177, d4.loss_bbox2: 0.2643, d4.loss_iou2: 0.7993, loss: 34.7884, grad_norm: 117.3279
+2023-11-18 07:46:14,151 - mmdet - INFO - Epoch [1][1950/2096]	lr: 1.938e-06, eta: 21:12:04, time: 0.945, data_time: 0.010, memory: 77823, enc_loss_cls0_w0.5: 0.4710, enc_loss_bbox0_w0.5: 0.1280, enc_loss_iou0_w0.5: 0.4678, loss_cls0_w0.5: 0.4968, loss_bbox0_w0.5: 0.1324, loss_iou0_w0.5: 0.4782, d0.loss_cls0_w0.5: 0.4937, d0.loss_bbox0_w0.5: 0.1323, d0.loss_iou0_w0.5: 0.4748, d1.loss_cls0_w0.5: 0.4891, d1.loss_bbox0_w0.5: 0.1314, d1.loss_iou0_w0.5: 0.4746, d2.loss_cls0_w0.5: 0.4936, d2.loss_bbox0_w0.5: 0.1311, d2.loss_iou0_w0.5: 0.4739, d3.loss_cls0_w0.5: 0.4960, d3.loss_bbox0_w0.5: 0.1305, d3.loss_iou0_w0.5: 0.4716, d4.loss_cls0_w0.5: 0.4928, d4.loss_bbox0_w0.5: 0.1326, d4.loss_iou0_w0.5: 0.4793, enc_loss_cls1: 0.7676, enc_loss_bbox1: 0.2370, enc_loss_iou1: 0.8799, loss_cls1: 0.8439, loss_bbox1: 0.2016, loss_iou1: 0.7772, d0.loss_cls1: 0.8391, d0.loss_bbox1: 0.2134, d0.loss_iou1: 0.8072, d1.loss_cls1: 0.8621, d1.loss_bbox1: 0.2052, d1.loss_iou1: 0.7949, d2.loss_cls1: 0.8347, d2.loss_bbox1: 0.2035, d2.loss_iou1: 0.7906, d3.loss_cls1: 0.8395, d3.loss_bbox1: 0.2037, d3.loss_iou1: 0.7875, d4.loss_cls1: 0.8427, d4.loss_bbox1: 0.2044, d4.loss_iou1: 0.7905, enc_loss_cls2: 0.7480, enc_loss_bbox2: 0.2324, enc_loss_iou2: 0.8683, loss_cls2: 0.8266, loss_bbox2: 0.1976, loss_iou2: 0.7750, d0.loss_cls2: 0.8188, d0.loss_bbox2: 0.2087, d0.loss_iou2: 0.8076, d1.loss_cls2: 0.8476, d1.loss_bbox2: 0.2021, d1.loss_iou2: 0.7918, d2.loss_cls2: 0.8166, d2.loss_bbox2: 0.2008, d2.loss_iou2: 0.7868, d3.loss_cls2: 0.8279, d3.loss_bbox2: 0.1990, d3.loss_iou2: 0.7819, d4.loss_cls2: 0.8345, d4.loss_bbox2: 0.1967, d4.loss_iou2: 0.7825, loss: 33.3491, grad_norm: 126.1863
+2023-11-18 07:47:05,536 - mmdet - INFO - Exp name: mt_detr_c+l+r.py
+2023-11-18 07:47:05,537 - mmdet - INFO - Epoch [1][2000/2096]	lr: 1.938e-06, eta: 21:10:52, time: 1.028, data_time: 0.010, memory: 77823, enc_loss_cls0_w0.5: 0.4873, enc_loss_bbox0_w0.5: 0.1536, enc_loss_iou0_w0.5: 0.4875, loss_cls0_w0.5: 0.5015, loss_bbox0_w0.5: 0.1729, loss_iou0_w0.5: 0.5079, d0.loss_cls0_w0.5: 0.4932, d0.loss_bbox0_w0.5: 0.1765, d0.loss_iou0_w0.5: 0.5143, d1.loss_cls0_w0.5: 0.4913, d1.loss_bbox0_w0.5: 0.1764, d1.loss_iou0_w0.5: 0.5114, d2.loss_cls0_w0.5: 0.4946, d2.loss_bbox0_w0.5: 0.1760, d2.loss_iou0_w0.5: 0.5084, d3.loss_cls0_w0.5: 0.5002, d3.loss_bbox0_w0.5: 0.1753, d3.loss_iou0_w0.5: 0.5079, d4.loss_cls0_w0.5: 0.4999, d4.loss_bbox0_w0.5: 0.1746, d4.loss_iou0_w0.5: 0.5076, enc_loss_cls1: 0.8245, enc_loss_bbox1: 0.2704, enc_loss_iou1: 0.8810, loss_cls1: 0.8547, loss_bbox1: 0.2621, loss_iou1: 0.8370, d0.loss_cls1: 0.8509, d0.loss_bbox1: 0.2717, d0.loss_iou1: 0.8646, d1.loss_cls1: 0.8079, d1.loss_bbox1: 0.2673, d1.loss_iou1: 0.8581, d2.loss_cls1: 0.8167, d2.loss_bbox1: 0.2663, d2.loss_iou1: 0.8558, d3.loss_cls1: 0.8398, d3.loss_bbox1: 0.2673, d3.loss_iou1: 0.8478, d4.loss_cls1: 0.8365, d4.loss_bbox1: 0.2652, d4.loss_iou1: 0.8435, enc_loss_cls2: 0.8054, enc_loss_bbox2: 0.2694, enc_loss_iou2: 0.8785, loss_cls2: 0.8431, loss_bbox2: 0.2555, loss_iou2: 0.8200, d0.loss_cls2: 0.8421, d0.loss_bbox2: 0.2653, d0.loss_iou2: 0.8588, d1.loss_cls2: 0.8205, d1.loss_bbox2: 0.2584, d1.loss_iou2: 0.8329, d2.loss_cls2: 0.8118, d2.loss_bbox2: 0.2599, d2.loss_iou2: 0.8373, d3.loss_cls2: 0.8349, d3.loss_bbox2: 0.2565, d3.loss_iou2: 0.8270, d4.loss_cls2: 0.8348, d4.loss_bbox2: 0.2559, d4.loss_iou2: 0.8228, loss: 35.3982, grad_norm: 103.5426
+2023-11-18 07:47:56,120 - mmdet - INFO - Epoch [1][2050/2096]	lr: 1.938e-06, eta: 21:09:13, time: 1.012, data_time: 0.011, memory: 77823, enc_loss_cls0_w0.5: 0.4755, enc_loss_bbox0_w0.5: 0.1311, enc_loss_iou0_w0.5: 0.4580, loss_cls0_w0.5: 0.4936, loss_bbox0_w0.5: 0.1382, loss_iou0_w0.5: 0.4820, d0.loss_cls0_w0.5: 0.4914, d0.loss_bbox0_w0.5: 0.1434, d0.loss_iou0_w0.5: 0.4851, d1.loss_cls0_w0.5: 0.4875, d1.loss_bbox0_w0.5: 0.1415, d1.loss_iou0_w0.5: 0.4846, d2.loss_cls0_w0.5: 0.4894, d2.loss_bbox0_w0.5: 0.1403, d2.loss_iou0_w0.5: 0.4861, d3.loss_cls0_w0.5: 0.4931, d3.loss_bbox0_w0.5: 0.1400, d3.loss_iou0_w0.5: 0.4819, d4.loss_cls0_w0.5: 0.4897, d4.loss_bbox0_w0.5: 0.1398, d4.loss_iou0_w0.5: 0.4830, enc_loss_cls1: 0.7690, enc_loss_bbox1: 0.2435, enc_loss_iou1: 0.8778, loss_cls1: 0.8567, loss_bbox1: 0.2190, loss_iou1: 0.7965, d0.loss_cls1: 0.8327, d0.loss_bbox1: 0.2347, d0.loss_iou1: 0.8439, d1.loss_cls1: 0.8434, d1.loss_bbox1: 0.2277, d1.loss_iou1: 0.8133, d2.loss_cls1: 0.8363, d2.loss_bbox1: 0.2250, d2.loss_iou1: 0.8075, d3.loss_cls1: 0.8457, d3.loss_bbox1: 0.2217, d3.loss_iou1: 0.7998, d4.loss_cls1: 0.8425, d4.loss_bbox1: 0.2216, d4.loss_iou1: 0.8056, enc_loss_cls2: 0.7595, enc_loss_bbox2: 0.2395, enc_loss_iou2: 0.8508, loss_cls2: 0.8562, loss_bbox2: 0.2124, loss_iou2: 0.7910, d0.loss_cls2: 0.8319, d0.loss_bbox2: 0.2304, d0.loss_iou2: 0.8288, d1.loss_cls2: 0.8424, d1.loss_bbox2: 0.2211, d1.loss_iou2: 0.7993, d2.loss_cls2: 0.8323, d2.loss_bbox2: 0.2211, d2.loss_iou2: 0.7958, d3.loss_cls2: 0.8457, d3.loss_bbox2: 0.2153, d3.loss_iou2: 0.7937, d4.loss_cls2: 0.8355, d4.loss_bbox2: 0.2142, d4.loss_iou2: 0.7931, loss: 33.9291, grad_norm: 116.2438
+Traceback (most recent call last):
+  File "tools/train.py", line 188, in <module>
+    main()
+  File "tools/train.py", line 177, in main
+    train_detector(
+  File "/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr_cuda11p1/mmdet/apis/train.py", line 185, in train_detector
+    runner.run(data_loaders, cfg.workflow)
+  File "/home/kpatel2s/anaconda3/envs/mt_detr-cuda11p1/lib/python3.8/site-packages/mmcv/runner/epoch_based_runner.py", line 127, in run
+    epoch_runner(data_loaders[i], **kwargs)
+  File "/home/kpatel2s/anaconda3/envs/mt_detr-cuda11p1/lib/python3.8/site-packages/mmcv/runner/epoch_based_runner.py", line 50, in train
+    self.run_iter(data_batch, train_mode=True, **kwargs)
+  File "/home/kpatel2s/anaconda3/envs/mt_detr-cuda11p1/lib/python3.8/site-packages/mmcv/runner/epoch_based_runner.py", line 29, in run_iter
+    outputs = self.model.train_step(data_batch, self.optimizer,
+  File "/home/kpatel2s/anaconda3/envs/mt_detr-cuda11p1/lib/python3.8/site-packages/mmcv/parallel/data_parallel.py", line 67, in train_step
+    return self.module.train_step(*inputs[0], **kwargs[0])
+  File "/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr_cuda11p1/mmdet/models/detectors/base.py", line 237, in train_step
+    losses = self(**data)
+  File "/home/kpatel2s/anaconda3/envs/mt_detr-cuda11p1/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/kpatel2s/anaconda3/envs/mt_detr-cuda11p1/lib/python3.8/site-packages/mmcv/runner/fp16_utils.py", line 98, in new_func
+    return old_func(*args, **kwargs)
+  File "/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr_cuda11p1/mmdet/models/detectors/base.py", line 171, in forward
+    return self.forward_train(img, img_metas, **kwargs)
+  File "/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr_cuda11p1/mmdet/models/detectors/single_stage.py", line 231, in forward_train
+    head_losses = self.bbox_head.forward_train(x, img_metas, gt_bboxes,
+  File "/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr_cuda11p1/mmdet/models/dense_heads/detr_head.py", line 573, in forward_train
+    outs = self(x, img_metas)
+  File "/home/kpatel2s/anaconda3/envs/mt_detr-cuda11p1/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr_cuda11p1/mmdet/models/dense_heads/deformable_detr_head.py", line 143, in forward
+    enc_outputs_class, enc_outputs_coord = self.transformer(
+  File "/home/kpatel2s/anaconda3/envs/mt_detr-cuda11p1/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr_cuda11p1/mmdet/models/utils/transformer.py", line 624, in forward
+    memory = self.encoder(
+  File "/home/kpatel2s/anaconda3/envs/mt_detr-cuda11p1/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/mt_detr_cuda11p1/mmdet/models/utils/transformer.py", line 118, in forward
+    x = super(DetrTransformerEncoder, self).forward(*args, **kwargs)
+  File "/home/kpatel2s/anaconda3/envs/mt_detr-cuda11p1/lib/python3.8/site-packages/mmcv/cnn/bricks/transformer.py", line 585, in forward
+    query = layer(
+  File "/home/kpatel2s/anaconda3/envs/mt_detr-cuda11p1/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/kpatel2s/anaconda3/envs/mt_detr-cuda11p1/lib/python3.8/site-packages/mmcv/cnn/bricks/transformer.py", line 506, in forward
+    query = self.ffns[ffn_index](
+  File "/home/kpatel2s/anaconda3/envs/mt_detr-cuda11p1/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/kpatel2s/anaconda3/envs/mt_detr-cuda11p1/lib/python3.8/site-packages/mmcv/utils/misc.py", line 340, in new_func
+    output = old_func(*args, **kwargs)
+  File "/home/kpatel2s/anaconda3/envs/mt_detr-cuda11p1/lib/python3.8/site-packages/mmcv/cnn/bricks/transformer.py", line 274, in forward
+    out = self.layers(x)
+  File "/home/kpatel2s/anaconda3/envs/mt_detr-cuda11p1/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/kpatel2s/anaconda3/envs/mt_detr-cuda11p1/lib/python3.8/site-packages/torch/nn/modules/container.py", line 141, in forward
+    input = module(input)
+  File "/home/kpatel2s/anaconda3/envs/mt_detr-cuda11p1/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/kpatel2s/anaconda3/envs/mt_detr-cuda11p1/lib/python3.8/site-packages/torch/nn/modules/container.py", line 141, in forward
+    input = module(input)
+  File "/home/kpatel2s/anaconda3/envs/mt_detr-cuda11p1/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/kpatel2s/anaconda3/envs/mt_detr-cuda11p1/lib/python3.8/site-packages/torch/nn/modules/dropout.py", line 58, in forward
+    return F.dropout(input, self.p, self.training, self.inplace)
+  File "/home/kpatel2s/anaconda3/envs/mt_detr-cuda11p1/lib/python3.8/site-packages/torch/nn/functional.py", line 1169, in dropout
+    return _VF.dropout_(input, p, training) if inplace else _VF.dropout(input, p, training)
+RuntimeError: CUDA out of memory. Tried to allocate 230.00 MiB (GPU 0; 79.15 GiB total capacity; 70.39 GiB already allocated; 26.94 MiB free; 77.30 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

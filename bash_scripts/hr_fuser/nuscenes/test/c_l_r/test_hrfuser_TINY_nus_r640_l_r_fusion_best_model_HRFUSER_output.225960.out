@@ -1,0 +1,19 @@
+[bash] My HOSTNAME is 
+wr16
+[bash] CURRENT_DATE_TIME is 2023-11-28_19-58-35
+[bash] Loading GCC and CUDA modules...
+[bash] Directory changed to /home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/hrfuser
+[bash] Start testing HRFuser TINY model on nuScenes dataset...
+[bash] --------------------------------------------
+
+nuscenes_infos_test_mono3d_saf_fcos.coco.json
+loading annotations into memory...
+Done (t=4.64s)
+creating index...
+index created!
+load checkpoint from local path: /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/nuscenes/work_dirs/camera_lidar_radar_saf_fcos/hrfuser_TINY_nuScenes_c_l_r_fusion_epoch_36_batch_12_orig_No_Drop_Proj_Drop_Rate_0p0_config_SAF_FCOS_with_SAF_FCOS_ANNOTAIONS_multi_A100_gpu_2023-11-28_05-13-45_225883/epoch_36.pth
+Use GPU 0 for testing
+[                                                  ] 0/6008, elapsed: 0s, ETA:[bash] Testing completed...
+[bash] --------------------------------------------
+
+[bash] Total time taken (HH:MM): 00:00
