@@ -53,7 +53,7 @@ NOTE: For A100 GPU, use `pip install torch==1.10.1+cu111 torchvision==0.11.2+cu1
     - Early C+L+R - DONE
     - Middle C+L+R - DONE
     - Tightly-coupled C+L+R - DONE
-        - Evaluation - [IN-PROGRESS]
+        - Evaluation - FAILED
     - [NOTE] SOMETHING IS WRONG WITH THIS, 
         - NEED TO DEBUG THIS
         - MORE DATA SHOULD GIVE -> GOOD RESULT BUT NOT THIS BAD

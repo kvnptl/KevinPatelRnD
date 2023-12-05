@@ -36,6 +36,32 @@ pip install -v -e .
     - Training with C+L+R on SAF-FCOS - DONE
         - Log results in sheer - Pending
         - Test - Pending
+    - Train C+R with Proj_Drop_Rate_0p0 - DONE
+        - Not required
+    
+    - Train C+R with Proj_Drop_Rate_0p0 and No Random Drop 0.0 - DONE
+        - Test - DONE
+    - Train C+L with Proj_Drop_Rate_0p0 and No Random Drop 0.0 - DONE
+        - Test - DONE
+    - Train C+L+R with Proj_Drop_Rate_0p0 and No Random Drop 0.0 - DONE
+        - Test - [RUNNING]
+
+    - Training with big size input - FAILED
+        - 12 epochs only
+        - ERROR - The testing results of the whole dataset is empty.
+
+-Converting nuscenes dataset to big size 1333x800 from 640x360 - DONE
+    - Once done, train SAF FCOS based testing with new images,
+        - Change directory name to take new images
+    - Code for big size, `target_img_size = (1333, 750) # selected to keep the scale factor as 1.2
+            scale_factor = 1.2 # Updated for target_img_size (1600/1333 = 1.2), orig was 2.5 for 640x360. Calculation, 1600/640 = 2.5`
+
+- Recreating lidar and radar images - DONE
+    - my prev got locked with root access
+
+-Check whether HRFuser discards annotaions???
+
+
 
 ##################################################################################
 
