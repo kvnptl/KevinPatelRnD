@@ -4,8 +4,8 @@
 #SBATCH --ntasks-per-node=64    # cores
 #SBATCH --mem 480GB               # memory per node in MB (different units with suffix K|M|G|T)
 #SBATCH --time 1-00:00              # total runtime of job allocation (format D-HH:MM)
-#SBATCH --output train_hrfuser_TINY_nuScenes_c_r_fusion_epoch_36_batch_12_orig_Proj_Drop_Rate_0p0_config_SAF_FCOS_multi_A100_gpu_output.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
-#SBATCH --error train_hrfuser_TINY_nuScenes_c_r_fusion_epoch_36_batch_12_orig_Proj_Drop_Rate_0p0_config_SAF_FCOS_multi_A100_gpu_output.%j.err  # filename for STDERR
+#SBATCH --output train_hrfuser_TINY_nuScenes_c_r_fusion_epoch_36_batch_12_orig_No_Drop_Proj_Drop_Rate_0p0_config_SAF_FCOS_multi_A100_gpu_output.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
+#SBATCH --error train_hrfuser_TINY_nuScenes_c_r_fusion_epoch_36_batch_12_orig_No_Drop_Proj_Drop_Rate_0p0_config_SAF_FCOS_multi_A100_gpu_output.%j.err  # filename for STDERR
 
 export MODULEPATH=/usr/local/modules/modulesfiles_8:$MODULEPATH
 . /etc/profile.d/modules.sh
@@ -35,10 +35,10 @@ echo "[bash] Start training HRFuser TINY model on nuScenes dataset..."
 
 echo -e "[bash] --------------------------------------------\n"
 
-tools/dist_train.sh configs/hrfuser/cascade_rcnn_hrfuser_t_1x_nus_r640_c_r_fusion_setting2_saf_fcos.py \
+tools/dist_train.sh configs/hrfuser/cascade_rcnn_hrfuser_t_1x_nus_r640_c_r_fusion_setting2_saf_fcos_no_drop.py \
                     4 \
                     --seed 8 \
-                    --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/nuscenes/work_dirs/camera_radar_saf_fcos/hrfuser_TINY_nuScenes_c_r_fusion_epoch_36_batch_12_orig_Proj_Drop_Rate_0p0_config_SAF_FCOS_with_SAF_FCOS_ANNOTAIONS_multi_gpu_${CURRENT_DATE_TIME}_${SLURM_JOB_ID}
+                    --work-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/hrfuser_weights/nuscenes/work_dirs/camera_radar_saf_fcos/hrfuser_TINY_nuScenes_c_r_fusion_epoch_36_batch_12_orig_No_Drop_Proj_Drop_Rate_0p0_config_SAF_FCOS_with_SAF_FCOS_ANNOTAIONS_multi_gpu_${CURRENT_DATE_TIME}_${SLURM_JOB_ID}
 
 echo "[bash] Training completed..."
 

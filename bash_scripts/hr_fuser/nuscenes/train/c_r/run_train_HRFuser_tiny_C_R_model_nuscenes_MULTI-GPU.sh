@@ -1,15 +1,11 @@
 #!/bin/sh
-#SBATCH --partition gpu4test       # partition (queue)
+#SBATCH --partition gpu4       # partition (queue)
 #SBATCH --nodes 1                # number of nodes
 #SBATCH --ntasks-per-node=64    # cores
-#SBATCH --mem 480GB               # memory per node in MB (different units with suffix K|M|G|T)
+#SBATCH --mem 180GB               # memory per node in MB (different units with suffix K|M|G|T)
 #SBATCH --time 1-00:00              # total runtime of job allocation (format D-HH:MM)
-#SBATCH --output train_hrfuser_TINY_nuScenes_c_r_fusion_epoch_36_batch_12_orig_Proj_Drop_Rate_0p0_config_SAF_FCOS_multi_A100_gpu_output.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
-#SBATCH --error train_hrfuser_TINY_nuScenes_c_r_fusion_epoch_36_batch_12_orig_Proj_Drop_Rate_0p0_config_SAF_FCOS_multi_A100_gpu_output.%j.err  # filename for STDERR
-
-export MODULEPATH=/usr/local/modules/modulesfiles_8:$MODULEPATH
-. /etc/profile.d/modules.sh
-. /usr/local/etc/profile
+#SBATCH --output train_hrfuser_TINY_nuScenes_c_r_fusion_epoch_36_batch_12_orig_Proj_Drop_Rate_0p0_config_SAF_FCOS_multi_gpu_output.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
+#SBATCH --error train_hrfuser_TINY_nuScenes_c_r_fusion_epoch_36_batch_12_orig_Proj_Drop_Rate_0p0_config_SAF_FCOS_multi_gpu_output.%j.err  # filename for STDERR
 
 echo "[bash] My HOSTNAME is "
 echo `hostname`
@@ -22,12 +18,12 @@ echo "[bash] CURRENT_DATE_TIME is ${CURRENT_DATE_TIME}"
 
 echo "[bash] Loading GCC and CUDA modules..."
 
-module load gcc/10.1.0 cuda/11.2
+module load gcc/10.1.0 cuda/10.2
 
 . "/home/kpatel2s/anaconda3/etc/profile.d/conda.sh"
-conda activate hrfuser-cuda11p1
+conda activate hrfuser-cuda102-torch110-mmcv-full-1317
 
-cd /home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/hrfuser_cuda11p1
+cd /home/kpatel2s/kpatel2s/sensor_fusion_rnd/KevinPatelRnD/hrfuser
 
 echo "[bash] Directory changed to $(pwd)"
 

@@ -4,8 +4,8 @@
 #SBATCH --ntasks-per-node=64    # cores
 #SBATCH --mem 180GB               # memory per node in MB (different units with suffix K|M|G|T)
 #SBATCH --time 0-24:00              # total runtime of job allocation (format D-HH:MM)
-#SBATCH --output test_mt_detr_c+l+r_output.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
-#SBATCH --error test_mt_detr_c+l+r_output.%j.err  # filename for STDERR
+#SBATCH --output test_mt_detr_c+l+r_test_FPS_output.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
+#SBATCH --error test_mt_detr_c+l+r_test_FPS_output.%j.err  # filename for STDERR
 
 echo "[bash] My HOSTNAME is "
 echo `hostname`
@@ -46,7 +46,7 @@ do
         --eval bbox \
         --show \
         --show-dir /home/kpatel2s/kpatel2s/link_scratch_dir/kpatel2s/model_weights/mt_detr_weights/inference/camera_lidar_radar_provided_${CURRENT_DATE_TIME}_${SLURM_JOB_ID} \
-        --cfg-options data.test.samples_per_gpu=16
+        # --cfg-options data.test.samples_per_gpu=16
 done
 
 echo "[bash] Testing completed..."

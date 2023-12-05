@@ -3,7 +3,7 @@
 #SBATCH --nodes 1                # number of nodes
 #SBATCH --ntasks-per-node=64    # cores
 #SBATCH --mem 480GB               # memory per node in MB (different units with suffix K|M|G|T)
-#SBATCH --time 3-00:00              # total runtime of job allocation (format D-HH:MM)
+#SBATCH --time 1-00:00              # total runtime of job allocation (format D-HH:MM)
 #SBATCH --output train_hrfuser_TINY_nuScenes_c_l_r_fusion_epoch_36_batch_12_orig_config_SAF_FCOS_multi_A100_gpu_output.%j.out # filename for STDOUT (%N: nodename, %j: job-ID)
 #SBATCH --error train_hrfuser_TINY_nuScenes_c_l_r_fusion_epoch_36_batch_12_orig_config_SAF_FCOS_multi_A100_gpu_output.%j.err  # filename for STDERR
 
