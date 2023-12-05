@@ -1,0 +1,6 @@
+skip	Clear weather		Light fog		Dense fog		Snow/rain	
+skip	Day	Night	Day	Night	Day	Night	Day	Night
+Fusion architecture	AR	AR	AR	AR	AR	AR	AR	AR
+Early	65.2	64.6	65.5	65.2	62.6	61.7	65.7	66.2
+Middle	66.7	65.5	67.3	65.7	68.9	68.7	67.3	66.7
+Tightly-coupled	67.6	67.0	68.1	67.5	69.2	70.4	69.1	68.4

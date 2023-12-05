@@ -1,0 +1,3 @@
+Method	Model Params (M)	GFLOPs	FPS
+HRFuser	48.8	58.7	1.9
+SAF-FCOS	50.8	2,200.0	11

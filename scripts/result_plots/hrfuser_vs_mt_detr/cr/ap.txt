@@ -1,0 +1,5 @@
+skip	Clear weather		Light fog		Dense fog		Snow/rain	
+skip	Day	Night	Day	Night	Day	Night	Day	Night
+Method	AP	AP	AP	AP	AP	AP	AP	AP
+MT_DETR	56.7	53.9	58.9	55.2	60.2	60.5	57.3	56.0
+HRFuser	51.0	38.4	42.6	50.3	48.5	40.5	45.5	43.0

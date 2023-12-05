@@ -1,0 +1,6 @@
+Modalities	Model Params (M)	GFLOPs	FPS
+C	47.9	83.9	3.4
+C+R	48.9	94.2	1.9
+C+L	48.8	94.3	1.5
+C+L+R	49.3	103.6	1.4
+C+L+R+G	49.9	112.9	1.2

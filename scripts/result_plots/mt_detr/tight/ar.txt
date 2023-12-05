@@ -1,0 +1,6 @@
+skip	Clear weather		Light fog		Dense fog		Snow/rain	
+skip	Day	Night	Day	Night	Day	Night	Day	Night
+Modalities	AR	AR	AR	AR	AR	AR	AR	AR
+C	66.2	64.2	67.1	65.0	69.7	68.9	67.0	65.9
+C+R	67.5	65.8	69.4	66.1	70.9	71.0	68.9	67.7
+C+L+R	67.6	67.0	68.1	67.5	69.2	70.4	69.1	68.4

@@ -1,0 +1,5 @@
+Modalities	Model Params (M)	GFLOPs
+C+R	198.3	357.2
+C+L	198.3	357.2
+C+L+R	291.4	510.7
+C+L+R+T	383.2	662.4

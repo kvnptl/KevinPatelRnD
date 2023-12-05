@@ -1,0 +1,4 @@
+Fusion architecture	Model Params (M)	GFLOPs
+Early	189.9	213.2
+Middle	192.7	350.3
+Tightly-coupled	198.3	357.2

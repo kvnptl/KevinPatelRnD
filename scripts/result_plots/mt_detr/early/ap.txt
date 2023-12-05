@@ -1,0 +1,6 @@
+skip	Clear weather		Light fog		Dense fog		Snow/rain	
+skip	Day	Night	Day	Night	Day	Night	Day	Night
+Modalities	AP	AP	AP	AP	AP	AP	AP	AP
+C	54.5	51.9	55.6	53.4	58.6	58.1	55.1	53.8
+C+R	53.5	50.7	51.4	52.8	53.2	54.7	52.9	53.0
+C+L+R	54.0	52.2	51.4	53.6	51.2	50.5	53.7	53.9

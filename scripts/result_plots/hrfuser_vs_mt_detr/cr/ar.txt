@@ -1,0 +1,5 @@
+skip	Clear weather		Light fog		Dense fog		Snow/rain	
+skip	Day	Night	Day	Night	Day	Night	Day	Night
+Method	AR	AR	AR	AR	AR	AR	AR	AR
+MT_DETR	67.5	65.8	69.4	66.1	70.9	71.0	68.9	67.7
+HRFuser	57.5	46.3	50.0	57.0	54.3	44.9	57.9	50.7

@@ -1,0 +1,3 @@
+Method	Model Params (M)	GFLOPs
+MT_DETR	291.4	510.7
+HRFuser	49.3	103.6
