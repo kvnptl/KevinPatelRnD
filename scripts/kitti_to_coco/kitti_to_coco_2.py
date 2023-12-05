@@ -3,7 +3,46 @@ from collections import defaultdict
 import os
 from tqdm import tqdm
 
+"""
+This module provides utilities for converting datasets between KITTI and COCO formats and for extracting unique classes from these datasets.
+
+The module consists of three main functions:
+1. `kitti_to_coco` - Converts a dataset from the KITTI format to the COCO format. It handles the conversion of images, lidar projections, radar projections, annotations, and categories. The function also supports using a sample COCO file as a reference for the conversion process.
+
+2. `extract_unique_classes_kitti` - Extracts and lists unique object classes from a dataset in KITTI format. This function reads through the annotations in the KITTI dataset and gathers all unique class names, providing insights into the variety of objects annotated in the dataset.
+
+3. `extract_unique_classes_coco` - Similar to `extract_unique_classes_kitti`, but for datasets in COCO format. It parses the categories section of a COCO dataset to list out all unique object classes present.
+
+These utilities are particularly useful in computer vision and deep learning applications, where data often needs to be converted between different annotation formats for training object detection models.
+"""
+
 def kitti_to_coco(kitti_file, coco_file, sample_coco_file=None):
+    """
+    Converts KITTI format annotations to COCO format.
+
+    This function transforms a dataset from the KITTI format to the COCO format.
+    It handles images, lidar projections, radar projections, annotations, and
+    categories. It also supports an optional sample COCO file for reference.
+
+    Parameters:
+    - kitti_file (str): Path to the KITTI format file.
+    - coco_file (str): Path where the COCO format file will be saved.
+    - sample_coco_file (str, optional): Path to a sample COCO format file used for reference.
+
+    The function processes each image in the KITI dataset, converting and
+    appending corresponding data to the COCO format. Annotations are grouped by
+    image_id and sorted by category_id. Category IDs are mapped and annotations
+    are re-assigned new IDs for consistency. The final COCO data is written to
+    the specified output file.
+
+    Example Usage:
+    ```
+    sample_coco_file = "/path/to/sample/coco_file.json"
+    kitti_file = "/path/to/kitti_file.json"
+    coco_file = "/path/to/output/coco_file.json"
+    kitti_to_coco(kitti_file, coco_file, sample_coco_file)
+    ```
+    """
 
     # Just for ref
     if sample_coco_file is not None:
@@ -163,6 +202,29 @@ for json_file in tqdm(os.listdir(json_files_dir)):
 
 
 def extract_unique_classes_kitti(kitti_file):
+    """
+    Extracts and prints unique classes from a KITTI format file.
+
+    This function reads a KITTI format file, extracts unique object classes
+    present in the annotations, and prints them in a sorted list. It also
+    calculates the total number of images in the dataset.
+
+    Parameters:
+    - kitti_file (str): Path to the KITTI format file.
+
+    Returns:
+    - set: A set of unique class names found in the file.
+
+    The function processes the KITTI file, gathers unique names from the
+    annotations, and returns them as a sorted set. It also prints the total
+    number of images in the dataset.
+
+    Example Usage:
+    ```
+    kitti_file = "/path/to/kitti_file.json"
+    unique_classes = extract_unique_classes_kitti(kitti_file)
+    ```
+    """
     with open(kitti_file, 'r') as file:
         data = json.load(file)
 
@@ -185,6 +247,29 @@ def extract_unique_classes_kitti(kitti_file):
 import json
 
 def extract_unique_classes_coco(coco_file):
+    """
+    Extracts and prints unique classes from a COCO format file.
+
+    This function reads a COCO format file, extracts unique object classes
+    present in the category section, and prints them. It also calculates and
+    prints the total number of images in the dataset.
+
+    Parameters:
+    - coco_file (str): Path to the COCO format file.
+
+    Returns:
+    - tuple: A set of unique class names and the total number of images.
+
+    The function processes the COCO file, gathers unique category names, and
+    returns them as a set. It also calculates and prints the total number of
+    images in the dataset.
+
+    Example Usage:
+    ```
+    coco_file = "/path/to/coco_file.json"
+    unique_classes, total_images = extract_unique_classes_coco(coco_file)
+    ```
+    """
     with open(coco_file, 'r') as file:
         data = json.load(file)
 
