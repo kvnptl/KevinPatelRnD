@@ -168,3 +168,4 @@ test_zone/dataset/nuscenes/videos/sample_video_6_cam.avi
 test_zone/dataset/nuscenes/videos/sample_video.avi
 papers/
 misc/other_students
+bash_scripts/saf_fcos/annotations_bkup/nuscenes_infos_*
