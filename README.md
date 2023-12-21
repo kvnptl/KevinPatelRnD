@@ -35,6 +35,12 @@
 |:--:| 
 | *Figure 7: Samples of K-Radar datasets for various weather conditions* |
 
+### TODOs:
+- Quantitative results
+- Qualitative results
+- Methods table
+- Dataset used table
+- Link to final report
 
 
 
