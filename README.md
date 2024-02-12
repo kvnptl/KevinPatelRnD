@@ -4,7 +4,7 @@
     - Prof. Dr. Ing- Sebastian Houben
     - M.Sc. Santosh Thoduka
 
-### Motivation
+## Motivation
 - Why multi-modal sensor fusion?
 
 | ![Figure 1: Sensors modality characteristics](https://github.com/kvnptl/KevinPatelRnD/assets/47410011/9e9bdabb-eeb3-4147-b51b-0daf8fe3a92b) | ![Figure 2: Sensors modality characteristics](https://github.com/kvnptl/KevinPatelRnD/assets/47410011/69e7ef29-7288-4132-a007-294ee27e9367) |
@@ -12,7 +12,7 @@
 | *Figure 1: Sensors modality characteristics* | *Figure 2: Sensors modality characteristics* |
 
 
-### Datasets
+## Datasets
 
 **Table 3.1: Multimodal adverse weather conditions datasets. Sensors†: C-R-L-N-F denotes Camera, Radar, LiDAR, Near-infrared, and Far-infrared sensors, respectively. Weather conditions‡: F-SN-R-O-SL-N denotes Fog, Snow, Rain, Overcast, Sleet, and Night conditions, respectively. Note that DENSE and nuScenes datasets are used for the project.**
 - Sorted in ascending order w.r.t year column
@@ -28,9 +28,12 @@
 | **Boreas**           | CRL         | SN, R, O, N                 | 4400          | 2022     | 38                | [Link](https://www.boreas.utias.utoronto.ca/#/) | University of Toronto                                 | - High resolution radar                            |                                                     |
 | **aiMotive**         | CRL         | R, O, N                     | 85            | 2023     | 3                 | [Link](https://github.com/aimotive/aimotive_dataset) | aiMotive company                                      | - Fog and Snow not included (future work)<br>- Relatively small dataset |                                                     |
 
-### Methods
+## Methods
 
-| Name              | Sensors | Dataset Used        | Fusion method | 2D/3D | Code Link | Year | Published at | Cited By | Comment 1                                     | Comment 2                                    | Framework  |
+**Table 3.4: Multi-modal sensor fusion methods. Sensors†: C-R-L denote Camera, Radar, and LiDAR sensors, respectively**
+- SAF-FCOS, HRFuser, and MT-DETR methods are thoroughly analyzed in the report
+
+| Name              | Sensors† | Dataset Used        | Fusion method | 2D/3D | Code Link | Year | Published at | Cited By | Comment 1                                     | Comment 2                                    | Framework  |
 |-------------------|---------|---------------------|---------------|-------|-----------|------|--------------|----------|-----------------------------------------------|----------------------------------------------|------------|
 | CRF Net           | CR      | nuScenes            | Data-level    | 2D    | [Link](https://github.com/TUMFTM/CameraRadarFusionNet)  | 2019 | SDF          | 208      | Uses BlackIn method for training              | didn't mention NDS                           | Tensorflow |
 | SAF-FCOS          | CR      | nuScenes            | Feature-level | 2D    | [Link](https://github.com/Singingkettle/SAF-FCOS)  | 2020 | Sensors      | 105      | New spatial fusion strategy                   | AP = 72.4, didn't mention NDS                | PyTorch    |
@@ -54,7 +57,7 @@
 | aiMotive           | LR     | aiMotive            |               | 3D    | [Link](https://github.com/aimotive/mm_training)  | 2023 | ICLR         | 2        | Yet to explore for Camera+Radar fusion        |                                               | PyTorch    |
 
 
-### Figures from the report:
+## Figures from the report:
 
 - A few sample figures highlighting the importance of multi-modal sensor fusion
 
@@ -81,7 +84,7 @@
 ### TODOs:
 - [ ] Quantitative results
 - [ ] Qualitative results
-- [ ] Methods table
+- [x] Methods table
 - [x] Dataset used table
 - [ ] Link to final report
 
