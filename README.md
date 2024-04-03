@@ -88,6 +88,16 @@
 - [x] Dataset used table
 - [ ] Link to final report
 
+### Contact:
+Email 📧: kevinpatel4400@gmail.com
 
-
-
+### Citation:
+```
+@unpublished{RnDPatel,
+    abstract = {In the ﬁeld of autonomous vehicles, object detection is a critical component, especially in perceiving the environment under adverse weather conditions. Traditional methods, primar- ily focused on camera data, face signiﬁcant limitations in such scenarios. This research aims to address these challenges through the exploration of multimodal sensor fusion, incor- porating Cameras, LiDAR, and Radar, to improve detection accuracy in inclement weather. The study primarily focuses on a tightly-coupled fusion approach, contrasted against the existing middle fusion strategy, with experiments conducted using the nuScenes and DENSE datasets, the latter featuring extreme weather conditions. The ﬁndings indicate that the integration of complementary sensors substantially enhances detection accuracy across various weather conditions and that the tightly-coupled fusion approach outperforms the middle fusion method. Both qualitative and quantitative analyses support these conclusions, highlighting the eﬀectiveness of this approach in the advancement of object detection technologies in autonomous vehicles. This research provides signiﬁcant insights into the robustness of sensor fusion techniques, oﬀering substantial contributions to the ﬁelds of computer vision and autonomous vehicle technology.},
+    title = {Object detection in adverse weather conditions using tightly-coupled data-driven multi-modal sensor fusion},
+    author = {Patel, Kevin},
+    year = {2023},
+    month = {December},
+}
+```
