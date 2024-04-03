@@ -81,12 +81,16 @@
 |:--:| 
 | *Figure 7: Samples of K-Radar datasets for various weather conditions* |
 
+### Report:
+
+R&D detailed report link (required access): [Link](https://drive.google.com/file/d/1Kw0dCeUCSVvS41pdW04DT21GatEBN1Mc/view?usp=sharing)
+
 ### TODOs:
 - [ ] Quantitative results
 - [ ] Qualitative results
 - [x] Methods table
 - [x] Dataset used table
-- [ ] Link to final report
+- [x] Link to final report
 
 ### Contact:
 Email 📧: kevinpatel4400@gmail.com
