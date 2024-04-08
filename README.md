@@ -11,6 +11,10 @@
 |:--:|:--:|
 | *Figure 1: Sensors modality characteristics* | *Figure 2: Sensors modality characteristics* |
 
+## Report and Presentation:
+
+- R&D detailed report link (required access): [KevinPatelRnD_Report](https://drive.google.com/file/d/1Kw0dCeUCSVvS41pdW04DT21GatEBN1Mc/view?usp=sharing)
+- R&D Presentation (pdf): [KevinPatelRnD_Presentation](https://github.com/kvnptl/KevinPatelRnD/blob/main/Presentation/Kevin_Patel_RnD_Defence_Extended.pptx.pdf)
 
 ## Datasets
 
@@ -81,16 +85,13 @@
 |:--:| 
 | *Figure 7: Samples of K-Radar datasets for various weather conditions* |
 
-### Report:
-
-R&D detailed report link (required access): [Link](https://drive.google.com/file/d/1Kw0dCeUCSVvS41pdW04DT21GatEBN1Mc/view?usp=sharing)
-
 ### TODOs:
 - [ ] Quantitative results
 - [ ] Qualitative results
 - [x] Methods table
 - [x] Dataset used table
 - [x] Link to final report
+- [x] Add project presentation
 
 ### Contact:
 Email 📧: kevinpatel4400@gmail.com
